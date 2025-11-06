@@ -6,6 +6,7 @@ using System.Linq;
 using Avalonia.Markup.Xaml;
 using DuszaCompetitionApplication.ViewModels;
 using DuszaCompetitionApplication.Views;
+using System;
 
 namespace DuszaCompetitionApplication;
 
@@ -14,6 +15,7 @@ public partial class App : Application
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
+        Console.WriteLine("Window initialized.");
     }
 
     public override void OnFrameworkInitializationCompleted()
