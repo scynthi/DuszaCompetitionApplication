@@ -1,5 +1,7 @@
 ﻿using Avalonia;
 using System;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace DuszaCompetitionApplication;
 
@@ -11,18 +13,30 @@ sealed class Program
     [STAThread]
     public static void Main(string[] args)
     {
-        if (args.Length > 0)
+        if (args.Length != 1)
         {
-            if (args[0] == "--ui")
-            {
-                BuildAvaloniaApp().StartWithClassicDesktopLifetime(args); 
-            }   
+            Console.WriteLine("Használat: WpfApp1.exe [--ui | <test_dir_path>]");
+            return;
         }
-        else
+        if (args[0] == "--ui")
         {
-            Console.WriteLine("Running in console mode");
+            BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
+            return;
         }
-    } 
+        try // If the absolute path is wrong
+        {
+            RunTestMode(args[0]);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex);
+        }
+    }
+    private static void RunTestMode(string path)
+    {
+        Console.WriteLine($"Test Mode started {path}");
+        
+    }
 
     // Avalonia configuration, don't remove; also used by visual designer.
     public static AppBuilder BuildAvaloniaApp()
