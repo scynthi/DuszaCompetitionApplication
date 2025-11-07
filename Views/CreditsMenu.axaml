@@ -6,5 +6,8 @@
              x:Class="Views.CreditsMenu"
              xmlns:vm="clr-namespace:ViewModels"
              x:DataType="vm:CreditsMenuViewModel">
-  Welcome to Avalonia!
+    <StackPanel>
+    <Label>This will be the credits menu.</Label>
+    <Button Command="{Binding GoBackToMainMenuCommand}">Go back to main menu</Button>
+  </StackPanel>
 </UserControl>
