@@ -20,4 +20,9 @@ public class Card
 		this.element = element;
 		this.type = type;
 	}
+
+	public void Damage(int attack, CardElement element)
+	{
+		
+	}
 }
