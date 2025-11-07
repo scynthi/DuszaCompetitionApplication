@@ -4,18 +4,20 @@ using System.Runtime.ExceptionServices;
 
 namespace DuszaCompetitionApplication.GameElements;
 
-interface public class Card
+public class Card
 {
 	public string name { get; }
 	public int health { get; }
 	public int attack { get; }
-	public CardElement type { get; }
+	public CardElement element { get; }
+	public CardType type { get; }
 
-	public Card(string name, int health, int attack, CardElement type)
+	public Card(string name, int attack, int health, CardElement element, CardType type)
 	{
 		this.name = name;
-		this.health = health;
 		this.attack = attack;
+		this.health = health;
+		this.element = element;
 		this.type = type;
 	}
 }

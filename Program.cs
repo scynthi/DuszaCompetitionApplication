@@ -1,4 +1,5 @@
 ﻿using Avalonia;
+using DuszaCompetitionApplication.GameElements;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -31,10 +32,16 @@ sealed class Program
         {
             Console.WriteLine(ex);
         }
+        finally
+        {
+            Console.WriteLine("It's over");
+        }
     }
     private static void RunTestMode(string path)
     {
         Console.WriteLine($"Test Mode started {path}");
+        GameManager gManager = new GameManager(path);
+        gManager.StartGame();
         
     }
 
