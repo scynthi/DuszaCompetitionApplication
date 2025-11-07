@@ -10,7 +10,7 @@
     <StackPanel VerticalAlignment="Center">
         <Label HorizontalAlignment="Center" FontSize="70">Charter</Label>
         <Grid RowDefinitions="50,50,50"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="250">
-            <Button Command="{Binding PlayCommand}" Content="Play" IsEnabled="True" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"></Button>
+            <Button Command="{Binding PlayCommand}" IsEnabled="True" Content="Play" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"></Button>
             <Button Grid.Row="1" Command="{Binding CreditsCommand}" Content="Credits" IsEnabled="True" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"></Button>
             <Button Grid.Row="2" Command="{Binding ExitCommand}" Content="Exit" IsEnabled="True" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"></Button>
         </Grid>

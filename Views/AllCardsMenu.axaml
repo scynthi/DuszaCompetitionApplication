@@ -6,5 +6,8 @@
              x:Class="Views.AllCardsMenu"
              xmlns:vm="clr-namespace:ViewModels"
              x:DataType="vm:AllCardsMenuViewModel">
-  Welcome to Avalonia!
+  <StackPanel>
+    <Label>This will where you will find all of the cards.</Label>
+    <Button Command="{Binding GoBackToMapCommand}">Go back to map</Button>
+  </StackPanel>
 </UserControl>

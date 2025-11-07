@@ -33,11 +33,12 @@ sealed class Program
             {
                 Console.WriteLine(ex);
             }
+            finally
+            {
+                Console.WriteLine("It's over");
+            }
         }
-        finally
-        {
-            Console.WriteLine("It's over");
-        }
+
     }
     private static void RunTestMode(string path)
     {

@@ -7,6 +7,11 @@ namespace ViewModels;
 
 public partial class MainMenuViewModel : ViewModelBase
 {
+    public MainMenuViewModel()
+    {
+        Global.PlayAndLoopAudio("./Assets/Audio/LakeSide Saucebook.mp3");
+    }
+
     [RelayCommand]
     private void Play()
     {
@@ -16,7 +21,7 @@ public partial class MainMenuViewModel : ViewModelBase
     [RelayCommand]
     private void Credits()
     {
-        Console.WriteLine("Credits");
+        Global.contentControl.Content = new CreditsMenu();
     }
     
     [RelayCommand]

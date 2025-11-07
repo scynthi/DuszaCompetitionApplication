@@ -6,5 +6,8 @@
              x:Class="Views.DeckMenu"
              xmlns:vm="clr-namespace:ViewModels"
              x:DataType="vm:DeckMenuViewModel">
-  Welcome to Avalonia!
+  <StackPanel>
+    <Label>This will be the deck menu.</Label>
+    <Button Command="{Binding GoBackToMapCommand}">Go back to map</Button>
+  </StackPanel>
 </UserControl>

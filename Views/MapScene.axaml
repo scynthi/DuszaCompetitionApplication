@@ -11,9 +11,9 @@
     <StackPanel Name="DungeonPanel" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Orientation="Horizontal" Spacing="50" Margin="50,0,50,0">
     </StackPanel>
     <Grid Grid.Row="1" ColumnDefinitions="Auto, Auto, Auto" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" ColumnSpacing="10" Margin="10,0,10,30">
-      <Button Command="{Binding GoBackToTitleScreenCommand}">Title Screen</Button>
-      <Button Grid.Column="1">Deck</Button>
-      <Button Grid.Column="2">All cards</Button>
+      <Button Command="{Binding GoBackToMainMenuCommand}">Title Screen</Button>
+      <Button Grid.Column="1" Command="{Binding GoToDeckMenuCommand}">Deck</Button>
+      <Button Grid.Column="2" Command="{Binding GoToAllCardsMenuCommand}">All cards</Button>
     </Grid>
   </Grid>
 </UserControl>
