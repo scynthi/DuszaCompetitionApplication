@@ -4,7 +4,7 @@ using System.Runtime.ExceptionServices;
 
 namespace DuszaCompetitionApplication.GameElements;
 
-interface public class Card
+public class Card
 {
 	public string name { get; }
 	public int health { get; }

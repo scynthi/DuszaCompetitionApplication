@@ -4,7 +4,5 @@ namespace DuszaCompetitionApplication.IO;
 
 public static class WriteOut
 {
-    public WriteOut()
-    {
-    }
+    
 }

@@ -15,22 +15,25 @@ sealed class Program
     {
         if (args.Length != 1)
         {
-            Console.WriteLine("Használat: WpfApp1.exe [--ui | <test_dir_path>]");
+            Console.WriteLine("Használat: [--ui | <test_dir_path>]");
             return;
         }
         if (args[0] == "--ui")
         {
             BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
             return;
-        }
-        try // If the absolute path is wrong
+        } else
         {
-            RunTestMode(args[0]);
+            try // If the absolute path is wrong
+            {
+                RunTestMode(args[0]);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
-        catch (Exception ex)
-        {
-            Console.WriteLine(ex);
-        }
+
     }
     private static void RunTestMode(string path)
     {
