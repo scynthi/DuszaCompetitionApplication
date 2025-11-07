@@ -1,0 +1,19 @@
+using System;
+using System.Linq;
+using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.VisualTree;
+using DuszaCompetitionApplication.Views;
+
+static class Global
+{
+    public static MainWindow? mainWindow;
+
+    public static ContentControl contentControl = new();
+
+    public static T? getElementByName<T>(string name) where T : Control
+    {
+        return mainWindow?.GetVisualDescendants().OfType<T>().FirstOrDefault(x => x.Name == name);
+    }
+}

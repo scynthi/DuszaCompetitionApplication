@@ -1,6 +1,13 @@
-﻿namespace DuszaCompetitionApplication.ViewModels;
+﻿using Avalonia.Controls;
+using CommunityToolkit.Mvvm.ComponentModel;
+using Views;
+
+namespace DuszaCompetitionApplication.ViewModels;
 
 public partial class MainWindowViewModel : ViewModelBase
 {
-    public string Greeting { get; } = "Welcome to Avalonia!";
+    public MainWindowViewModel()
+    {
+        Global.contentControl.Content = new MainMenu();
+    }
 }

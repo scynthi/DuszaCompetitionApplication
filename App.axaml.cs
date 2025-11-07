@@ -15,7 +15,6 @@ public partial class App : Application
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
-        Console.WriteLine("Window initialized.");
     }
 
     public override void OnFrameworkInitializationCompleted()

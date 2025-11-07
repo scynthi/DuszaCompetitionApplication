@@ -1,0 +1,18 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="400"
+             x:Class="Views.MainMenu"
+             xmlns:vm="clr-namespace:ViewModels"
+             x:DataType="vm:MainMenuViewModel">
+    
+    <StackPanel VerticalAlignment="Center">
+        <Label HorizontalAlignment="Center" FontSize="70">Charter</Label>
+        <Grid RowDefinitions="50,50,50"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="250">
+            <Button Command="{Binding PlayCommand}" Content="Play" IsEnabled="True" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"></Button>
+            <Button Grid.Row="1" Command="{Binding CreditsCommand}" Content="Credits" IsEnabled="True" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"></Button>
+            <Button Grid.Row="2" Command="{Binding ExitCommand}" Content="Exit" IsEnabled="True" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"></Button>
+        </Grid>
+    </StackPanel>
+</UserControl>
