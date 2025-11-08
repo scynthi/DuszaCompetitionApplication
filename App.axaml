@@ -17,6 +17,7 @@
         <FontFamily x:Key="CustomFont1">/Assets/Fonts/alagard.ttf#Alagard</FontFamily>
         <FontFamily x:Key="CustomFont2">/Assets/Fonts/Alkhemikal.ttf#Alkhemikal</FontFamily>
         <ImageBrush x:Key="MapBackground" Source="/Assets/Images/Backgrounds/moss.png" TileMode="Tile" DestinationRect="0 0 128 128" ></ImageBrush>
+        <ImageBrush x:Key="MainMenuBackground" Source="/Assets/Images/Backgrounds/main_menu.png" Stretch="UniformToFill" ></ImageBrush>
         <ImageBrush x:Key="ButtonBackgroundImage" Source="/Assets/Images/Button/button_bgr_tile_base.png" Stretch="Fill" ></ImageBrush>
     </Application.Resources>
 </Application>

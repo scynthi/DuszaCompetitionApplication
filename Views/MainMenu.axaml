@@ -7,24 +7,26 @@
              xmlns:vm="clr-namespace:ViewModels"
              x:DataType="vm:MainMenuViewModel">
     
-    <StackPanel VerticalAlignment="Center">
-        <Label HorizontalAlignment="Center" FontSize="70">Charter</Label>
-        <Grid RowDefinitions="50,50,50,50" HorizontalAlignment="Center" VerticalAlignment="Center" Height="250" Width="250">
-            <Button Command="{Binding PlayCommand}" Classes="Wood" Name="PlayButton">
-                <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Play"/><Image/></Grid>
-            </Button>
+    <Border Background="{DynamicResource ResourceKey=MainMenuBackground}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <StackPanel VerticalAlignment="Center">
+            <Label HorizontalAlignment="Center" FontSize="70">Charter</Label>
+            <Grid RowDefinitions="50,50,50,50" HorizontalAlignment="Center" VerticalAlignment="Center" Height="250" Width="250">
+                <Button Command="{Binding PlayCommand}" Classes="Wood" Name="PlayButton">
+                    <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Play"/><Image/></Grid>
+                </Button>
 
-            <Button Grid.Row="1" Command="{Binding SettingsCommand}" Classes="Wood" Name="SettingsButton">
-                <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Settings"/><Image/></Grid>
-            </Button>
+                <Button Grid.Row="1" Command="{Binding SettingsCommand}" Classes="Wood" Name="SettingsButton">
+                    <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Settings"/><Image/></Grid>
+                </Button>
 
-            <Button Grid.Row="2" Command="{Binding CreditsCommand}" Classes="Wood" Name="CreditsButton">
-                <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Credits"/><Image/></Grid>
-            </Button>
+                <Button Grid.Row="2" Command="{Binding CreditsCommand}" Classes="Wood" Name="CreditsButton">
+                    <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Credits"/><Image/></Grid>
+                </Button>
 
-            <Button Grid.Row="3" Command="{Binding ExitCommand}" Classes="Wood" Name="ExitButton">
-                <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Exit"/><Image/></Grid>
-            </Button>
-        </Grid>
-    </StackPanel>
+                <Button Grid.Row="3" Command="{Binding ExitCommand}" Classes="Wood" Name="ExitButton">
+                    <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Exit"/><Image/></Grid>
+                </Button>
+            </Grid>
+        </StackPanel>
+    </Border>
 </UserControl>

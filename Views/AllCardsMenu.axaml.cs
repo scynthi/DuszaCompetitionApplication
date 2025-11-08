@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
+using DuszaCompetitionApplication.UIController;
 using ViewModels;
 
 namespace Views;
@@ -11,5 +12,6 @@ public partial class AllCardsMenu : UserControl
     {
         InitializeComponent();
         DataContext = new AllCardsMenuViewModel();
+        UIController.ApplySFXToButtons([GoBackButton]);
     }
 }

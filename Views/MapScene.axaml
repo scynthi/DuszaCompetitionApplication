@@ -13,15 +13,15 @@
 
     <Border Grid.Row="1" Padding="10" Margin="10,0,10,30" Background="#52320d">
         <Grid  ColumnDefinitions="Auto, Auto, Auto" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" ColumnSpacing="10">
-          <Button Classes="Wood" Command="{Binding GoBackToMainMenuCommand}">
+          <Button Classes="Wood" Command="{Binding GoBackToMainMenuCommand}" Name="GoBackButton">
             <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Title screen"/><Image/></Grid>
           </Button>
 
-          <Button Grid.Column="1" Classes="Wood" Command="{Binding GoToDeckMenuCommand}">
+          <Button Grid.Column="1" Classes="Wood" Command="{Binding GoToDeckMenuCommand}" Name="DeckButton">
             <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Deck"/><Image/></Grid>
           </Button>
 
-          <Button Grid.Column="2" Classes="Wood" Command="{Binding GoToAllCardsMenuCommand}">
+          <Button Grid.Column="2" Classes="Wood" Command="{Binding GoToAllCardsMenuCommand}" Name="AllCardsButton">
             <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="All cards"/><Image/></Grid>
           </Button>
         </Grid>

@@ -13,13 +13,9 @@ static class UIController
     {
         foreach (Button button in buttons)
         {
-            button.Click += Button_Click;
+            button.PointerPressed += (_,_) => {AudioManager.PlaySoundEffect(SoundEffectTypes.click);};
+            button.PointerEntered += (_,_) => {AudioManager.PlaySoundEffect(SoundEffectTypes.hover);};
         }
             
-    }
-
-    public static void Button_Click(object? sender, RoutedEventArgs e)
-    {
-        AudioManager.PlaySoundEffect(SoundEffectTypes.click);
     }
 }

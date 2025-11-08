@@ -12,7 +12,7 @@ public partial class FightScene : UserControl
     public FightScene()
     {
         InitializeComponent();
-        Card testCard = new("The sigma", 99, 99, CardElement.fold, CardType.sima);
+        Card testCard = new("The Hunter", 10, 10, CardElement.fold, CardType.sima);
         UICardElement UICard = new(testCard);
         CardHolder.Children.Add(UICard.GetCardVisual());
     }

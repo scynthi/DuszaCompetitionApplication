@@ -96,7 +96,7 @@ namespace DuszaCompetitionApplication.Audio
                     await PlayAudio(soundEffectFolder + $"draw/sound_draw.wav");
                     break;
                 case SoundEffectTypes.hover:
-                    await PlayAudio(soundEffectFolder + $"hover/wood_hover ({random.Next(0,4)}).wav");
+                    await PlayAudio(soundEffectFolder + $"hover/wood_hover ({random.Next(1,4)}).wav");
                     break;
                 case SoundEffectTypes.levelup:
                     await PlayAudio(soundEffectFolder + $"levelup/sound_level_up.wav");

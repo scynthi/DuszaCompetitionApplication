@@ -7,8 +7,8 @@
              xmlns:vm="clr-namespace:ViewModels"
              x:DataType="vm:SettingsViewModel">
   <StackPanel>
-    <StackPanel HorizontalAlignment="Left">
-      <Button Command="{Binding GoBackToMainMenuCommand}" Classes="Wood" Margin="10,10">
+    <StackPanel HorizontalAlignment="Left" Margin="10,10">
+      <Button Command="{Binding GoBackToMainMenuCommand}" Classes="Wood" Name="GoBackButton">
         <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Title screen"/><Image/></Grid>
       </Button>
     </StackPanel>
@@ -17,7 +17,7 @@
       <Label Content="Volume:"></Label>
       <Slider Name="VolumeSlider" Minimum="0" Maximum="1.0" Value="0.5" ></Slider>
 
-      <Button Command="{Binding ApplySettingsCommand}" Classes="Wood">
+      <Button Command="{Binding ApplySettingsCommand}" Classes="Wood" Name="ApplyButton">
         <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Apply"/><Image/></Grid>
       </Button>
     </StackPanel>
