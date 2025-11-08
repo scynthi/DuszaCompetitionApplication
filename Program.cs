@@ -20,7 +20,8 @@ sealed class Program
         {
             BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
             return;
-        } else
+        }
+        else
         {
             try
             {
@@ -41,7 +42,7 @@ sealed class Program
         Console.WriteLine($"Test Mode started {path}");
         GameManager gManager = new GameManager(path);
         gManager.StartGame();
-        
+
     }
 
     public static AppBuilder BuildAvaloniaApp()

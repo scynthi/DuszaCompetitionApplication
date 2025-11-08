@@ -18,14 +18,21 @@ public class Kazamata
         this.kazamataCards = kazamataCards;
         this.reward = reward;
     }
+    
     public string KazamataCardNames()
     {
         string rValue = "";
         foreach (Card card in kazamataCards)
         {
-            rValue = rValue + card.name + ";";
+            rValue = rValue + card.Name + ";";
         }
+        //Console.WriteLine(kazamataCards.Length);
         rValue = rValue.Substring(0, rValue.Length - 1);
         return rValue;
+    }
+
+    public override string? ToString()
+    {
+        return name;
     }
 }
