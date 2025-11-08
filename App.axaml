@@ -22,6 +22,8 @@
         <ImageBrush x:Key="OutsideBackground" Source="/Assets/Images/Backgrounds/bg_outside.png" Stretch="UniformToFill" ></ImageBrush>
         <ImageBrush x:Key="BasicCaveBackground" Source="/Assets/Images/Backgrounds/bg_cave_basic.png" Stretch="UniformToFill" ></ImageBrush>
         <ImageBrush x:Key="HardCaveBackground" Source="/Assets/Images/Backgrounds/bg_cave_boss.png" Stretch="UniformToFill" ></ImageBrush>
+
         <ImageBrush x:Key="ButtonBackgroundImage" Source="/Assets/Images/Button/button_bgr_tile_base.png" Stretch="Fill" ></ImageBrush>
+        <ImageBrush x:Key="ButtonHoverBackgroundImage" Source="/Assets/Images/Button/button_bgr_dark_tile_base.png" Stretch="Fill" ></ImageBrush>
     </Application.Resources>
 </Application>

@@ -17,7 +17,7 @@ public class TUI
     GameManager gManager;
 
     private string[] mainMenuButtons = { "Dungeons", "Deck", "All cards" };
-    private string[][] menus;
+    private List<string[]> menus;
     private Menus currentMenu = Menus.MainMenu;
 
     private int currentSelected = 0;
@@ -44,7 +44,7 @@ public class TUI
         List<string> deckMenu = gManager.GetCardsCollection();
         deckMenu.Insert(0, "Back");
 
-        menus = new[] { mainMenuButtons, dungeonMenu.ToArray(), deckMenu.ToArray() };
+        menus = new List<string[]> { mainMenuButtons, dungeonMenu.ToArray(), deckMenu.ToArray() };
 
         Console.WriteLine($"Game Mode started");
         GameLoop();
@@ -106,6 +106,7 @@ public class TUI
                             Console.WriteLine(gManager.GetCardsCollection().Count);
                             deckMenu.Insert(0, "Back");
                             menus[(int)Menus.Deck] = deckMenu.ToArray();
+                            
                             if (currentSelected == 0)
                             {
                                 currentMenu = Menus.MainMenu;
@@ -151,7 +152,10 @@ public class TUI
             {
                 PrintButtons(menus[(int)currentMenu], currentSelected);
             }
-            Utility.PrintArray(gManager.GetPakli());
+            Console.WriteLine();
+            Utility.PrintArray(gManager.GetCardsCollection().ToArray());
+            Console.WriteLine();
+            Utility.PrintArray(menus);
         } while (pressed.Key != ConsoleKey.Escape);
     }
 

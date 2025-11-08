@@ -26,7 +26,7 @@
   </Style>
 
   <Style Selector="Button:pointerover /template/ ContentPresenter">
-    <Setter Property="Background" Value="#442700"></Setter>
+    <Setter Property="Background" Value="{DynamicResource ResourceKey=ButtonHoverBackgroundImage}"></Setter>
   </Style>
 
   <Style Selector="Button.Wood">

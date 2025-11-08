@@ -12,6 +12,6 @@
         <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Go back to Map"/><Image/></Grid>
       </Button>
     </StackPanel>
-    <Label>This will where you will find all of the cards.</Label>
+    
   </StackPanel>
 </UserControl>
