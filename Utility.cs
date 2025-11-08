@@ -6,18 +6,26 @@ namespace DuszaCompetitionApplication;
 
 public static class Utility
 {
-    public static void PrintArray(string[][] array, bool twoD)
-	{
-        if (twoD)
+    public static void PrintArray(string[][] array)
+    {
+        foreach (string[] arr in array)
         {
-            foreach (string[] arr in array)
+            foreach (string el in arr)
             {
-                foreach (string el in arr)
-                {
-                    Console.Write(el + " ");
-                }
-                Console.Write('\n');
+                Console.Write(el + " ");
             }
+            Console.Write('\n');
+        }
+    }
+    public static void PrintArray(List<string[]> array)
+    {
+        foreach (string[] arr in array)
+        {
+            foreach (string el in arr)
+            {
+                Console.Write(el + " ");
+            }
+            Console.Write('\n');
         }
     }
     public static void PrintArray(string[] array)
