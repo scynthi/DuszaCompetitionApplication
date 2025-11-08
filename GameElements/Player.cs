@@ -36,7 +36,7 @@ public class Player
     {
         foreach (Card card in collection)
         {
-            Console.WriteLine(card.name);
+            Console.WriteLine(card.Name);
         }
     }
     public void IncreaseAttack(int index)

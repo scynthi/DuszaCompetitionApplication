@@ -8,51 +8,51 @@ namespace DuszaCompetitionApplication.GameElements;
 
 public class Card
 {
-    public string name { get; }
-    public int health { get; private set; }
-    public int attack { get; private set; }
-    public CardElement element { get; }
-    public CardType type { get; }
+    public string Name { get; }
+    public int Health { get; private set; }
+    public int Attack { get; private set; }
+    public CardElement Element { get; }
+    public CardType Type { get; }
 
     public Card(string name, int attack, int health, CardElement element, CardType type)
     {
-        this.name = name;
-        this.attack = attack;
-        this.health = health;
-        this.element = element;
-        this.type = type;
+        this.Name = name;
+        this.Attack = attack;
+        this.Health = health;
+        this.Element = element;
+        this.Type = type;
     }
     public Card(Card other)
     {
-        this.name = other.name;
-        this.attack = other.attack;
-        this.health = other.health;
-        this.element = other.element;
-        this.type = other.type;
+        this.Name = other.Name;
+        this.Attack = other.Attack;
+        this.Health = other.Health;
+        this.Element = other.Element;
+        this.Type = other.Type;
     }
 
     public void Damage(int attack, CardElement element)
     {
-        if (element == this.element)
+        if (element == this.Element)
         {
-            health -= attack;
+            Health -= attack;
         }
-        else if (ElementRules.GetWeaknesses(element).Contains(this.element))
+        else if (ElementRules.GetWeaknesses(element).Contains(this.Element))
         {
-            health -= Convert.ToInt32(Math.Floor((double)attack / 2));
+            Health -= Convert.ToInt32(Math.Floor((double)attack / 2));
         }
-        else if (ElementRules.GetStrenghts(element).Contains(this.element))
+        else if (ElementRules.GetStrenghts(element).Contains(this.Element))
         {
-            health -= attack * 2;
+            Health -= attack * 2;
         }
-        if (health < 0) health = 0;
+        if (Health < 0) Health = 0;
     }
     public void IncreaseAttack()
     {
-        attack++;
+        Attack++;
     }
     public void IncreaseHealth()
     {
-        health += 2;
+        Health += 2;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using DuszaCompetitionApplication.GameElements;
 
 namespace DuszaCompetitionApplication;
 
@@ -23,6 +24,14 @@ public static class Utility
         foreach (string el in array)
         {
             Console.Write(el + '\n');
+        }
+
+    }
+    public static void PrintArray(Card[] array)
+    {
+        foreach (Card el in array)
+        {
+            Console.Write(el.Name + ' ');
         }
 
     }

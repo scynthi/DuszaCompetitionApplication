@@ -15,12 +15,12 @@ public static class WriteOut
         List<string> output = new List<string>();
         foreach (Card card in player.collection)
         {
-            output.Add($"gyujtemeny;{card.name};{card.attack};{card.health};{card.element}");
+            output.Add($"gyujtemeny;{card.Name};{card.Attack};{card.Health};{card.Element}");
         }
         output.Add("");
         foreach (Card card in player.pakli)
         {
-            output.Add($"pakli;{card.name}");
+            output.Add($"pakli;{card.Name}");
         }
         File.WriteAllLines(path, output);
     }
@@ -33,9 +33,10 @@ public static class WriteOut
         List<string> vezerCards = new List<string>();
         foreach (Card card in cards)
         {
-            if (card.type == CardType.sima) normalCards.Add($"kartya;{card.name};{card.attack};{card.health};{card.element}");
-            else vezerCards.Add($"vezer;{card.name};{card.attack};{card.health};{card.element}");
+            if (card.Type == CardType.sima) normalCards.Add($"kartya;{card.Name};{card.Attack};{card.Health};{card.Element}");
+            else vezerCards.Add($"vezer;{card.Name};{card.Attack};{card.Health};{card.Element}");
         }
+
         output.AddRange(normalCards);
         output.Add("");
         output.AddRange(vezerCards);
@@ -43,9 +44,8 @@ public static class WriteOut
 
         foreach (Kazamata kazamata in kazamatas)
         {
-            string kazCardNames = kazamata.KazamataCardNames();
-            if (kazamata.reward != RewardType.kartya) output.Add($"kazamata;{kazamata.type.ToString()};{kazamata.name};{kazCardNames};{kazamata.reward.ToString()}");
-            else output.Add($"kazamata;{kazamata.type.ToString()};{kazamata.name};{kazCardNames}");
+            if (kazamata.reward != RewardType.kartya) output.Add($"kazamata;{kazamata.type.ToString()};{kazamata.name};{kazamata.KazamataCardNames()};{kazamata.reward.ToString()}");
+            else output.Add($"kazamata;{kazamata.type.ToString()};{kazamata.name};{kazamata.KazamataCardNames()}");
         }
         File.WriteAllLines(path, output);
     }
