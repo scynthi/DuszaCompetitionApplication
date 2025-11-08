@@ -23,11 +23,11 @@ public partial class MapSceneViewModel : ViewModelBase
         Random random = new();
         int delay = random.Next(45000, 120000);
 
-        await Task.Run(async () => {
+        await Task.Run(() => {
             while (AudioManager.FindAudioPlayer("./Assets/Audio/Music/wind_loop_ambient.wav"))
             {
                 Thread.Sleep(delay);
-                await AudioManager.PlayAudio("./Assets/Audio/Music/ambient_loop1.wav");
+                AudioManager.PlayAudio("./Assets/Audio/Music/ambient_loop1.wav");
             }
         });
 

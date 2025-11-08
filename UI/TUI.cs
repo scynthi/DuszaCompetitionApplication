@@ -46,7 +46,7 @@ public class TUI
 
         menus = new[] { mainMenuButtons, dungeonMenu.ToArray(), deckMenu.ToArray() };
 
-        //Console.WriteLine($"Game Mode started");
+        Console.WriteLine($"Game Mode started");
         GameLoop();
     }
 

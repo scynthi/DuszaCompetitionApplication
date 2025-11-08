@@ -8,6 +8,8 @@ namespace DuszaCompetitionApplication.Audio
 {
     public static class AudioManager
     {
+        private static int maxSfxAudioPlayer = 10;
+        private static int currentSfxAudioPlayer = 0;
         private static Dictionary<string, AudioPlayerInstance> playingLoopedAudioPlayers = new();
         private static Random random = new();
 
@@ -27,20 +29,42 @@ namespace DuszaCompetitionApplication.Audio
             }
         }
 
-        public static async Task PlayAudio(string path)
+        public static async void PlayAudio(string path)
         {
-            await Task.Run(() =>
+            try
             {
-                using AudioFileReader audioReader = new(path);
-                using WaveOutEvent outputDevice = new WaveOutEvent { Volume = totalVolume };
+                // Console.WriteLine($"{maxSfxAudioPlayer}/{currentSfxAudioPlayer}");
 
-                outputDevice.Init(audioReader);
-                outputDevice.Volume = totalVolume;
-                outputDevice.Play();
+                if (currentSfxAudioPlayer >= maxSfxAudioPlayer) return;
+                currentSfxAudioPlayer++;
 
-                while (outputDevice.PlaybackState == PlaybackState.Playing)
-                    Task.Delay(100).Wait();
-            });
+                await Task.Run(() =>
+                {
+                    using AudioFileReader audioReader = new(path);
+                    using WaveOutEvent outputDevice = new WaveOutEvent { Volume = totalVolume };
+
+                    outputDevice.Init(audioReader);
+                    outputDevice.Volume = totalVolume;
+                    outputDevice.Play();
+
+                    while (outputDevice != null)
+                    {
+                        Task.Delay(100).Wait();
+                        
+                        if (outputDevice.PlaybackState == PlaybackState.Stopped)
+                        {
+                            audioReader.Dispose();
+                            outputDevice.Dispose();
+                            currentSfxAudioPlayer--;
+                            break;
+                        }
+                    }
+                });
+            } catch(Exception)
+            {
+                Console.WriteLine("Audio wanted to crash the whole system, but i saved it");
+            }
+
         }
 
         public static void PlayAndLoopAudio(string path)
@@ -79,27 +103,27 @@ namespace DuszaCompetitionApplication.Audio
             }
         }
 
-        public static async void PlaySoundEffect(SoundEffectTypes type)
+        public static void PlaySoundEffect(SoundEffectTypes type)
         {
             switch (type)
             {
                 case SoundEffectTypes.attack:
-                    await PlayAudio(soundEffectFolder + $"attack/attack ({random.Next(0, 3)}).wav");
+                    PlayAudio(soundEffectFolder + $"attack/attack ({random.Next(0, 3)}).wav");
                     break;
                 case SoundEffectTypes.click:
-                    await PlayAudio(soundEffectFolder + $"click/wood_click ({random.Next(1, 8)}).wav");
+                    PlayAudio(soundEffectFolder + $"click/wood_click ({random.Next(1, 8)}).wav");
                     break;
                 case SoundEffectTypes.death:
-                    await PlayAudio(soundEffectFolder + $"death/sound_death.wav");
+                    PlayAudio(soundEffectFolder + $"death/sound_death.wav");
                     break;
                 case SoundEffectTypes.draw:
-                    await PlayAudio(soundEffectFolder + $"draw/sound_draw.wav");
+                    PlayAudio(soundEffectFolder + $"draw/sound_draw.wav");
                     break;
                 case SoundEffectTypes.hover:
-                    await PlayAudio(soundEffectFolder + $"hover/wood_hover ({random.Next(1,4)}).wav");
+                    PlayAudio(soundEffectFolder + $"hover/wood_hover ({random.Next(1,4)}).wav");
                     break;
                 case SoundEffectTypes.levelup:
-                    await PlayAudio(soundEffectFolder + $"levelup/sound_level_up.wav");
+                    PlayAudio(soundEffectFolder + $"levelup/sound_level_up.wav");
                     break;
             }
         }
