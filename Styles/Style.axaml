@@ -5,4 +5,23 @@
     </Border>
   </Design.PreviewWith>
 
+  <Style Selector="Window">
+    <Setter Property="FontFamily" Value="{DynamicResource ResourceKey=CustomFont1}"></Setter>
+  </Style>
+
+  <Style Selector="Button, Label">
+    <Setter Property="FontSize" Value="20"></Setter>
+  </Style>
+
+  <Style Selector="Label.Title">
+    <Setter Property="FontSize" Value="60"></Setter>
+  </Style>
+
+  <Style Selector="Grid.WorldGrid">
+    <Setter Property="Background" Value="{DynamicResource ResourceKey=MapBackground}"></Setter>
+  </Style>
+
+  <Style Selector="Button">
+    <Setter Property="Background" Value="{DynamicResource ResourceKey=ButtonBackgroundImage}"></Setter>
+  </Style>
 </Styles>

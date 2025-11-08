@@ -13,7 +13,7 @@
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <ContentControl Name="ContentControlItem"></ContentControl>
     </ScrollViewer>
 

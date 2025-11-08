@@ -7,13 +7,17 @@
              xmlns:vm="clr-namespace:ViewModels"
              x:DataType="vm:MapSceneViewModel">
 
-  <Grid RowDefinitions="*, 70" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+  <Grid Classes="WorldGrid" RowDefinitions="*, 100" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
     <StackPanel Name="DungeonPanel" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Orientation="Horizontal" Spacing="50" Margin="50,0,50,0">
     </StackPanel>
-    <Grid Grid.Row="1" ColumnDefinitions="Auto, Auto, Auto" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" ColumnSpacing="10" Margin="10,0,10,30">
-      <Button Command="{Binding GoBackToMainMenuCommand}">Title Screen</Button>
-      <Button Grid.Column="1" Command="{Binding GoToDeckMenuCommand}">Deck</Button>
-      <Button Grid.Column="2" Command="{Binding GoToAllCardsMenuCommand}">All cards</Button>
-    </Grid>
+
+    <Border Grid.Row="1" Padding="10" Margin="10,0,10,30" Background="#52320d">
+        <Grid  ColumnDefinitions="Auto, Auto, Auto" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" ColumnSpacing="10">
+          <Button Command="{Binding GoBackToMainMenuCommand}">Title Screen</Button>
+          <Button Grid.Column="1" Command="{Binding GoToDeckMenuCommand}">Deck</Button>
+          <Button Grid.Column="2" Command="{Binding GoToAllCardsMenuCommand}">All cards</Button>
+        </Grid>
+    </Border>
+
   </Grid>
 </UserControl>
