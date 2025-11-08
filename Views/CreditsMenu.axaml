@@ -6,8 +6,16 @@
              x:Class="Views.CreditsMenu"
              xmlns:vm="clr-namespace:ViewModels"
              x:DataType="vm:CreditsMenuViewModel">
-    <StackPanel>
-    <Label>This will be the credits menu.</Label>
+  <StackPanel>
     <Button Command="{Binding GoBackToMainMenuCommand}">Go back to main menu</Button>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+      <Label Classes="Title" HorizontalAlignment="Center">Credits</Label>
+      <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10" Margin="0,50">
+        <Image Source="avares://DuszaCompetitionApplication/Assets/Images/Team logo/undefined_team_logo.png" MaxWidth="300" Margin="0,30"></Image>
+        <Label HorizontalAlignment="Center">Kovács Dániel Benedek - UI</Label>
+        <Label HorizontalAlignment="Center">Tóth Péter Sándor - Assets</Label>
+        <Label HorizontalAlignment="Center">Borók Máté - Backend</Label>
+      </StackPanel>
+    </StackPanel>
   </StackPanel>
 </UserControl>

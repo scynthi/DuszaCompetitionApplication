@@ -16,34 +16,46 @@ static class Global
         return mainWindow?.GetVisualDescendants().OfType<T>().FirstOrDefault(x => x.Name == name);
     }
 
-    private static WaveOutEvent outputDevice = new();
+    private static WaveOutEvent simpleOutputDevice = new();
 
     public static void PlayAudio(string path)
     {
-        outputDevice.Init(new AudioFileReader(path));
-        outputDevice.Play();
+        simpleOutputDevice.Init(new AudioFileReader(path));
+        simpleOutputDevice.Play();
     }
 
 
     private static LoopStream? loopStream;
-    private static WaveOutEvent? waveOut;
+    private static WaveOutEvent? musicOutputDevice;
     private static string? lastLoopedAudioPath;
+
+    private static float musicVolume = 0.5f;
+
+    public static float? MusicVolume
+    {
+        get { return musicVolume; }
+        set
+        {
+            if (value != null) musicVolume = (float)value;
+            if (musicOutputDevice != null) musicOutputDevice.Volume = musicVolume;
+        }
+    }
 
     public static void PlayAndLoopAudio(string path)
     {
         if (lastLoopedAudioPath == path) return;
 
-        if (waveOut != null)
+        if (musicOutputDevice != null)
         {
             loopStream?.Dispose();
-            waveOut?.Dispose();
+            musicOutputDevice?.Dispose();
         }
 
         loopStream = new(new AudioFileReader(path));
-        waveOut = new();
+        musicOutputDevice = new();
         lastLoopedAudioPath = path;
 
-        waveOut.Init(loopStream);
-        waveOut.Play();
+        musicOutputDevice.Init(loopStream);
+        musicOutputDevice.Play();
     }
 }

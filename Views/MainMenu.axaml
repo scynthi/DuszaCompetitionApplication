@@ -9,10 +9,38 @@
     
     <StackPanel VerticalAlignment="Center">
         <Label HorizontalAlignment="Center" FontSize="70">Charter</Label>
-        <Grid RowDefinitions="50,50,50"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="100" Height="250">
-            <Button Command="{Binding PlayCommand}" IsEnabled="True" Content="Play" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"></Button>
-            <Button Grid.Row="1" Command="{Binding CreditsCommand}" Content="Credits" IsEnabled="True" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"></Button>
-            <Button Grid.Row="2" Command="{Binding ExitCommand}" Content="Exit" IsEnabled="True" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"></Button>
+        <Grid RowDefinitions="50,50,50,50" HorizontalAlignment="Center" VerticalAlignment="Center" Height="250" Width="250">
+            <Button Command="{Binding PlayCommand}" HorizontalAlignment="Stretch" Padding="0" Margin="0">
+                <Grid ColumnDefinitions="auto,*,auto">
+                    <Image Source="avares://DuszaCompetitionApplication/Assets/Images/Button/button_left_base.png" HorizontalAlignment="Left" Height="40"/>
+                    <Label Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Play"/>
+                    <Image Grid.Column="2" Source="avares://DuszaCompetitionApplication/Assets/Images/Button/button_right_base.png" HorizontalAlignment="Right" Height="40"/>
+                </Grid>
+            </Button>
+
+            <Button Grid.Row="1" Command="{Binding SettingsCommand}" HorizontalAlignment="Stretch" Padding="0" Margin="0">
+                <Grid ColumnDefinitions="auto,*,auto">
+                    <Image Source="avares://DuszaCompetitionApplication/Assets/Images/Button/button_left_base.png" HorizontalAlignment="Left" Height="40"/>
+                    <Label Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Settings"/>
+                    <Image Grid.Column="2" Source="avares://DuszaCompetitionApplication/Assets/Images/Button/button_right_base.png" HorizontalAlignment="Right" Height="40"/>
+                </Grid>
+            </Button>
+
+            <Button Grid.Row="2" Command="{Binding CreditsCommand}" HorizontalAlignment="Stretch" Padding="0" Margin="0">
+                <Grid ColumnDefinitions="auto,*,auto">
+                    <Image Source="avares://DuszaCompetitionApplication/Assets/Images/Button/button_left_base.png" HorizontalAlignment="Left" Height="40"/>
+                    <Label Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Credits"/>
+                    <Image Grid.Column="2" Source="avares://DuszaCompetitionApplication/Assets/Images/Button/button_right_base.png" HorizontalAlignment="Right" Height="40"/>
+                </Grid>
+            </Button>
+
+            <Button Grid.Row="3" Command="{Binding ExitCommand}" HorizontalAlignment="Stretch" Padding="0" Margin="0">
+                <Grid ColumnDefinitions="auto,*,auto">
+                    <Image Source="avares://DuszaCompetitionApplication/Assets/Images/Button/button_left_base.png" HorizontalAlignment="Left" Height="40"/>
+                    <Label Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Exit"/>
+                    <Image Grid.Column="2" Source="avares://DuszaCompetitionApplication/Assets/Images/Button/button_right_base.png" HorizontalAlignment="Right" Height="40"/>
+                </Grid>
+            </Button>
         </Grid>
     </StackPanel>
 </UserControl>

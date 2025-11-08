@@ -23,6 +23,12 @@ public partial class MainMenuViewModel : ViewModelBase
     {
         Global.contentControl.Content = new CreditsMenu();
     }
+
+    [RelayCommand]
+    private void Settings()
+    {
+        Global.contentControl.Content = new Settings();
+    }
     
     [RelayCommand]
     private void Exit()
