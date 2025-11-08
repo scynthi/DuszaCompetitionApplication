@@ -32,7 +32,7 @@ class UICardElement
         {
             VerticalAlignment = Avalonia.Layout.VerticalAlignment.Stretch,
             HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch,
-            Margin = new Avalonia.Thickness(0)
+            Margin = new Avalonia.Thickness(0),
         };
         cardEntityAndBaseholder.RowDefinitions.Add(new RowDefinition(GridLength.Star));
         cardEntityAndBaseholder.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Star));
@@ -42,7 +42,7 @@ class UICardElement
 
         Image entityIcon = new Image
         {
-            Source = new Bitmap("./Assets/Images/Entities/Heroes/char_hunter.png"),
+            Source = new Bitmap( isKazamata ? "./Assets/Images/Entities/Enemies/char_wendigo.png" : "./Assets/Images/Entities/Heroes/char_hunter.png"),
             Width = 150,
             Margin = new Avalonia.Thickness(0, 0, 0, 5),
             HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center,
@@ -100,16 +100,18 @@ class UICardElement
             Margin = new Avalonia.Thickness(0, 0, 0, 0),
             ClipToBounds = true,
             Background = card.Type == CardType.vezer ? new ImageBrush(new Bitmap(isKazamata ? "./Assets/Images/Cards/cards_enemy_leader_effect.png" : "./Assets/Images/Cards/cards_player_leader_effect.png")) : new SolidColorBrush(Colors.Transparent),
+            Width = 176,
+            Height = 228,
             VerticalAlignment = Avalonia.Layout.VerticalAlignment.Stretch,
             HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch
         };
-        cardBodyHolder.Children.Add(cardEffectHolderBorder);
+        cardEntityAndBaseholder.Children.Add(cardEffectHolderBorder);
 
 
         Image elementIcon = new Image
         {
             Source = new Bitmap($"./Assets/Images/Elements/{card.Element}.png"),
-            Width = 60,
+            Width = 50,
             Margin = new Avalonia.Thickness(0, 0, 0, 0),
             HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Left,
             VerticalAlignment = Avalonia.Layout.VerticalAlignment.Top
@@ -155,7 +157,8 @@ class UICardElement
                 VerticalAlignment = Avalonia.Layout.VerticalAlignment.Bottom,
                 Width = 69,
                 Height = 58,
-                Margin = new Avalonia.Thickness(0)
+                Margin = new Avalonia.Thickness(0, 0, 0, 5)
+
             };
             Grid.SetRow(buffedHeartEffect, 1);
             cardBody.Children.Add(buffedHeartEffect);
@@ -168,7 +171,7 @@ class UICardElement
             HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch,
             VerticalAlignment = Avalonia.Layout.VerticalAlignment.Bottom,
             TextAlignment = TextAlignment.Center,
-            Margin = new Avalonia.Thickness(0, 0, 0, 0),
+            Margin = new Avalonia.Thickness(0, 0, 11/card.Health.ToString().Length, 10),
             FontSize = 30
         };
         Grid.SetRow(healthAmount, 1);
@@ -199,7 +202,7 @@ class UICardElement
                 VerticalAlignment = Avalonia.Layout.VerticalAlignment.Bottom,
                 Width = 76,
                 Height = 48,
-                Margin = new Avalonia.Thickness(0, 0, 2, 18)
+                Margin = new Avalonia.Thickness(0, 0, -5, 25)
             };
             Grid.SetRow(buffedDamageEffect, 1);
             Grid.SetColumn(buffedDamageEffect, 1);
@@ -212,8 +215,8 @@ class UICardElement
             Text = card.Attack.ToString(),
             HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch,
             VerticalAlignment = Avalonia.Layout.VerticalAlignment.Bottom,
-            TextAlignment = TextAlignment.Center,
-            Margin = new Avalonia.Thickness(0, 0, 0, 0),
+            TextAlignment = TextAlignment.Right,
+            Margin = new Avalonia.Thickness(0, 0, 25/card.Attack.ToString().Length, 10),
             FontSize = 30
         };
 

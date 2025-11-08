@@ -1,9 +1,8 @@
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
-using DuszaCompetitionApplication.Enums;
 using DuszaCompetitionApplication.UIResources;
-using DuszaCompetitionApplication.GameElements;
+using DuszaCompetitionApplication.UIController;
+using System;
+using ViewModels;
 
 namespace Views;
 
@@ -12,8 +11,14 @@ public partial class FightScene : UserControl
     public FightScene()
     {
         InitializeComponent();
-        Card testCard = new("The Hunter", 10, 10, CardElement.fold, CardType.sima);
-        UICardElement UICard = new(testCard);
-        CardHolder.Children.Add(UICard.GetCardVisual());
+        DataContext = new FightSceneViewModel();
+
+        foreach (UICardElement card in Global.cardsList)
+        {
+            CardHolder.Children.Add(card.GetCardVisual());
+        }
+        Global.cardsList.Clear();
+
+        UIController.ApplySFXToButtons([GoBackButton]);
     }
 }

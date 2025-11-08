@@ -37,7 +37,7 @@ public class TUI
 
         menus = new[] { mainMenuButtons, dMenus.ToArray() };
 
-        //Console.WriteLine($"Game Mode started");
+        Console.WriteLine($"Game Mode started");
         GameLoop();
     }
 

@@ -25,6 +25,10 @@
     <Setter Property="Background" Value="{DynamicResource ResourceKey=ButtonBackgroundImage}"></Setter>
   </Style>
 
+  <Style Selector="Button:pointerover /template/ ContentPresenter">
+    <Setter Property="Background" Value="#442700"></Setter>
+  </Style>
+
   <Style Selector="Button.Wood">
     <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
     <Setter Property="Padding" Value="0"></Setter>

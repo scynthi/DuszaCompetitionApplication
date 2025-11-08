@@ -7,7 +7,7 @@
              xmlns:vm="clr-namespace:ViewModels"
              x:DataType="vm:MainMenuViewModel">
     
-    <Border Background="{DynamicResource ResourceKey=MainMenuBackground}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Border Background="{DynamicResource ResourceKey=OutsideBackground}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <StackPanel VerticalAlignment="Center">
             <Label HorizontalAlignment="Center" FontSize="70">Charter</Label>
             <Grid RowDefinitions="50,50,50,50" HorizontalAlignment="Center" VerticalAlignment="Center" Height="250" Width="250">
