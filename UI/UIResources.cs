@@ -81,7 +81,7 @@ class UICardElement
 
         Image entityIcon = new Image
         {
-            Source = new Bitmap("./Assets/Images/Entities/Heroes/man.png"),
+            Source = new Bitmap("./Assets/Images/Entities/Enemies/char_wendigo.png"),
             Width = 80,
             Margin = new Avalonia.Thickness(0, 0, 0, 0),
             HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center,
