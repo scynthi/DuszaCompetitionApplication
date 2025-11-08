@@ -21,7 +21,7 @@ felvetel gyujtemenybe;Sadan
 felvetel gyujtemenybe;Corky
 felvetel gyujtemenybe;Kira
 
-uj pakli;Corky,Kira
+uj pakli;Corky
 
 export vilag;out.vilag01.txt
 export jatekos;out.jatekos01.txt

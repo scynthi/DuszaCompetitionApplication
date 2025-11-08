@@ -24,6 +24,8 @@ public class Card
         this.Health = health;
         this.Element = element;
         this.Type = type;
+        Math.Clamp(Health, 0, 100);
+        Math.Clamp(Attack, 0, 100);
     }
     public Card(Card other)
     {
@@ -32,6 +34,8 @@ public class Card
         this.Health = other.Health;
         this.Element = other.Element;
         this.Type = other.Type;
+        Health = Math.Clamp(Health, 0, 100);
+        Attack = Math.Clamp(Attack, 0, 100);
     }
 
     public int Damage(int attack, CardElement element)
@@ -50,17 +54,19 @@ public class Card
             damageNum = attack * 2;
         }
         Health -= damageNum;
-        if (Health < 0) Health = 0;
+        Health = Math.Clamp(Health, 0, 100);
         return damageNum;
     }
     public void IncreaseAttack()
     {
         AttackChanged = true;
         Attack++;
+        Attack = Math.Clamp(Attack, 0, 100);
     }
     public void IncreaseHealth()
     {
         HealthChanged = true;
         Health += 2;
+        Health = Math.Clamp(Health, 0, 100);
     }
 }

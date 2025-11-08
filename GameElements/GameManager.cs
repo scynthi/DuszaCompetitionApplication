@@ -151,15 +151,21 @@ public class GameManager
         {
             if (currKazamata.type == KazamataTypes.nagy)
             {
-
-                output.Add($"jatekos nyert;{nonInCollectionCards[0].Name}");
-                player.collection.Add(nonInCollectionCards[0]);
-                nonInCollectionCards.RemoveAt(0);
+                if (nonInCollectionCards.Count > 0)
+                {
+                    output.Add($"jatekos nyert;{nonInCollectionCards[0].Name}");
+                    player.collection.Add(nonInCollectionCards[0]);
+                    nonInCollectionCards.RemoveAt(0);
+                }
+                else
+                {
+                    output.Add($"jatekos nyert");
+                }
             }
             else if (currentPlayerCard != null) // It's always gonna be true but the compiler didn't like it without this
             {
-                if (currKazamata.reward == RewardType.eletero) player.IncreaseHealth(GetIndexOfElement(player.collection.ToArray(), currentPlayerCard.Name));
-                else player.IncreaseAttack(GetIndexOfElement(player.collection.ToArray(), currentPlayerCard.Name));
+                if (currKazamata.reward == RewardType.eletero) player.IncreaseHealth(GetIndexOfElement(player.collection.ToArray(), currentPlayerCard.Name), GetIndexOfElement(player.pakli.ToArray(), currentPlayerCard.Name));
+                else player.IncreaseAttack(GetIndexOfElement(player.collection.ToArray(), currentPlayerCard.Name), GetIndexOfElement(player.pakli.ToArray(), currentPlayerCard.Name));
                 output.Add($"jatekos nyert;{currKazamata.reward.ToString()};{currentPlayerCard.Name}");
             }
         }
@@ -188,7 +194,7 @@ public class GameManager
         Card newCard;
         if (TryReturnCardFromName(cardName, nonInCollectionCards.ToArray(), out newCard))
         {
-            nonInCollectionCards.Remove(newCard);
+            nonInCollectionCards.RemoveAll(c => c.Name == newCard.Name);
             player.AddToCollection(newCard);
         }
     }
@@ -300,7 +306,6 @@ public class GameManager
         {
             if (name == kazamata.Name) { rKazamata = kazamata; return true; }
         }
-        Console.Error.Write("BruhKaza");
         return false;
     }
     public bool TryReturnCardFromName(string name, Card[] cards, out Card rCard)
@@ -310,7 +315,6 @@ public class GameManager
         {
             if (name == card.Name) { rCard = new Card(card); return true; }
         }
-        Console.Error.Write("BruhCard");
         return false;
     }
 
@@ -330,7 +334,7 @@ public class GameManager
         {
             if (cards[i].Name == cardName) return i;
         }
-        Console.Error.Write("BruhIndex");
+        Console.WriteLine("APPLE");
         return -1;
     }
     public List<string> GetKazamatas()
@@ -338,5 +342,59 @@ public class GameManager
         List<string> names = new List<string>();
         foreach (Kazamata kazamata in kazamatas) names.Add(kazamata.Name);
         return names;
+    }
+    public List<string> GetCardsCollection()
+    {
+        List<string> names = new List<string>();
+        foreach (Card card in player.collection) names.Add(card.Name);
+        return names;
+    }
+    public bool TryAddCardToPakli(Card card)
+    {
+        if (player.pakli.Count < Math.Ceiling((double)player.collection.Count / 2))
+        {
+            player.AddToPakli(card);
+            return true;
+        }
+        return false;
+    }
+    public bool TryAddCardToPakli(Card[] cards)
+    {
+        foreach (Card card in cards)
+        {
+            if (player.pakli.Count < Math.Ceiling((double)player.collection.Count / 2))
+            {
+                player.AddToPakli(card);
+            }
+            else
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    public bool RemoveFromPakli(Card card)
+    {
+        for (int i = 0; i < player.pakli.Count; i++)
+        {
+            if (player.pakli[i].Name == card.Name)
+            {
+                player.RemoveFromPakli(i);
+                return true;
+            }
+        }
+            return false;
+    }
+    public List<Card> GetCollection()
+    {
+        return player.collection;
+    }
+    public List<Card> GetPakli()
+    {
+        return player.pakli;
+    }
+    public void ClearPakli()
+    {
+        player.ClearPakli();
     }
 }

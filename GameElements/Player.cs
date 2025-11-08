@@ -18,19 +18,23 @@ public class Player
 
     public void AddToCollection(Card card)
     {
-        collection.Add(card);
+        collection.Add(new Card(card));
     }
     public void AddToCollection(Card[] cards)
     {
-        foreach (Card card in cards) pakli.Add(card);
+        foreach (Card card in cards) pakli.Add(new Card(card));
     }
     public void AddToPakli(Card card)
     {
-        collection.Add(card);
+        if (pakli.Count < Math.Ceiling((double)collection.Count/2)) pakli.Add(new Card(card));
     }
     public void AddToPakli(Card[] cards)
     {
-        foreach (Card card in cards) pakli.Add(new Card(card));
+        foreach (Card card in cards) if (pakli.Count < Math.Ceiling((double)collection.Count / 2)) pakli.Add(new Card(card));
+    }
+    public void RemoveFromPakli(int i)
+    {
+        pakli.RemoveAt(i);
     }
     public void PrintCollection()
     {
@@ -39,13 +43,15 @@ public class Player
             Console.WriteLine(card.Name);
         }
     }
-    public void IncreaseAttack(int index)
+    public void IncreaseAttack(int colIndex, int pakIndex)
     {
-        collection[index].IncreaseAttack();
+        collection[colIndex].IncreaseAttack();
+        pakli[pakIndex].IncreaseAttack();
     }
-    public void IncreaseHealth(int index)
+    public void IncreaseHealth(int colIndex, int pakIndex)
     {
-        collection[index].IncreaseHealth();
+        collection[colIndex].IncreaseHealth();
+        pakli[pakIndex].IncreaseHealth();
     }
 
 }
