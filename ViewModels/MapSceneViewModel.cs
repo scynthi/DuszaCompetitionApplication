@@ -12,7 +12,7 @@ public partial class MapSceneViewModel : ViewModelBase
 
     public MapSceneViewModel()
     {
-        Global.PlayAndLoopAudio("./Assets/Audio/Explorativ High Jinks.wav");
+        Global.PlayAndLoopAudio("./Assets/Audio/Explorativ High jinks.mp3");
     }
 
     [RelayCommand]

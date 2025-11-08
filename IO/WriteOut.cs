@@ -17,7 +17,7 @@ public static class WriteOut
         {
             output.Add($"gyujtemeny;{card.name};{card.attack};{card.health};{card.element}");
         }
-        output.Add("\n");
+        output.Add("");
         foreach (Card card in player.pakli)
         {
             output.Add($"pakli;{card.name}");
@@ -34,17 +34,24 @@ public static class WriteOut
         foreach (Card card in cards)
         {
             if (card.type == CardType.sima) normalCards.Add($"kartya;{card.name};{card.attack};{card.health};{card.element}");
-            else                            vezerCards.Add($"vezer;{card.name};{card.attack};{card.health};{card.element}");
+            else vezerCards.Add($"vezer;{card.name};{card.attack};{card.health};{card.element}");
         }
         output.AddRange(normalCards);
-        output.Add("\n");
+        output.Add("");
         output.AddRange(vezerCards);
-        output.Add("\n");
+        output.Add("");
 
         foreach (Kazamata kazamata in kazamatas)
         {
-            output.Add($"kazamata;{kazamata.type.ToString()};{kazamata.name};{kazamata.KazamataCardNames()}"); // the last ';' is not need due to the method already having it
+            string kazCardNames = kazamata.KazamataCardNames();
+            if (kazamata.reward != RewardType.kartya) output.Add($"kazamata;{kazamata.type.ToString()};{kazamata.name};{kazCardNames};{kazamata.reward.ToString()}");
+            else output.Add($"kazamata;{kazamata.type.ToString()};{kazamata.name};{kazCardNames}");
         }
+        File.WriteAllLines(path, output);
+    }
+    public static void Battle(string[] output, string path, string name)
+    {
+        path = path + @$"\{name}";
         File.WriteAllLines(path, output);
     }
 }
