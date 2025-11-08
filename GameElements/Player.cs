@@ -39,5 +39,13 @@ public class Player
             Console.WriteLine(card.name);
         }
     }
+    public void IncreaseAttack(int index)
+    {
+        pakli[index].IncreaseAttack();
+    }
+    public void IncreaseHealth(int index)
+    {
+        pakli[index].IncreaseHealth();
+    }
 
 }
