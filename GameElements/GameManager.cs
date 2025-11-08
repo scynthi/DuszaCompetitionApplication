@@ -55,6 +55,7 @@ public class GameManager
                 Export(header[1], command[0]);
                 break;
             case "harc":
+
                 break;
             default:
                 Console.WriteLine("Something went wrong");

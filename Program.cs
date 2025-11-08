@@ -38,7 +38,6 @@ sealed class Program
                 Console.WriteLine("It's over");
             }
         }
-
     }
     private static void RunTestMode(string path)
     {
