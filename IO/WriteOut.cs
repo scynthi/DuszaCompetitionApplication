@@ -44,8 +44,8 @@ public static class WriteOut
 
         foreach (Kazamata kazamata in kazamatas)
         {
-            if (kazamata.reward != RewardType.kartya) output.Add($"kazamata;{kazamata.type.ToString()};{kazamata.name};{kazamata.KazamataCardNames()};{kazamata.reward.ToString()}");
-            else output.Add($"kazamata;{kazamata.type.ToString()};{kazamata.name};{kazamata.KazamataCardNames()}");
+            if (kazamata.reward != RewardType.kartya) output.Add($"kazamata;{kazamata.type.ToString()};{kazamata.Name};{kazamata.KazamataCardNames()};{kazamata.reward.ToString()}");
+            else output.Add($"kazamata;{kazamata.type.ToString()};{kazamata.Name};{kazamata.KazamataCardNames()}");
         }
         File.WriteAllLines(path, output);
     }

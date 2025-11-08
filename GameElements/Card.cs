@@ -13,6 +13,9 @@ public class Card
     public int Attack { get; private set; }
     public CardElement Element { get; }
     public CardType Type { get; }
+    public bool HealthChanged { get; private set; } = false;
+    public bool AttackChanged { get; private set; } = false;
+    public Card() { Name = ""; }
 
     public Card(string name, int attack, int health, CardElement element, CardType type)
     {
@@ -31,28 +34,33 @@ public class Card
         this.Type = other.Type;
     }
 
-    public void Damage(int attack, CardElement element)
+    public int Damage(int attack, CardElement element)
     {
+        int damageNum = 0;
         if (element == this.Element)
         {
-            Health -= attack;
+            damageNum = attack;
         }
         else if (ElementRules.GetWeaknesses(element).Contains(this.Element))
         {
-            Health -= Convert.ToInt32(Math.Floor((double)attack / 2));
+            damageNum = Convert.ToInt32(Math.Floor((double)attack / 2));
         }
         else if (ElementRules.GetStrenghts(element).Contains(this.Element))
         {
-            Health -= attack * 2;
+            damageNum = attack * 2;
         }
+        Health -= damageNum;
         if (Health < 0) Health = 0;
+        return damageNum;
     }
     public void IncreaseAttack()
     {
+        AttackChanged = true;
         Attack++;
     }
     public void IncreaseHealth()
     {
+        HealthChanged = true;
         Health += 2;
     }
 }

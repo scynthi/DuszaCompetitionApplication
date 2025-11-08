@@ -7,4 +7,6 @@ public enum KazamataArrayParts
     type,
     name,
     cards,
+    vezerCard,
+    reward
 }

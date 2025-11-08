@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using DuszaCompetitionApplication.GameElements;
+using DuszaCompetitionApplication.UI;
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -21,6 +22,10 @@ sealed class Program
             BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
             return;
         }
+        else if (args[0] == "--tui")
+        {
+            StartTUI();
+        }
         else
         {
             try
@@ -37,11 +42,15 @@ sealed class Program
             }
         }
     }
+    private static void StartTUI() 
+    {
+        TUI tui = new TUI();
+    }
     private static void RunTestMode(string path)
     {
         Console.WriteLine($"Test Mode started {path}");
-        GameManager gManager = new GameManager(path);
-        gManager.StartGame();
+        GameManager gManager = new GameManager(path, Enums.GameModes.Test);
+        gManager.StartTestMode();
 
     }
 

@@ -3,6 +3,7 @@ using DuszaCompetitionApplication.IO;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using static DuszaCompetitionApplication.Utility;
 
@@ -10,17 +11,28 @@ namespace DuszaCompetitionApplication.GameElements;
 
 public class GameManager
 {
+    private GameModes gameMode;
     private string path;
     private List<Card> cards = new List<Card>();
     private List<Card> nonInCollectionCards = new List<Card>();
     private List<Kazamata> kazamatas = new List<Kazamata>();
     private Player player = new Player();
 
-    public GameManager(string path)
+    public GameManager(string path, GameModes gameMode)
     {
         this.path = path;
+        this.gameMode = gameMode;
     }
-    public void StartGame()
+    public void StartGameMode()
+    {
+        path = Directory.GetCurrentDirectory() + @"\GameMode\";
+        string[] contents = ReadIn.ReadFile(path);
+        foreach (string line in contents)
+        {
+            TranslateLine(line);
+        }
+    }
+    public void StartTestMode()
     {
         string[] contents = ReadIn.ReadFile(path);
         foreach (string line in contents)
@@ -63,10 +75,12 @@ public class GameManager
                 break;
         }
     }
-    private void BattleLoop(string kazamataName, string outName)
+    public void BattleLoop(string kazamataName, string outName)
     {
-        Kazamata currKazamata = ReturnKazamataFromName(kazamataName, kazamatas.ToArray());
-        List<Card> kazamataPakli = currKazamata.kazamataCards.ToList<Card>();
+
+        Kazamata currKazamata;
+        if (!TryReturnKazamataFromName(kazamataName, kazamatas.ToArray(), out currKazamata)) return;
+        List<Card> kazamataPakli = currKazamata.KazamataCards.ToList<Card>();
         Card? currentKazamataCard = null;
 
         List<Card> playerPakli = player.pakli.ToList<Card>();
@@ -78,6 +92,8 @@ public class GameManager
         output.Add($"harc kezdodik;{kazamataName}");
         output.Add("");
 
+        int damageNum;
+
         while (playerPakli.Count > 0 && kazamataPakli.Count > 0)
         {
             if (currentKazamataCard == null)
@@ -87,14 +103,23 @@ public class GameManager
             }
             else
             {
-                currentPlayerCard?.Damage(currentKazamataCard.Attack, currentKazamataCard.Element);
-                output.Add($"{round}.kor;kazamata;tamad;{currentKazamataCard.Name};{currentKazamataCard.Health};{currentPlayerCard?.Name};{currentPlayerCard?.Health}");
+                if (currentPlayerCard != null)
+                {
+                    damageNum = currentPlayerCard.Damage(currentKazamataCard.Attack, currentKazamataCard.Element);
+                    output.Add($"{round}.kor;kazamata;tamad;{currentKazamataCard.Name};{damageNum};{currentPlayerCard?.Name};{currentPlayerCard?.Health}");
+                }
             }
 
             if (currentPlayerCard?.Health <= 0)
             {
                 playerPakli.RemoveAt(0);
                 currentPlayerCard = null;
+            }
+
+            if (playerPakli.Count == 0) // Check if the player ran out of cards
+            {
+                output.Add("");
+                break;
             }
 
             if (currentPlayerCard == null)
@@ -104,8 +129,11 @@ public class GameManager
             }
             else
             {
-                currentKazamataCard.Damage(currentPlayerCard.Attack, currentPlayerCard.Element);
-                output.Add($"{round}.kor;jatekos;tamad;{currentPlayerCard.Name};{currentPlayerCard.Health};{currentKazamataCard.Name};{currentKazamataCard.Health}");
+                if (currentKazamataCard != null)
+                {
+                    damageNum = currentKazamataCard.Damage(currentPlayerCard.Attack, currentPlayerCard.Element);
+                    output.Add($"{round}.kor;jatekos;tamad;{currentPlayerCard.Name};{damageNum};{currentKazamataCard.Name};{currentKazamataCard.Health}");
+                }
             }
 
             if (currentKazamataCard?.Health <= 0)
@@ -118,19 +146,20 @@ public class GameManager
             round++;
         }
 
+
         if (playerPakli.Count > 0) // Player won
         {
             if (currKazamata.type == KazamataTypes.nagy)
             {
-                
+
                 output.Add($"jatekos nyert;{nonInCollectionCards[0].Name}");
                 player.collection.Add(nonInCollectionCards[0]);
                 nonInCollectionCards.RemoveAt(0);
             }
             else if (currentPlayerCard != null) // It's always gonna be true but the compiler didn't like it without this
             {
-                if (currKazamata.reward == RewardType.eletero) player.IncreaseHealth(GetIndexOfElement(player.pakli.ToArray(), currentPlayerCard.Name));
-                else player.IncreaseAttack(GetIndexOfElement(player.pakli.ToArray(), currentPlayerCard.Name));
+                if (currKazamata.reward == RewardType.eletero) player.IncreaseHealth(GetIndexOfElement(player.collection.ToArray(), currentPlayerCard.Name));
+                else player.IncreaseAttack(GetIndexOfElement(player.collection.ToArray(), currentPlayerCard.Name));
                 output.Add($"jatekos nyert;{currKazamata.reward.ToString()};{currentPlayerCard.Name}");
             }
         }
@@ -138,7 +167,8 @@ public class GameManager
         {
             output.Add($"jatekos vesztett;");
         }
-        WriteOut.Battle(output.ToArray(), path, outName);
+        if (gameMode == GameModes.Test) WriteOut.Battle(output.ToArray(), path, outName);
+        else PrintBattle(output);
 
     }
     private void Export(string type, string name)
@@ -155,9 +185,12 @@ public class GameManager
     }
     private void Felvetel(string cardName)
     {
-        Card newCard = ReturnCardFromName(cardName, nonInCollectionCards.ToArray());
-        nonInCollectionCards.Remove(newCard);
-        player.AddToCollection(newCard);
+        Card newCard;
+        if (TryReturnCardFromName(cardName, nonInCollectionCards.ToArray(), out newCard))
+        {
+            nonInCollectionCards.Remove(newCard);
+            player.AddToCollection(newCard);
+        }
     }
     private void NewGameElement(string type, string[] command)
     {
@@ -175,7 +208,7 @@ public class GameManager
 
             case "vezer":
                 bool contains = false;
-                Card ogCard = cards[0]; // just need to asign it for the compiler
+                Card ogCard = cards[0]; // just need to assign it for the compiler
                 foreach (Card card in cards)
                 {
                     if (card.Name == command[(int)VezerArrayParts.ogName] && card.Type != CardType.vezer)
@@ -195,7 +228,7 @@ public class GameManager
                     ogCard.Element,
                     CardType.vezer));
 
-                    else cards.Add(new Card(
+                    else if (attrToDouble == "eletero") cards.Add(new Card(
                     command[(int)VezerArrayParts.newName],
                     ogCard.Attack,
                     ogCard.Health * 2,
@@ -211,10 +244,10 @@ public class GameManager
             case "kazamata":
                 if ((KazamataTypes)Enum.Parse(typeof(KazamataTypes), command[(int)KazamataArrayParts.type], true) == KazamataTypes.nagy)
                 {
-                    Card[] kazamataCards = MatchNameArrayToCardArray(command.Skip((int)KazamataArrayParts.cards).Take(command.Length - (int)KazamataArrayParts.cards).ToArray(), cards.ToArray());
-                    Console.Write(command[(int)KazamataArrayParts.name] + " ");
-                    Console.WriteLine();
-                    Utility.PrintArray(kazamataCards);
+                    List<string> names = command[(int)KazamataArrayParts.cards].Split(',').ToList();
+                    names.Add(command[(int)KazamataArrayParts.vezerCard]);
+                    Card[] kazamataCards = MatchNameArrayToCardArray(names.ToArray(), cards.ToArray());
+
                     kazamatas.Add(new Kazamata(
                         (KazamataTypes)Enum.Parse(typeof(KazamataTypes), command[(int)KazamataArrayParts.type], true),
                         command[(int)KazamataArrayParts.name],
@@ -222,12 +255,12 @@ public class GameManager
                         RewardType.kartya
                         ));
                 }
-                else
+                else if ((KazamataTypes)Enum.Parse(typeof(KazamataTypes), command[(int)KazamataArrayParts.type], true) == KazamataTypes.kis)
                 {
-                    Card[] kazamataCards = MatchNameArrayToCardArray(command.Skip((int)KazamataArrayParts.cards).Take(command.Length - 1 - (int)KazamataArrayParts.cards).ToArray(), cards.ToArray());
-                    Console.Write(command[(int)KazamataArrayParts.name] + " ");
-                    Utility.PrintArray(kazamataCards);
-                    Console.WriteLine();
+                    List<string> names = command[(int)KazamataArrayParts.cards].Split(',').ToList();
+                    names.Add(command[(int)KazamataArrayParts.vezerCard]);
+                    Card[] kazamataCards = MatchNameArrayToCardArray(names.ToArray(), cards.ToArray());
+
                     kazamatas.Add(new Kazamata(
                         (KazamataTypes)Enum.Parse(typeof(KazamataTypes), command[(int)KazamataArrayParts.type], true),
                         command[(int)KazamataArrayParts.name],
@@ -235,7 +268,18 @@ public class GameManager
                         (RewardType)Enum.Parse(typeof(RewardType), command[command.Length - 1], true)
                         ));
                 }
-                    
+                else
+                {
+                    List<string> names = command[(int)KazamataArrayParts.cards].Split(',').ToList();
+                    Card[] kazamataCards = MatchNameArrayToCardArray(names.ToArray(), cards.ToArray());
+
+                    kazamatas.Add(new Kazamata(
+                        (KazamataTypes)Enum.Parse(typeof(KazamataTypes), command[(int)KazamataArrayParts.type], true),
+                        command[(int)KazamataArrayParts.name],
+                        kazamataCards.ToArray(),
+                        (RewardType)Enum.Parse(typeof(RewardType), command[command.Length - 1], true)
+                        ));
+                }
                 break;
 
             case "jatekos":
@@ -249,29 +293,34 @@ public class GameManager
                 break;
         }
     }
-    public Kazamata ReturnKazamataFromName(string name, Kazamata[] kazamatas)
+    public bool TryReturnKazamataFromName(string name, Kazamata[] kazamatas, out Kazamata rKazamata)
     {
+        rKazamata = new Kazamata();
         foreach (Kazamata kazamata in kazamatas)
         {
-            if (name == kazamata.name) return kazamata;
+            if (name == kazamata.Name) { rKazamata = kazamata; return true; }
         }
-        return kazamatas[0];
+        Console.Error.Write("BruhKaza");
+        return false;
     }
-    public Card ReturnCardFromName(string name, Card[] cards)
+    public bool TryReturnCardFromName(string name, Card[] cards, out Card rCard)
     {
+        rCard = new Card();
         foreach (Card card in cards)
         {
-            if (name == card.Name) return card;
+            if (name == card.Name) { rCard = new Card(card); return true; }
         }
-        return cards[0];
+        Console.Error.Write("BruhCard");
+        return false;
     }
 
     public Card[] MatchNameArrayToCardArray(string[] names, Card[] cards)
     {
         List<Card> returnCardList = new List<Card>();
+        Card tempCard;
         foreach (string name in names)
         {
-            returnCardList.Add(ReturnCardFromName(name, cards));
+            if (TryReturnCardFromName(name, cards, out tempCard)) returnCardList.Add(tempCard);
         }
         return returnCardList.ToArray();
     }
@@ -281,6 +330,13 @@ public class GameManager
         {
             if (cards[i].Name == cardName) return i;
         }
+        Console.Error.Write("BruhIndex");
         return -1;
+    }
+    public List<string> GetKazamatas()
+    {
+        List<string> names = new List<string>();
+        foreach (Kazamata kazamata in kazamatas) names.Add(kazamata.Name);
+        return names;
     }
 }

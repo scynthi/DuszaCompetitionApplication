@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using DuszaCompetitionApplication.GameElements;
 
 namespace DuszaCompetitionApplication;
@@ -23,10 +24,19 @@ public static class Utility
     {
         foreach (string el in array)
         {
-            Console.Write(el + '\n');
+            Console.Write(el + ' ');
         }
-
+        Console.WriteLine();
     }
+    public static void PrintBattle(List<string> array)
+    {
+        foreach (string el in array)
+        {
+            Console.WriteLine(el);
+        }
+        Console.WriteLine();
+    }
+
     public static void PrintArray(Card[] array)
     {
         foreach (Card el in array)
@@ -34,5 +44,21 @@ public static class Utility
             Console.Write(el.Name + ' ');
         }
 
+    }
+    public static void PrintArray(List<Card> array)
+    {
+        foreach (Card el in array)
+        {
+            Console.Write(el.Name + ' ');
+        }
+        Console.WriteLine();
+    }
+    public static void PrintArray(List<Kazamata> array)
+    {
+        foreach (Kazamata el in array)
+        {
+            Console.Write(el.Name + ' ');
+        }
+        Console.WriteLine();
     }
 }
