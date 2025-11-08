@@ -1,5 +1,7 @@
 ﻿using System;
 using CommunityToolkit.Mvvm.Input;
+using DuszaCompetitionApplication.Audio;
+using DuszaCompetitionApplication.UIController;
 using DuszaCompetitionApplication.ViewModels;
 using Views;
 
@@ -9,12 +11,13 @@ public partial class MainMenuViewModel : ViewModelBase
 {
     public MainMenuViewModel()
     {
-        Global.PlayAndLoopAudio("./Assets/Audio/LakeSide Saucebook.mp3");
+        AudioManager.PlayAndLoopAudio("./Assets/Audio/Music/heart_fall_lullaby.wav");
     }
 
     [RelayCommand]
     private void Play()
     {
+        AudioManager.FindAndPauseAudio("./Assets/Audio/Music/heart_fall_lullaby.wav");
         Global.contentControl.Content = new MapScene();
     }
 

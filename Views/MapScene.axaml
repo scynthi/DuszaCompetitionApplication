@@ -13,9 +13,17 @@
 
     <Border Grid.Row="1" Padding="10" Margin="10,0,10,30" Background="#52320d">
         <Grid  ColumnDefinitions="Auto, Auto, Auto" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" ColumnSpacing="10">
-          <Button Command="{Binding GoBackToMainMenuCommand}">Title Screen</Button>
-          <Button Grid.Column="1" Command="{Binding GoToDeckMenuCommand}">Deck</Button>
-          <Button Grid.Column="2" Command="{Binding GoToAllCardsMenuCommand}">All cards</Button>
+          <Button Classes="Wood" Command="{Binding GoBackToMainMenuCommand}">
+            <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Title screen"/><Image/></Grid>
+          </Button>
+
+          <Button Grid.Column="1" Classes="Wood" Command="{Binding GoToDeckMenuCommand}">
+            <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Deck"/><Image/></Grid>
+          </Button>
+
+          <Button Grid.Column="2" Classes="Wood" Command="{Binding GoToAllCardsMenuCommand}">
+            <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="All cards"/><Image/></Grid>
+          </Button>
         </Grid>
     </Border>
 

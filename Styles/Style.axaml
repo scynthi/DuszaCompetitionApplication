@@ -24,4 +24,32 @@
   <Style Selector="Button">
     <Setter Property="Background" Value="{DynamicResource ResourceKey=ButtonBackgroundImage}"></Setter>
   </Style>
+
+  <Style Selector="Button.Wood">
+    <Setter Property="HorizontalAlignment" Value="Stretch"></Setter>
+    <Setter Property="Padding" Value="0"></Setter>
+    <Setter Property="Margin" Value="0"></Setter>
+  </Style>
+
+  <Style Selector="Button.Wood Label">
+    <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+    <Setter Property="VerticalAlignment" Value="Center"></Setter>
+    <Setter Property="Grid.Column" Value="1"></Setter>
+    <Setter Property="Margin" Value="0"></Setter>
+  </Style>
+
+  <Style Selector="Button.Wood Image">
+    <Setter Property="Height" Value="40"></Setter>
+    <Setter Property="HorizontalAlignment" Value="Left"></Setter>
+    <Setter Property="Source" Value="avares://DuszaCompetitionApplication/Assets/Images/Button/button_left_base.png"></Setter>
+    <Setter Property="Margin" Value="-1,0,0,0"></Setter>
+  </Style>
+
+  <Style Selector="Button.Wood Image:nth-child(1)">
+    <Setter Property="Grid.Column" Value="2"></Setter>
+    <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+    <Setter Property="Source" Value="avares://DuszaCompetitionApplication/Assets/Images/Button/button_right_base.png"></Setter>
+    <Setter Property="Margin" Value="0"></Setter>
+  </Style>
 </Styles>
+

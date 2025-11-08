@@ -12,14 +12,16 @@ public partial class MapScene : UserControl
         InitializeComponent();
         DataContext = new MapSceneViewModel();
 
-        string[] dungeons = { "Dungeon1", "Dungeon2" , "Dungeon3", "Dungeon4", "Dungeon5", "Dungeon6", "Dungeon7" };
+        string[] dungeons = { "Dungeon1", "Dungeon2", "Dungeon3", "Dungeon4", "Dungeon5", "Dungeon6", "Dungeon7" };
 
         for (int i = 0; i < dungeons.Length; i++)
         {
             Button dungeonButton = new();
             dungeonButton.Content = dungeons[i];
-            
+
             DungeonPanel?.Children.Add(dungeonButton);
         }
     }
+    
+    
 }
