@@ -30,7 +30,7 @@ public class Player
     }
     public void AddToPakli(Card[] cards)
     {
-        foreach (Card card in cards) pakli.Add(card);
+        foreach (Card card in cards) pakli.Add(new Card(card));
     }
     public void PrintCollection()
     {
@@ -41,11 +41,11 @@ public class Player
     }
     public void IncreaseAttack(int index)
     {
-        pakli[index].IncreaseAttack();
+        collection[index].IncreaseAttack();
     }
     public void IncreaseHealth(int index)
     {
-        pakli[index].IncreaseHealth();
+        collection[index].IncreaseHealth();
     }
 
 }
