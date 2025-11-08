@@ -9,7 +9,7 @@ public partial class MainMenuViewModel : ViewModelBase
 {
     public MainMenuViewModel()
     {
-        Global.PlayAndLoopAudio("./Assets/Audio/LakeSide Saucebook.mp3");
+        // Global.PlayAndLoopAudio("./Assets/Audio/Musics/LakeSide Saucebook.mp3");
     }
 
     [RelayCommand]

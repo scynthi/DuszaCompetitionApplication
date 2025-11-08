@@ -9,6 +9,6 @@ public partial class MainWindowViewModel : ViewModelBase
 {
     public MainWindowViewModel()
     {
-        Global.contentControl.Content = new MainMenu();
+        Global.contentControl.Content = new FightScene();
     }
 }
