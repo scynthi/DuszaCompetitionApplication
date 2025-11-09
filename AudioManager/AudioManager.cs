@@ -82,7 +82,6 @@ namespace DuszaCompetitionApplication.Audio
             audioPlayerInstance.Play();
 
             playingLoopedAudioPlayers.Add(path, audioPlayerInstance);
-
         }
 
         public static void FindAndDestroyAudio(string path)

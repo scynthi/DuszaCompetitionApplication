@@ -1,6 +1,7 @@
 ﻿using System;
 using CommunityToolkit.Mvvm.Input;
 using DuszaCompetitionApplication.Audio;
+using DuszaCompetitionApplication.GameElements;
 using DuszaCompetitionApplication.UIController;
 using DuszaCompetitionApplication.ViewModels;
 using Views;
@@ -18,6 +19,7 @@ public partial class MainMenuViewModel : ViewModelBase
     private void Play()
     {
         AudioManager.FindAndPauseAudio("./Assets/Audio/Music/heart_fall_lullaby.wav");
+        
         Global.contentControl.Content = new MapScene();
     }
 

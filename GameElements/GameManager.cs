@@ -479,6 +479,10 @@ public class GameManager
     {
         return player.collection;
     }
+    public List<Card> GetAllCards()
+    {
+        return cards;
+    }
     public List<Card> GetPakli()
     {
         return player.pakli;

@@ -10,6 +10,8 @@ public partial class MainWindowViewModel : ViewModelBase
     public MainWindowViewModel()
     {
         // Global.contentControl.Content = new FightScene();
+        Global.gameManager.StartGameMode();
+
         Global.contentControl.Content = new MainMenu();
     }
 }

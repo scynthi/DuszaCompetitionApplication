@@ -11,6 +11,7 @@ using NAudio.Wave;
 static class Global
 {
     public static MainWindow? mainWindow;
+    public static GameManager gameManager = new GameManager("", DuszaCompetitionApplication.Enums.GameModes.Game);
 
     public static ContentControl contentControl = new();
     public static List<UICardElement> cardsList = new();

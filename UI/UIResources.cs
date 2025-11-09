@@ -1,3 +1,4 @@
+using System.Linq;
 using Avalonia.Controls;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
@@ -6,8 +7,25 @@ using DuszaCompetitionApplication.GameElements;
 
 namespace DuszaCompetitionApplication.UIResources;
 
-class UICardElement
+public class UICardElement
 {
+    // public static UICardElement ConvertCard(Card card)
+    // {
+        
+    // }
+    public static UICardElement[] ConvertCards(Card[]? cards)
+    {
+        if (cards == null) return [];
+
+        var convertedCards = new UICardElement[cards.Length];
+
+        for (int i = 0; i < cards.Length; i++)
+        {
+            convertedCards[i] = new UICardElement(cards[i]);
+        }
+
+        return convertedCards;
+    }
     public Card card;
     private Control cardVisual;
 
@@ -17,6 +35,7 @@ class UICardElement
 
         Border cardBase = new Border
         {
+            Name = card.Name,
             CornerRadius = new Avalonia.CornerRadius(8),
             BorderThickness = new Avalonia.Thickness(4),
             BorderBrush = new SolidColorBrush(Color.Parse(isKazamata ? "#37124d" : "#4d3812")),
@@ -42,7 +61,7 @@ class UICardElement
 
         Image entityIcon = new Image
         {
-            Source = new Bitmap( isKazamata ? "./Assets/Images/Entities/Enemies/char_wendigo.png" : "./Assets/Images/Entities/Heroes/char_hunter.png"),
+            Source = new Bitmap(isKazamata ? "./Assets/Images/Entities/Enemies/char_wendigo.png" : "./Assets/Images/Entities/Heroes/char_hunter.png"),
             Width = 150,
             Margin = new Avalonia.Thickness(0, 0, 0, 5),
             HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center,
@@ -171,7 +190,7 @@ class UICardElement
             HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch,
             VerticalAlignment = Avalonia.Layout.VerticalAlignment.Bottom,
             TextAlignment = TextAlignment.Center,
-            Margin = new Avalonia.Thickness(0, 0, 11/card.Health.ToString().Length, 10),
+            Margin = new Avalonia.Thickness(0, 0, 11 / card.Health.ToString().Length, 10),
             FontSize = 30
         };
         Grid.SetRow(healthAmount, 1);
@@ -216,7 +235,7 @@ class UICardElement
             HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch,
             VerticalAlignment = Avalonia.Layout.VerticalAlignment.Bottom,
             TextAlignment = TextAlignment.Right,
-            Margin = new Avalonia.Thickness(0, 0, 25/card.Attack.ToString().Length, 10),
+            Margin = new Avalonia.Thickness(0, 0, 25 / card.Attack.ToString().Length, 10),
             FontSize = 30
         };
 

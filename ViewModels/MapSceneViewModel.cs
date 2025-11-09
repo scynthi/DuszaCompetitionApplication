@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Avalonia.Controls;
@@ -16,6 +17,7 @@ public partial class MapSceneViewModel : ViewModelBase
     {
         AudioManager.PlayAndLoopAudio("./Assets/Audio/Music/wind_loop_ambient.wav");
         RandomlyPlayAmbientMusic();
+        
     }
 
     public async void RandomlyPlayAmbientMusic()

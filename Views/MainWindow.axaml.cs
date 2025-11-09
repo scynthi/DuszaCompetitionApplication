@@ -9,5 +9,6 @@ public partial class MainWindow : Window
         InitializeComponent();
         Global.mainWindow = this;
         Global.contentControl = ContentControlItem;
+        // WindowState = WindowState.FullScreen;
     }
 }
