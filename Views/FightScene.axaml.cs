@@ -53,7 +53,7 @@ public partial class FightScene : UserControl
 
             SummaryPanel.IsVisible = true;
             SummaryTitle.Content = result[0].Contains("nyert") ? "You win" : "You lose";
-            PrizeLabel.Content = result.Length == 1 ? "" : result.Length == 2 ? $"You got: {currentKazamata.reward}" : $"You got: {currentKazamata.reward} for {result[2]}";
+            PrizeLabel.Content = result.Length == 1 ? "" : result.Length == 2 ? $"You got: {result[1]}" : $"You got: {result[1]} for {result[2]}";
         };
     }
 }

@@ -7,6 +7,7 @@ using Avalonia.Layout;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media.Imaging;
 using DuszaCompetitionApplication.Enums;
+using DuszaCompetitionApplication.GameElements;
 using DuszaCompetitionApplication.UIController;
 using DuszaCompetitionApplication.UIResources;
 using NAudio.Mixer;
@@ -23,8 +24,8 @@ public partial class MapScene : UserControl
 
         if (Global.gameManager == null) return;
         UIController.ApplySFXToButtons([GoBackButton, DeckButton, AllCardsButton]);
-        
-        for (int i = 0; i < Global.gameManager?.GetKazamatas().ToList().Count; i++)
+
+        for (int i = 0; i < Global.gameManager?.GetKazamatas().ToList().Count; i++) 
         {
             StackPanel portalPanel = new StackPanel
             {
@@ -32,7 +33,7 @@ public partial class MapScene : UserControl
             };
             Image portalImage = new Image
             {
-                Source = new Bitmap("./Assets/Images/Portal/portal_frame.png"),
+                Source = new Bitmap($"./Assets/Images/Portal/portal_frame_{Global.gameManager.GetKazataObjects().Where(x => x.Name == Global.gameManager?.GetKazamatas().ToList()[i]).First().type.ToString()}.png"),
                 Width = 75
             };
             portalPanel.Children.Add(portalImage);
@@ -47,9 +48,14 @@ public partial class MapScene : UserControl
             {
                 int? collection = Global.gameManager?.GetCollection()?.Count;
                 string? chosenKazamata = (s as Button)?.Content?.ToString();
+                Kazamata kazamataObject;
 
-                if (collection == null || chosenKazamata == null) return;
-                // if (Global.gameManager?.GetPakli().Count != Math.Ceiling((decimal)collection / 2)) return;
+                if (collection == null || chosenKazamata == null || Global.gameManager == null) return;
+
+                Global.gameManager.TryReturnKazamataFromName(chosenKazamata, Global.gameManager.GetKazataObjects(), out kazamataObject);
+
+                if (kazamataObject.type == KazamataTypes.nagy && !Global.gameManager.IsCardLeft()) return;
+                if (Global.gameManager.GetPakli().Count <= 0) return;
 
                 Global.currentKazamata = chosenKazamata;
                 Global.contentControl.Content = new FightScene();
