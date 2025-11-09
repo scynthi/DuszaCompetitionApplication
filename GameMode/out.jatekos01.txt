@@ -1,4 +1,4 @@
-gyujtemeny;Arin;2;5;fold
+gyujtemeny;Arin;100;100;fold
 gyujtemeny;Liora;2;4;levego
 gyujtemeny;Selia;2;6;viz
 gyujtemeny;Nerun;3;3;tuz

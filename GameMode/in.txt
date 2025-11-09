@@ -1,4 +1,4 @@
-uj kartya;Arin;2;5;fold
+uj kartya;Arin;999;999;fold
 uj kartya;Liora;2;4;levego
 uj kartya;Nerun;3;3;tuz
 uj kartya;Selia;2;6;viz

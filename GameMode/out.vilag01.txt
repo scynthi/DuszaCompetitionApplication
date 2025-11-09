@@ -1,4 +1,4 @@
-kartya;Arin;2;5;fold
+kartya;Arin;100;100;fold
 kartya;Liora;2;4;levego
 kartya;Nerun;3;3;tuz
 kartya;Selia;2;6;viz
