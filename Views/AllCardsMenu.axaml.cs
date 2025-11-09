@@ -19,26 +19,12 @@ public partial class AllCardsMenu : UserControl
         UIController.ApplySFXToButtons([GoBackButton]);
 
         if (Global.gameManager?.GetAllCards() == null) return;
-        
-        int cardsPlacedInRow = 0;
-        int totalRows = 0;
 
         foreach (Card card in Global.gameManager.GetAllCards())
         {
-            if (CardHolder.RowDefinitions.Count <= totalRows) CardHolder.RowDefinitions.Add(new RowDefinition(GridLength.Auto));
-
             UICardElement currentCard = new(card);
             Control cardVisual = currentCard.GetCardVisual();
-            Grid.SetColumn(cardVisual, cardsPlacedInRow);
-            Grid.SetRow(cardVisual, totalRows);
             CardHolder.Children.Add(cardVisual);
-
-            cardsPlacedInRow++;
-            if (cardsPlacedInRow == 4)
-            {
-                cardsPlacedInRow = 0;
-                totalRows++;
-            }
         }
     }
 }

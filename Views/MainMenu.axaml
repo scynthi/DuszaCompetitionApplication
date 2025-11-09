@@ -8,8 +8,8 @@
              x:DataType="vm:MainMenuViewModel">
     
     <Border Background="{DynamicResource ResourceKey=OutsideBackground}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center" Background="{DynamicResource ResourceKey=HangingSignBackgroundImage}" MinWidth="600" Height="600">
-            <Label HorizontalAlignment="Center" FontSize="70"  Margin="0, 120, 0, 40">Charter</Label>
+        <StackPanel Classes="MainMenuSign" VerticalAlignment="Top">
+            <Label Classes="Title">Charter</Label>
             <Grid RowDefinitions="50,50,50,50" HorizontalAlignment="Center" VerticalAlignment="Center" Height="250" Width="250">
                 <Button Command="{Binding PlayCommand}" Classes="Wood" Name="PlayButton">
                     <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Play"/><Image/></Grid>

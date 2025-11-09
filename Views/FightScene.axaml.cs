@@ -10,6 +10,7 @@ using Avalonia;
 using Avalonia.Markup.Xaml.MarkupExtensions;
 using System.Linq;
 using DuszaCompetitionApplication;
+using DuszaCompetitionApplication.Audio;
 
 namespace Views;
 
@@ -28,7 +29,6 @@ public partial class FightScene : UserControl
             BackgroundPanel.Bind(BackgroundProperty, Resources.GetResourceObservable("HardCaveBackground"));
         }
 
-
         foreach (UICardElement card in UICardElement.ConvertCards(Global.gameManager.GetPakli().ToArray()))
         {
             PlayerDeckHolder.Children.Add(card.GetCardVisual());
@@ -45,14 +45,24 @@ public partial class FightScene : UserControl
         {
             interpreter.PlayNextStep();
         };
+
         interpreter.finalResult += (object? _, EventArgs data) =>
         {
             string[] result = ((ResultData)data).finalMessage;
-            Console.WriteLine("---------------------------");
-            Utility.PrintArray(result);
 
             SummaryPanel.IsVisible = true;
-            SummaryTitle.Content = result[0].Contains("nyert") ? "You win" : "You lose";
+            bool playerWon = result[0].Contains("nyert");
+
+            if (playerWon)
+            {
+                SummaryTitle.Content = "You win";
+                AudioManager.PlaySoundEffect(SoundEffectTypes.win);
+            } else
+            {
+                SummaryTitle.Content = "You lose";
+                AudioManager.PlaySoundEffect(SoundEffectTypes.lose);
+            }
+            
             PrizeLabel.Content = result.Length == 1 ? "" : result.Length == 2 ? $"You got: {result[1]}" : $"You got: {result[1]} for {result[2]}";
         };
     }

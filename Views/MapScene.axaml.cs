@@ -34,7 +34,8 @@ public partial class MapScene : UserControl
             Image portalImage = new Image
             {
                 Source = new Bitmap($"./Assets/Images/Portal/portal_frame_{Global.gameManager.GetKazataObjects().Where(x => x.Name == Global.gameManager?.GetKazamatas().ToList()[i]).First().type.ToString()}.png"),
-                Width = 75
+                Width = 75,
+                Margin = new Avalonia.Thickness(0, 0, 0, 5)
             };
             portalPanel.Children.Add(portalImage);
 
