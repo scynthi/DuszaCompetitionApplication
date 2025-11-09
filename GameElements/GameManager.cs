@@ -428,6 +428,7 @@ public class GameManager
     }
     public Card[] MatchNameArrayToCardArray(string[] names, Card[] cards)
     {
+
         List<Card> returnCardList = new List<Card>();
         foreach (string name in names)
         {
