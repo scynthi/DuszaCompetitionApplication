@@ -16,6 +16,7 @@ public class Card
     public bool isKazamata { get; set; }
     public bool HealthChanged { get; private set; } = false;
     public bool AttackChanged { get; private set; } = false;
+    public string cardIconPath = "";
     public Card() { Name = ""; }
 
     public Card(string name, int attack, int health, CardElement element, CardType type)
