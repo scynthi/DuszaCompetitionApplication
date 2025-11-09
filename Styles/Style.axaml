@@ -11,6 +11,7 @@
 
   <Style Selector="Button, Label">
     <Setter Property="FontSize" Value="20"></Setter>
+    <Setter Property="Foreground" Value="White"></Setter>
   </Style>
 
   <Style Selector="Label.Title">
