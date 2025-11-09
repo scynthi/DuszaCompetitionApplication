@@ -49,7 +49,7 @@ public partial class MapScene : UserControl
                 string? chosenKazamata = (s as Button)?.Content?.ToString();
 
                 if (collection == null || chosenKazamata == null) return;
-                if (Global.gameManager?.GetPakli().Count != Math.Ceiling((decimal)collection / 2)) return;
+                // if (Global.gameManager?.GetPakli().Count != Math.Ceiling((decimal)collection / 2)) return;
 
                 Global.currentKazamata = chosenKazamata;
                 Global.contentControl.Content = new FightScene();

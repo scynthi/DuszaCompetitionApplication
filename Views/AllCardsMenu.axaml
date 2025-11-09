@@ -6,7 +6,7 @@
              x:Class="Views.AllCardsMenu"
              xmlns:vm="clr-namespace:ViewModels"
              x:DataType="vm:AllCardsMenuViewModel">
-  <StackPanel>
+  <StackPanel Background="{DynamicResource ResourceKey=AllCardsBackground}">
     <StackPanel HorizontalAlignment="Left" Margin="10,10">
       <Button Command="{Binding GoBackToMapCommand}" Classes="Wood" Name="GoBackButton">
         <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Go back to Map"/><Image/></Grid>
