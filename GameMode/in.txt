@@ -1,34 +1,34 @@
-uj kartya;Zelda;5;7;viz
-uj kartya;Link;6;8;tuz
-uj kartya;Ganon;8;9;levego
-uj kartya;Impa;4;6;fold
-uj kartya;Sheik;5;6;levego
-uj kartya;Darunia;6;7;fold
-uj kartya;Ruto;4;5;viz
-uj kartya;Nabooru;5;6;tuz
+uj kartya;Arin;2;5;fold
+uj kartya;Liora;2;4;levego
+uj kartya;Nerun;3;3;tuz
+uj kartya;Selia;2;6;viz
+uj kartya;Torak;3;4;fold
+uj kartya;Emera;2;5;levego
+uj kartya;Vorn;2;7;viz
+uj kartya;Kael;3;5;tuz
+uj kartya;Myra;2;6;fold
+uj kartya;Thalen;3;5;levego
+uj kartya;Isara;2;6;viz
 
-uj vezer;Dark Ganon;Ganon;sebzes
-uj vezer;Shadow Link;Link;eletero
-uj kazamata;egyszeru;Hyrule Vára;Zelda;eletero
-uj kazamata;kis;Halál Hegye;Impa,Sheik,Nabooru;Dark Ganon;sebzes
-uj kazamata;nagy;Idő Temploma;Link,Darunia,Ruto,Sheik,Impa;Shadow Link
+uj vezer;Lord Torak;Torak;sebzes
+uj vezer;Priestess Selia;Selia;eletero
+
+uj kazamata;egyszeru;Barlangi Portya;Nerun;sebzes
+uj kazamata;kis;Osi Szentely;Arin,Emera,Selia;Lord Torak;eletero
+uj kazamata;nagy;A melyseg kiralynoje;Liora,Arin,Selia,Nerun,Torak;Priestess Selia
 
 uj jatekos
 
-felvetel gyujtemenybe;Nabooru
-felvetel gyujtemenybe;Darunia
-felvetel gyujtemenybe;Ruto
-felvetel gyujtemenybe;Sheik
-felvetel gyujtemenybe;Impa
-felvetel gyujtemenybe;Dark Ganon
-
-uj pakli;Nabooru,Darunia,Dark Ganon
+felvetel gyujtemenybe;Arin
+felvetel gyujtemenybe;Liora
+felvetel gyujtemenybe;Selia
+felvetel gyujtemenybe;Nerun
+felvetel gyujtemenybe;Torak
+felvetel gyujtemenybe;Emera
+felvetel gyujtemenybe;Kael
+felvetel gyujtemenybe;Myra
+felvetel gyujtemenybe;Thalen
+felvetel gyujtemenybe;Isara
 
 export vilag;out.vilag01.txt
-
-
 export jatekos;out.jatekos01.txt
-harc;Hyrule Vára;out.harc01.txt
-export jatekos;out.jatekos02.txt
-harc;Halál Hegye;out.harc02.txt
-export jatekos;out.jatekos03.txt
