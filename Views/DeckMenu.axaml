@@ -6,22 +6,22 @@
              x:Class="Views.DeckMenu"
              xmlns:vm="clr-namespace:ViewModels"
              x:DataType="vm:DeckMenuViewModel">
-
-  <StackPanel Background="{DynamicResource ResourceKey=DeckBackground}" HorizontalAlignment="Stretch">
-    <StackPanel HorizontalAlignment="Left" Margin="10,10">
+             
+  <StackPanel Background="{DynamicResource ResourceKey=DeckBackground}">
+    <StackPanel HorizontalAlignment="Left" Margin="10,10" Orientation="Horizontal">
       <Button Command="{Binding GoBackToMapCommand}" Classes="Wood" Name="GoBackButton">
         <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Go back to Map"/><Image/></Grid>
       </Button>
+      <Label VerticalAlignment="Center">Click on the cards to add them to your deck!</Label>
     </StackPanel>
     <StackPanel HorizontalAlignment="Center" Width="{Binding $parent.Bounds.Width}">
-      <StackPanel Name="PlayerDeckHolder" Orientation="Horizontal" MinHeight="350" HorizontalAlignment="Center" Spacing="10">
+      <StackPanel Name="PlayerDeckHolder" Orientation="Horizontal" MinHeight="350" HorizontalAlignment="Center" Spacing="10" VerticalAlignment="Bottom">
       </StackPanel>
 
       <Border BorderBrush="White" BorderThickness="0,0,0,2" Height="50" HorizontalAlignment="Stretch" CornerRadius="20" Width="{Binding $parent.Bounds.Width}"></Border>
       
-      <WrapPanel Name="PlayerInventoryHolder" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="800" ItemSpacing="10" LineSpacing="20">
+      <WrapPanel Name="PlayerInventoryHolder" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="1600" ItemSpacing="10" LineSpacing="20" Margin="0, 10, 0, 0">
       </WrapPanel>
-
       
     </StackPanel>
   </StackPanel>

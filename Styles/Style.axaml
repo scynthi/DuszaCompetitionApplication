@@ -55,5 +55,38 @@
     <Setter Property="Source" Value="avares://DuszaCompetitionApplication/Assets/Images/Button/button_right_base.png"></Setter>
     <Setter Property="Margin" Value="0"></Setter>
   </Style>
+
+  <Style Selector="StackPanel.MainMenuSign">
+    <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+    <Setter Property="VerticalAlignment" Value="Bottom"></Setter>
+    <Setter Property="Background" Value="{DynamicResource ResourceKey=HangingSignBackgroundImage}"></Setter>
+    <Setter Property="MinWidth" Value="600"></Setter>
+    <Setter Property="MinHeight" Value="750"></Setter>
+  </Style>
+
+  <Style Selector="StackPanel.MainMenuSign Label.Title">
+    <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+    <Setter Property="Margin" Value="0, 160, 0, 50"></Setter>
+  </Style>
+
+  <Style Selector="StackPanel.MainMenuSign StackPanel">
+    <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+    <Setter Property="VerticalAlignment" Value="Center"></Setter>
+    <Setter Property="Spacing" Value="10"></Setter>
+    <Setter Property="Margin" Value="0,50"></Setter>
+  </Style>
+
+  <Style Selector="StackPanel.MainMenuSign Button.Wood">
+    <Setter Property="Width" Value="400"></Setter>
+    <Setter Property="Margin" Value="0, 0, 0, 50"></Setter>
+  </Style>
+
+  <Style Selector="StackPanel.MainMenuSign Button.Wood, StackPanel.MainMenuSign Button.Wood Grid Image">
+    <Setter Property="Height" Value="80"></Setter>
+  </Style>
+
+  <Style Selector="StackPanel.MainMenuSign Button.Wood Label">
+    <Setter Property="FontSize" Value="30"></Setter>
+  </Style>
 </Styles>
 

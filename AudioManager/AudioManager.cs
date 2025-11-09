@@ -104,26 +104,38 @@ namespace DuszaCompetitionApplication.Audio
 
         public static void PlaySoundEffect(SoundEffectTypes type)
         {
-            switch (type)
+            try
             {
-                case SoundEffectTypes.attack:
-                    PlayAudio(soundEffectFolder + $"attack/attack ({random.Next(1, 3)}).wav");
-                    break;
-                case SoundEffectTypes.click:
-                    PlayAudio(soundEffectFolder + $"click/wood_click ({random.Next(1, 8)}).wav");
-                    break;
-                case SoundEffectTypes.death:
-                    PlayAudio(soundEffectFolder + $"death/sound_death.wav");
-                    break;
-                case SoundEffectTypes.draw:
-                    PlayAudio(soundEffectFolder + $"draw/sound_draw.wav");
-                    break;
-                case SoundEffectTypes.hover:
-                    PlayAudio(soundEffectFolder + $"hover/wood_hover ({random.Next(1,4)}).wav");
-                    break;
-                case SoundEffectTypes.levelup:
-                    PlayAudio(soundEffectFolder + $"levelup/sound_level_up.wav");
-                    break;
+                switch (type)
+                {
+                    case SoundEffectTypes.attack:
+                        PlayAudio(soundEffectFolder + $"attack/attack ({random.Next(1, 3)}).wav");
+                        break;
+                    case SoundEffectTypes.click:
+                        PlayAudio(soundEffectFolder + $"click/wood_click ({random.Next(1, 8)}).wav");
+                        break;
+                    case SoundEffectTypes.death:
+                        PlayAudio(soundEffectFolder + $"death/sound_death.wav");
+                        break;
+                    case SoundEffectTypes.draw:
+                        PlayAudio(soundEffectFolder + $"draw/sound_draw.wav");
+                        break;
+                    case SoundEffectTypes.hover:
+                        PlayAudio(soundEffectFolder + $"hover/wood_hover ({random.Next(1,4)}).wav");
+                        break;
+                    case SoundEffectTypes.levelup:
+                        PlayAudio(soundEffectFolder + $"levelup/sound_level_up.wav");
+                        break;
+                    case SoundEffectTypes.win:
+                        PlayAudio(soundEffectFolder + $"fight/sound_win.wav");
+                        break;
+                    case SoundEffectTypes.lose:
+                        PlayAudio(soundEffectFolder + $"fight/sound_lose.wav");
+                        break;
+                }
+            } catch(Exception)
+            {
+                Console.WriteLine("Audio wanted to crash the whole system, but i saved it");
             }
         }
 
@@ -137,7 +149,9 @@ namespace DuszaCompetitionApplication.Audio
         death,
         draw,
         attack,
-        levelup
+        levelup,
+        win,
+        lose
     }
 
     public class AudioPlayerInstance

@@ -30,6 +30,8 @@ public class UICardElement
     public Card card;
     private Control cardVisual;
 
+    private Random random = new();
+
     public UICardElement(Card card, bool isKazamata = false)
     {
         card.isKazamata = isKazamata;
@@ -48,7 +50,6 @@ public class UICardElement
             Height = 220
         };
 
-
         Grid cardEntityAndBaseholder = new Grid
         {
             VerticalAlignment = Avalonia.Layout.VerticalAlignment.Stretch,
@@ -58,12 +59,13 @@ public class UICardElement
         cardEntityAndBaseholder.RowDefinitions.Add(new RowDefinition(GridLength.Star));
         cardEntityAndBaseholder.ColumnDefinitions.Add(new ColumnDefinition(GridLength.Star));
         cardBase.Child = cardEntityAndBaseholder;
+        cardEntityAndBaseholder.Classes.Add("UICards");
 
 
 
         Image entityIcon = new Image
         {
-            Source = new Bitmap(isKazamata ? "./Assets/Images/Entities/Enemies/char_wendigo.png" : "./Assets/Images/Entities/Heroes/char_hunter.png"),
+            Source = new Bitmap(isKazamata ? random.Next(0,2) == 0 ? "./Assets/Images/Entities/Enemies/char_wendigo.png" : "./Assets/Images/Entities/Enemies/char_gobellin.png" : random.Next(0,2) == 0 ? "./Assets/Images/Entities/Heroes/char_hunter.png" : "./Assets/Images/Entities/Heroes/char_huntress.png"),
             Width = 150,
             Margin = new Avalonia.Thickness(0, 0, 0, 5),
             HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center,

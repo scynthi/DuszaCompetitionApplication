@@ -12,7 +12,8 @@
         <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Go back to Map"/><Image/></Grid>
       </Button>
     </StackPanel>
-    <Grid Name="CardHolder" HorizontalAlignment="Center" VerticalAlignment="Center" ColumnDefinitions="Auto, Auto, Auto, Auto" RowSpacing="20" ColumnSpacing="10">
-    </Grid>
+    
+    <WrapPanel Name="CardHolder" HorizontalAlignment="Center" VerticalAlignment="Center" MaxWidth="1600" ItemSpacing="10" LineSpacing="20" Margin="0, 100, 0, 0">
+    </WrapPanel>
   </StackPanel>
 </UserControl>
