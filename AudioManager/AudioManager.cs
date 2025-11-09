@@ -49,7 +49,7 @@ namespace DuszaCompetitionApplication.Audio
 
                     while (outputDevice != null)
                     {
-                        Task.Delay(100).Wait();
+                        Task.Delay(10).Wait();
                         
                         if (outputDevice.PlaybackState == PlaybackState.Stopped)
                         {
