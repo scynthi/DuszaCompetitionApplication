@@ -176,7 +176,7 @@ public class GameManager
         if (gameMode == GameModes.Test) WriteOut.Battle(output.ToArray(), path, outName);
         else
         {
-            PrintBattle(output);
+            // PrintBattle(output);
         }
 
     }
@@ -279,7 +279,7 @@ public class GameManager
         if (gameMode == GameModes.Test) WriteOut.Battle(output.ToArray(), path, outName);
         else
         {
-            PrintBattle(output);
+            // PrintBattle(output);
         }
     }
     private void Export(string type, string name)

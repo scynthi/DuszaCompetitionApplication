@@ -12,7 +12,10 @@ sealed class Program
     [STAThread]
     public static void Main(string[] args)
     {
+        Console.ForegroundColor = ConsoleColor.DarkCyan;
         Console.WriteLine("undefined");
+        Console.ResetColor();
+        
         if (args.Length != 1)
         {
             Console.WriteLine("Használat: [--ui | <test_dir_path>]");
@@ -20,6 +23,7 @@ sealed class Program
         }
         if (args[0] == "--ui")
         {
+            Console.WriteLine("alma");
             BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
             return;
         }
