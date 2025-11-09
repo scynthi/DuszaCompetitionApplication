@@ -43,15 +43,13 @@ public class Player
             Console.WriteLine(card.Name);
         }
     }
-    public void IncreaseAttack(int colIndex, int pakIndex)
+    public void IncreaseAttack(int colIndex)
     {
         collection[colIndex].IncreaseAttack();
-        //pakli[pakIndex].IncreaseAttack();
     }
-    public void IncreaseHealth(int colIndex, int pakIndex)
+    public void IncreaseHealth(int colIndex)
     {
         collection[colIndex].IncreaseHealth();
-        //pakli[pakIndex].IncreaseHealth();
     }
 
 }

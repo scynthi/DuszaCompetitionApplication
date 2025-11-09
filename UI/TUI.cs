@@ -130,8 +130,7 @@ public class TUI
                                     pakli.Clear();
                                     foreach (int index in CardsSelected)
                                     {
-                                        gManager.TryReturnCardFromName(menus[(int)currentMenu][index], gManager.GetCollection().ToArray(), out tempCard);
-                                        pakli.Add(tempCard);
+                                        pakli.Add(gManager.ReturnCardFromName(menus[(int)currentMenu][index], gManager.GetCollection().ToArray()));
                                     }
                                     gManager.TryAddCardToPakli(pakli.ToArray());
                                 }
@@ -152,10 +151,6 @@ public class TUI
             {
                 PrintButtons(menus[(int)currentMenu], currentSelected);
             }
-            Console.WriteLine();
-            Utility.PrintArray(gManager.GetCardsCollection().ToArray());
-            Console.WriteLine();
-            Utility.PrintArray(menus);
         } while (pressed.Key != ConsoleKey.Escape);
     }
 

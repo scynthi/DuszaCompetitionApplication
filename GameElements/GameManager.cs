@@ -169,8 +169,8 @@ public class GameManager
             }
             else if (currentPlayerCard != null) // It's always gonna be true but the compiler didn't like it without this
             {
-                if (currKazamata.reward == RewardType.eletero) player.IncreaseHealth(GetIndexOfElement(player.collection.ToArray(), currentPlayerCard.Name), GetIndexOfElement(player.pakli.ToArray(), currentPlayerCard.Name));
-                else player.IncreaseAttack(GetIndexOfElement(player.collection.ToArray(), currentPlayerCard.Name), GetIndexOfElement(player.pakli.ToArray(), currentPlayerCard.Name));
+                if (currKazamata.reward == RewardType.eletero) player.IncreaseHealth(GetIndexOfElement(player.collection.ToArray(), currentPlayerCard.Name));
+                else player.IncreaseAttack(GetIndexOfElement(player.collection.ToArray(), currentPlayerCard.Name));
                 output.Add($"jatekos nyert;{currKazamata.reward.ToString()};{currentPlayerCard.Name}");
             }
         }
@@ -375,7 +375,10 @@ public class GameManager
 
             case "jatekos":
                 player = new Player();
-                nonInCollectionCards = new List<Card>(cards);
+                nonInCollectionCards = cards
+                .Where(card => card.Type == CardType.sima)
+                .Select(card => card.Clone())
+                .ToList();
                 break;
 
             case "pakli":
