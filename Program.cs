@@ -48,6 +48,7 @@ sealed class Program
     }
     private static void RunTestMode(string path)
     {
+        if (path.EndsWith('\\')) path = path.Substring(0, path.Length - 1);
         Console.WriteLine($"Test Mode started {path}");
         GameManager gManager = new GameManager(path, Enums.GameModes.Test);
         gManager.StartTestMode();

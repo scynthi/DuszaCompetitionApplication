@@ -1,12 +1,10 @@
-gyujtemeny;Arin;100;100;fold
-gyujtemeny;Liora;2;4;levego
-gyujtemeny;Selia;2;6;viz
-gyujtemeny;Nerun;3;3;tuz
-gyujtemeny;Torak;3;4;fold
-gyujtemeny;Emera;2;5;levego
-gyujtemeny;Kael;3;5;tuz
-gyujtemeny;Myra;2;6;fold
-gyujtemeny;Thalen;3;5;levego
-gyujtemeny;Isara;2;6;viz
+gyujtemeny;Nabooru;5;6;tuz
+gyujtemeny;Darunia;6;7;fold
+gyujtemeny;Ruto;4;5;viz
+gyujtemeny;Sheik;5;6;levego
+gyujtemeny;Impa;4;6;fold
+gyujtemeny;Dark Ganon;16;9;levego
 
-pakli;Arin
+pakli;Nabooru
+pakli;Darunia
+pakli;Dark Ganon

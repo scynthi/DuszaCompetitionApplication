@@ -297,7 +297,7 @@ public class GameManager
     private void Felvetel(string cardName)
     {
         Card newCard;
-        if (TryReturnCardFromName(cardName, nonInCollectionCards.ToArray(), out newCard))
+        if (TryReturnCardFromName(cardName, cards.ToArray(), out newCard))
         {
             nonInCollectionCards.RemoveAll(c => c.Name == newCard.Name);
             player.AddToCollection(newCard);
@@ -435,6 +435,15 @@ public class GameManager
         Console.WriteLine("buh");
         return cards[0];
     }
+    public bool ReturnCardFromNameSame(string name, Card[] cards, out Card rCard)
+    {
+        rCard = new Card();
+        foreach (Card card in cards)
+        {
+            if (name == card.Name) { rCard = card; return true; }
+        }
+        return false;
+    }
 
     public Card[] TryMatchNameArrayToCardArray(string[] names, Card[] cards)
     {
@@ -450,9 +459,10 @@ public class GameManager
     {
 
         List<Card> returnCardList = new List<Card>();
+        Card tempCard;
         foreach (string name in names)
         {
-            returnCardList.Add(ReturnCardFromName(name, cards));
+            if (ReturnCardFromNameSame(name, cards, out tempCard)) returnCardList.Add(tempCard);
         }
         return returnCardList.ToArray();
     }

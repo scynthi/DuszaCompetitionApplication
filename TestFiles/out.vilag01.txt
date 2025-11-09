@@ -1,18 +1,15 @@
-kartya;Arin;100;100;fold
-kartya;Liora;2;4;levego
-kartya;Nerun;3;3;tuz
-kartya;Selia;2;6;viz
-kartya;Torak;3;4;fold
-kartya;Emera;2;5;levego
-kartya;Vorn;2;7;viz
-kartya;Kael;3;5;tuz
-kartya;Myra;2;6;fold
-kartya;Thalen;3;5;levego
-kartya;Isara;2;6;viz
+kartya;Zelda;5;7;viz
+kartya;Link;6;8;tuz
+kartya;Ganon;8;9;levego
+kartya;Impa;4;6;fold
+kartya;Sheik;5;6;levego
+kartya;Darunia;6;7;fold
+kartya;Ruto;4;5;viz
+kartya;Nabooru;5;6;tuz
 
-vezer;Lord Torak;6;4;fold
-vezer;Priestess Selia;2;12;viz
+vezer;Dark Ganon;16;9;levego
+vezer;Shadow Link;6;16;tuz
 
-kazamata;egyszeru;Barlangi Portya;Nerun;sebzes
-kazamata;kis;Osi Szentely;Arin,Emera,Selia;Lord Torak;eletero
-kazamata;nagy;A melyseg kiralynoje;Liora,Arin,Selia,Nerun,Torak;Priestess Selia
+kazamata;egyszeru;Hyrule Vára;Zelda;eletero
+kazamata;kis;Halál Hegye;Impa,Sheik,Nabooru;Dark Ganon;sebzes
+kazamata;nagy;Idő Temploma;Link,Darunia,Ruto,Sheik,Impa;Shadow Link

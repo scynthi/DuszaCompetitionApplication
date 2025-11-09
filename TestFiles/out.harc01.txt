@@ -1,9 +1,18 @@
-harc kezdodik;Barlangi Portya
+harc kezdodik;Hyrule Vára
 
-1.kor;kazamata;kijatszik;Nerun;3;3;tuz
-1.kor;jatekos;kijatszik;Arin;100;100;fold
+1.kor;kazamata;kijatszik;Zelda;5;7;viz
+1.kor;jatekos;kijatszik;Nabooru;5;6;tuz
 
-2.kor;kazamata;tamad;Nerun;6;Arin;94
-2.kor;jatekos;tamad;Arin;200;Nerun;0
+2.kor;kazamata;tamad;Zelda;10;Nabooru;0
+2.kor;jatekos;kijatszik;Darunia;6;7;fold
 
-jatekos nyert;sebzes;Arin
+3.kor;kazamata;tamad;Zelda;2;Darunia;5
+3.kor;jatekos;tamad;Darunia;3;Zelda;4
+
+4.kor;kazamata;tamad;Zelda;2;Darunia;3
+4.kor;jatekos;tamad;Darunia;3;Zelda;1
+
+5.kor;kazamata;tamad;Zelda;2;Darunia;1
+5.kor;jatekos;tamad;Darunia;3;Zelda;0
+
+jatekos nyert;eletero;Darunia
