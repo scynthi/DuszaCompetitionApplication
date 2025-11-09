@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using Avalonia.Controls;
 using Avalonia.Media;
@@ -33,7 +34,8 @@ public class UICardElement
 
     public UICardElement(Card card, bool isKazamata = false)
     {
-        string icon = card.cardIconPath != "" ? card.cardIconPath : isKazamata ? random.Next(0, 2) == 0 ? "./Assets/Images/Entities/Enemies/char_wendigo.png" : "./Assets/Images/Entities/Enemies/char_gobellin.png" : random.Next(0, 2) == 0 ? "./Assets/Images/Entities/Heroes/char_hunter.png" : "./Assets/Images/Entities/Heroes/char_huntress.png";
+        string icon = card.cardIconPath != "" ? card.cardIconPath : random.Next(0, 2) == 0 ? "./Assets/Images/Entities/Enemies/char_wendigo.png" : random.Next(0, 2) == 0 ? "./Assets/Images/Entities/Heroes/char_hunter.png" : random.Next(0, 2) == 0 ? "./Assets/Images/Entities/Heroes/char_huntress.png" : "./Assets/Images/Entities/Enemies/char_gobellin.png";
+
         card.isKazamata = isKazamata;
         card.cardIconPath = icon;
         this.card = card;
