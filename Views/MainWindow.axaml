@@ -6,8 +6,8 @@
         mc:Ignorable="d" d:DesignWidth="1920" d:DesignHeight="1080" Width="900" Height="600" CanMaximize="True"
         x:Class="DuszaCompetitionApplication.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/avalonia-logo.ico"
-        Title="DuszaCompetitionApplication">
+        Icon="/Assets/Images/Icons/icon.ico"
+        Title="Charter (undefined)">
 
     <Design.DataContext>
         <vm:MainWindowViewModel/>
