@@ -26,11 +26,20 @@ for name in names:
 similar = True
 wrong_my = []
 wrong_comp = []
+for i in range(len(names)):
+    while ("\n" in my_test_files_lines[i]):
+        my_test_files_lines[i].remove("\n")
+    while ("\n" in compare_files_lines[i]):
+        compare_files_lines[i].remove("\n")
 
-for i in range(len(my_test_files_lines)):
-    for j in range(len(my_test_files_lines[i])):
-        print(my_test_files_lines[i][j] + "\t" + compare_files_lines[i][j])
-        if my_test_files_lines[i][j] != compare_files_lines[i][j]:
+    while ("" in my_test_files_lines):
+        my_test_files_lines[i].remove("")
+    while ("" in compare_files_lines[i]):
+        compare_files_lines[i].remove("")
+
+for i in range(len(names)):
+    for j in range((len(compare_files_lines[i]))):
+        if my_test_files_lines[i][j].strip() != compare_files_lines[i][j].strip():
             similar = False
             wrong_my.append(my_test_files_lines[i][j])
             wrong_comp.append(compare_files_lines[i][j])
