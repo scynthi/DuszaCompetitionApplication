@@ -147,6 +147,8 @@ public class GameManager
         }
 
 
+
+
         if (playerPakli.Count > 0) // Player won
         {
             if (currKazamata.type == KazamataTypes.nagy)
@@ -176,6 +178,75 @@ public class GameManager
         if (gameMode == GameModes.Test) WriteOut.Battle(output.ToArray(), path, outName);
         else PrintBattle(output);
 
+    }
+
+    public void BattleLoop(string kazamataName, string outName, out List<string> output)
+    {
+
+        Kazamata currKazamata;
+        output = new List<string>();
+        if (!TryReturnKazamataFromName(kazamataName, kazamatas.ToArray(), out currKazamata)) return;
+        List<Card> kazamataPakli = currKazamata.KazamataCards.ToList<Card>();
+        Card? currentKazamataCard = null;
+
+        List<Card> playerPakli = player.pakli.ToList<Card>();
+        Card? currentPlayerCard = null;
+
+        int round = 1;
+
+        output.Add($"harc kezdodik;{kazamataName}");
+
+        int damageNum;
+
+        while (playerPakli.Count > 0 && kazamataPakli.Count > 0)
+        {
+            if (currentKazamataCard == null)
+            {
+                currentKazamataCard = new Card(kazamataPakli[0]);
+                output.Add($"{round}.kor;kazamata;kijatszik;{currentKazamataCard.Name};{currentKazamataCard.Attack};{currentKazamataCard.Health};{currentKazamataCard.Element.ToString()}");
+            }
+            else
+            {
+                if (currentPlayerCard != null)
+                {
+                    damageNum = currentPlayerCard.Damage(currentKazamataCard.Attack, currentKazamataCard.Element);
+                    output.Add($"{round}.kor;kazamata;tamad;{currentKazamataCard.Name};{damageNum};{currentPlayerCard?.Name};{currentPlayerCard?.Health}");
+                }
+            }
+
+            if (currentPlayerCard?.Health <= 0)
+            {
+                playerPakli.RemoveAt(0);
+                currentPlayerCard = null;
+            }
+
+            if (playerPakli.Count == 0) // Check if the player ran out of cards
+            {
+                break;
+            }
+
+            if (currentPlayerCard == null)
+            {
+                currentPlayerCard = new Card(playerPakli[0]);
+                output.Add($"{round}.kor;jatekos;kijatszik;{currentPlayerCard.Name};{currentPlayerCard.Attack};{currentPlayerCard.Health};{currentPlayerCard.Element.ToString()}");
+            }
+            else
+            {
+                if (currentKazamataCard != null)
+                {
+                    damageNum = currentKazamataCard.Damage(currentPlayerCard.Attack, currentPlayerCard.Element);
+                    output.Add($"{round}.kor;jatekos;tamad;{currentPlayerCard.Name};{damageNum};{currentKazamataCard.Name};{currentKazamataCard.Health}");
+                }
+            }
+
+            if (currentKazamataCard?.Health <= 0)
+            {
+                kazamataPakli.RemoveAt(0);
+                currentKazamataCard = null;
+            }
+
+            round++;
+        }
     }
     private void Export(string type, string name)
     {
@@ -252,7 +323,7 @@ public class GameManager
                 {
                     List<string> names = command[(int)KazamataArrayParts.cards].Split(',').ToList();
                     names.Add(command[(int)KazamataArrayParts.vezerCard]);
-                    Card[] kazamataCards = MatchNameArrayToCardArray(names.ToArray(), cards.ToArray());
+                    Card[] kazamataCards = TryMatchNameArrayToCardArray(names.ToArray(), cards.ToArray());
 
                     kazamatas.Add(new Kazamata(
                         (KazamataTypes)Enum.Parse(typeof(KazamataTypes), command[(int)KazamataArrayParts.type], true),
@@ -265,7 +336,7 @@ public class GameManager
                 {
                     List<string> names = command[(int)KazamataArrayParts.cards].Split(',').ToList();
                     names.Add(command[(int)KazamataArrayParts.vezerCard]);
-                    Card[] kazamataCards = MatchNameArrayToCardArray(names.ToArray(), cards.ToArray());
+                    Card[] kazamataCards = TryMatchNameArrayToCardArray(names.ToArray(), cards.ToArray());
 
                     kazamatas.Add(new Kazamata(
                         (KazamataTypes)Enum.Parse(typeof(KazamataTypes), command[(int)KazamataArrayParts.type], true),
@@ -277,7 +348,7 @@ public class GameManager
                 else
                 {
                     List<string> names = command[(int)KazamataArrayParts.cards].Split(',').ToList();
-                    Card[] kazamataCards = MatchNameArrayToCardArray(names.ToArray(), cards.ToArray());
+                    Card[] kazamataCards = TryMatchNameArrayToCardArray(names.ToArray(), cards.ToArray());
 
                     kazamatas.Add(new Kazamata(
                         (KazamataTypes)Enum.Parse(typeof(KazamataTypes), command[(int)KazamataArrayParts.type], true),
@@ -318,13 +389,32 @@ public class GameManager
         return false;
     }
 
-    public Card[] MatchNameArrayToCardArray(string[] names, Card[] cards)
+    public Card ReturnCardFromName(string name, Card[] cards)
+    {
+        foreach (Card card in cards)
+        {
+            if (name == card.Name) return card;
+        }
+        Console.WriteLine("buh");
+        return cards[0];
+    }
+
+    public Card[] TryMatchNameArrayToCardArray(string[] names, Card[] cards)
     {
         List<Card> returnCardList = new List<Card>();
         Card tempCard;
         foreach (string name in names)
         {
             if (TryReturnCardFromName(name, cards, out tempCard)) returnCardList.Add(tempCard);
+        }
+        return returnCardList.ToArray();
+    }
+    public Card[] MatchNameArrayToCardArray(string[] names, Card[] cards)
+    {
+        List<Card> returnCardList = new List<Card>();
+        foreach (string name in names)
+        {
+            returnCardList.Add(ReturnCardFromName(name, cards));
         }
         return returnCardList.ToArray();
     }
@@ -383,7 +473,7 @@ public class GameManager
                 return true;
             }
         }
-            return false;
+        return false;
     }
     public List<Card> GetCollection()
     {

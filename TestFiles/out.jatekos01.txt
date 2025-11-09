@@ -4,3 +4,4 @@ gyujtemeny;Corky;2;4;fold
 gyujtemeny;Kira;2;7;levego
 
 pakli;Corky
+pakli;Kira

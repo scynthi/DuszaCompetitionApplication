@@ -16,4 +16,3 @@ vezer;Priestess Selia;2;12;viz
 kazamata;egyszeru;Barlangi Portya;Nerun;sebzes
 kazamata;kis;Osi Szentely;Arin,Emera,Selia;Lord Torak;eletero
 kazamata;nagy;A melyseg kiralynoje;Liora,Arin,Selia,Nerun,Torak;Priestess Selia
-kazamata;nagy;A melyseg kiralynoje ElectricBoogaloo;Liora,Arin,Selia,Nerun,Torak;Priestess Selia

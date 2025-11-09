@@ -16,18 +16,17 @@ uj kazamata;nagy;Teszt3 Kazamata;Aragorn,Eowyn,ObiWan,Kira,Tul'Arak;Darth ObiWan
 
 uj jatekos
 
+felvetel gyujtemenybe;Aragorn
+felvetel gyujtemenybe;Sadan
 felvetel gyujtemenybe;Corky
 felvetel gyujtemenybe;Kira
-felvetel gyujtemenybe;Darth ObiWan
-felvetel gyujtemenybe;Eowyn
-felvetel gyujtemenybe;Sadan
 
-uj pakli;Corky,Kira,Darth ObiWan,Tul'Arak,Eowyn,Sadan
+uj pakli;Corky,Kira
 
 export vilag;out.vilag01.txt
 export jatekos;out.jatekos01.txt
 
-harc;Teszt3 Kazamata;out.harc01.txt
+harc;Teszt1a Kazamata;out.harc01.txt
 
 export vilag;out.vilag02.txt
 export jatekos;out.jatekos02.txt

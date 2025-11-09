@@ -26,11 +26,11 @@ public class Player
     }
     public void AddToPakli(Card card)
     {
-        if (pakli.Count < Math.Ceiling((double)collection.Count/2)) pakli.Add(new Card(card));
+        if (pakli.Count < Math.Ceiling((double)collection.Count/2)) pakli.Add(card);
     }
     public void AddToPakli(Card[] cards)
     {
-        foreach (Card card in cards) if (pakli.Count < Math.Ceiling((double)collection.Count / 2)) pakli.Add(new Card(card));
+        foreach (Card card in cards) if (pakli.Count < Math.Ceiling((double)collection.Count / 2)) pakli.Add(card);
     }
     public void RemoveFromPakli(int i)
     {
@@ -46,12 +46,12 @@ public class Player
     public void IncreaseAttack(int colIndex, int pakIndex)
     {
         collection[colIndex].IncreaseAttack();
-        pakli[pakIndex].IncreaseAttack();
+        //pakli[pakIndex].IncreaseAttack();
     }
     public void IncreaseHealth(int colIndex, int pakIndex)
     {
         collection[colIndex].IncreaseHealth();
-        pakli[pakIndex].IncreaseHealth();
+        //pakli[pakIndex].IncreaseHealth();
     }
 
 }
