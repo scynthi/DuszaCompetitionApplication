@@ -318,8 +318,6 @@ public class BattleToUILanguageInterpreter
             }
             battleLog.Add(rawBattleLog[i].Split(";").ToList());
         }
-        Console.WriteLine("---------------------------");
-        Utility.PrintArray(battleLog);
     }
 
     public void PlayNextStep()

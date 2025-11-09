@@ -12,6 +12,7 @@ sealed class Program
     [STAThread]
     public static void Main(string[] args)
     {
+        Console.WriteLine("undefined");
         if (args.Length != 1)
         {
             Console.WriteLine("Használat: [--ui | <test_dir_path>]");

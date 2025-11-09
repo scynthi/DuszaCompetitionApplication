@@ -8,8 +8,6 @@ namespace DuszaCompetitionApplication.Audio
 {
     public static class AudioManager
     {
-        private static int maxSfxAudioPlayer = 32;
-        private static int currentSfxAudioPlayer = 0;
         private static Dictionary<string, AudioPlayerInstance> playingLoopedAudioPlayers = new();
         private static Random random = new();
 
@@ -29,42 +27,54 @@ namespace DuszaCompetitionApplication.Audio
             }
         }
 
-        public static async void PlayAudio(string path)
+        private static WaveOutEvent? currentOutputDevice;
+        private static AudioFileReader? currentAudioReader;
+
+        public static void PlayAudio(string path)
         {
             try
             {
-                // Console.WriteLine($"{maxSfxAudioPlayer}/{currentSfxAudioPlayer}");
-
-                if (currentSfxAudioPlayer >= maxSfxAudioPlayer) return;
-                currentSfxAudioPlayer++;
-
-                await Task.Run(() =>
+                if (currentOutputDevice is not null)
                 {
-                    using AudioFileReader audioReader = new(path);
-                    using WaveOutEvent outputDevice = new WaveOutEvent { Volume = totalVolume };
-
-                    outputDevice.Init(audioReader);
-                    outputDevice.Volume = totalVolume;
-                    outputDevice.Play();
-
-                    while (outputDevice != null)
+                    try
                     {
-                        Task.Delay(10).Wait();
-                        
-                        if (outputDevice.PlaybackState == PlaybackState.Stopped)
-                        {
-                            audioReader.Dispose();
-                            outputDevice.Dispose();
-                            currentSfxAudioPlayer--;
-                            break;
-                        }
+                        currentOutputDevice.Stop();
                     }
-                });
-            } catch(Exception)
-            {
-                Console.WriteLine("Audio wanted to crash the whole system, but i saved it");
-            }
+                    catch {} //🥀
 
+                    currentAudioReader?.Dispose();
+                    currentOutputDevice.Dispose();
+
+                    currentOutputDevice = null;
+                    currentAudioReader = null;
+                }
+
+                var outputDevice = new WaveOutEvent { Volume = totalVolume };
+                var audioReader = new AudioFileReader(path);
+
+                currentOutputDevice = outputDevice;
+                currentAudioReader = audioReader;
+
+                outputDevice.Init(audioReader);
+                outputDevice.Play();
+
+
+                outputDevice.PlaybackStopped += (s, e) =>
+                {
+                    audioReader.Dispose();
+                    outputDevice.Dispose();
+
+                    if (ReferenceEquals(outputDevice, currentOutputDevice))
+                    {
+                        currentOutputDevice = null;
+                        currentAudioReader = null;
+                    }
+                };
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Audio playback failed: {ex.Message}");
+            }
         }
 
         public static void PlayAndLoopAudio(string path)

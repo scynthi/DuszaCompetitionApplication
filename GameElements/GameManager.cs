@@ -432,7 +432,6 @@ public class GameManager
         {
             if (name == card.Name) return card;
         }
-        Console.WriteLine("buh");
         return cards[0];
     }
     public bool ReturnCardFromNameSame(string name, Card[] cards, out Card rCard)
@@ -472,7 +471,6 @@ public class GameManager
         {
             if (cards[i].Name == cardName) return i;
         }
-        Console.WriteLine("buh");
         return -1;
     }
     public List<string> GetKazamatas()

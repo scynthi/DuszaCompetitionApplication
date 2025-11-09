@@ -21,7 +21,7 @@ public partial class FightScene : UserControl
     {
         InitializeComponent();
         DataContext = new FightSceneViewModel();
-        UIController.ApplySFXToButtons([GoBackButton]);
+        UIController.ApplySFXToButtons([GoBackButton, NextStepButton]);
         Global.gameManager.TryReturnKazamataFromName(Global.currentKazamata, Global.gameManager.GetKazataObjects(), out currentKazamata);
 
         if (currentKazamata.type == DuszaCompetitionApplication.Enums.KazamataTypes.nagy)

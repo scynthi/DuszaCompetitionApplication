@@ -6,6 +6,7 @@ using Avalonia.Controls;
 using Avalonia.Layout;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media.Imaging;
+using DuszaCompetitionApplication.Audio;
 using DuszaCompetitionApplication.Enums;
 using DuszaCompetitionApplication.GameElements;
 using DuszaCompetitionApplication.UIController;
@@ -59,6 +60,9 @@ public partial class MapScene : UserControl
                 if (Global.gameManager.GetPakli().Count <= 0) return;
 
                 Global.currentKazamata = chosenKazamata;
+
+                AudioManager.FindAndPauseAudio("./Assets/Audio/Music/wind_loop_ambient.wav");
+
                 Global.contentControl.Content = new FightScene();
             };
         }
