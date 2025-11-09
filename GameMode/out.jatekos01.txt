@@ -1,0 +1,11 @@
+gyujtemeny;Arin;2;5;fold
+gyujtemeny;Liora;2;4;levego
+gyujtemeny;Selia;2;6;viz
+gyujtemeny;Nerun;3;3;tuz
+gyujtemeny;Torak;3;4;fold
+gyujtemeny;Emera;2;5;levego
+gyujtemeny;Kael;3;5;tuz
+gyujtemeny;Myra;2;6;fold
+gyujtemeny;Thalen;3;5;levego
+gyujtemeny;Isara;2;6;viz
+
