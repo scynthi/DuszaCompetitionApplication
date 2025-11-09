@@ -9,6 +9,7 @@ using Avalonia.Media.Imaging;
 using Avalonia;
 using Avalonia.Markup.Xaml.MarkupExtensions;
 using System.Linq;
+using DuszaCompetitionApplication;
 
 namespace Views;
 
@@ -47,6 +48,8 @@ public partial class FightScene : UserControl
         interpreter.finalResult += (object? _, EventArgs data) =>
         {
             string[] result = ((ResultData)data).finalMessage;
+            Console.WriteLine("---------------------------");
+            Utility.PrintArray(result);
 
             SummaryPanel.IsVisible = true;
             SummaryTitle.Content = result[0].Contains("nyert") ? "You win" : "You lose";
