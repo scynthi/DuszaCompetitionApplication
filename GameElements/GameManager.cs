@@ -462,7 +462,7 @@ public class GameManager
         {
             if (cards[i].Name == cardName) return i;
         }
-        Console.WriteLine("APPLE");
+        Console.WriteLine("buh");
         return -1;
     }
     public List<string> GetKazamatas()
