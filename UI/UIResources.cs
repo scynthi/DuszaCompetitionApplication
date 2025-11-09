@@ -1,7 +1,12 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using Avalonia.Controls;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
+using Avalonia.VisualTree;
+using DuszaCompetitionApplication.Audio;
 using DuszaCompetitionApplication.Enums;
 using DuszaCompetitionApplication.GameElements;
 
@@ -9,11 +14,7 @@ namespace DuszaCompetitionApplication.UIResources;
 
 public class UICardElement
 {
-    // public static UICardElement ConvertCard(Card card)
-    // {
-        
-    // }
-    public static UICardElement[] ConvertCards(Card[]? cards)
+    public static UICardElement[] ConvertCards(Card[]? cards, bool isKazamata = false)
     {
         if (cards == null) return [];
 
@@ -21,7 +22,7 @@ public class UICardElement
 
         for (int i = 0; i < cards.Length; i++)
         {
-            convertedCards[i] = new UICardElement(cards[i]);
+            convertedCards[i] = new UICardElement(cards[i], isKazamata);
         }
 
         return convertedCards;
@@ -31,6 +32,7 @@ public class UICardElement
 
     public UICardElement(Card card, bool isKazamata = false)
     {
+        card.isKazamata = isKazamata;
         this.card = card;
 
         Border cardBase = new Border
@@ -187,6 +189,7 @@ public class UICardElement
         TextBlock healthAmount = new TextBlock
         {
             Text = card.Health.ToString(),
+            Name = "HealthAmount",
             HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch,
             VerticalAlignment = Avalonia.Layout.VerticalAlignment.Bottom,
             TextAlignment = TextAlignment.Center,
@@ -232,6 +235,7 @@ public class UICardElement
         TextBlock attackAmount = new TextBlock
         {
             Text = card.Attack.ToString(),
+            Name = "AttackAmount",
             HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch,
             VerticalAlignment = Avalonia.Layout.VerticalAlignment.Bottom,
             TextAlignment = TextAlignment.Right,
@@ -247,5 +251,160 @@ public class UICardElement
         cardVisual = cardBase;
     }
 
+    public void EditHealth(string value)
+    {
+        cardVisual.GetVisualDescendants().Where(x => x.Name == "HealthAmount").OfType<TextBlock>().First().Text = value;
+    }
+
+    public void EditAttack(string value)
+    {
+        cardVisual.GetVisualDescendants().Where(x => x.Name == "AttackAmount").OfType<TextBlock>().First().Text = value;
+    }
+
     public Control GetCardVisual() => cardVisual;
+}
+
+public class ResultData : EventArgs
+{
+    public bool playerWon;
+
+    public ResultData(bool playerWon)
+    {
+        this.playerWon = playerWon;
+    }
+}
+
+public class BattleToUILanguageInterpreter
+{
+    public event EventHandler? finalResult;
+    private List<string[]> battleLog = new();
+    private Control parentControl;
+    private UICardElement[] playerDeck;
+    private UICardElement[] enemyDeck;
+
+    StackPanel enemyDeckControl;
+    StackPanel enemyCardControl;
+    StackPanel playerDeckControl;
+    StackPanel playerCardControl;
+    public BattleToUILanguageInterpreter(Control parentControl, UICardElement[] playerDeck, UICardElement[] enemyDeck)
+    {
+        Console.WriteLine("======STARTING INTERPRETER=======");
+
+        this.parentControl = parentControl;
+        this.playerDeck = playerDeck;
+        this.enemyDeck = enemyDeck;
+
+        enemyDeckControl = parentControl.GetVisualDescendants().OfType<StackPanel>().Where(x => x.Name == "EnemyDeckHolder").First();
+        enemyCardControl = parentControl.GetVisualDescendants().OfType<StackPanel>().Where(x => x.Name == "EnemyCardHolder").First();
+        playerDeckControl = parentControl.GetVisualDescendants().OfType<StackPanel>().Where(x => x.Name == "PlayerDeckHolder").First();
+        playerCardControl = parentControl.GetVisualDescendants().OfType<StackPanel>().Where(x => x.Name == "PlayerCardHolder").First();
+
+        Console.WriteLine($"{enemyCardControl}, {enemyDeckControl}, {playerCardControl}, {playerDeckControl}");
+
+        List<string> rawBattleLog = Global.gameManager.latestOutput;
+        for (int i = 0; i < rawBattleLog.Count; i++)
+        {
+            if (rawBattleLog[i] == "" || rawBattleLog[i].StartsWith("harc") || rawBattleLog[i].StartsWith("jatekos"))
+            {
+                continue;
+            }
+            Console.WriteLine(rawBattleLog[i]);
+            battleLog.Add(rawBattleLog[i].Split(";"));
+        }
+
+    }
+
+    public void PlayNextStep()
+    {
+        if (battleLog.Count == 0)
+        {
+            int playerCardAmount = playerCardControl.Children.Count + playerDeckControl.Children.Count;
+            int enemyCardAmount = enemyCardControl.Children.Count + enemyDeckControl.Children.Count;
+
+            finalResult?.Invoke(this, new ResultData(playerCardAmount > enemyCardAmount));
+            Console.WriteLine("Done!");
+            return;
+        }
+
+        bool isKazamata = battleLog[0][1] == "kazamata";
+        string command = battleLog[0][2];
+
+        Console.WriteLine($"{battleLog[0][1]}, {isKazamata}, {command}");
+
+        if (isKazamata)
+        {
+            UICardElement card = getCard(enemyDeck, battleLog[0][3]);
+
+            switch (command)
+            {
+                case "kijatszik":
+                    MoveCard(card, enemyDeckControl, enemyCardControl);
+                    break;
+                case "tamad":
+                    DamageCard(card, getCard(playerDeck, battleLog[0][5]));
+                    break;
+            }
+        }
+        else
+        {
+            UICardElement card = getCard(playerDeck, battleLog[0][3]);
+
+            switch (command)
+            {
+                case "kijatszik":
+                    MoveCard(card, playerDeckControl, playerCardControl);
+                    break;
+                case "tamad":
+                    DamageCard(card, getCard(enemyDeck, battleLog[0][5]));
+                    break;
+            }
+        }
+
+        battleLog.RemoveAt(0);
+    }
+
+    private UICardElement getCard(UICardElement[] array, string name)
+    {
+        return array.Where(x => x.card.Name == name).First();
+    }
+
+    private void MoveCard(UICardElement card, StackPanel from, StackPanel to)
+    {
+        from.Children.Remove(from.Children.Where(x => x.Name == card.card.Name).First());
+        to.Children.Add(card.GetCardVisual());
+    }
+
+    private void DamageCard(UICardElement fromCard, UICardElement toCard)
+    {
+        try
+        {
+            AudioManager.PlaySoundEffect(SoundEffectTypes.attack);
+            toCard.card.Damage(fromCard.card.Attack, fromCard.card.Element);
+            if (toCard.card.Health > 0)
+            {
+                toCard.EditHealth(toCard.card.Health.ToString());
+            }
+            else
+            {
+                toCard.GetCardVisual().IsVisible = false;
+
+                if (toCard.card.isKazamata)
+                {
+                    enemyCardControl.Children.Remove(enemyCardControl.Children.Where(x => x.Name == toCard.card.Name).First());
+                }
+                else
+                {
+                    playerCardControl.Children.Remove(playerCardControl.Children.Where(x => x.Name == toCard.card.Name).First());
+                }
+
+                AudioManager.PlaySoundEffect(SoundEffectTypes.attack);
+            }
+        } catch(Exception)
+        {
+            Console.WriteLine("Error while removing card.");
+        }
+
+
+
+    }
 }

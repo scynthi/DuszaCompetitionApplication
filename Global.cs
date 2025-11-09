@@ -12,9 +12,8 @@ static class Global
 {
     public static MainWindow? mainWindow;
     public static GameManager gameManager = new GameManager("", DuszaCompetitionApplication.Enums.GameModes.Game);
-
+    public static string currentKazamata = "";
     public static ContentControl contentControl = new();
-    public static List<UICardElement> cardsList = new();
 
     public static T? getElementByName<T>(string name) where T : Control
     {

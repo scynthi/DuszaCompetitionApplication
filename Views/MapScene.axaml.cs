@@ -1,8 +1,11 @@
 using System;
+using System.Collections;
 using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Layout;
 using Avalonia.Markup.Xaml;
+using Avalonia.Media.Imaging;
 using DuszaCompetitionApplication.Enums;
 using DuszaCompetitionApplication.UIController;
 using DuszaCompetitionApplication.UIResources;
@@ -18,31 +21,39 @@ public partial class MapScene : UserControl
         InitializeComponent();
         DataContext = new MapSceneViewModel();
 
-
+        if (Global.gameManager == null) return;
         UIController.ApplySFXToButtons([GoBackButton, DeckButton, AllCardsButton]);
         
         for (int i = 0; i < Global.gameManager?.GetKazamatas().ToList().Count; i++)
         {
+            StackPanel portalPanel = new StackPanel
+            {
+                VerticalAlignment = VerticalAlignment.Center
+            };
+            Image portalImage = new Image
+            {
+                Source = new Bitmap("./Assets/Images/Portal/portal_frame.png"),
+                Width = 75
+            };
+            portalPanel.Children.Add(portalImage);
+
             Button dungeonButton = new();
             dungeonButton.Content = Global.gameManager?.GetKazamatas().ToList()[i];
+            portalPanel.Children.Add(dungeonButton);
+            DungeonPanel.Children.Add(portalPanel);
 
-            DungeonPanel.Children.Add(dungeonButton);
-            dungeonButton.Click += (_, _) =>
+
+            dungeonButton.Click += (s, _) =>
             {
+                int? collection = Global.gameManager?.GetCollection()?.Count;
+                string? chosenKazamata = (s as Button)?.Content?.ToString();
+
+                if (collection == null || chosenKazamata == null) return;
+                if (Global.gameManager?.GetPakli().Count != Math.Ceiling((decimal)collection / 2)) return;
+
+                Global.currentKazamata = chosenKazamata;
                 Global.contentControl.Content = new FightScene();
             };
         }
-        
-
-        // Random random = new();
-
-        // for (int i = 0; i < 9; i++)
-        // {
-        //     Global.cardsList.Add(new UICardElement(new("Test Card", i, i, CardElement.viz, random.Next(0, 2) == 1 ? CardType.vezer : CardType.sima), random.Next(0, 2) == 1));
-        // }
-        
-        // string[] dungeons = { "Dungeon1", "Dungeon2", "Dungeon3", "Dungeon4", "Dungeon5", "Dungeon6", "Dungeon7" , "Dungeon2", "Dungeon3", "Dungeon4", "Dungeon5", "Dungeon6", "Dungeon7" , "Dungeon2", "Dungeon3", "Dungeon4", "Dungeon5", "Dungeon6", "Dungeon7" , "Dungeon2", "Dungeon3", "Dungeon4", "Dungeon5", "Dungeon6", "Dungeon7" , "Dungeon2", "Dungeon3", "Dungeon4", "Dungeon5", "Dungeon6", "Dungeon7" , "Dungeon2", "Dungeon3", "Dungeon4", "Dungeon5", "Dungeon6", "Dungeon7" , "Dungeon2", "Dungeon3", "Dungeon4", "Dungeon5", "Dungeon6", "Dungeon7" , "Dungeon2", "Dungeon3", "Dungeon4", "Dungeon5", "Dungeon6", "Dungeon7" , "Dungeon2", "Dungeon3", "Dungeon4", "Dungeon5", "Dungeon6", "Dungeon7" , "Dungeon2", "Dungeon3", "Dungeon4", "Dungeon5", "Dungeon6", "Dungeon7" };
     }
-    
-    
 }

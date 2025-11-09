@@ -13,6 +13,7 @@ public class Card
     public int Attack { get; private set; }
     public CardElement Element { get; }
     public CardType Type { get; }
+    public bool isKazamata { get; set; }
     public bool HealthChanged { get; private set; } = false;
     public bool AttackChanged { get; private set; } = false;
     public Card() { Name = ""; }

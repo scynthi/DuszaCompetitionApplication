@@ -7,19 +7,16 @@
              xmlns:vm="clr-namespace:ViewModels"
              x:DataType="vm:CreditsMenuViewModel">
   <StackPanel Background="{DynamicResource ResourceKey=OutsideBackground}">
-    <StackPanel HorizontalAlignment="Left" Margin="10,10">
-      <Button Command="{Binding GoBackToMainMenuCommand}" Classes="Wood" Name="GoBackButton">
-        <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Title screen"/><Image/></Grid>
-      </Button>
-    </StackPanel>
-
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-      <Label Classes="Title" HorizontalAlignment="Center">Credits</Label>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Background="{DynamicResource ResourceKey=HangingSignBackgroundImage}" MinWidth="600" Height="600">
+      <Label Classes="Title" HorizontalAlignment="Center" Margin="0, 120, 0, 0">Credits</Label>
       <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10" Margin="0,50">
-        <Image Source="avares://DuszaCompetitionApplication/Assets/Images/Team logo/undefined_team_logo.png" MaxWidth="300" Margin="0,30"></Image>
-        <Label HorizontalAlignment="Center">Kovács Dániel Benedek - UI</Label>
+        <Image Source="avares://DuszaCompetitionApplication/Assets/Images/Team logo/undefined_team_logo.png" MaxWidth="300" Margin="0,0"></Image>
+        <Label HorizontalAlignment="Center">Kovács Dániel Benedek - UI, Sound system </Label>
         <Label HorizontalAlignment="Center">Tóth Péter Sándor - Assets</Label>
         <Label HorizontalAlignment="Center">Borók Máté - Backend</Label>
+        <Button Command="{Binding GoBackToMainMenuCommand}" Classes="Wood" Name="GoBackButton">
+          <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Title screen"/><Image/></Grid>
+        </Button>
       </StackPanel>
     </StackPanel>
   </StackPanel>

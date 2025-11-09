@@ -17,6 +17,7 @@ public class GameManager
     private List<Card> nonInCollectionCards = new List<Card>();
     private List<Kazamata> kazamatas = new List<Kazamata>();
     private Player player = new Player();
+    public List<string> latestOutput = new();
 
     public GameManager(string path, GameModes gameMode)
     {
@@ -176,7 +177,11 @@ public class GameManager
             output.Add($"jatekos vesztett;");
         }
         if (gameMode == GameModes.Test) WriteOut.Battle(output.ToArray(), path, outName);
-        else PrintBattle(output);
+        else
+        {
+            PrintBattle(output);
+            latestOutput = output;
+        }
 
     }
 
@@ -490,5 +495,9 @@ public class GameManager
     public void ClearPakli()
     {
         player.ClearPakli();
+    }
+    public Kazamata[] GetKazataObjects()
+    {
+        return kazamatas.ToArray();
     }
 }

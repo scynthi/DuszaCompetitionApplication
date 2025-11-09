@@ -107,7 +107,7 @@ namespace DuszaCompetitionApplication.Audio
             switch (type)
             {
                 case SoundEffectTypes.attack:
-                    PlayAudio(soundEffectFolder + $"attack/attack ({random.Next(0, 3)}).wav");
+                    PlayAudio(soundEffectFolder + $"attack/attack ({random.Next(1, 3)}).wav");
                     break;
                 case SoundEffectTypes.click:
                     PlayAudio(soundEffectFolder + $"click/wood_click ({random.Next(1, 8)}).wav");

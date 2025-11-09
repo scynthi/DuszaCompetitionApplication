@@ -11,8 +11,8 @@
     <StackPanel Name="DungeonPanel" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Orientation="Horizontal" Spacing="50" Margin="50,0,50,0">
     </StackPanel>
 
-    <Border Grid.Row="1" Padding="10" Margin="10,0,10,30" Background="#52320d" HorizontalAlignment="Left">
-        <Grid  ColumnDefinitions="Auto, Auto, Auto" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" ColumnSpacing="10">
+    <Border Grid.Row="1" Padding="10" Margin="10,0,0,0" Background="{DynamicResource ResourceKey=SignBackgroundImage}" HorizontalAlignment="Left" Height="150">
+        <Grid  ColumnDefinitions="Auto, Auto, Auto" VerticalAlignment="Center" HorizontalAlignment="Stretch" ColumnSpacing="10">
           <Button Classes="Wood" Command="{Binding GoBackToMainMenuCommand}" Name="GoBackButton">
             <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Title screen"/><Image/></Grid>
           </Button>

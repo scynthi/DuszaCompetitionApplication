@@ -25,5 +25,8 @@
 
         <ImageBrush x:Key="ButtonBackgroundImage" Source="/Assets/Images/Button/button_bgr_tile_base.png" Stretch="Fill" ></ImageBrush>
         <ImageBrush x:Key="ButtonHoverBackgroundImage" Source="/Assets/Images/Button/button_bgr_dark_tile_base.png" Stretch="Fill" ></ImageBrush>
+
+        <ImageBrush x:Key="SignBackgroundImage" Source="/Assets/Images/Sign/sign.png" Stretch="Fill" ></ImageBrush>
+        <ImageBrush x:Key="HangingSignBackgroundImage" Source="/Assets/Images/Sign/hanging_sign.png" Stretch="Fill" ></ImageBrush>
     </Application.Resources>
 </Application>
