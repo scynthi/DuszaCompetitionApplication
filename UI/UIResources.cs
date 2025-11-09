@@ -277,7 +277,8 @@ public class ResultData : EventArgs
 public class BattleToUILanguageInterpreter
 {
     public event EventHandler? finalResult;
-    private List<string[]> battleLog = new();
+    private List<List<string>> battleLog = new();
+    private List<string> rawBattleLog = new();
     private Control parentControl;
     private UICardElement[] playerDeck;
     private UICardElement[] enemyDeck;
@@ -286,31 +287,30 @@ public class BattleToUILanguageInterpreter
     StackPanel enemyCardControl;
     StackPanel playerDeckControl;
     StackPanel playerCardControl;
-    public BattleToUILanguageInterpreter(Control parentControl, UICardElement[] playerDeck, UICardElement[] enemyDeck)
+
+    Kazamata currentKazamata;
+    public BattleToUILanguageInterpreter(Control parentControl, UICardElement[] playerDeck, UICardElement[] enemyDeck, Kazamata currentKazamata)
     {
-        Console.WriteLine("======STARTING INTERPRETER=======");
+        Global.gameManager.BattleLoopUI(currentKazamata.Name, "", out rawBattleLog);
 
         this.parentControl = parentControl;
         this.playerDeck = playerDeck;
         this.enemyDeck = enemyDeck;
+        this.currentKazamata = currentKazamata;
 
         enemyDeckControl = parentControl.GetVisualDescendants().OfType<StackPanel>().Where(x => x.Name == "EnemyDeckHolder").First();
         enemyCardControl = parentControl.GetVisualDescendants().OfType<StackPanel>().Where(x => x.Name == "EnemyCardHolder").First();
         playerDeckControl = parentControl.GetVisualDescendants().OfType<StackPanel>().Where(x => x.Name == "PlayerDeckHolder").First();
         playerCardControl = parentControl.GetVisualDescendants().OfType<StackPanel>().Where(x => x.Name == "PlayerCardHolder").First();
 
-        Console.WriteLine($"{enemyCardControl}, {enemyDeckControl}, {playerCardControl}, {playerDeckControl}");
-
-        //List<string> rawBattleLog = Global.gameManager.latestOutput;
-        //for (int i = 0; i < rawBattleLog.Count; i++)
-        //{
-        //    if (rawBattleLog[i] == "" || rawBattleLog[i].StartsWith("harc") || rawBattleLog[i].StartsWith("jatekos"))
-        //    {
-        //        continue;
-        //    }
-        //    Console.WriteLine(rawBattleLog[i]);
-        //    battleLog.Add(rawBattleLog[i].Split(";"));
-        //}
+        for (int i = 0; i < rawBattleLog.Count; i++)
+        {
+            if (rawBattleLog[i] == "" || rawBattleLog[i].StartsWith("harc") || rawBattleLog[i].StartsWith("jatekos"))
+            {
+                continue;
+            }
+            battleLog.Add(rawBattleLog[i].Split(";").ToList());
+        }
 
     }
 
@@ -320,16 +320,16 @@ public class BattleToUILanguageInterpreter
         {
             int playerCardAmount = playerCardControl.Children.Count + playerDeckControl.Children.Count;
             int enemyCardAmount = enemyCardControl.Children.Count + enemyDeckControl.Children.Count;
-
             finalResult?.Invoke(this, new ResultData(playerCardAmount > enemyCardAmount));
-            Console.WriteLine("Done!");
-            return;
+
+            string? cardName = playerCardControl.Children.OfType<Border>()?.FirstOrDefault()?.Name;
+            if (cardName == null) return;
         }
+
+        Utility.PrintArray(battleLog[0].ToArray());
 
         bool isKazamata = battleLog[0][1] == "kazamata";
         string command = battleLog[0][2];
-
-        Console.WriteLine($"{battleLog[0][1]}, {isKazamata}, {command}");
 
         if (isKazamata)
         {
@@ -341,7 +341,7 @@ public class BattleToUILanguageInterpreter
                     MoveCard(card, enemyDeckControl, enemyCardControl);
                     break;
                 case "tamad":
-                    DamageCard(card, getCard(playerDeck, battleLog[0][5]));
+                    UpdateCardHealth(getCard(playerDeck, battleLog[0][5]), battleLog[0][6]);
                     break;
             }
         }
@@ -355,7 +355,7 @@ public class BattleToUILanguageInterpreter
                     MoveCard(card, playerDeckControl, playerCardControl);
                     break;
                 case "tamad":
-                    DamageCard(card, getCard(enemyDeck, battleLog[0][5]));
+                    UpdateCardHealth(getCard(enemyDeck, battleLog[0][5]), battleLog[0][6]);
                     break;
             }
         }
@@ -374,15 +374,15 @@ public class BattleToUILanguageInterpreter
         to.Children.Add(card.GetCardVisual());
     }
 
-    private void DamageCard(UICardElement fromCard, UICardElement toCard)
+    private void UpdateCardHealth(UICardElement toCard, string newValue)
     {
         try
         {
             AudioManager.PlaySoundEffect(SoundEffectTypes.attack);
-            toCard.card.Damage(fromCard.card.Attack, fromCard.card.Element);
-            if (toCard.card.Health > 0)
+
+            if (int.Parse(newValue) > 0)
             {
-                toCard.EditHealth(toCard.card.Health.ToString());
+                toCard.EditHealth(newValue);
             }
             else
             {
@@ -397,14 +397,12 @@ public class BattleToUILanguageInterpreter
                     playerCardControl.Children.Remove(playerCardControl.Children.Where(x => x.Name == toCard.card.Name).First());
                 }
 
-                AudioManager.PlaySoundEffect(SoundEffectTypes.attack);
+                AudioManager.PlaySoundEffect(SoundEffectTypes.death);
             }
         } catch(Exception)
         {
             Console.WriteLine("Error while removing card.");
         }
-
-
 
     }
 }
