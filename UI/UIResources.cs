@@ -65,7 +65,11 @@ public class UICardElement
 
         Image entityIcon = new Image
         {
-            Source = new Bitmap(isKazamata ? random.Next(0,2) == 0 ? "./Assets/Images/Entities/Enemies/char_wendigo.png" : "./Assets/Images/Entities/Enemies/char_gobellin.png" : random.Next(0,2) == 0 ? "./Assets/Images/Entities/Heroes/char_hunter.png" : "./Assets/Images/Entities/Heroes/char_huntress.png"),
+
+            //Source = new Bitmap(isKazamata ? random.Next(0,2) == 0 ? "./Assets/Images/Entities/Enemies/char_wendigo.png" : "./Assets/Images/Entities/Enemies/char_gobellin.png" : random.Next(0,2) == 0 ? "./Assets/Images/Entities/Heroes/char_hunter.png" : "./Assets/Images/Entities/Heroes/char_huntress.png"),
+            Source = new Bitmap(card.cardIconPath != "" ? card.cardIconPath 
+                : isKazamata ? random.Next(0, 2) == 0 ? "./Assets/Images/Entities/Enemies/char_wendigo.png" : "./Assets/Images/Entities/Enemies/char_gobellin.png" : random.Next(0, 2) == 0 ? "./Assets/Images/Entities/Heroes/char_hunter.png" : "./Assets/Images/Entities/Heroes/char_huntress.png"),
+
             Width = 150,
             Margin = new Avalonia.Thickness(0, 0, 0, 5),
             HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Center,
@@ -251,6 +255,8 @@ public class UICardElement
 
 
         cardVisual = cardBase;
+
+
     }
 
     public void EditHealth(string value)
@@ -264,6 +270,7 @@ public class UICardElement
     }
 
     public Control GetCardVisual() => cardVisual;
+
 }
 
 public class ResultData : EventArgs
