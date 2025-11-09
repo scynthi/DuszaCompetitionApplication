@@ -1,32 +1,38 @@
-uj kartya;Aragorn;2;5;tuz
-uj kartya;Sadan;2;4;levego
-uj kartya;Corky;2;4;fold
-uj kartya;Kira;2;7;levego
-uj kartya;Eowyn;2;5;viz
-uj kartya;ObiWan;2;2;fold
-uj kartya;Tul'Arak;2;4;fold
+uj kartya;Arin;999;999;fold
+uj kartya;Liora;2;4;levego
+uj kartya;Nerun;3;3;tuz
+uj kartya;Selia;2;6;viz
+uj kartya;Torak;3;4;fold
+uj kartya;Emera;2;5;levego
+uj kartya;Vorn;2;7;viz
+uj kartya;Kael;3;5;tuz
+uj kartya;Myra;2;6;fold
+uj kartya;Thalen;3;5;levego
+uj kartya;Isara;2;6;viz
 
-uj vezer;Darth ObiWan;ObiWan;sebzes
+uj vezer;Lord Torak;Torak;sebzes
+uj vezer;Priestess Selia;Selia;eletero
 
-uj kazamata;egyszeru;Teszt1a Kazamata;Sadan;eletero
-uj kazamata;egyszeru;Teszt1b Kazamata;Aragorn;sebzes
-uj kazamata;kis;Teszt2a Kazamata;Aragorn,Eowyn,ObiWan;Darth ObiWan;eletero
-uj kazamata;kis;Teszt2b Kazamata;Sadan,Eowyn,Kira;Darth ObiWan;sebzes
-uj kazamata;nagy;Teszt3 Kazamata;Aragorn,Eowyn,ObiWan,Kira,Tul'Arak;Darth ObiWan
+uj kazamata;egyszeru;Barlangi Portya;Nerun;sebzes
+uj kazamata;kis;Osi Szentely;Arin,Emera,Selia;Lord Torak;eletero
+uj kazamata;nagy;A melyseg kiralynoje;Liora,Arin,Selia,Nerun,Torak;Priestess Selia
 
 uj jatekos
 
-felvetel gyujtemenybe;Aragorn
-felvetel gyujtemenybe;Sadan
-felvetel gyujtemenybe;Corky
-felvetel gyujtemenybe;Kira
+felvetel gyujtemenybe;Arin
+felvetel gyujtemenybe;Liora
+felvetel gyujtemenybe;Selia
+felvetel gyujtemenybe;Nerun
+felvetel gyujtemenybe;Torak
+felvetel gyujtemenybe;Emera
+felvetel gyujtemenybe;Kael
+felvetel gyujtemenybe;Myra
+felvetel gyujtemenybe;Thalen
+felvetel gyujtemenybe;Isara
 
-uj pakli;Corky,Kira
+uj pakli;Arin
+
+harc;Barlangi Portya;out.harc01.txt
 
 export vilag;out.vilag01.txt
 export jatekos;out.jatekos01.txt
-
-harc;Teszt1a Kazamata;out.harc01.txt
-
-export vilag;out.vilag02.txt
-export jatekos;out.jatekos02.txt

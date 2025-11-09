@@ -1,15 +1,18 @@
-kartya;Aragorn;2;5;tuz
-kartya;Sadan;2;4;levego
-kartya;Corky;2;4;fold
-kartya;Kira;2;7;levego
-kartya;Eowyn;2;5;viz
-kartya;ObiWan;2;2;fold
-kartya;Tul'Arak;2;4;fold
+kartya;Arin;100;100;fold
+kartya;Liora;2;4;levego
+kartya;Nerun;3;3;tuz
+kartya;Selia;2;6;viz
+kartya;Torak;3;4;fold
+kartya;Emera;2;5;levego
+kartya;Vorn;2;7;viz
+kartya;Kael;3;5;tuz
+kartya;Myra;2;6;fold
+kartya;Thalen;3;5;levego
+kartya;Isara;2;6;viz
 
-vezer;Darth ObiWan;4;2;fold
+vezer;Lord Torak;6;4;fold
+vezer;Priestess Selia;2;12;viz
 
-kazamata;egyszeru;Teszt1a Kazamata;Sadan;eletero
-kazamata;egyszeru;Teszt1b Kazamata;Aragorn;sebzes
-kazamata;kis;Teszt2a Kazamata;Aragorn,Eowyn,ObiWan;Darth ObiWan;eletero
-kazamata;kis;Teszt2b Kazamata;Sadan,Eowyn,Kira;Darth ObiWan;sebzes
-kazamata;nagy;Teszt3 Kazamata;Aragorn,Eowyn,ObiWan,Kira,Tul'Arak;Darth ObiWan
+kazamata;egyszeru;Barlangi Portya;Nerun;sebzes
+kazamata;kis;Osi Szentely;Arin,Emera,Selia;Lord Torak;eletero
+kazamata;nagy;A melyseg kiralynoje;Liora,Arin,Selia,Nerun,Torak;Priestess Selia

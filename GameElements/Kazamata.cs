@@ -20,6 +20,13 @@ public class Kazamata
         this.KazamataCards = kazamataCards;
         this.reward = reward;
     }
+    public Kazamata(Kazamata other)
+    {
+        this.type = other.type;
+        this.Name = other.Name;
+        this.KazamataCards = other.KazamataCards;
+        this.reward = other.reward;
+    }
 
     public string KazamataCardNames()
     {

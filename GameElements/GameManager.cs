@@ -17,7 +17,6 @@ public class GameManager
     private List<Card> nonInCollectionCards = new List<Card>();
     private List<Kazamata> kazamatas = new List<Kazamata>();
     private Player player = new Player();
-    public List<string> latestOutput = new();
 
     public GameManager(string path, GameModes gameMode)
     {
@@ -148,8 +147,6 @@ public class GameManager
         }
 
 
-
-
         if (playerPakli.Count > 0) // Player won
         {
             if (currKazamata.type == KazamataTypes.nagy)
@@ -174,13 +171,12 @@ public class GameManager
         }
         else
         {
-            output.Add($"jatekos vesztett;");
+            output.Add($"jatekos vesztett");
         }
         if (gameMode == GameModes.Test) WriteOut.Battle(output.ToArray(), path, outName);
         else
         {
             PrintBattle(output);
-            latestOutput = output;
         }
 
     }
@@ -273,17 +269,17 @@ public class GameManager
             {
                 if (currKazamata.reward == RewardType.eletero) player.IncreaseHealth(GetIndexOfElement(player.collection.ToArray(), currentPlayerCard.Name));
                 else player.IncreaseAttack(GetIndexOfElement(player.collection.ToArray(), currentPlayerCard.Name));
+                output.Add($"jatekos nyert;{currKazamata.reward.ToString()};{currentPlayerCard.Name}");
             }
         }
         else
         {
-            output.Add($"jatekos vesztett;");
+            output.Add($"jatekos vesztett");
         }
         if (gameMode == GameModes.Test) WriteOut.Battle(output.ToArray(), path, outName);
         else
         {
             PrintBattle(output);
-            latestOutput = output;
         }
     }
     private void Export(string type, string name)
@@ -416,7 +412,7 @@ public class GameManager
         rKazamata = new Kazamata();
         foreach (Kazamata kazamata in kazamatas)
         {
-            if (name == kazamata.Name) { rKazamata = kazamata; return true; }
+            if (name == kazamata.Name) { rKazamata = new Kazamata(kazamata); return true; }
         }
         return false;
     }
@@ -536,5 +532,9 @@ public class GameManager
     public Kazamata[] GetKazataObjects()
     {
         return kazamatas.ToArray();
+    }
+    public bool IsCardLeft()
+    {
+        return nonInCollectionCards.Count > 0;
     }
 }
