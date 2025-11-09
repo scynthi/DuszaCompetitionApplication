@@ -266,11 +266,11 @@ public class UICardElement
 
 public class ResultData : EventArgs
 {
-    public bool playerWon;
+    public string[] finalMessage;
 
-    public ResultData(bool playerWon)
+    public ResultData(string[] message)
     {
-        this.playerWon = playerWon;
+        this.finalMessage = message;
     }
 }
 
@@ -305,28 +305,22 @@ public class BattleToUILanguageInterpreter
 
         for (int i = 0; i < rawBattleLog.Count; i++)
         {
-            if (rawBattleLog[i] == "" || rawBattleLog[i].StartsWith("harc") || rawBattleLog[i].StartsWith("jatekos") || rawBattleLog[i] == "\n")
+            if (rawBattleLog[i] == "" || rawBattleLog[i].StartsWith("harc") || rawBattleLog[i] == "\n")
             {
                 continue;
             }
             battleLog.Add(rawBattleLog[i].Split(";").ToList());
         }
-
     }
 
     public void PlayNextStep()
     {
-        if (battleLog.Count == 0)
+
+        if (battleLog.Count == 1)
         {
-            int playerCardAmount = playerCardControl.Children.Count + playerDeckControl.Children.Count;
-            int enemyCardAmount = enemyCardControl.Children.Count + enemyDeckControl.Children.Count;
-            finalResult?.Invoke(this, new ResultData(playerCardAmount > enemyCardAmount));
-
-            string? cardName = playerCardControl.Children.OfType<Border>()?.FirstOrDefault()?.Name;
-            if (cardName == null) return;
+            finalResult?.Invoke(this, new ResultData(battleLog[0].ToArray()));
+            return;
         }
-
-        Utility.PrintArray(battleLog[0].ToArray());
 
         bool isKazamata = battleLog[0][1] == "kazamata";
         string command = battleLog[0][2];
