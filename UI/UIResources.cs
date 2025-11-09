@@ -305,7 +305,7 @@ public class BattleToUILanguageInterpreter
 
         for (int i = 0; i < rawBattleLog.Count; i++)
         {
-            if (rawBattleLog[i] == "" || rawBattleLog[i].StartsWith("harc") || rawBattleLog[i].StartsWith("jatekos"))
+            if (rawBattleLog[i] == "" || rawBattleLog[i].StartsWith("harc") || rawBattleLog[i].StartsWith("jatekos") || rawBattleLog[i] == "\n")
             {
                 continue;
             }
