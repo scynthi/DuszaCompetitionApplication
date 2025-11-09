@@ -150,6 +150,7 @@ public class UICardElement
         TextBlock cardName = new TextBlock
         {
             Text = card.Name,
+            FontSize = 20,
             HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Right,
             VerticalAlignment = Avalonia.Layout.VerticalAlignment.Top,
             TextAlignment = TextAlignment.Right,
