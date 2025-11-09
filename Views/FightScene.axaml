@@ -8,11 +8,6 @@
              x:DataType="vm:FightSceneViewModel">
 
   <Grid Name="BackgroundPanel" Background="{DynamicResource ResourceKey=BasicCaveBackground}" RowDefinitions="*" ColumnDefinitions="*">
-    <StackPanel HorizontalAlignment="Left" Margin="10,10">
-      <Button Classes="Wood" Name="NextStepButton">
-        <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Next Step"/><Image/></Grid>
-      </Button>
-    </StackPanel>
     <StackPanel Name="CardHolder" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
       <StackPanel Name="EnemyDeckHolder" Orientation="Horizontal" MinHeight="200" Spacing="10" HorizontalAlignment="Center"></StackPanel>
       <StackPanel Name="EnemyCardHolder" Orientation="Horizontal" MinHeight="200" Spacing="10" HorizontalAlignment="Center"></StackPanel>
@@ -20,10 +15,17 @@
       <StackPanel Name="PlayerDeckHolder" Orientation="Horizontal" MinHeight="200" Spacing="10" HorizontalAlignment="Center"></StackPanel>
     </StackPanel>
 
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10,10">
+      <Button Classes="Wood" Name="NextStepButton">
+        <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Next Step"/><Image/></Grid>
+      </Button>
+    </StackPanel>
+
     <StackPanel Name="SummaryPanel" IsVisible="False">
       <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Background="{DynamicResource ResourceKey=HangingSignBackgroundImage}" MinWidth="600" Height="600">
         <Label Name="SummaryTitle" HorizontalAlignment="Center" Classes="Title" Margin="0, 120, 0, 30"></Label>
         <StackPanel Margin="30,30,30,30">
+          <Label Name="PrizeLabel" HorizontalAlignment="Center"></Label>
           <Button Classes="Wood" Name="GoBackButton" Command="{Binding GoBackToMapCommand}">
             <Grid ColumnDefinitions="auto,*,auto"><Image/><Label Content="Go back"/><Image/></Grid>
           </Button>

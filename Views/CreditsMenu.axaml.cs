@@ -13,6 +13,5 @@ public partial class CreditsMenu : UserControl
         InitializeComponent();
         DataContext = new CreditsMenuViewModel();
         UIController.ApplySFXToButtons([GoBackButton]);
-
     }
 }

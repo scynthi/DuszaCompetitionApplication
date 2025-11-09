@@ -37,8 +37,7 @@ public partial class FightScene : UserControl
             EnemyDeckHolder.Children.Add(card.GetCardVisual());
         }
 
-        Global.gameManager.BattleLoop(currentKazamata.Name, "");
-        BattleToUILanguageInterpreter interpreter = new(CardHolder, UICardElement.ConvertCards(Global.gameManager.GetPakli().ToArray()), UICardElement.ConvertCards(currentKazamata.KazamataCards, true));
+        BattleToUILanguageInterpreter interpreter = new(CardHolder, UICardElement.ConvertCards(Global.gameManager.GetPakli().ToArray()), UICardElement.ConvertCards(currentKazamata.KazamataCards, true), currentKazamata);
 
         NextStepButton.Click += (_, _) =>
         {
@@ -50,6 +49,7 @@ public partial class FightScene : UserControl
 
             SummaryPanel.IsVisible = true;
             SummaryTitle.Content = result ? "You win" : "You lose";
+            PrizeLabel.Content = $"You got: {currentKazamata.reward.ToString()}";
         };
     }
 }

@@ -36,7 +36,7 @@ public partial class DeckMenu : UserControl
         {
             PlayerDeckHolder.Children.Add(currentCard.GetCardVisual());
             currentCard.GetCardVisual().PointerPressed += HandleClick;
-
+            
         }
     }
 
