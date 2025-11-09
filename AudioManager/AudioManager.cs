@@ -8,7 +8,7 @@ namespace DuszaCompetitionApplication.Audio
 {
     public static class AudioManager
     {
-        private static int maxSfxAudioPlayer = 10;
+        private static int maxSfxAudioPlayer = 32;
         private static int currentSfxAudioPlayer = 0;
         private static Dictionary<string, AudioPlayerInstance> playingLoopedAudioPlayers = new();
         private static Random random = new();
