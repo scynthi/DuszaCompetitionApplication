@@ -37,10 +37,16 @@ public static class WriteOut
             else vezerCards.Add($"vezer;{card.Name};{card.Attack};{card.Health};{card.Element}");
         }
 
-        output.AddRange(normalCards);
-        output.Add("");
-        output.AddRange(vezerCards);
-        output.Add("");
+        if (normalCards.Count > 0)
+        {
+            output.AddRange(normalCards);
+            output.Add("");
+        }
+        if (vezerCards.Count > 0)
+        {
+            output.AddRange(vezerCards);
+            output.Add("");
+        }
 
         foreach (Kazamata kazamata in kazamatas)
         {
