@@ -57,7 +57,7 @@ public static class Utility
     {
         foreach (Card el in array)
         {
-            Console.Write(el.Name + ' ');
+            Console.Write(el.Name + ' ' + el.Health + ' ');
         }
         Console.WriteLine();
     }

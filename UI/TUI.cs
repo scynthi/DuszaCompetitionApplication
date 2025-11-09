@@ -183,11 +183,15 @@ public class TUI
 
     private void ButtonSwitchBeep()
     {
+#if WINDOWS
         Console.Beep(1200, 50);
+#endif
     }
     private void ButtonSelectBeep()
     {
+#if WINDOWS
         Console.Beep(500, 100);
+#endif
     }
     private void PrintCardInfo(Card card)
     {

@@ -17,7 +17,6 @@ public class GameManager
     private List<Card> nonInCollectionCards = new List<Card>();
     private List<Kazamata> kazamatas = new List<Kazamata>();
     private Player player = new Player();
-    public List<string> latestOutput = new();
 
     public GameManager(string path, GameModes gameMode)
     {
@@ -78,13 +77,16 @@ public class GameManager
     }
     public void BattleLoop(string kazamataName, string outName)
     {
-
         Kazamata currKazamata;
         if (!TryReturnKazamataFromName(kazamataName, kazamatas.ToArray(), out currKazamata)) return;
-        List<Card> kazamataPakli = new List<Card>(currKazamata.KazamataCards.ToList());
+        List<Card> kazamataPakli = currKazamata.KazamataCards
+        .Select(c => c.Clone())
+        .ToList();
         Card? currentKazamataCard = null;
 
-        List<Card> playerPakli = new List<Card>(player.pakli.ToList());
+        List<Card> playerPakli = player.pakli
+        .Select(c => c.Clone())
+        .ToList();
         Card? currentPlayerCard = null;
 
         List<string> output = new List<string>();
@@ -180,21 +182,27 @@ public class GameManager
         else
         {
             PrintBattle(output);
-            latestOutput = output;
         }
-
+        PrintArray(playerPakli);
+        PrintArray(player.collection);
+        PrintArray(player.pakli);
     }
 
-    public void BattleLoop(string kazamataName, string outName, out List<string> output)
+    public void BattleLoopUI(string kazamataName, string outName, out List<string> output)
     {
 
         Kazamata currKazamata;
         output = new List<string>();
         if (!TryReturnKazamataFromName(kazamataName, kazamatas.ToArray(), out currKazamata)) return;
-        List<Card> kazamataPakli = new List<Card>(currKazamata.KazamataCards.ToList());
+        List<Card> kazamataPakli = currKazamata.KazamataCards
+        .Select(c => c.Clone())
+        .ToList();
+
         Card? currentKazamataCard = null;
 
-        List<Card> playerPakli = new List<Card>(player.pakli.ToList());
+        List<Card> playerPakli = player.pakli
+        .Select(c => c.Clone())
+        .ToList();
         Card? currentPlayerCard = null;
 
         int round = 1;
@@ -251,6 +259,7 @@ public class GameManager
             }
 
             round++;
+            
         }
     }
     private void Export(string type, string name)

@@ -25,18 +25,22 @@ public class Card
         this.Health = health;
         this.Element = element;
         this.Type = type;
-        Math.Clamp(Health, 0, 100);
-        Math.Clamp(Attack, 0, 100);
+        Health = Math.Clamp(Health, 0, 100);
+        Attack = Math.Clamp(Attack, 0, 100);
     }
     public Card(Card other)
     {
-        this.Name = other.Name;
-        this.Attack = other.Attack;
-        this.Health = other.Health;
-        this.Element = other.Element;
-        this.Type = other.Type;
-        Health = Math.Clamp(Health, 0, 100);
-        Attack = Math.Clamp(Attack, 0, 100);
+        Name = other.Name;
+        Attack = Math.Clamp(other.Attack, 0, 100);
+        Health = Math.Clamp(other.Health, 0, 100);
+        Element = other.Element;
+        Type = other.Type;
+        AttackChanged = other.AttackChanged;
+        HealthChanged = other.HealthChanged;
+    }
+    public Card Clone()
+    {
+        return new Card(this);
     }
 
     public int Damage(int attack, CardElement element)

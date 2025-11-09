@@ -301,16 +301,16 @@ public class BattleToUILanguageInterpreter
 
         Console.WriteLine($"{enemyCardControl}, {enemyDeckControl}, {playerCardControl}, {playerDeckControl}");
 
-        List<string> rawBattleLog = Global.gameManager.latestOutput;
-        for (int i = 0; i < rawBattleLog.Count; i++)
-        {
-            if (rawBattleLog[i] == "" || rawBattleLog[i].StartsWith("harc") || rawBattleLog[i].StartsWith("jatekos"))
-            {
-                continue;
-            }
-            Console.WriteLine(rawBattleLog[i]);
-            battleLog.Add(rawBattleLog[i].Split(";"));
-        }
+        //List<string> rawBattleLog = Global.gameManager.latestOutput;
+        //for (int i = 0; i < rawBattleLog.Count; i++)
+        //{
+        //    if (rawBattleLog[i] == "" || rawBattleLog[i].StartsWith("harc") || rawBattleLog[i].StartsWith("jatekos"))
+        //    {
+        //        continue;
+        //    }
+        //    Console.WriteLine(rawBattleLog[i]);
+        //    battleLog.Add(rawBattleLog[i].Split(";"));
+        //}
 
     }
 
