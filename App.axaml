@@ -20,6 +20,8 @@
         <ImageBrush x:Key="MapBackground" Source="/Assets/Images/Backgrounds/bg_map.png" TileMode="Tile" DestinationRect="0 0 1920 1080"></ImageBrush>
 
         <ImageBrush x:Key="OutsideBackground" Source="/Assets/Images/Backgrounds/bg_outside.png" Stretch="UniformToFill" ></ImageBrush>
+        <ImageBrush x:Key="AllCardsBackground" Source="/Assets/Images/Backgrounds/bg_all_cards.png" Stretch="UniformToFill" ></ImageBrush>
+        <ImageBrush x:Key="DeckBackground" Source="/Assets/Images/Backgrounds/bg_deck.png" Stretch="UniformToFill" ></ImageBrush>
         <ImageBrush x:Key="BasicCaveBackground" Source="/Assets/Images/Backgrounds/bg_cave_basic.png" Stretch="UniformToFill" ></ImageBrush>
         <ImageBrush x:Key="HardCaveBackground" Source="/Assets/Images/Backgrounds/bg_cave_boss.png" Stretch="UniformToFill" ></ImageBrush>
 
