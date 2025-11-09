@@ -30,51 +30,61 @@ namespace DuszaCompetitionApplication.Audio
         private static WaveOutEvent? currentOutputDevice;
         private static AudioFileReader? currentAudioReader;
 
-        public static void PlayAudio(string path)
-        {
-            try
-            {
-                if (currentOutputDevice is not null)
-                {
-                    try
-                    {
-                        currentOutputDevice.Stop();
-                    }
-                    catch {} //🥀
+        private static readonly object audioLock = new object();
 
-                    currentAudioReader?.Dispose();
-                    currentOutputDevice.Dispose();
+        public static void PlayAudio(string path) {
+            try {
+                WaveOutEvent outputDevice;
+                AudioFileReader audioReader;
 
-                    currentOutputDevice = null;
-                    currentAudioReader = null;
-                }
+                lock (audioLock) {
+                    if (currentOutputDevice is not null) {
+                        try {
+                            currentOutputDevice.Stop();
+                        } catch { } 
 
-                var outputDevice = new WaveOutEvent { Volume = totalVolume };
-                var audioReader = new AudioFileReader(path);
-
-                currentOutputDevice = outputDevice;
-                currentAudioReader = audioReader;
-
-                outputDevice.Init(audioReader);
-                outputDevice.Play();
-
-
-                outputDevice.PlaybackStopped += (s, e) =>
-                {
-                    audioReader.Dispose();
-                    outputDevice.Dispose();
-
-                    if (ReferenceEquals(outputDevice, currentOutputDevice))
-                    {
+                        if (currentAudioReader == null) { return; }
+                        CleanupAudioResources(currentAudioReader, currentOutputDevice);
                         currentOutputDevice = null;
                         currentAudioReader = null;
                     }
+
+                    outputDevice = new WaveOutEvent { Volume = totalVolume };
+                    audioReader = new AudioFileReader(path);
+
+                    currentOutputDevice = outputDevice;
+                    currentAudioReader = audioReader;
+
+                    outputDevice.Init(audioReader);
+                }
+
+                outputDevice.Play();
+
+                outputDevice.PlaybackStopped += (s, e) =>
+                {
+                    lock (audioLock) {
+                        if (ReferenceEquals(outputDevice, currentOutputDevice)) {
+                            CleanupAudioResources(audioReader, outputDevice);
+                            currentOutputDevice = null;
+                            currentAudioReader = null;
+                        } else {
+                            CleanupAudioResources(audioReader, outputDevice);
+                        }
+                    }
                 };
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 Console.WriteLine($"Audio playback failed: {ex.Message}");
             }
+        }
+
+        private static void CleanupAudioResources(AudioFileReader reader, WaveOutEvent device) {
+            try {
+                reader?.Dispose();
+            } catch { } 
+
+            try {
+                device?.Dispose();
+            } catch { } 
         }
 
         public static void PlayAndLoopAudio(string path)
