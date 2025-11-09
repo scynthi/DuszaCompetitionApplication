@@ -6,6 +6,17 @@ namespace DuszaCompetitionApplication;
 
 public static class Utility
 {
+    public static void PrintArray(List<List<string>> array)
+    {
+        foreach (List<string> arr in array)
+        {
+            foreach (string el in arr)
+            {
+                Console.Write(el + " ");
+            }
+            Console.Write('\n');
+        }
+    }
     public static void PrintArray(string[][] array)
     {
         foreach (string[] arr in array)

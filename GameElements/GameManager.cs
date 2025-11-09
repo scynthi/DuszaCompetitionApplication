@@ -17,6 +17,7 @@ public class GameManager
     private List<Card> nonInCollectionCards = new List<Card>();
     private List<Kazamata> kazamatas = new List<Kazamata>();
     private Player player = new Player();
+    public List<string> latestOutput = new();
 
     public GameManager(string path, GameModes gameMode)
     {
@@ -77,16 +78,13 @@ public class GameManager
     }
     public void BattleLoop(string kazamataName, string outName)
     {
+
         Kazamata currKazamata;
         if (!TryReturnKazamataFromName(kazamataName, kazamatas.ToArray(), out currKazamata)) return;
-        List<Card> kazamataPakli = currKazamata.KazamataCards
-        .Select(c => c.Clone())
-        .ToList();
+        List<Card> kazamataPakli = currKazamata.KazamataCards.ToList<Card>();
         Card? currentKazamataCard = null;
 
-        List<Card> playerPakli = player.pakli
-        .Select(c => c.Clone())
-        .ToList();
+        List<Card> playerPakli = player.pakli.ToList<Card>();
         Card? currentPlayerCard = null;
 
         List<string> output = new List<string>();
@@ -182,10 +180,9 @@ public class GameManager
         else
         {
             PrintBattle(output);
+            latestOutput = output;
         }
-        PrintArray(playerPakli);
-        PrintArray(player.collection);
-        PrintArray(player.pakli);
+
     }
 
     public void BattleLoopUI(string kazamataName, string outName, out List<string> output)
@@ -194,15 +191,10 @@ public class GameManager
         Kazamata currKazamata;
         output = new List<string>();
         if (!TryReturnKazamataFromName(kazamataName, kazamatas.ToArray(), out currKazamata)) return;
-        List<Card> kazamataPakli = currKazamata.KazamataCards
-        .Select(c => c.Clone())
-        .ToList();
-
+        List<Card> kazamataPakli = currKazamata.KazamataCards.ToList<Card>();
         Card? currentKazamataCard = null;
 
-        List<Card> playerPakli = player.pakli
-        .Select(c => c.Clone())
-        .ToList();
+        List<Card> playerPakli = player.pakli.ToList<Card>();
         Card? currentPlayerCard = null;
 
         int round = 1;
@@ -259,7 +251,40 @@ public class GameManager
             }
 
             round++;
-            
+        }
+        
+        
+        if (playerPakli.Count > 0) // Player won
+        {
+            if (currKazamata.type == KazamataTypes.nagy)
+            {
+                if (nonInCollectionCards.Count > 0)
+                {
+                    output.Add($"jatekos nyert;{nonInCollectionCards[0].Name}");
+                    player.collection.Add(nonInCollectionCards[0]);
+                    nonInCollectionCards.RemoveAt(0);
+                }
+                else
+                {
+                    output.Add($"jatekos nyert");
+                }
+            }
+            else if (currentPlayerCard != null) // It's always gonna be true but the compiler didn't like it without this
+            {
+                if (currKazamata.reward == RewardType.eletero) player.IncreaseHealth(GetIndexOfElement(player.collection.ToArray(), currentPlayerCard.Name), GetIndexOfElement(player.pakli.ToArray(), currentPlayerCard.Name));
+                else player.IncreaseAttack(GetIndexOfElement(player.collection.ToArray(), currentPlayerCard.Name), GetIndexOfElement(player.pakli.ToArray(), currentPlayerCard.Name));
+                output.Add($"jatekos nyert;{currKazamata.reward.ToString()};{currentPlayerCard.Name}");
+            }
+        }
+        else
+        {
+            output.Add($"jatekos vesztett;");
+        }
+        if (gameMode == GameModes.Test) WriteOut.Battle(output.ToArray(), path, outName);
+        else
+        {
+            PrintBattle(output);
+            latestOutput = output;
         }
     }
     private void Export(string type, string name)

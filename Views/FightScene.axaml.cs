@@ -8,6 +8,7 @@ using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using Avalonia;
 using Avalonia.Markup.Xaml.MarkupExtensions;
+using System.Linq;
 
 namespace Views;
 
@@ -45,11 +46,11 @@ public partial class FightScene : UserControl
         };
         interpreter.finalResult += (object? _, EventArgs data) =>
         {
-            bool result = ((ResultData)data).playerWon;
+            string[] result = ((ResultData)data).finalMessage;
 
             SummaryPanel.IsVisible = true;
-            SummaryTitle.Content = result ? "You win" : "You lose";
-            PrizeLabel.Content = $"You got: {currentKazamata.reward.ToString()}";
+            SummaryTitle.Content = result[0].Contains("nyert") ? "You win" : "You lose";
+            PrizeLabel.Content = result.Length == 1 ? "" : result.Length == 2 ? $"You got: {currentKazamata.reward}" : $"You got: {currentKazamata.reward} for {result[2]}";
         };
     }
 }
