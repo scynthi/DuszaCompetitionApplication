@@ -148,6 +148,7 @@ public class UICardElement
         {
             Text = card.Name,
             FontSize = 20,
+            Foreground = new SolidColorBrush(Colors.White),
             HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Right,
             VerticalAlignment = Avalonia.Layout.VerticalAlignment.Top,
             TextAlignment = TextAlignment.Right,
@@ -194,6 +195,7 @@ public class UICardElement
         {
             Text = card.Health.ToString(),
             Name = "HealthAmount",
+            Foreground = new SolidColorBrush(Colors.White),
             HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch,
             VerticalAlignment = Avalonia.Layout.VerticalAlignment.Bottom,
             TextAlignment = TextAlignment.Center,
@@ -240,6 +242,7 @@ public class UICardElement
         {
             Text = card.Attack.ToString(),
             Name = "AttackAmount",
+            Foreground = new SolidColorBrush(Colors.White),
             HorizontalAlignment = Avalonia.Layout.HorizontalAlignment.Stretch,
             VerticalAlignment = Avalonia.Layout.VerticalAlignment.Bottom,
             TextAlignment = TextAlignment.Right,
