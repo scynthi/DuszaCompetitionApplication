@@ -81,10 +81,10 @@ public class GameManager
 
         Kazamata currKazamata;
         if (!TryReturnKazamataFromName(kazamataName, kazamatas.ToArray(), out currKazamata)) return;
-        List<Card> kazamataPakli = currKazamata.KazamataCards.ToList<Card>();
+        List<Card> kazamataPakli = new List<Card>(currKazamata.KazamataCards.ToList());
         Card? currentKazamataCard = null;
 
-        List<Card> playerPakli = player.pakli.ToList<Card>();
+        List<Card> playerPakli = new List<Card>(player.pakli.ToList());
         Card? currentPlayerCard = null;
 
         List<string> output = new List<string>();
@@ -191,10 +191,10 @@ public class GameManager
         Kazamata currKazamata;
         output = new List<string>();
         if (!TryReturnKazamataFromName(kazamataName, kazamatas.ToArray(), out currKazamata)) return;
-        List<Card> kazamataPakli = currKazamata.KazamataCards.ToList<Card>();
+        List<Card> kazamataPakli = new List<Card>(currKazamata.KazamataCards.ToList());
         Card? currentKazamataCard = null;
 
-        List<Card> playerPakli = player.pakli.ToList<Card>();
+        List<Card> playerPakli = new List<Card>(player.pakli.ToList());
         Card? currentPlayerCard = null;
 
         int round = 1;
