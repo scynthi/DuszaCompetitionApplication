@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Charter"
+run/main_scene="uid://cd7wdb77hi6lr"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout=""
 
 [dotnet]
 
@@ -21,5 +26,10 @@ project/assembly_name="Charter"
 [file_customization]
 
 folder_colors={
-"res://Assets/": "red"
+"res://Assets/": "red",
+"res://Scenes/": "orange"
 }
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=3

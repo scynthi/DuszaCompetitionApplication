@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://cd7wdb77hi6lr"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_behavior_recursive = 1
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="MainMenu" type="VBoxContainer" parent="HBox"]
+visible = false
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HBox/MainMenu"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Charter"
+
+[node name="Continue" type="Button" parent="HBox/MainMenu"]
+layout_mode = 2
+text = "Continue"
+
+[node name="Editor" type="Button" parent="HBox/MainMenu"]
+layout_mode = 2
+text = "Save editor"
+
+[node name="Settings" type="Button" parent="HBox/MainMenu"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Credits" type="Button" parent="HBox/MainMenu"]
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit" type="Button" parent="HBox/MainMenu"]
+layout_mode = 2
+text = "Quit"
+
+[node name="SaveEditor" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Panel" type="Panel" parent="HBox/SaveEditor"]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBox/SaveEditor/Panel"]
+z_index = -1
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0.16078432)
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBox/SaveEditor/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="SaveFiles" type="VBoxContainer" parent="HBox/SaveEditor/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFiles"]
+layout_mode = 2
+text = "save file"
+
+[node name="Button2" type="Button" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFiles"]
+layout_mode = 2
+text = "save file"
+
+[node name="Button3" type="Button" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFiles"]
+layout_mode = 2
+text = "save file"
+
+[node name="Button4" type="Button" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFiles"]
+layout_mode = 2
+text = "save file"
+
+[node name="Button5" type="Button" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFiles"]
+layout_mode = 2
+text = "save file"
+
+[node name="Button6" type="Button" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFiles"]
+layout_mode = 2
+text = "save file"
+
+[node name="SaveFileMenu" type="VBoxContainer" parent="HBox/SaveEditor/Panel/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFileMenu"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFileMenu"]
+layout_mode = 2
+text = "Name"
+
+[node name="Label2" type="Label" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFileMenu"]
+layout_mode = 2
+text = "sum info"
+
+[node name="Label3" type="Label" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFileMenu"]
+layout_mode = 2
+text = "sum info"
+
+[node name="Button" type="Button" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFileMenu"]
+layout_mode = 2
+text = "Play"
+
+[node name="Button2" type="Button" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFileMenu"]
+layout_mode = 2
+text = "Delete"
