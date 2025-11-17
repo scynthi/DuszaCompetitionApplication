@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://j8isqssvn2jm"
+path="res://.godot/imported/wood_click (2).wav-7ba779bd3614ce66b1375987b8f1eaa9.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/SoundEffects/click/wood_click (2).wav"
+dest_files=["res://.godot/imported/wood_click (2).wav-7ba779bd3614ce66b1375987b8f1eaa9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
