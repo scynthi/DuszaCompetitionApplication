@@ -9,6 +9,14 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_behavior_recursive = 1
 
+[node name="Editor" type="Button" parent="."]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 442.0
+offset_right = 696.0
+offset_bottom = 473.0
+text = "Game Master"
+
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -19,7 +27,6 @@ grow_vertical = 2
 alignment = 1
 
 [node name="MainMenu" type="VBoxContainer" parent="HBox"]
-visible = false
 layout_mode = 2
 alignment = 1
 
@@ -32,9 +39,9 @@ text = "Charter"
 layout_mode = 2
 text = "Continue"
 
-[node name="Editor" type="Button" parent="HBox/MainMenu"]
+[node name="NewGame" type="Button" parent="HBox/MainMenu"]
 layout_mode = 2
-text = "Save editor"
+text = "New Game"
 
 [node name="Settings" type="Button" parent="HBox/MainMenu"]
 layout_mode = 2
@@ -49,6 +56,7 @@ layout_mode = 2
 text = "Quit"
 
 [node name="SaveEditor" type="VBoxContainer" parent="HBox"]
+visible = false
 layout_mode = 2
 alignment = 1
 

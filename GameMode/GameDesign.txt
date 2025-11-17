@@ -1,4 +1,89 @@
+TODO list:
+	Main menu - Openable divs
+ 
+	Script Classes:
+		Player Class:
+			- xp
+			- money
+			- collection
+			- playing deck
+		
+		Save file Class:
+			- saves the player
+			- saves dungeons
+			- all cards in the world
+			- settings
+		
+		Kazamata Class:
+			- type
+			- name 
+			- reward
 
+		Card Class:
+			- hp
+			- damage
+			- element type
+			- name
+		Card Class >> Boss Card Class:
+
+		Game Manager Class:
+			-> load scenes from files
+			-> change scene
+
+	
+	Menus:
+		Main menu :
+			Buttons:
+				Continue Game
+				New Game
+				Settings
+				Credits 
+				Exit
+
+				GameMaster
+			
+		GameMaster menu:
+			- Basic Card creation -> Choose type, Choose Image, Choose health, Choose damage, Choose name
+			- Boss Card creation -> Select a card from the list of Basic cards and decide if it has a health or a damage boost
+			- Dungeon Creation -> Select cards from the list of available cards
+			- Player Collection Creation -> Select cards from the list of World cards to add to the players collection/inventory
+			
+			(EXTRA)
+			- Upload custom Map background, Dungeon background
+			- Upload custom Card character images
+			- Upload Custom Map music
+		
+		
+	Scenes:
+		Map Scene:
+			- HUD elements:
+				- Main menu exit Button
+				- Player Collection Button
+				- All cards inspect button
+				- Shop Button
+			- Map background
+			- Dungeons display
+			- Draggable camera
+			
+		Dungeon Scene:
+			- Next Step button
+			- Items list
+			- Dungeon Win/Lose Message
+
+	Submenus:
+		New Game submenu:
+			- List of not yet opened/played save files(Game contexts)
+			- When hovered display the info about the save file
+			- when starting a save file difficulty select popup
+			
+		Continue Game submenu
+			- List of already opened save files
+
+
+
+
+
+////// ARCHIVED //////
 Pipeline:
 run.bat :  can start either test or game mode
 		-if test mode nothing changes
@@ -59,8 +144,3 @@ run.bat :  can start either test or game mode
 		
 	-> Game End:
 		- When the player defeats all dungeons at least once ->  A final boss dungeon appears (chosen from the the available dungeons)
-
-
-
-TODO list:
-	Main menu - Openable divs

@@ -13,7 +13,7 @@ config_version=5
 config/name="Charter"
 run/main_scene="uid://cd7wdb77hi6lr"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://5b5clx7uopyh"
 
 [audio]
 
@@ -27,7 +27,8 @@ project/assembly_name="Charter"
 
 folder_colors={
 "res://Assets/": "red",
-"res://Scenes/": "orange"
+"res://Scenes/": "orange",
+"res://Systems/": "teal"
 }
 
 [rendering]
