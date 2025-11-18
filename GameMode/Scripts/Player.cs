@@ -26,7 +26,7 @@ public partial class Player : Node
 	public bool TryAddCardToCollection(Card card)
     {
         if (Collection.Contains(card)) return false;
-		Collection.Add(card);
+		Collection.Add(new Card(card));
 		return true;
     }
 
