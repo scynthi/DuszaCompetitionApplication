@@ -26,7 +26,7 @@ TODO list:
 			- name
 		Card Class >> Boss Card Class:
 
-		Game Manager Class:
+		Game Manager Class (has a node):
 			-> load scenes from files
 			-> change scene
 
