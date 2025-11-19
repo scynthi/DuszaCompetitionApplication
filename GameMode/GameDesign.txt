@@ -33,7 +33,7 @@ TODO list:
 	
 	Menus:
 		Main menu :
-			Buttons:
+			Buttons :
 				Continue Game
 				New Game
 				Settings
@@ -43,8 +43,9 @@ TODO list:
 				GameMaster
 			
 		GameMaster menu:
-			- Basic Card creation -> Choose type, Choose Image, Choose health, Choose damage, Choose name
-			- Boss Card creation -> Select a card from the list of Basic cards and decide if it has a health or a damage boost
+			- Card creation :
+				- Basic -> Choose type, Choose Image, Choose health, Choose damage, Choose name
+				- Boss -> Select a card from the list of Basic cards and decide if it has a health or a damage boost
 			- Dungeon Creation -> Select cards from the list of available cards
 			- Player Collection Creation -> Select cards from the list of World cards to add to the players collection/inventory
 			
