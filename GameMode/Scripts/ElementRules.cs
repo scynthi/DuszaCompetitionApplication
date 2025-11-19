@@ -24,9 +24,9 @@ public static class ElementRules
     };
     public static CardElements[] GetStrenghts(CardElements e) => StrongAgainst[e];
 
-	public static int CalculateDamage(int damage, CardElements enemyCard, CardElements playerCard)
+	public static int CalculateDamage(int damage, CardElements attackingCard, CardElements defendingCard)
     {
-		if (GetWeaknesses(playerCard).Contains(enemyCard)) 
+		if (GetStrenghts(attackingCard).Contains(defendingCard)) 
 			damage *= 2;
 		else
 			damage = Convert.ToInt32(Math.Floor((double)damage / 2));

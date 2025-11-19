@@ -15,7 +15,10 @@ public partial class FightLogic : Node
 	// List<IItem> ItemList = new List<IItem>();
 
 	// TEST
-	List<Card> PlayerDeck = new List<Card> { new Card("Corky", 2, 4, CardElements.EARTH), new Card("Corky", 2, 4, CardElements.EARTH) };
+	List<Card> PlayerDeck = new List<Card> { new Card("Corky", 2, 4, CardElements.EARTH), new Card("Kira", 2, 7, CardElements.WIND) };
+	List<Card> DungeonDeck = new List<Card> { new Card("Sadan", 2, 4, CardElements.WIND) };
+	List<IItem> ItemList = new List<IItem>();
+
 	public RoundState SimulateRound(Card DungeonCard, Card PlayerCard, List<IItem> itemList)
 	{
 		foreach (IItem item in itemList)
@@ -35,28 +38,34 @@ public partial class FightLogic : Node
 	private void OnButtonPressed()
 	{
 		if (PlayerDeck.Count > 0 && DungeonDeck.Count > 0)
-        {
+		{
 			Card playerCard = PlayerDeck[0];
 			Card dungeonCard = DungeonDeck[0];
 			RoundState currRound = SimulateRound(dungeonCard, playerCard, ItemList);
+			ItemList.Clear();
 			if (currRound == RoundState.PLAYERDEATH)
-            {
+			{
 				PlayerDeck.RemoveAt(0);
-                GD.Print($"{playerCard.Name} player card died");
-            }
+				GD.Print($"{playerCard.Name} player card died");
+			}
 			else if (currRound == RoundState.DUNGEONDEATH)
 			{
 				DungeonDeck.RemoveAt(0);
-                GD.Print($"{dungeonCard.Name} enemy card died");
-            }
+				GD.Print($"{dungeonCard.Name} enemy card died");
+			}
 			return;
-        }
+		}
 		EndFight(PlayerDeck.Count > 0 ? $"Player Won {PlayerDeck[0].Name}, {PlayerDeck[0].Health}" : $"Enemy Won {DungeonDeck[0].Name}, {DungeonDeck[0].Health}");
 	}
 
 	private void EndFight(string output)
+	{
+		GD.Print(output);
+	}
+
+	public void AddToItemList(IItem item)
     {
-        GD.Print(output);
+        ItemList.Add(item);
     }
 
 }

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 public partial class Card : Node, IWorldObject
@@ -8,6 +9,7 @@ public partial class Card : Node, IWorldObject
     public int Health { protected set; get; }
     public int Damage { protected set; get; }
     public CardElements CardElement { private set; get; }
+    public List<IBuff> BuffList { private set; get;}
 
     public Card(string name, int damage, int health, CardElements cardElements)
     {
@@ -43,12 +45,20 @@ public partial class Card : Node, IWorldObject
     }
     public int Attack(Card card)
     {
-        int damage = ElementRules.CalculateDamage(Damage, card.CardElement, CardElement);
+        int damage = ElementRules.CalculateDamage(Damage, CardElement, card.CardElement);
         card.ApplyDamage(damage);
         return damage;
     }
     public void ApplyDamage(int value)
     {
         Health = Math.Clamp(Health - value, 0, 100); 
+    }
+
+    public void ClearBuffs(int round)
+    {
+        for (int i = 0; i < BuffList.Count; i++)
+        {
+            if (BuffList[i].EndingRound >= round) BuffList.RemoveAt(i);
+        }
     }
 }

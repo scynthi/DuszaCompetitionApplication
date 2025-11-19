@@ -8,6 +8,7 @@ public partial class Player : Node
 	public int Money { private set; get; }
 	public List<Card> Collection { private set; get; }
 	public List<Card> Deck { private set; get; }
+    public List<IItem> ItemList { private set; get; }
 
 	public Player(int xp, int money, List<Card> collection, List<Card> deck)
     {
