@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cd7wdb77hi6lr"]
+[gd_scene load_steps=2 format=3 uid="uid://cd7wdb77hi6lr"]
+
+[ext_resource type="Script" uid="uid://crrjwkdrkhon6" path="res://Scenes/MainMenu/MainMenu.cs" id="1_cdkru"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -7,132 +9,56 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-focus_behavior_recursive = 1
+script = ExtResource("1_cdkru")
 
-[node name="Editor" type="Button" parent="."]
-layout_mode = 0
-offset_left = 458.0
-offset_top = 442.0
-offset_right = 696.0
-offset_bottom = 473.0
-text = "Game Master"
-
-[node name="HBox" type="HBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
 
-[node name="MainMenu" type="VBoxContainer" parent="HBox"]
+[node name="HBox" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="HBox/MainMenu"]
+[node name="MainMenu" type="VBoxContainer" parent="MarginContainer/HBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HBox/MainMenu"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Charter"
 
-[node name="Continue" type="Button" parent="HBox/MainMenu"]
+[node name="Continue" type="Button" parent="MarginContainer/HBox/MainMenu"]
 layout_mode = 2
-text = "Continue"
+text = "Folytatás"
 
-[node name="NewGame" type="Button" parent="HBox/MainMenu"]
+[node name="NewGame" type="Button" parent="MarginContainer/HBox/MainMenu"]
 layout_mode = 2
-text = "New Game"
+text = "Új játék"
 
-[node name="Settings" type="Button" parent="HBox/MainMenu"]
+[node name="Master" type="Button" parent="MarginContainer/HBox/MainMenu"]
 layout_mode = 2
-text = "Settings"
+text = "Játék mester menü"
 
-[node name="Credits" type="Button" parent="HBox/MainMenu"]
+[node name="Settings" type="Button" parent="MarginContainer/HBox/MainMenu"]
 layout_mode = 2
-text = "Credits"
+text = "Beállítások"
 
-[node name="Quit" type="Button" parent="HBox/MainMenu"]
+[node name="Credits" type="Button" parent="MarginContainer/HBox/MainMenu"]
 layout_mode = 2
-text = "Quit"
+text = "Rólunk"
 
-[node name="SaveEditor" type="VBoxContainer" parent="HBox"]
-visible = false
+[node name="Quit" type="Button" parent="MarginContainer/HBox/MainMenu"]
 layout_mode = 2
-alignment = 1
+text = "Kilépés"
 
-[node name="Panel" type="Panel" parent="HBox/SaveEditor"]
-layout_mode = 2
-
-[node name="ColorRect" type="ColorRect" parent="HBox/SaveEditor/Panel"]
-z_index = -1
-custom_minimum_size = Vector2(400, 300)
-layout_mode = 1
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 1, 0.16078432)
-metadata/_edit_use_anchors_ = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="HBox/SaveEditor/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 15
-
-[node name="SaveFiles" type="VBoxContainer" parent="HBox/SaveEditor/Panel/HBoxContainer"]
-custom_minimum_size = Vector2(175, 0)
-layout_mode = 2
-
-[node name="Button" type="Button" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFiles"]
-layout_mode = 2
-text = "save file"
-
-[node name="Button2" type="Button" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFiles"]
-layout_mode = 2
-text = "save file"
-
-[node name="Button3" type="Button" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFiles"]
-layout_mode = 2
-text = "save file"
-
-[node name="Button4" type="Button" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFiles"]
-layout_mode = 2
-text = "save file"
-
-[node name="Button5" type="Button" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFiles"]
-layout_mode = 2
-text = "save file"
-
-[node name="Button6" type="Button" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFiles"]
-layout_mode = 2
-text = "save file"
-
-[node name="SaveFileMenu" type="VBoxContainer" parent="HBox/SaveEditor/Panel/HBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFileMenu"]
-custom_minimum_size = Vector2(200, 100)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFileMenu"]
-layout_mode = 2
-text = "Name"
-
-[node name="Label2" type="Label" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFileMenu"]
-layout_mode = 2
-text = "sum info"
-
-[node name="Label3" type="Label" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFileMenu"]
-layout_mode = 2
-text = "sum info"
-
-[node name="Button" type="Button" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFileMenu"]
-layout_mode = 2
-text = "Play"
-
-[node name="Button2" type="Button" parent="HBox/SaveEditor/Panel/HBoxContainer/SaveFileMenu"]
-layout_mode = 2
-text = "Delete"
+[connection signal="pressed" from="MarginContainer/HBox/MainMenu/Master" to="." method="_on_master_pressed"]
+[connection signal="pressed" from="MarginContainer/HBox/MainMenu/Master" to="." method="MasteButtonPressed"]

@@ -1,0 +1,128 @@
+[gd_scene load_steps=10 format=3 uid="uid://dk32ss75ce3lw"]
+
+[ext_resource type="Texture2D" uid="uid://bnophesfbq3vi" path="res://Assets/Images/Entities/Heroes/man.png" id="1_egfyg"]
+[ext_resource type="Script" uid="uid://cqcurt0gop2t4" path="res://Assets/UI/Scenes/UICard.cs" id="1_mkdqw"]
+[ext_resource type="Texture2D" uid="uid://dcbyhic481tbl" path="res://Assets/Images/Cards/cards_base.png" id="1_tj12e"]
+[ext_resource type="Texture2D" uid="uid://bpvqj2jyrl0rp" path="res://Assets/Images/Cards/cards_player_leader_effect.png" id="2_udi88"]
+[ext_resource type="Texture2D" uid="uid://b3mo4atbtgp7w" path="res://Assets/Images/Cards/cards_heart_base.png" id="3_2ja5q"]
+[ext_resource type="Texture2D" uid="uid://ruoa1sjpbu7j" path="res://Assets/Images/Cards/cards_heart_buffed.png" id="4_40ahx"]
+[ext_resource type="Texture2D" uid="uid://dnov8t4p650wk" path="res://Assets/Images/Cards/cards_axe_base.png" id="4_vyadu"]
+[ext_resource type="Texture2D" uid="uid://bmiley3dm5mth" path="res://Assets/Images/Cards/cards_axe_buffed.png" id="6_4n0vk"]
+[ext_resource type="Texture2D" uid="uid://dqs6kpkonskqk" path="res://Assets/Images/Elements/tuz.png" id="8_vmlk0"]
+
+[node name="Card" type="Control"]
+layout_mode = 3
+anchor_right = 0.14600001
+anchor_bottom = 0.34
+offset_right = -0.1920166
+offset_bottom = -0.32000732
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mkdqw")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.5890464, 0.40678903, 0.090853564, 1)
+
+[node name="Character" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 69.0
+offset_right = 160.0
+offset_bottom = 220.0
+texture = ExtResource("1_egfyg")
+
+[node name="Base" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_tj12e")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 76.0
+offset_top = 6.0
+offset_right = 160.0
+offset_bottom = 49.0
+theme_override_font_sizes/font_size = 8
+text = "Szuper Béla"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Element" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = -2.0
+offset_right = 58.0
+offset_bottom = 45.0
+texture = ExtResource("8_vmlk0")
+expand_mode = 1
+
+[node name="Effect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_udi88")
+
+[node name="Heart" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 166.0
+offset_right = 50.0
+offset_bottom = 206.0
+
+[node name="HeartIcon" type="TextureRect" parent="Heart"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 47.0
+texture = ExtResource("3_2ja5q")
+
+[node name="HeartBuffedIcon" type="TextureRect" parent="Heart"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -12.0
+offset_right = 66.0
+offset_bottom = 46.0
+texture = ExtResource("4_40ahx")
+
+[node name="Health" type="Label" parent="Heart"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 11.0
+offset_right = 33.0
+offset_bottom = 34.0
+text = "99"
+
+[node name="Axe" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 111.0
+offset_top = 166.0
+offset_right = 151.0
+offset_bottom = 206.0
+
+[node name="AxeIcon" type="TextureRect" parent="Axe"]
+layout_mode = 0
+offset_right = 49.0
+offset_bottom = 47.0
+texture = ExtResource("4_vyadu")
+
+[node name="AxeBuffedIcon" type="TextureRect" parent="Axe"]
+layout_mode = 0
+offset_left = -17.0
+offset_top = -31.0
+offset_right = 59.0
+offset_bottom = 27.0
+texture = ExtResource("6_4n0vk")
+
+[node name="Damage" type="Label" parent="Axe"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 11.0
+offset_right = 33.0
+offset_bottom = 34.0
+text = "99"
