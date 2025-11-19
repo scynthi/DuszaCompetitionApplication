@@ -1,81 +1,81 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\",
+  "WorkspaceRootPath": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\gameelements\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:gameelements\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\gameelements\\kazamata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:gameelements\\kazamata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\enums\\kazamatatypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:enums\\kazamatatypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\gameelements\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:gameelements\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\enums\\vezerarrayparts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:enums\\vezerarrayparts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\enums\\gamemodes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:enums\\gamemodes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\gameelements\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\testmode\\gameelements\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:gameelements\\card.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\testmode\\gameelements\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:gameelements\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\testmode\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\testmode\\gameelements\\kazamata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:gameelements\\kazamata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\testmode\\enums\\kazamatatypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:enums\\kazamatatypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\testmode\\gameelements\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:gameelements\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\testmode\\enums\\vezerarrayparts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:enums\\vezerarrayparts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\testmode\\enums\\gamemodes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:enums\\gamemodes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\testmode\\utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:utility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\enums\\rewardtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\testmode\\enums\\rewardtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:enums\\rewardtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\io\\writeout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\testmode\\io\\writeout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:io\\writeout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\ui\\uiresources.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\testmode\\ui\\uiresources.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:ui\\uiresources.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\ui\\uicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\testmode\\ui\\uicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:ui\\uicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\ui\\tui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\testmode\\ui\\tui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:ui\\tui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\enums\\elementtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\testmode\\enums\\elementtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:enums\\elementtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\enums\\kazamataarrayparts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\testmode\\enums\\kazamataarrayparts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:enums\\kazamataarrayparts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\io\\readin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\testmode\\io\\readin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:io\\readin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\enums\\cardtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\testmode\\enums\\cardtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:enums\\cardtypes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\enums\\cardarrayparts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|c:\\users\\borok\\onedrive\\dokumentumok\\github\\duszacompetitionapplication\\testmode\\enums\\cardarrayparts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{52336DDC-CA67-4CFB-91D3-6631440CB1C4}|DuszaCompetitionApplication.csproj|solutionrelative:enums\\cardarrayparts.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -86,15 +86,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 11,
               "Title": "UIResources.cs",
-              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\UI\\UIResources.cs",
+              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\UI\\UIResources.cs",
               "RelativeDocumentMoniker": "UI\\UIResources.cs",
-              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\UI\\UIResources.cs",
+              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\UI\\UIResources.cs",
               "RelativeToolTip": "UI\\UIResources.cs",
               "ViewState": "AgIAAAUBAAAAAAAAAAAIwBsBAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -102,88 +102,85 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\GameElements\\Player.cs",
+              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\GameElements\\Player.cs",
               "RelativeDocumentMoniker": "GameElements\\Player.cs",
-              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\GameElements\\Player.cs",
+              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\GameElements\\Player.cs",
               "RelativeToolTip": "GameElements\\Player.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAAwwB4AAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T18:40:29.538Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T18:40:29.538Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GameModes.cs",
+              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\Enums\\GameModes.cs",
+              "RelativeDocumentMoniker": "Enums\\GameModes.cs",
+              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\Enums\\GameModes.cs",
+              "RelativeToolTip": "Enums\\GameModes.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-08T16:47:50.179Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "GameModes.cs",
-              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\Enums\\GameModes.cs",
-              "RelativeDocumentMoniker": "Enums\\GameModes.cs",
-              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\Enums\\GameModes.cs",
-              "RelativeToolTip": "Enums\\GameModes.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-08T16:47:50.179Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "VezerArrayParts.cs",
-              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\Enums\\VezerArrayParts.cs",
+              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\Enums\\VezerArrayParts.cs",
               "RelativeDocumentMoniker": "Enums\\VezerArrayParts.cs",
-              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\Enums\\VezerArrayParts.cs",
+              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\Enums\\VezerArrayParts.cs",
               "RelativeToolTip": "Enums\\VezerArrayParts.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T15:22:32.495Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T15:22:32.495Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "KazamataTypes.cs",
-              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\Enums\\KazamataTypes.cs",
+              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\Enums\\KazamataTypes.cs",
               "RelativeDocumentMoniker": "Enums\\KazamataTypes.cs",
-              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\Enums\\KazamataTypes.cs",
+              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\Enums\\KazamataTypes.cs",
               "RelativeToolTip": "Enums\\KazamataTypes.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T15:07:17.338Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T15:07:17.338Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GameManager.cs",
-              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\GameElements\\GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\GameElements\\GameManager.cs",
               "RelativeDocumentMoniker": "GameElements\\GameManager.cs",
-              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\GameElements\\GameManager.cs",
+              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\GameElements\\GameManager.cs",
               "RelativeToolTip": "GameElements\\GameManager.cs",
-              "ViewState": "AgIAAH8BAAAAAAAAAAAYwJ0BAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAOUAAAAAAAAAAAAmwJ0BAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-11-07T13:51:31.455Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "Card.cs",
-              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\GameElements\\Card.cs",
+              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\GameElements\\Card.cs",
               "RelativeDocumentMoniker": "GameElements\\Card.cs",
-              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\GameElements\\Card.cs",
+              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\GameElements\\Card.cs",
               "RelativeToolTip": "GameElements\\Card.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAADwvxIAAAAkAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T13:47:47.726Z"
+              "WhenOpened": "2025-11-07T13:47:47.726Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
               "Title": "WriteOut.cs",
-              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\IO\\WriteOut.cs",
+              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\IO\\WriteOut.cs",
               "RelativeDocumentMoniker": "IO\\WriteOut.cs",
-              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\IO\\WriteOut.cs",
+              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\IO\\WriteOut.cs",
               "RelativeToolTip": "IO\\WriteOut.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -193,9 +190,9 @@
               "$type": "Document",
               "DocumentIndex": 9,
               "Title": "RewardType.cs",
-              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\Enums\\RewardType.cs",
+              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\Enums\\RewardType.cs",
               "RelativeDocumentMoniker": "Enums\\RewardType.cs",
-              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\Enums\\RewardType.cs",
+              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\Enums\\RewardType.cs",
               "RelativeToolTip": "Enums\\RewardType.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwAQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -205,9 +202,9 @@
               "$type": "Document",
               "DocumentIndex": 8,
               "Title": "Utility.cs",
-              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\Utility.cs",
+              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\Utility.cs",
               "RelativeDocumentMoniker": "Utility.cs",
-              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\Utility.cs",
+              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\Utility.cs",
               "RelativeToolTip": "Utility.cs",
               "ViewState": "AgIAACMAAAAAAAAAAAAAwDsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -215,37 +212,35 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Kazamata.cs",
-              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\GameElements\\Kazamata.cs",
+              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\GameElements\\Kazamata.cs",
               "RelativeDocumentMoniker": "GameElements\\Kazamata.cs",
-              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\GameElements\\Kazamata.cs",
+              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\GameElements\\Kazamata.cs",
               "RelativeToolTip": "GameElements\\Kazamata.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T13:32:49.587Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T13:32:49.587Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\Program.cs",
+              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\Program.cs",
               "RelativeToolTip": "Program.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAgwDMAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-07T14:15:11.729Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-07T14:15:11.729Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
               "Title": "UIController.cs",
-              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\UI\\UIController.cs",
+              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\UI\\UIController.cs",
               "RelativeDocumentMoniker": "UI\\UIController.cs",
-              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\UI\\UIController.cs",
+              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\UI\\UIController.cs",
               "RelativeToolTip": "UI\\UIController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -255,9 +250,9 @@
               "$type": "Document",
               "DocumentIndex": 13,
               "Title": "TUI.cs",
-              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\UI\\TUI.cs",
+              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\UI\\TUI.cs",
               "RelativeDocumentMoniker": "UI\\TUI.cs",
-              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\UI\\TUI.cs",
+              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\UI\\TUI.cs",
               "RelativeToolTip": "UI\\TUI.cs",
               "ViewState": "AgIAAGUAAAAAAAAAAAAnwH0AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -267,9 +262,9 @@
               "$type": "Document",
               "DocumentIndex": 14,
               "Title": "ElementTypes.cs",
-              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\Enums\\ElementTypes.cs",
+              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\Enums\\ElementTypes.cs",
               "RelativeDocumentMoniker": "Enums\\ElementTypes.cs",
-              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\Enums\\ElementTypes.cs",
+              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\Enums\\ElementTypes.cs",
               "RelativeToolTip": "Enums\\ElementTypes.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAAAxwBcAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -279,9 +274,9 @@
               "$type": "Document",
               "DocumentIndex": 15,
               "Title": "KazamataArrayParts.cs",
-              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\Enums\\KazamataArrayParts.cs",
+              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\Enums\\KazamataArrayParts.cs",
               "RelativeDocumentMoniker": "Enums\\KazamataArrayParts.cs",
-              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\Enums\\KazamataArrayParts.cs",
+              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\Enums\\KazamataArrayParts.cs",
               "RelativeToolTip": "Enums\\KazamataArrayParts.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -291,9 +286,9 @@
               "$type": "Document",
               "DocumentIndex": 16,
               "Title": "ReadIn.cs",
-              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\IO\\ReadIn.cs",
+              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\IO\\ReadIn.cs",
               "RelativeDocumentMoniker": "IO\\ReadIn.cs",
-              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\IO\\ReadIn.cs",
+              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\IO\\ReadIn.cs",
               "RelativeToolTip": "IO\\ReadIn.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -303,9 +298,9 @@
               "$type": "Document",
               "DocumentIndex": 17,
               "Title": "CardTypes.cs",
-              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\Enums\\CardTypes.cs",
+              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\Enums\\CardTypes.cs",
               "RelativeDocumentMoniker": "Enums\\CardTypes.cs",
-              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\Enums\\CardTypes.cs",
+              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\Enums\\CardTypes.cs",
               "RelativeToolTip": "Enums\\CardTypes.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -315,9 +310,9 @@
               "$type": "Document",
               "DocumentIndex": 18,
               "Title": "CardArrayParts.cs",
-              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\Enums\\CardArrayParts.cs",
+              "DocumentMoniker": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\Enums\\CardArrayParts.cs",
               "RelativeDocumentMoniker": "Enums\\CardArrayParts.cs",
-              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\Enums\\CardArrayParts.cs",
+              "ToolTip": "C:\\Users\\borok\\OneDrive\\Dokumentumok\\GitHub\\DuszaCompetitionApplication\\TestMode\\Enums\\CardArrayParts.cs",
               "RelativeToolTip": "Enums\\CardArrayParts.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",

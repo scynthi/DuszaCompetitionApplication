@@ -14,10 +14,13 @@ public partial class FightLogic : Node
 	// List<Card> DungeonDeck = new List<Card>();
 	// List<IItem> ItemList = new List<IItem>();
 
+	[Export] RichTextLabel RoundText;
+
 	// TEST
 	List<Card> PlayerDeck = new List<Card> { new Card("Corky", 2, 4, CardElements.EARTH), new Card("Kira", 2, 7, CardElements.WIND) };
 	List<Card> DungeonDeck = new List<Card> { new Card("Sadan", 2, 4, CardElements.WIND) };
 	List<IItem> ItemList = new List<IItem>();
+	private int Round = 1;
 
 	public RoundState SimulateRound(Card DungeonCard, Card PlayerCard, List<IItem> itemList)
 	{
@@ -37,6 +40,7 @@ public partial class FightLogic : Node
 
 	private void OnButtonPressed()
 	{
+		RoundText.Text = $"Round: {Round}";
 		if (PlayerDeck.Count > 0 && DungeonDeck.Count > 0)
 		{
 			Card playerCard = PlayerDeck[0];
@@ -53,10 +57,16 @@ public partial class FightLogic : Node
 				DungeonDeck.RemoveAt(0);
 				GD.Print($"{dungeonCard.Name} enemy card died");
 			}
+			Round++;
 			return;
 		}
 		EndFight(PlayerDeck.Count > 0 ? $"Player Won {PlayerDeck[0].Name}, {PlayerDeck[0].Health}" : $"Enemy Won {DungeonDeck[0].Name}, {DungeonDeck[0].Health}");
 	}
+
+	private void OnItemPressed()
+    {
+        GD.Print("BRUH");
+    }
 
 	private void EndFight(string output)
 	{

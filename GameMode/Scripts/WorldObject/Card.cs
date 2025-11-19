@@ -7,33 +7,42 @@ public partial class Card : Node, IWorldObject
 {
 	public new string Name { protected set; get; }
     public int Health { protected set; get; }
+    public int BaseDamage { protected set; get; }
     public int Damage { protected set; get; }
     public CardElements CardElement { private set; get; }
-    public List<IBuff> BuffList { private set; get;}
+    public BuffHandler buffHandler { private set; get; }
 
-    public Card(string name, int damage, int health, CardElements cardElements)
+    public Card(string name, int baseDamage, int health, CardElements cardElements)
     {
         Name        = name;
         Health      = health;
-        Damage      = damage;
+        BaseDamage  = baseDamage;
+        Damage      = baseDamage;
         CardElement = cardElements;
+        buffHandler = new BuffHandler(this);
     }
 	
 	public Card(Card other)
     {
         Name        = other.Name;
         Health      = other.Health;
-        Damage      = other.Damage;
+        BaseDamage  = other.BaseDamage;
+        Damage      = other.BaseDamage;
         CardElement = other.CardElement;
+        buffHandler = new BuffHandler(this);
     }
 
-    public void ModifyDamage(int value)
+    public void ModifyBaseDamage(int value)
     {
-        Damage = Math.Clamp(Damage + value, 0, 100); 
+        BaseDamage = Math.Clamp(BaseDamage + value, 0, 100); 
     }
     public void ModifyHealth(int value)
     {
         Health = Math.Clamp(Health + value, 0, 100); 
+    }
+    public void SetBaseDamage(int value)
+    {
+        BaseDamage = Math.Clamp(value, 0, 100); 
     }
     public void SetDamage(int value)
     {
@@ -45,20 +54,13 @@ public partial class Card : Node, IWorldObject
     }
     public int Attack(Card card)
     {
-        int damage = ElementRules.CalculateDamage(Damage, CardElement, card.CardElement);
-        card.ApplyDamage(damage);
-        return damage;
+        int calculatedDamage = ElementRules.CalculateDamage(Damage, CardElement, card.CardElement);
+        card.ApplyDamage(calculatedDamage);
+        return calculatedDamage;
     }
     public void ApplyDamage(int value)
     {
-        Health = Math.Clamp(Health - value, 0, 100); 
-    }
-
-    public void ClearBuffs(int round)
-    {
-        for (int i = 0; i < BuffList.Count; i++)
-        {
-            if (BuffList[i].EndingRound >= round) BuffList.RemoveAt(i);
-        }
+        Health -= value; 
+        Health = Math.Clamp(Health, 0, 100);
     }
 }
