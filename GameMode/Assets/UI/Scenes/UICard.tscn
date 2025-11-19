@@ -27,7 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.5890464, 0.40678903, 0.090853564, 1)
+color = Color(0.56023794, 0.35918114, 0.20011234, 1)
 
 [node name="Character" type="TextureRect" parent="."]
 layout_mode = 0
@@ -64,6 +64,7 @@ texture = ExtResource("8_vmlk0")
 expand_mode = 1
 
 [node name="Effect" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
