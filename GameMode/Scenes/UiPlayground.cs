@@ -9,7 +9,6 @@ public partial class UiPlayground : Control
     {
         UICard uiCard = (UICard)cardUIScene.Instantiate();
         AddChild(uiCard);
-        uiCard.EditAllCardInformation("Albert", 10, 3, true, true);
-
+        uiCard.EditAllCardInformation("res://Assets/Images/Entities/Enemies/char_wendigo.png", CardElements.EARTH, "AlberticsicskaJános", 10, 3, false, true);
     }
 }

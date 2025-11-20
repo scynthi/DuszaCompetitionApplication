@@ -61,4 +61,3 @@ layout_mode = 2
 text = "Kilépés"
 
 [connection signal="pressed" from="MarginContainer/HBox/MainMenu/Master" to="." method="MasteButtonPressed"]
-[connection signal="pressed" from="MarginContainer/HBox/MainMenu/Master" to="." method="_on_master_pressed"]
