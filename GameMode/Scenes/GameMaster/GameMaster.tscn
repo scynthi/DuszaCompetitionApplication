@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6chsl4nd1iy5"]
+[gd_scene load_steps=3 format=3 uid="uid://c6chsl4nd1iy5"]
 
-[ext_resource type="Texture2D" uid="uid://dcbyhic481tbl" path="res://Assets/Images/Cards/cards_base.png" id="1_kvxkh"]
+[ext_resource type="Script" uid="uid://b6b68i6jcla5g" path="res://Scenes/GameMaster/CardEditor.cs" id="1_4ikgl"]
+[ext_resource type="PackedScene" uid="uid://dk32ss75ce3lw" path="res://Assets/UI/Scenes/UICard/UICard.tscn" id="1_nonii"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -35,21 +36,14 @@ layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="CardEditor" type="HBoxContainer" parent="MarginContainer/HBox/GameMaster/VBoxContainer"]
+[node name="CardEditor" type="HBoxContainer" parent="MarginContainer/HBox/GameMaster/VBoxContainer" node_paths=PackedStringArray("card")]
 layout_mode = 2
 alignment = 1
+script = ExtResource("1_4ikgl")
+card = NodePath("Card")
 
-[node name="Preview" type="VBoxContainer" parent="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor"]
+[node name="Card" parent="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor" instance=ExtResource("1_nonii")]
 layout_mode = 2
-alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor/Preview"]
-layout_mode = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor/Preview/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_kvxkh")
 
 [node name="Properties" type="VBoxContainer" parent="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor"]
 layout_mode = 2
@@ -57,7 +51,7 @@ layout_mode = 2
 [node name="Name" type="LineEdit" parent="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor/Properties"]
 layout_mode = 2
 placeholder_text = "Név"
-max_length = 30
+max_length = 16
 emoji_menu_enabled = false
 clear_button_enabled = true
 select_all_on_focus = true
@@ -78,22 +72,26 @@ emoji_menu_enabled = false
 clear_button_enabled = true
 select_all_on_focus = true
 
-[node name="OptionButton" type="OptionButton" parent="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor/Properties"]
+[node name="ElementMenu" type="OptionButton" parent="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor/Properties"]
 layout_mode = 2
-selected = 0
+selected = 3
 item_count = 4
-popup/item_0/text = "Víz"
-popup/item_0/id = 0
-popup/item_1/text = "Tűz"
-popup/item_1/id = 1
-popup/item_2/text = "Föld"
-popup/item_2/id = 2
-popup/item_3/text = "Levegő"
-popup/item_3/id = 3
+popup/item_0/text = "Föld"
+popup/item_0/id = 2
+popup/item_1/text = "Levegő"
+popup/item_1/id = 3
+popup/item_2/text = "Víz"
+popup/item_2/id = 0
+popup/item_3/text = "Tűz"
+popup/item_3/id = 1
 
-[node name="CheckButton" type="CheckButton" parent="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor/Properties"]
+[node name="BossCheck" type="CheckButton" parent="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor/Properties"]
 layout_mode = 2
 text = "Vezér"
+
+[node name="SaveButton" type="Button" parent="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor/Properties"]
+layout_mode = 2
+text = "Mentés"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBox/GameMaster"]
 layout_mode = 2
@@ -114,3 +112,9 @@ text = "Kártya késztő"
 [node name="DungeonEditor" type="Button" parent="MarginContainer/HBox/GameMaster/VBoxContainer2/Buttons"]
 layout_mode = 2
 text = "Kazamata készítő"
+
+[connection signal="text_changed" from="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor/Properties/Name" to="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor" method="ChangeName"]
+[connection signal="text_changed" from="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor/Properties/Health" to="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor" method="ChangeHealth"]
+[connection signal="text_changed" from="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor/Properties/Damage" to="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor" method="ChangeDamage"]
+[connection signal="item_selected" from="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor/Properties/ElementMenu" to="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor" method="ChangeElement"]
+[connection signal="pressed" from="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor/Properties/BossCheck" to="MarginContainer/HBox/GameMaster/VBoxContainer/CardEditor" method="ChangeType"]
