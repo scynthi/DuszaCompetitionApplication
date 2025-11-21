@@ -19,10 +19,6 @@ config/icon="uid://5b5clx7uopyh"
 
 buses/default_bus_layout=""
 
-[autoload]
-
-DescriptionBox="*res://Scenes/Miscs/Description.tscn"
-
 [dotnet]
 
 project/assembly_name="Charter"
