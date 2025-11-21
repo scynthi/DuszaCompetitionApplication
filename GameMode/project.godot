@@ -11,7 +11,6 @@ config_version=5
 [application]
 
 config/name="Charter"
-run/main_scene="uid://cd7wdb77hi6lr"
 run/main_scene="uid://b7ju5ebcspygg"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="uid://5b5clx7uopyh"
