@@ -12,12 +12,18 @@ config_version=5
 
 config/name="Charter"
 run/main_scene="uid://cd7wdb77hi6lr"
+run/main_scene="uid://b7ju5ebcspygg"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="uid://5b5clx7uopyh"
 
 [audio]
 
 buses/default_bus_layout=""
+
+[autoload]
+
+DescriptionBox="*res://Scenes/Miscs/Description.tscn"
+Global="*res://Scripts/Global.cs"
 
 [dotnet]
 

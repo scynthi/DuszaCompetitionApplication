@@ -1,0 +1,268 @@
+[gd_scene load_steps=14 format=3 uid="uid://b7ju5ebcspygg"]
+
+[ext_resource type="Script" uid="uid://c6x1xajmkurav" path="res://Scenes/GameManager/GameManager.cs" id="1_jmpc8"]
+[ext_resource type="Texture2D" uid="uid://d4cj5qnd8tha3" path="res://Assets/Images/Textures/PaperTex.png" id="2_pbnlu"]
+[ext_resource type="PackedScene" uid="uid://cgalnmmbimcuw" path="res://Assets/BackgroundVisuals/MainMenuWorld.tscn" id="2_um3qg"]
+[ext_resource type="Shader" uid="uid://dfgpe5eshsaa8" path="res://Assets/Shaders/crt.gdshader" id="3_pbnlu"]
+
+[sub_resource type="Shader" id="Shader_um3qg"]
+code = "shader_type canvas_item;
+uniform float progress = 0.0;
+uniform float noiseForce = 0.2;
+uniform sampler2D noiseTexture;
+uniform vec4 burnColor: source_color;
+uniform float borderWidth;
+uniform float direction = 180.0f;
+
+vec2 degreesToPerpendicular(){
+	return vec2(cos(radians((direction))), -sin(radians(direction)));
+}
+void fragment(){
+	vec2 normUV = UV * 2.0 - 1.0;
+	COLOR.rgb = mix(COLOR.rgb, burnColor.rgb, float(dot(normUV, degreesToPerpendicular()) + (texture(noiseTexture, UV).r * noiseForce) < (progress + borderWidth)));
+	if(!(dot(normUV, degreesToPerpendicular()) + (texture(noiseTexture, UV).r * noiseForce) > progress)){
+		COLOR.a = 0.0;
+	}
+}"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wwsdi"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_48k5m"]
+noise = SubResource("FastNoiseLite_wwsdi")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2artw"]
+shader = SubResource("Shader_um3qg")
+shader_parameter/progress = 1.5
+shader_parameter/noiseForce = 0.65
+shader_parameter/noiseTexture = SubResource("NoiseTexture2D_48k5m")
+shader_parameter/burnColor = Color(0.5, 0.18041667, 0.17500001, 1)
+shader_parameter/borderWidth = 0.045
+shader_parameter/direction = 90.0
+
+[sub_resource type="Animation" id="Animation_gdlka"]
+resource_name = "SceneTransition"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.5, -1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:material:shader_parameter/burnColor")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.5, 0.18041667, 0.17500001, 1), Color(0.9, 0.6465, 0.31500003, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:material:shader_parameter/direction")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [90.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_okk2x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:material:shader_parameter/burnColor")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.5, 0.18041667, 0.17500001, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:material:shader_parameter/direction")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [90.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_um3qg"]
+resource_name = "SceneTransitionOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.0, 1.5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:material:shader_parameter/burnColor")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.9, 0.5685, 0.31500003, 1), Color(0.9, 0.31500003, 0.31500003, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:material:shader_parameter/direction")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-90.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l6dr1"]
+_data = {
+&"RESET": SubResource("Animation_okk2x"),
+&"SceneTransition": SubResource("Animation_gdlka"),
+&"SceneTransitionOut": SubResource("Animation_um3qg")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_um3qg"]
+shader = ExtResource("3_pbnlu")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.2850000135375
+shader_parameter/grille_opacity = 0.0970000046075
+shader_parameter/resolution = Vector2(720, 360)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 0.73
+shader_parameter/roll_size = 18.1510008621725
+shader_parameter/roll_variation = 1.21800005459512
+shader_parameter/distort_intensity = 0.00400000019
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.010000000475
+shader_parameter/aberration = 0.003000047642500059
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.010000000475
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.325
+shader_parameter/vignette_opacity = 0.4370000207575
+
+[node name="GameManager" type="Node" node_paths=PackedStringArray("World", "transitionAnimator")]
+script = ExtResource("1_jmpc8")
+World = NodePath("GameLayer/World")
+transitionAnimator = NodePath("TransitionLayer/AnimationPlayer")
+
+[node name="GameLayer" type="CanvasLayer" parent="."]
+
+[node name="World" type="Node" parent="GameLayer"]
+
+[node name="MainMenuWorld" parent="GameLayer/World" instance=ExtResource("2_um3qg")]
+
+[node name="TransitionLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="TransitionLayer"]
+modulate = Color(0.59, 0.59, 0.59, 1)
+material = SubResource("ShaderMaterial_2artw")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_pbnlu")
+stretch_mode = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TransitionLayer"]
+libraries = {
+&"": SubResource("AnimationLibrary_l6dr1")
+}
+
+[node name="ShaderLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="ShaderLayer"]
+material = SubResource("ShaderMaterial_um3qg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

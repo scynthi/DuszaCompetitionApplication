@@ -5,6 +5,6 @@ public partial class MainMenu : Control
 {
     private void MasteButtonPressed()
     {
-        GetTree().ChangeSceneToFile("res://Scenes/GameMaster/GameMaster.tscn");
+        Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.MainMenu);
     }
 }
