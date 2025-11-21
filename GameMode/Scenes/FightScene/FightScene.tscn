@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://nq0gnkgglhi6"]
+[gd_scene load_steps=3 format=3 uid="uid://nq0gnkgglhi6"]
 
 [ext_resource type="Script" uid="uid://cqbvhjwb8smc1" path="res://Scripts/FightLogic.cs" id="1_ugqt7"]
+[ext_resource type="Script" uid="uid://cb3b81rshu7rf" path="res://Scripts/Buttons/ItemButton.cs" id="2_xjksd"]
 
 [node name="FightScene" type="Node2D"]
 
@@ -27,5 +28,7 @@ offset_left = 206.0
 offset_top = 478.0
 offset_right = 293.0
 offset_bottom = 551.0
+script = ExtResource("2_xjksd")
 
 [connection signal="pressed" from="StepBattle" to="BattleManager" method="OnButtonPressed"]
+[connection signal="Send_Item" from="Button" to="BattleManager" method="OnAddToItemListPressed"]

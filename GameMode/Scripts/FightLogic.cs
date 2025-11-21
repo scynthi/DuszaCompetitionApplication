@@ -45,6 +45,8 @@ public partial class FightLogic : Node
 		{
 			Card playerCard = PlayerDeck[0];
 			Card dungeonCard = DungeonDeck[0];
+			playerCard.buffHandler.ClearBuffs(Round);
+			dungeonCard.buffHandler.ClearBuffs(Round);
 			RoundState currRound = SimulateRound(dungeonCard, playerCard, ItemList);
 			ItemList.Clear();
 			if (currRound == RoundState.PLAYERDEATH)
@@ -73,9 +75,9 @@ public partial class FightLogic : Node
 		GD.Print(output);
 	}
 
-	public void AddToItemList(IItem item)
+	public void OnAddToItemListPressed(int item)
     {
-        ItemList.Add(item);
+		IItem createdItem = Items.CreateItemFromType((ItemType)item);
+  	    if (!ItemList.Contains(createdItem)) ItemList.Add(createdItem);
     }
-
 }

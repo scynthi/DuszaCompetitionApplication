@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class BuffHandler
 {
-	private List<IBuff> CurrentBuffs;
+	private List<IBuff> CurrentBuffs = new List<IBuff>();
 	private Card OwnerCard;
 
 	public BuffHandler(Card card)

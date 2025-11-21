@@ -54,13 +54,14 @@ public partial class Card : Node, IWorldObject
     }
     public int Attack(Card card)
     {
+        buffHandler.CalculateDamage();
         int calculatedDamage = ElementRules.CalculateDamage(Damage, CardElement, card.CardElement);
         card.ApplyDamage(calculatedDamage);
         return calculatedDamage;
     }
     public void ApplyDamage(int value)
     {
-        Health -= value; 
+        Health -= Convert.ToInt32(Math.Round(value * buffHandler.CalculateDamageTakenMultiplier())); 
         Health = Math.Clamp(Health, 0, 100);
     }
 }
