@@ -12,12 +12,12 @@ public partial class DescriptionBox : Control
     public override void _Ready()
     {
         Instance = this;
-		NameLabel = GetNode<Label>("PanelContainer/MarginContainer/VBoxContainer/NameLabel");
-		DescriptionLabel = GetNode<Label>("PanelContainer/MarginContainer/VBoxContainer/DescriptionLabel");
+		NameLabel = GetNode<Label>("PanelContainer/MarginContainer/VBoxContainer/Name");
+		DescriptionLabel = GetNode<Label>("PanelContainer/MarginContainer/VBoxContainer/Descripiton");
 
 		NameLabel.Text = "APPLE";
 
-		Visible = false;
+		// Visible = false;
     }
 
 	public void ShowDescription(string name, string description, Vector2 pos)
