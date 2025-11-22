@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=3 uid="uid://t05qnqewfh32"]
 
 [ext_resource type="Script" uid="uid://jtuoap7qxnl5" path="res://Assets/Shaders/quantization_shader.gd" id="1_anmlt"]
-[ext_resource type="PackedScene" uid="uid://ce7g0oth38mpg" path="res://Assets/BackgroundVisuals/mainmenuTest.glb" id="2_rd0qj"]
-[ext_resource type="PackedScene" uid="uid://cpidsg2b56hne" path="res://Assets/BackgroundVisuals/StyledCamera.tscn" id="3_la1sx"]
+[ext_resource type="PackedScene" uid="uid://ce7g0oth38mpg" path="res://Assets/Models/mainmenuTest.glb" id="2_rd0qj"]
+[ext_resource type="PackedScene" uid="uid://cpidsg2b56hne" path="res://Assets/StyledCamera.tscn" id="3_la1sx"]
 [ext_resource type="Shader" uid="uid://dfgpe5eshsaa8" path="res://Assets/Shaders/crt.gdshader" id="4_pyu8d"]
 [ext_resource type="PackedScene" uid="uid://c6chsl4nd1iy5" path="res://Scenes/UI/GameMaster/GameMaster.tscn" id="5_anmlt"]
 

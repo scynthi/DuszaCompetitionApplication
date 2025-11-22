@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://cucapuu4plldt"]
+
+[resource]
+Button/font_sizes/font_size = 10
+Label/font_sizes/font_size = 12
+LineEdit/font_sizes/font_size = 12
+OptionButton/font_sizes/font_size = 12

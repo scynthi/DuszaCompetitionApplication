@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bkxac5mrr13pu"]
 
-[ext_resource type="Script" uid="uid://crryffgn53yln" path="res://Assets/UI/Scenes/UIKazamata/UIKazamata.cs" id="1_a771a"]
+[ext_resource type="Script" uid="uid://crryffgn53yln" path="res://Assets/UI/Scenes/UIDungeon/UIDungeon.cs" id="1_a771a"]
 [ext_resource type="Texture2D" uid="uid://bdmnd11s75frm" path="res://Assets/Images/Portal/portal_frame_egyszeru.png" id="2_3smau"]
 
-[node name="UIKazamata" type="Control"]
+[node name="UIDungeon" type="Control"]
 custom_minimum_size = Vector2(200, 300)
 layout_mode = 3
 anchor_left = -0.06944445
