@@ -3,7 +3,7 @@ using System;
 
 public partial class UiAudioController : Node
 {
-    [Export] AudioBank audioBank;
+    [Export] public AudioBank audioBank;
     [Export] AudioStreamPlayer sfxAudioPlayer;
 
     public void PlaySFX(AudioStream stream, bool randomizePitch = true)

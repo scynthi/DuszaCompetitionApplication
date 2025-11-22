@@ -4,13 +4,13 @@ using System;
 
 public partial class AudioBank : Node
 {
-    [Export] Array<AudioStream> clickSounds;
-    [Export] Array<AudioStream> hoverSounds;
-    [Export] Array<AudioStream> deathSounds;
-    [Export] Array<AudioStream> drawSounds;
-    [Export] Array<AudioStream> attackSounds;
-    [Export] Array<AudioStream> levelupSounds;
-    [Export] Array<AudioStream> winSounds;
-    [Export] Array<AudioStream> loseSounds;
+    [Export] public Array<AudioStream> hoverSounds;
+    [Export] public Array<AudioStream> clickSounds;
+    [Export] public Array<AudioStream> deathSounds;
+    [Export] public Array<AudioStream> drawSounds;
+    [Export] public Array<AudioStream> attackSounds;
+    [Export] public Array<AudioStream> levelupSounds;
+    [Export] public Array<AudioStream> winSounds;
+    [Export] public Array<AudioStream> loseSounds;
 
 }

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://oihoapowoy2t"]
+
+[ext_resource type="Script" uid="uid://ctr2m1ncuyxwi" path="res://Scenes/DungeonMap/CameraController.cs" id="1_6u8ww"]
+[ext_resource type="PackedScene" uid="uid://dohu3ccoui2n5" path="res://Scenes/DungeonMap/DungeonMapBackground.tscn" id="2_0enam"]
+[ext_resource type="Script" uid="uid://ixsg7hroneus" path="res://Scenes/DungeonMap/BackgroundGenerator.cs" id="2_bg5ac"]
+
+[node name="DungeonMap" type="Node2D"]
+
+[node name="MapContainer" type="Node2D" parent="."]
+
+[node name="BackgroundGenerator" type="Node2D" parent="MapContainer"]
+script = ExtResource("2_bg5ac")
+mapBackground = ExtResource("2_0enam")
+
+[node name="DungeonMapBackground" parent="MapContainer/BackgroundGenerator" instance=ExtResource("2_0enam")]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="MapContainer"]
+script = ExtResource("1_6u8ww")

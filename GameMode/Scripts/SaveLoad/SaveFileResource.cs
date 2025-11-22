@@ -13,6 +13,7 @@ public partial class SaveFileResource : Resource
 
     public List<Dungeon> dungeons;
 
+    public int gameDifficulty = 0;
 
 
     public SaveFileResource(string name, Player player, List<Card> worldCards, List<Dungeon> dungeons)

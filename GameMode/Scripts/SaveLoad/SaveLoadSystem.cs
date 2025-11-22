@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public partial class SaveLoadSystem : Node
 {
-	public SaveFileResource currSaveFile {get; private set;}
+	public SaveFileResource currSaveFile {get; set;}
 
 	public const string SAVE_PATH = "user://SaveFiles/";
 

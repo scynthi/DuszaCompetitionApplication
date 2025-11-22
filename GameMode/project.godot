@@ -47,6 +47,10 @@ folder_colors={
 "res://Scripts/": "yellow"
 }
 
+[global_group]
+
+DungeonPositions=""
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

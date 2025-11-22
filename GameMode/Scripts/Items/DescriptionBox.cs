@@ -17,7 +17,7 @@ public partial class DescriptionBox : Control
 
 		NameLabel.Text = "APPLE";
 
-		// Visible = false;
+		Visible = false;
     }
 
 	public void ShowDescription(string name, string description, Vector2 pos)

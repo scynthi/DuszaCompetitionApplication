@@ -27,19 +27,31 @@ public partial class MainMenu : Control
 
     public async void ButtonPressed(string option)
     {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+
         switch(option)
         {
             case "editor":
                 await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.EditorMenu);
                 break;
             case "continue":
-                //
                 break;
             case "newgame":
-                //
+                await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.DungeonMap);
                 break;
             case "settings":
-                //
+
+                Card randCard = new Card("asd", 10, 5, CardElements.EARTH);
+
+                
+                SaveFileResource newSaveFile = SaveLoadSystem.CreateSaveFileFromData("testSaveSikibidi", 
+                    [randCard],
+                    [new Dungeon("Dungi", DungeonTypes.simple, DungeonRewardTypes.health)],
+                    new Player(0,0,[randCard],[randCard])
+                    );
+                Global.gameManager.saverLoader.currSaveFile = newSaveFile;
+
+
                 break;
             case "credits":
                 CurrentMenu = creditsMenu;

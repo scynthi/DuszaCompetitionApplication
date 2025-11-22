@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dohu3ccoui2n5"]
+
+[ext_resource type="Texture2D" uid="uid://e0270576quqc" path="res://Assets/Images/Backgrounds/NewBackgrounds/bg_map.png" id="1_e5e8m"]
+
+[node name="DungeonMapBackground" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_e5e8m")
+
+[node name="DungeonPositionMarker" type="Marker2D" parent="." groups=["DungeonPositions"]]
+position = Vector2(-150, -82)

@@ -8,6 +8,7 @@ public partial class GameManager : Node
 
     [Export] private AnimationPlayer transitionAnimator;
     [Export] public SaveLoadSystem saverLoader;
+    [Export] public UiAudioController audioController;
 
     public Node currentWorldScene { private set; get; }
 
@@ -15,6 +16,7 @@ public partial class GameManager : Node
     {
         public const string MainMenu = "uid://cgalnmmbimcuw";
         public const string EditorMenu = "uid://t05qnqewfh32";
+        public const string DungeonMap = "uid://oihoapowoy2t";
     }
 
     public override void _Ready()
@@ -41,8 +43,6 @@ public partial class GameManager : Node
         var newScene = GD.Load<PackedScene>(newScenePath).Instantiate();
         World.AddChild(newScene);
         currentWorldScene = newScene;
-
-        GD.Print("Should be loaded");
 
         transitionAnimator.Play("SceneTransitionOut");
     }
