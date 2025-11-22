@@ -47,6 +47,12 @@ public partial class UICard : Control
         effectTexture = GetNode<TextureRect>("Effect");
         elementTexture = GetNode<TextureRect>("Element");
     }
+    
+    // TODO: update later with mate
+    public Card CreateCardInstance()
+    {
+        return new Card(Name, int.Parse(damageLabel.Text), int.Parse(healthLabel.Text), CardElement);
+    }
 
     public void EditAllCardInformation(Card card)
     {

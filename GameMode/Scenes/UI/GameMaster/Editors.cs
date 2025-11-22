@@ -21,6 +21,10 @@ public partial class Editors : VBoxContainer
 
     public override void _Ready()
     {
+        foreach (Control child in GetChildren())
+        {
+            child.Visible = false;
+        }
         CurrentMenu = CardEditor;
     }
 

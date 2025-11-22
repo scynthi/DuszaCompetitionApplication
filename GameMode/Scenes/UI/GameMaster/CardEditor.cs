@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Reflection.Metadata;
 
 public partial class CardEditor : HBoxContainer
 {
@@ -27,6 +28,27 @@ public partial class CardEditor : HBoxContainer
     public void ChangeElement(int index)
     {
         card.EditElement((CardElements)index);
+    }
+
+    public void ChangeIcon()
+    {
+        FileDialog fileDialogInstance = new();
+        fileDialogInstance.Access = FileDialog.AccessEnum.Filesystem;
+        fileDialogInstance.FileMode = FileDialog.FileModeEnum.OpenFile;
+        fileDialogInstance.InitialPosition = Window.WindowInitialPosition.CenterMainWindowScreen;
+        fileDialogInstance.AddFilter("*.png");
+
+        GetTree().CurrentScene.AddChild(fileDialogInstance);
+        fileDialogInstance.Visible = true;
+
+        fileDialogInstance.FileSelected += HandleFile;
+    }
+
+    private void HandleFile(object sender)
+    {
+        FileAccess file = FileAccess.Open(sender.ToString(), FileAccess.ModeFlags.Read);
+        byte[] buffer = file.GetBuffer((long)file.GetLength());
+        // Image image = new Image().LoadPngFromBuffer(buffer);
     }
 
     // public void ChangeType()

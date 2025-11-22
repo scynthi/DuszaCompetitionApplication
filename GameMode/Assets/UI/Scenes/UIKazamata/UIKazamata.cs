@@ -12,8 +12,12 @@ public partial class UIKazamata : Control
     Button enterButton;
 
 
+    public string kazamataName 
+    {
+        private set {} 
+        get {return nameLabel.Text;}
+    }
     public DungeonTypes kazamataType {private set; get;}
-    public string kazamataName {private set; get;}
 
 
     private bool _previewMode = true;
@@ -52,7 +56,6 @@ public partial class UIKazamata : Control
     public void EditName(string name)
     {
         if (name.Replace(" ", "") == "") return;
-        kazamataName = name;
         nameLabel.Text = name;
     }
 

@@ -22,20 +22,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 5
 
 [node name="SignHolder" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/SignHolder"]
-custom_minimum_size = Vector2(350, 0)
+custom_minimum_size = Vector2(253.69, 0)
 layout_mode = 2
 texture = ExtResource("4_kpx3y")
 expand_mode = 1
-stretch_mode = 4
+stretch_mode = 5
 
 [node name="HBox" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -43,18 +40,18 @@ alignment = 1
 
 [node name="Margin" type="MarginContainer" parent="MarginContainer/HBox"]
 layout_mode = 2
-theme_override_constants/margin_top = 80
+theme_override_constants/margin_top = 60
 
 [node name="MainMenu" type="VBoxContainer" parent="MarginContainer/HBox/Margin"]
 layout_mode = 2
 
 [node name="Items" type="VBoxContainer" parent="MarginContainer/HBox/Margin/MainMenu"]
 layout_mode = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 14
 
 [node name="Label" type="Label" parent="MarginContainer/HBox/Margin/MainMenu/Items"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 42
 text = "Charter"
 horizontal_alignment = 1
 
@@ -71,7 +68,7 @@ text = "Új játék"
 
 [node name="Master" type="Button" parent="MarginContainer/HBox/Margin/MainMenu/Items/ButtonBox"]
 layout_mode = 2
-text = "Játék mester menü"
+text = "Játékmester menü"
 
 [node name="Settings" type="Button" parent="MarginContainer/HBox/Margin/MainMenu/Items/ButtonBox"]
 layout_mode = 2
@@ -102,7 +99,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBox/Margin/Credits/Margin/Items/HBoxContainer"]
-custom_minimum_size = Vector2(275, 50)
+custom_minimum_size = Vector2(211.515, 35.465)
 layout_mode = 2
 texture = ExtResource("2_c7oo3")
 expand_mode = 1
@@ -116,7 +113,6 @@ layout_mode = 2
 text = "UI - Kovács Dániel Benedek
 Assets - Tóth Péter Sándor
 Backend - Borók Máté
-
 
 Készült  a Godot 4.5.1-mono 
 verziójában."

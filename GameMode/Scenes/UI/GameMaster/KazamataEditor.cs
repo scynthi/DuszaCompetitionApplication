@@ -16,7 +16,7 @@ public partial class KazamataEditor : HBoxContainer
     {
         kazamata.EditType((DungeonTypes)index);
     }
-
+    
     public void SaveKazamata()
     {
         GD.Print($"{kazamata.kazamataName}, {kazamata.kazamataType}");
