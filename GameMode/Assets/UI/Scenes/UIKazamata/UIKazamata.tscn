@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkxac5mrr13pu"]
+
+[ext_resource type="Script" uid="uid://crryffgn53yln" path="res://Assets/UI/Scenes/UIKazamata/UIKazamata.cs" id="1_a771a"]
+[ext_resource type="Texture2D" uid="uid://bdmnd11s75frm" path="res://Assets/Images/Portal/portal_frame_egyszeru.png" id="2_3smau"]
+
+[node name="UIKazamata" type="Control"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 3
+anchor_left = -0.06944445
+anchor_top = -0.049382716
+anchor_right = 0.104166664
+anchor_bottom = 0.41358024
+script = ExtResource("1_a771a")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="HBox/VBox"]
+layout_mode = 2
+text = "Teszt Kazamata"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBox/VBox"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("2_3smau")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="HBox/VBox"]
+layout_mode = 2
+text = "Enter"

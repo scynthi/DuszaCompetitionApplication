@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cd7wdb77hi6lr"]
+[gd_scene load_steps=5 format=3 uid="uid://cd7wdb77hi6lr"]
 
 [ext_resource type="Script" uid="uid://crrjwkdrkhon6" path="res://Scenes/MainMenu/MainMenu.cs" id="1_cdkru"]
+[ext_resource type="Texture2D" uid="uid://be04w1ls8fdoi" path="res://Assets/Images/Team logo/undefined_team_logo.png" id="2_c7oo3"]
+[ext_resource type="Texture2D" uid="uid://c8ld0ymmc1sxh" path="res://Assets/Images/Backgrounds/bg_outside.png" id="3_sg7ab"]
+[ext_resource type="Texture2D" uid="uid://o2xic7w1kk7s" path="res://Assets/Images/Sign/hanging_sign.png" id="4_kpx3y"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("mainMenu", "creditsMenu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,6 +13,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cdkru")
+mainMenu = NodePath("MarginContainer/HBox/Margin/MainMenu")
+creditsMenu = NodePath("MarginContainer/HBox/Margin/Credits")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_sg7ab")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -19,45 +35,107 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
+
+[node name="SignHolder" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/SignHolder"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+texture = ExtResource("4_kpx3y")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="HBox" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="MainMenu" type="VBoxContainer" parent="MarginContainer/HBox"]
+[node name="Margin" type="MarginContainer" parent="MarginContainer/HBox"]
 layout_mode = 2
-alignment = 1
+theme_override_constants/margin_top = 80
 
-[node name="Label" type="Label" parent="MarginContainer/HBox/MainMenu"]
+[node name="MainMenu" type="VBoxContainer" parent="MarginContainer/HBox/Margin"]
+layout_mode = 2
+
+[node name="Items" type="VBoxContainer" parent="MarginContainer/HBox/Margin/MainMenu"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="MarginContainer/HBox/Margin/MainMenu/Items"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Charter"
+horizontal_alignment = 1
 
-[node name="Continue" type="Button" parent="MarginContainer/HBox/MainMenu"]
+[node name="ButtonBox" type="VBoxContainer" parent="MarginContainer/HBox/Margin/MainMenu/Items"]
+layout_mode = 2
+
+[node name="Continue" type="Button" parent="MarginContainer/HBox/Margin/MainMenu/Items/ButtonBox"]
 layout_mode = 2
 text = "Folytatás"
 
-[node name="NewGame" type="Button" parent="MarginContainer/HBox/MainMenu"]
+[node name="NewGame" type="Button" parent="MarginContainer/HBox/Margin/MainMenu/Items/ButtonBox"]
 layout_mode = 2
 text = "Új játék"
 
-[node name="Master" type="Button" parent="MarginContainer/HBox/MainMenu"]
+[node name="Master" type="Button" parent="MarginContainer/HBox/Margin/MainMenu/Items/ButtonBox"]
 layout_mode = 2
 text = "Játék mester menü"
 
-[node name="Settings" type="Button" parent="MarginContainer/HBox/MainMenu"]
+[node name="Settings" type="Button" parent="MarginContainer/HBox/Margin/MainMenu/Items/ButtonBox"]
 layout_mode = 2
 text = "Beállítások"
 
-[node name="Credits" type="Button" parent="MarginContainer/HBox/MainMenu"]
+[node name="Credits" type="Button" parent="MarginContainer/HBox/Margin/MainMenu/Items/ButtonBox"]
 layout_mode = 2
 text = "Rólunk"
 
-[node name="Quit" type="Button" parent="MarginContainer/HBox/MainMenu"]
+[node name="Quit" type="Button" parent="MarginContainer/HBox/Margin/MainMenu/Items/ButtonBox"]
 layout_mode = 2
 text = "Kilépés"
 
-[connection signal="pressed" from="MarginContainer/HBox/MainMenu/Master" to="." method="MasteButtonPressed"]
+[node name="Credits" type="VBoxContainer" parent="MarginContainer/HBox/Margin"]
+visible = false
+layout_mode = 2
+
+[node name="Margin" type="MarginContainer" parent="MarginContainer/HBox/Margin/Credits"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="Items" type="VBoxContainer" parent="MarginContainer/HBox/Margin/Credits/Margin"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBox/Margin/Credits/Margin/Items"]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+texture = ExtResource("2_c7oo3")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBox/Margin/Credits/Margin/Items"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBox/Margin/Credits/Margin/Items/VBoxContainer"]
+layout_mode = 2
+text = "UI - Kovács Dániel Benedek
+Assets - Tóth Péter Sándor
+Backend - Borók Máté
+
+
+Készült  a Godot 4.5.1-mono verziójában."
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/HBox/Margin/Credits/Margin/Items/VBoxContainer"]
+layout_mode = 2
+text = "Főmenü"
+
+[connection signal="pressed" from="MarginContainer/HBox/Margin/MainMenu/Items/ButtonBox/Continue" to="." method="ButtonPressed" binds= ["continue"]]
+[connection signal="pressed" from="MarginContainer/HBox/Margin/MainMenu/Items/ButtonBox/NewGame" to="." method="ButtonPressed" binds= ["newgame"]]
+[connection signal="pressed" from="MarginContainer/HBox/Margin/MainMenu/Items/ButtonBox/Master" to="." method="ButtonPressed" binds= ["editor"]]
+[connection signal="pressed" from="MarginContainer/HBox/Margin/MainMenu/Items/ButtonBox/Settings" to="." method="ButtonPressed" binds= ["settings"]]
+[connection signal="pressed" from="MarginContainer/HBox/Margin/MainMenu/Items/ButtonBox/Credits" to="." method="ButtonPressed" binds= ["credits"]]
+[connection signal="pressed" from="MarginContainer/HBox/Margin/MainMenu/Items/ButtonBox/Quit" to="." method="ButtonPressed" binds= ["quit"]]
+[connection signal="pressed" from="MarginContainer/HBox/Margin/Credits/Margin/Items/VBoxContainer/Button" to="." method="ButtonPressed" binds= ["main"]]

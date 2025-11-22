@@ -3,17 +3,37 @@ using System;
 
 public partial class UICard : Control
 {   
-    Label damageLabel;
-    Label healthLabel;  
-    Label nameLabel;  
+    private Label damageLabel;
+    private Label healthLabel;  
+    private Label nameLabel;  
 
-    ColorRect cardBackground;
-    TextureRect charcaterIcon;
-    TextureRect effectTexture;
-    TextureRect elementTexture;
+    private ColorRect cardBackground;
+    private TextureRect charcaterIcon;
+    private TextureRect effectTexture;
+    private TextureRect elementTexture;
 
     public bool isBoss;
     public bool isEnemy;
+
+    public int CardDamage {
+        private set{} 
+        get {return Convert.ToInt32(damageLabel.Text);}
+    }
+
+    public int CardHealth {
+        private set{} 
+        get {return Convert.ToInt32(healthLabel.Text);}
+    }
+
+    public CardElements CardElement {
+        private set; get;
+    }
+
+    public string CardName
+    {
+        private set {}
+        get {return nameLabel.Text;}
+    }
 
     public override void _Ready()
     {
@@ -72,7 +92,7 @@ public partial class UICard : Control
     public void EditDamage(int damage)
     {
         if (damage == 0) damage = 1;
-        healthLabel.Text = damage.ToString();  
+        damageLabel.Text = damage.ToString();  
     }
 
     public void EditHealth(int hp)
@@ -97,6 +117,8 @@ public partial class UICard : Control
 
     public void EditElement(CardElements element)
     {
+        CardElement = element;
+        
         string[] elementPathList = {"res://Assets/Images/Elements/fold.png", "res://Assets/Images/Elements/levego.png", "res://Assets/Images/Elements/viz.png", "res://Assets/Images/Elements/tuz.png"};
         elementTexture.Texture = CreateTexture(elementPathList[(int)element]);
     }

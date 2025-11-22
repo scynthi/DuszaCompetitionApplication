@@ -67,7 +67,8 @@ texture = ExtResource("1_tj12e")
 
 [node name="Element" type="TextureRect" parent="."]
 layout_mode = 0
-offset_top = -2.0
+offset_left = 7.0
+offset_top = 6.0
 offset_right = 58.0
 offset_bottom = 45.0
 texture = ExtResource("8_vmlk0")

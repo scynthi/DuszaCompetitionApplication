@@ -14,7 +14,7 @@ public partial class CardEditor : HBoxContainer
     {
         if (!int.TryParse(text, out _) || text.Replace(" ", "") == "") return;
         
-        card.EditDamage(int.Parse(text));
+        card.EditHealth(int.Parse(text));
     }
 
     public void ChangeDamage(string text)
@@ -33,6 +33,11 @@ public partial class CardEditor : HBoxContainer
     {
         card.isBoss = !card.isBoss;
         card.EditEffect();
+    }
+
+    public void SaveCard()
+    {
+        GD.Print($"{card.CardName} {card.CardDamage}, {card.CardHealth}, {card.CardElement}, {card.isBoss}");
     }
 
 }
