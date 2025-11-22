@@ -7,6 +7,7 @@ public partial class GameManager : Node
     [Export] private Node World;
 
     [Export] private AnimationPlayer transitionAnimator;
+    [Export] public SaveLoadSystem saverLoader;
 
     public Node currentWorldScene { private set; get; }
 
