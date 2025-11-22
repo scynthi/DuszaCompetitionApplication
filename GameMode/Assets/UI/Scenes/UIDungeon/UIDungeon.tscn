@@ -1,21 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkxac5mrr13pu"]
+[gd_scene load_steps=4 format=3 uid="uid://bkxac5mrr13pu"]
 
 [ext_resource type="Script" uid="uid://crryffgn53yln" path="res://Assets/UI/Scenes/UIDungeon/UIDungeon.cs" id="1_a771a"]
+[ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_uky3w"]
 [ext_resource type="Texture2D" uid="uid://bdmnd11s75frm" path="res://Assets/Images/Portal/portal_frame_egyszeru.png" id="2_3smau"]
 
 [node name="UIDungeon" type="Control"]
-custom_minimum_size = Vector2(200, 300)
+custom_minimum_size = Vector2(125, 150)
 layout_mode = 3
-anchor_left = -0.06944445
-anchor_top = -0.049382716
-anchor_right = 0.104166664
-anchor_bottom = 0.41358024
+anchor_left = -0.1171875
+anchor_top = -0.4861111
+anchor_right = -0.1171875
+anchor_bottom = -0.4861111
 offset_left = -22.0
-offset_top = -1.0
-offset_right = -22.0
-offset_bottom = -1.0
+offset_top = 25.0
+offset_right = 178.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_uky3w")
 script = ExtResource("1_a771a")
-metadata/_edit_use_anchors_ = true
 
 [node name="HBox" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -35,7 +38,7 @@ text = "Teszt Kazamata"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="HBox/VBox"]
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 texture = ExtResource("2_3smau")
 expand_mode = 4
@@ -43,4 +46,4 @@ stretch_mode = 5
 
 [node name="Button" type="Button" parent="HBox/VBox"]
 layout_mode = 2
-text = "Enter"
+text = "Kiválasztás"

@@ -14,6 +14,7 @@
 [node name="Card" type="Control" node_paths=PackedStringArray("damageLabel", "healthLabel", "nameLabel", "cardBackground", "charcaterIcon", "effectTexture", "elementTexture")]
 custom_minimum_size = Vector2(84, 110)
 layout_mode = 3
+anchors_preset = 0
 offset_left = -41.0
 offset_top = -62.000008
 offset_right = 43.0
@@ -172,3 +173,12 @@ offset_right = 29.0
 offset_bottom = 24.888573
 text = "1"
 horizontal_alignment = 1
+
+[node name="ClickCatcher" type="Control" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

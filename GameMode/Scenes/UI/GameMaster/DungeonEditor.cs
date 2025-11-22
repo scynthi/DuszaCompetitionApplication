@@ -17,6 +17,7 @@ public partial class DungeonEditor : HBoxContainer
         dungeon.EditType((DungeonTypes)index);
     }
     
+    // TODO: rewrite it when backend arrives
     public void SaveKazamata()
     {
         GD.Print($"{dungeon.dungeonName}, {dungeon.dungeonType}");

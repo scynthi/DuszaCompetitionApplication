@@ -3,7 +3,6 @@ using System;
 
 public partial class UICard : Control
 {   
-    private const string iconFolderPath = "res://Assets/Images/Elements/NewElementSprites/";
     [Export] private Label damageLabel;
     [Export] private Label healthLabel;  
     [Export] private Label nameLabel;  
@@ -26,8 +25,17 @@ public partial class UICard : Control
         get {return Convert.ToInt32(healthLabel.Text);}
     }
 
+    private CardElements _cardElement = CardElements.FIRE;
+
     public CardElements CardElement {
-        private set; get;
+        private set {_cardElement = value;} 
+        get {return _cardElement;}
+    }
+
+    public Texture2D CardIcon
+    {
+        private set {}
+        get {return charcaterIcon.Texture;}
     }
 
     public string CardName
@@ -39,7 +47,7 @@ public partial class UICard : Control
     // TODO: update later with mate
     public Card CreateCardInstance()
     {
-        return new Card(Name, int.Parse(damageLabel.Text), int.Parse(healthLabel.Text), CardElement);
+        return new Card(CardName, int.Parse(damageLabel.Text), int.Parse(healthLabel.Text), CardElement);
     }
 
     public void EditAllCardInformation(Card card)
@@ -48,6 +56,17 @@ public partial class UICard : Control
         EditName(card.Name);
         EditHealth(card.Health);
         EditDamage(card.Damage);
+    }
+
+    public void EditAllCardInformation(UICard card)
+    {
+        isEnemy = card.isEnemy;
+        isBoss = card.isBoss;
+        EditElement(card.CardElement);
+        EditName(card.CardName);
+        EditHealth(card.CardHealth);
+        EditDamage(card.CardDamage);
+        EditIcon(card.CardIcon);
     }
 
     public void EditAllCardInformation(string icon = "res://Assets/Images/Entities/Heroes/man.png", CardElements element = CardElements.EARTH, string name = "Please Holder", int hp = 10, int damage = 2, bool isEnemy = false, bool isBoss = false)
@@ -87,13 +106,13 @@ public partial class UICard : Control
     public void EditDamage(int damage)
     {
         if (damage == 0) damage = 1;
-        damageLabel.Text = damage.ToString();  
+        damageLabel.Text =  Math.Clamp(damage, 1, 100).ToString();  
     }
 
     public void EditHealth(int hp)
     {
         if (hp == 0) hp = 1;
-        healthLabel.Text = hp.ToString();  
+        healthLabel.Text = Math.Clamp(hp, 1, 100).ToString();  
     }
 
     public void EditName(string name)
@@ -113,7 +132,7 @@ public partial class UICard : Control
     public void EditElement(CardElements element)
     {
         CardElement = element;
-        Resource[] elementPathList = {GD.Load("uid://flp5hfrmldcm"), GD.Load("uid://ubulfv30qw2x"), GD.Load("uid://dfmsxlsr24dcu"), GD.Load("uid://flp5hfrmldcm")};
+        Resource[] elementPathList = {GD.Load("uid://flp5hfrmldcm"), GD.Load("uid://ubulfv30qw2x"), GD.Load("uid://dfmsxlsr24dcu"), GD.Load("uid://doww5jvob8iw2")};
         
         elementTexture.Texture = (Texture2D)elementPathList[(int)element];
     }
@@ -121,6 +140,16 @@ public partial class UICard : Control
     public void EditIcon(string icon)
     {
         charcaterIcon.Texture = CreateTexture(icon);
+    }
+
+    public void EditIcon(Image icon)
+    {
+        charcaterIcon.Texture = ImageTexture.CreateFromImage(icon);
+    }
+
+    public void EditIcon(Texture2D icon)
+    {
+        charcaterIcon.Texture = icon;
     }
 
     private ImageTexture CreateTexture(string resourcePath)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6chsl4nd1iy5"]
+[gd_scene load_steps=11 format=3 uid="uid://c6chsl4nd1iy5"]
 
 [ext_resource type="Script" uid="uid://b6b68i6jcla5g" path="res://Scenes/UI/GameMaster/CardEditor.cs" id="1_4ikgl"]
 [ext_resource type="Texture2D" uid="uid://txhi2xptu3ib" path="res://Assets/Images/Sign/sign.png" id="1_bbocn"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://ds20bp7dht0gu" path="res://Scenes/UI/GameMaster/Editors.cs" id="1_rbxpr"]
 [ext_resource type="Script" uid="uid://cbn3r1swnuibn" path="res://Scenes/UI/GameMaster/DungeonEditor.cs" id="3_8slam"]
 [ext_resource type="PackedScene" uid="uid://bkxac5mrr13pu" path="res://Assets/UI/Scenes/UIDungeon/UIDungeon.tscn" id="3_j6eix"]
+[ext_resource type="Script" uid="uid://dg7jqog8dii27" path="res://Scenes/UI/GameMaster/BossEditor.cs" id="9_pahx4"]
+[ext_resource type="PackedScene" uid="uid://cc3ylluj0f6w1" path="res://Assets/UI/Scenes/PiciMenü/PiciMenü.tscn" id="10_mg148"]
 
 [node name="GameMaster" type="Control"]
 layout_mode = 3
@@ -28,7 +30,7 @@ grow_vertical = 2
 alignment = 2
 
 [node name="ButtonBackground" type="TextureRect" parent="ButtonBackgroundHolder"]
-custom_minimum_size = Vector2(0, 99.535)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 texture = ExtResource("1_bbocn")
 expand_mode = 1
@@ -71,15 +73,17 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Editors" type="VBoxContainer" parent="Margin/HBox/GameMaster" node_paths=PackedStringArray("CardEditor", "KazamataEditor")]
+[node name="Editors" type="VBoxContainer" parent="Margin/HBox/GameMaster" node_paths=PackedStringArray("CardEditor", "DungeonEditor", "BossEditor")]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 script = ExtResource("1_rbxpr")
 CardEditor = NodePath("CardEditor")
-KazamataEditor = NodePath("DungeonEditor")
+DungeonEditor = NodePath("DungeonEditor")
+BossEditor = NodePath("BossEditor")
 
 [node name="CardEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/Editors" node_paths=PackedStringArray("card")]
+visible = false
 layout_mode = 2
 alignment = 1
 script = ExtResource("1_4ikgl")
@@ -137,11 +141,12 @@ text = "Karakter tallózása"
 layout_mode = 2
 text = "Mentés"
 
-[node name="DungeonEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/Editors"]
+[node name="DungeonEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/Editors" node_paths=PackedStringArray("dungeon")]
 visible = false
 layout_mode = 2
 alignment = 1
 script = ExtResource("3_8slam")
+dungeon = NodePath("UIDungeon")
 
 [node name="UIDungeon" parent="Margin/HBox/GameMaster/Editors/DungeonEditor" instance=ExtResource("3_j6eix")]
 layout_mode = 2
@@ -171,6 +176,43 @@ popup/item_2/id = 2
 [node name="Save" type="Button" parent="Margin/HBox/GameMaster/Editors/DungeonEditor/Properties"]
 layout_mode = 2
 text = "Mentés"
+
+[node name="BossEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/Editors" node_paths=PackedStringArray("NormalCardHolder", "BossCardHolder")]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("9_pahx4")
+NormalCardHolder = NodePath("Margin/VBox/NormalCards/Cards")
+BossCardHolder = NodePath("Margin/VBox/BossCards/Cards")
+"piciMenüScene" = ExtResource("10_mg148")
+
+[node name="Margin" type="MarginContainer" parent="Margin/HBox/GameMaster/Editors/BossEditor"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 30
+
+[node name="VBox" type="VBoxContainer" parent="Margin/HBox/GameMaster/Editors/BossEditor/Margin"]
+layout_mode = 2
+alignment = 1
+
+[node name="NormalCards" type="ScrollContainer" parent="Margin/HBox/GameMaster/Editors/BossEditor/Margin/VBox"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+
+[node name="Cards" type="HBoxContainer" parent="Margin/HBox/GameMaster/Editors/BossEditor/Margin/VBox/NormalCards"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BossCards" type="ScrollContainer" parent="Margin/HBox/GameMaster/Editors/BossEditor/Margin/VBox"]
+custom_minimum_size = Vector2(0, 110)
+layout_mode = 2
+
+[node name="Cards" type="HBoxContainer" parent="Margin/HBox/GameMaster/Editors/BossEditor/Margin/VBox/BossCards"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="MainButtons" type="VBoxContainer" parent="Margin/HBox/GameMaster"]
 layout_mode = 2
@@ -204,9 +246,9 @@ text = "Játékos kollekciója"
 layout_mode = 2
 text = "Kártya készítő"
 
-[node name="Cards2" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/MenuButtons"]
+[node name="BossEditor" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/MenuButtons"]
 layout_mode = 2
-text = "Vezér kártya készítő"
+text = "Vezér kártyák"
 
 [node name="Cards" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/MenuButtons"]
 layout_mode = 2
@@ -235,4 +277,5 @@ text = "Mentés"
 [connection signal="pressed" from="Margin/HBox/GameMaster/Editors/DungeonEditor/Properties/Save" to="Margin/HBox/GameMaster/Editors/DungeonEditor" method="SaveKazamata"]
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/Back" to="Margin/HBox/GameMaster/Editors" method="ChangeEditor" binds= ["main"]]
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/MenuButtons/CardEditor" to="Margin/HBox/GameMaster/Editors" method="ChangeEditor" binds= ["card"]]
-[connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/MenuButtons/DungeonEditor" to="Margin/HBox/GameMaster/Editors" method="ChangeEditor" binds= ["kazamata"]]
+[connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/MenuButtons/BossEditor" to="Margin/HBox/GameMaster/Editors" method="ChangeEditor" binds= ["boss"]]
+[connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/MenuButtons/DungeonEditor" to="Margin/HBox/GameMaster/Editors" method="ChangeEditor" binds= ["dungeon"]]

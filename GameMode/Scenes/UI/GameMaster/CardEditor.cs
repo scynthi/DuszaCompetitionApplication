@@ -6,6 +6,14 @@ public partial class CardEditor : HBoxContainer
 {
 	[Export] UICard card;
 
+    Editors editor;
+
+    public override void _Ready()
+    {
+        editor = (Editors)GetParent();
+    }
+
+
 	public void ChangeName(string text)
     {
         card.EditName(text);
@@ -15,14 +23,14 @@ public partial class CardEditor : HBoxContainer
     {
         if (!int.TryParse(text, out _) || text.Replace(" ", "") == "") return;
         
-        card.EditHealth(Math.Clamp(int.Parse(text), 1, 100));
+        card.EditHealth(int.Parse(text));
     }
 
     public void ChangeDamage(string text)
     {
         if (!int.TryParse(text, out _) || text.Replace(" ", "") == "") return;
 
-        card.EditDamage(Math.Clamp(int.Parse(text), 1, 100));
+        card.EditDamage(int.Parse(text));
     }
 
     public void ChangeElement(int index)
@@ -36,30 +44,37 @@ public partial class CardEditor : HBoxContainer
         fileDialogInstance.Access = FileDialog.AccessEnum.Filesystem;
         fileDialogInstance.FileMode = FileDialog.FileModeEnum.OpenFile;
         fileDialogInstance.InitialPosition = Window.WindowInitialPosition.CenterMainWindowScreen;
+        fileDialogInstance.FileSelected += HandleFile;
+        fileDialogInstance.CurrentDir = "C:/";
         fileDialogInstance.AddFilter("*.png");
-
-        GetTree().CurrentScene.AddChild(fileDialogInstance);
         fileDialogInstance.Visible = true;
 
-        fileDialogInstance.FileSelected += HandleFile;
+        GetTree().CurrentScene.AddChild(fileDialogInstance);
     }
 
-    private void HandleFile(object sender)
+    private void HandleFile(object receivedInfo)
     {
-        FileAccess file = FileAccess.Open(sender.ToString(), FileAccess.ModeFlags.Read);
+        FileAccess file = FileAccess.Open(receivedInfo.ToString(), FileAccess.ModeFlags.Read);
         byte[] buffer = file.GetBuffer((long)file.GetLength());
-        // Image image = new Image().LoadPngFromBuffer(buffer);
+        Image image = new Image();
+        Error err = image.LoadPngFromBuffer(buffer);
+
+        if (err != Error.Ok) GD.PrintErr($"Failed to load image! {receivedInfo}");
+
+        card.EditIcon(image);
     }
 
-    // public void ChangeType()
-    // {
-    //     card.isBoss = !card.isBoss;
-    //     card.EditEffect();
-    // }
+    public void ChangeType()
+    {
+        card.isBoss = !card.isBoss;
+        card.EditEffect();
+    }
 
+    // TODO: rewrite it when backend arrives
     public void SaveCard()
     {
-        GD.Print($"{card.CardName} {card.CardDamage}, {card.CardHealth}, {card.CardElement}, {card.isBoss}");
+        // GD.Print($"{card.CardName} {card.CardDamage}, {card.CardHealth}, {card.CardElement}, {card.isBoss}, {card.CardIcon}");
+        editor.BossEditor.AddCardToList(card);
     }
 
 }

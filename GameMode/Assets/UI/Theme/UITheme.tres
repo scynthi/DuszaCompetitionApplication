@@ -2,6 +2,11 @@
 
 [resource]
 Button/font_sizes/font_size = 10
+FileDialog/constants/thumbnail_size = 16
+FileDialog/font_sizes/title_font_size = 12
 Label/font_sizes/font_size = 12
 LineEdit/font_sizes/font_size = 12
 OptionButton/font_sizes/font_size = 12
+PopupMenu/font_sizes/font_separator_size = 12
+PopupMenu/font_sizes/font_size = 12
+PopupMenu/font_sizes/title_font_size = 12

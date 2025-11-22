@@ -3,11 +3,12 @@ using System;
 
 public partial class Editors : VBoxContainer
 {
-    [Export] HBoxContainer CardEditor;
-    [Export] HBoxContainer KazamataEditor;
+    [Export] public CardEditor CardEditor;
+    [Export] public DungeonEditor DungeonEditor;
+    [Export] public BossEditor BossEditor;
     
-    private HBoxContainer _currentMenu;
-    private HBoxContainer CurrentMenu
+    private Control _currentMenu;
+    private Control CurrentMenu
     {
         get {return _currentMenu;}
         set
@@ -35,8 +36,11 @@ public partial class Editors : VBoxContainer
             case "card":
                 CurrentMenu = CardEditor;
                 break;
-            case "kazamata":
-                CurrentMenu = KazamataEditor;
+            case "dungeon":
+                CurrentMenu = DungeonEditor;
+                break;
+            case "boss":
+                CurrentMenu = BossEditor;
                 break;
             case "main":
                 await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.MainMenu);
