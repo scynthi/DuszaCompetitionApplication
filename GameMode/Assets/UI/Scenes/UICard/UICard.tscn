@@ -5,10 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://dcbyhic481tbl" path="res://Assets/Images/Cards/cards_base.png" id="1_tj12e"]
 [ext_resource type="Texture2D" uid="uid://b3mo4atbtgp7w" path="res://Assets/Images/Cards/cards_heart_base.png" id="3_2ja5q"]
 [ext_resource type="Texture2D" uid="uid://ruoa1sjpbu7j" path="res://Assets/Images/Cards/cards_heart_buffed.png" id="4_40ahx"]
+[ext_resource type="Texture2D" uid="uid://doww5jvob8iw2" path="res://Assets/Images/Elements/NewElementSprites/fire.png" id="4_ndynx"]
 [ext_resource type="Texture2D" uid="uid://dnov8t4p650wk" path="res://Assets/Images/Cards/cards_axe_base.png" id="4_vyadu"]
 [ext_resource type="Texture2D" uid="uid://b8d3aqx88rk1q" path="res://Assets/Images/Cards/cards_border.png" id="5_ndynx"]
 [ext_resource type="Texture2D" uid="uid://bmiley3dm5mth" path="res://Assets/Images/Cards/cards_axe_buffed.png" id="6_4n0vk"]
-[ext_resource type="Texture2D" uid="uid://dqs6kpkonskqk" path="res://Assets/Images/Elements/tuz.png" id="8_vmlk0"]
 
 [node name="Card" type="Control"]
 custom_minimum_size = Vector2(168, 220)
@@ -67,12 +67,12 @@ texture = ExtResource("1_tj12e")
 
 [node name="Element" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 7.0
+offset_left = 10.0
 offset_top = 6.0
-offset_right = 58.0
+offset_right = 50.0
 offset_bottom = 45.0
-texture = ExtResource("8_vmlk0")
-expand_mode = 1
+texture = ExtResource("4_ndynx")
+stretch_mode = 4
 
 [node name="Effect" type="TextureRect" parent="."]
 layout_mode = 0
@@ -104,7 +104,7 @@ texture = ExtResource("4_40ahx")
 
 [node name="Health" type="Label" parent="Heart"]
 layout_mode = 0
-offset_left = 14.0
+offset_left = 6.0
 offset_top = 11.0
 offset_right = 33.0
 offset_bottom = 34.0
@@ -135,9 +135,9 @@ texture = ExtResource("6_4n0vk")
 
 [node name="Damage" type="Label" parent="Axe"]
 layout_mode = 0
-offset_left = 17.0
+offset_left = 7.0
 offset_top = 11.0
-offset_right = 36.0
+offset_right = 40.0
 offset_bottom = 34.0
 text = "1"
 horizontal_alignment = 1

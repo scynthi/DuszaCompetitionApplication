@@ -3,6 +3,7 @@ using System;
 
 public partial class UICard : Control
 {   
+    private const string iconFolderPath = "res://Assets/Images/Elements/NewElementSprites/";
     private Label damageLabel;
     private Label healthLabel;  
     private Label nameLabel;  
@@ -118,8 +119,8 @@ public partial class UICard : Control
     public void EditElement(CardElements element)
     {
         CardElement = element;
+        string[] elementPathList = {iconFolderPath+"earth.png", iconFolderPath+"wind.png", iconFolderPath+"water.png", iconFolderPath+"fire.png"};
         
-        string[] elementPathList = {"res://Assets/Images/Elements/fold.png", "res://Assets/Images/Elements/levego.png", "res://Assets/Images/Elements/viz.png", "res://Assets/Images/Elements/tuz.png"};
         elementTexture.Texture = CreateTexture(elementPathList[(int)element]);
     }
 

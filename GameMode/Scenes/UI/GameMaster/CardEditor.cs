@@ -14,14 +14,14 @@ public partial class CardEditor : HBoxContainer
     {
         if (!int.TryParse(text, out _) || text.Replace(" ", "") == "") return;
         
-        card.EditHealth(int.Parse(text));
+        card.EditHealth(Math.Clamp(int.Parse(text), 1, 100));
     }
 
     public void ChangeDamage(string text)
     {
         if (!int.TryParse(text, out _) || text.Replace(" ", "") == "") return;
 
-        card.EditDamage(int.Parse(text));
+        card.EditDamage(Math.Clamp(int.Parse(text), 1, 100));
     }
 
     public void ChangeElement(int index)
@@ -29,11 +29,11 @@ public partial class CardEditor : HBoxContainer
         card.EditElement((CardElements)index);
     }
 
-    public void ChangeType()
-    {
-        card.isBoss = !card.isBoss;
-        card.EditEffect();
-    }
+    // public void ChangeType()
+    // {
+    //     card.isBoss = !card.isBoss;
+    //     card.EditEffect();
+    // }
 
     public void SaveCard()
     {

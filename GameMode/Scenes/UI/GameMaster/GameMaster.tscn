@@ -98,14 +98,14 @@ clear_button_enabled = true
 [node name="Health" type="LineEdit" parent="Margin/HBox/GameMaster/Editors/CardEditor/Properties"]
 layout_mode = 2
 placeholder_text = "Életerő"
-max_length = 2
+max_length = 3
 emoji_menu_enabled = false
 clear_button_enabled = true
 
 [node name="Damage" type="LineEdit" parent="Margin/HBox/GameMaster/Editors/CardEditor/Properties"]
 layout_mode = 2
 placeholder_text = "Sebzés"
-max_length = 2
+max_length = 3
 emoji_menu_enabled = false
 clear_button_enabled = true
 
@@ -121,10 +121,6 @@ popup/item_2/text = "Víz"
 popup/item_2/id = 0
 popup/item_3/text = "Tűz"
 popup/item_3/id = 1
-
-[node name="BossCheck" type="CheckButton" parent="Margin/HBox/GameMaster/Editors/CardEditor/Properties"]
-layout_mode = 2
-text = "Vezér"
 
 [node name="Save" type="Button" parent="Margin/HBox/GameMaster/Editors/CardEditor/Properties"]
 layout_mode = 2
@@ -217,7 +213,6 @@ text = "Mentés"
 [connection signal="text_changed" from="Margin/HBox/GameMaster/Editors/CardEditor/Properties/Health" to="Margin/HBox/GameMaster/Editors/CardEditor" method="ChangeHealth"]
 [connection signal="text_changed" from="Margin/HBox/GameMaster/Editors/CardEditor/Properties/Damage" to="Margin/HBox/GameMaster/Editors/CardEditor" method="ChangeDamage"]
 [connection signal="item_selected" from="Margin/HBox/GameMaster/Editors/CardEditor/Properties/ElementMenu" to="Margin/HBox/GameMaster/Editors/CardEditor" method="ChangeElement"]
-[connection signal="pressed" from="Margin/HBox/GameMaster/Editors/CardEditor/Properties/BossCheck" to="Margin/HBox/GameMaster/Editors/CardEditor" method="ChangeType"]
 [connection signal="pressed" from="Margin/HBox/GameMaster/Editors/CardEditor/Properties/Save" to="Margin/HBox/GameMaster/Editors/CardEditor" method="SaveCard"]
 [connection signal="text_changed" from="Margin/HBox/GameMaster/Editors/KazamataEditor/VBoxContainer/LineEdit" to="Margin/HBox/GameMaster/Editors/KazamataEditor" method="ChangeName"]
 [connection signal="item_selected" from="Margin/HBox/GameMaster/Editors/KazamataEditor/VBoxContainer/OptionButton" to="Margin/HBox/GameMaster/Editors/KazamataEditor" method="ChangeType"]

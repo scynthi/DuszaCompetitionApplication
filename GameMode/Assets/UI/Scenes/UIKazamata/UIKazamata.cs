@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Runtime.CompilerServices;
 
 public partial class UIKazamata : Control
 {
@@ -9,6 +10,11 @@ public partial class UIKazamata : Control
     Label nameLabel;
     TextureRect iconTexture;
     Button enterButton;
+
+
+    public DungeonTypes kazamataType {private set; get;}
+    public string kazamataName {private set; get;}
+
 
     private bool _previewMode = true;
 
@@ -46,12 +52,13 @@ public partial class UIKazamata : Control
     public void EditName(string name)
     {
         if (name.Replace(" ", "") == "") return;
-
+        kazamataName = name;
         nameLabel.Text = name;
     }
 
     public void EditType(DungeonTypes type)
     {
+        kazamataType = type;
         string[] iconPathList = {"res://Assets/Images/Portal/portal_frame_egyszeru.png", "res://Assets/Images/Portal/portal_frame_kis.png", "res://Assets/Images/Portal/portal_frame_nagy.png"};
         iconTexture.Texture = CreateTexture(iconPathList[(int)type]);
     }
