@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dag3i1oj27spo"
-path.s3tc="res://.godot/imported/mainmenuTest_grass.png-71a581388f844b0d1e938704a03ea250.s3tc.ctex"
+path.s3tc="res://.godot/imported/mainmenuTest_grass.png-dca50229968fa053f43321284e815864.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Assets/BackgroundVisuals/mainmenuTest_grass.png"
-dest_files=["res://.godot/imported/mainmenuTest_grass.png-71a581388f844b0d1e938704a03ea250.s3tc.ctex"]
+source_file="res://Assets/Models/mainmenuTest_grass.png"
+dest_files=["res://.godot/imported/mainmenuTest_grass.png-dca50229968fa053f43321284e815864.s3tc.ctex"]
 
 [params]
 

@@ -1,0 +1,221 @@
+[gd_scene load_steps=17 format=3 uid="uid://cgalnmmbimcuw"]
+
+[ext_resource type="Script" uid="uid://jtuoap7qxnl5" path="res://Assets/Shaders/quantization_shader.gd" id="1_xs16b"]
+[ext_resource type="PackedScene" uid="uid://ce7g0oth38mpg" path="res://Assets/Models/mainmenuTest.glb" id="2_y4dnw"]
+[ext_resource type="PackedScene" uid="uid://cpidsg2b56hne" path="res://Assets/StyledCamera.tscn" id="3_f3a3r"]
+[ext_resource type="Shader" uid="uid://dfgpe5eshsaa8" path="res://Assets/Shaders/crt.gdshader" id="4_tc1q6"]
+[ext_resource type="PackedScene" uid="uid://cd7wdb77hi6lr" path="res://Scenes/MainMenu/MainMenu.tscn" id="5_wm533"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ti60f"]
+frequency = 0.0256
+fractal_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jepju"]
+width = 122
+height = 427
+noise = SubResource("FastNoiseLite_ti60f")
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xh8xf"]
+sky_top_color = Color(0.34760743, 0.4119307, 0.7588469, 1)
+sky_horizon_color = Color(0.7910541, 0.6053798, 0.7206972, 1)
+sky_curve = 0.03882245
+sky_cover = SubResource("NoiseTexture2D_jepju")
+sky_cover_modulate = Color(0.88235295, 0.43137255, 1, 0.1882353)
+ground_horizon_color = Color(0.7921569, 0.6039216, 0.72156864, 1)
+ground_curve = 31.786844
+sun_curve = 0.06091898
+
+[sub_resource type="Sky" id="Sky_ktgbt"]
+sky_material = SubResource("ProceduralSkyMaterial_xh8xf")
+
+[sub_resource type="Environment" id="Environment_ti60f"]
+background_mode = 2
+sky = SubResource("Sky_ktgbt")
+ambient_light_source = 3
+ssao_enabled = true
+ssao_radius = 1.65
+ssao_intensity = 3.07
+glow_enabled = true
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_x2c5x"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("1_xs16b")
+color_depth = 16.0
+metadata/_custom_type_script = "uid://jtuoap7qxnl5"
+
+[sub_resource type="Compositor" id="Compositor_0cuqo"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_x2c5x")])
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3mkyo"]
+shader = ExtResource("4_tc1q6")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.2850000135375
+shader_parameter/grille_opacity = 0.0970000046075
+shader_parameter/resolution = Vector2(720, 360)
+shader_parameter/pixelate = false
+shader_parameter/roll = true
+shader_parameter/roll_speed = 0.73
+shader_parameter/roll_size = 18.1510008621725
+shader_parameter/roll_variation = 1.21800005459512
+shader_parameter/distort_intensity = 0.0790000037525
+shader_parameter/noise_opacity = 0.4
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.010000000475
+shader_parameter/aberration = 0.00900004792750008
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.010000000475
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.325
+shader_parameter/vignette_opacity = 0.4370000207575
+
+[sub_resource type="Animation" id="Animation_vhhms"]
+resource_name = "CameraSway"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(3.23, -0.25, 0, 0.25, 0, 3.23, -0.25, 0, 0.25, 0, 3.23, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 4.9673147, 10)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.193, -0.25, 0, 1.7333333, 0.0017449409, 0.20311716, -1.3333333, -8.675456e-05, 1.1999998, -0.0002168864, 0.193, -1.7666664, 0.0015497357, 0.25, 0),
+"times": PackedFloat32Array(0, 5.0333333, 10)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(3.433, -0.25, 0, 0.25, 0, 3.433, -0.25, 0, 0.25, 0, 3.433, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 4.9673147, 10)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.14486232, -0.25, 0, 0.93333334, 0.0002759844, 0.15743418, -1.6666666, -0.0015753955, 3.3000002, -0.0013832748, 0.14501603, -1.5999994, 0.00012227893, 0.25, 0),
+"times": PackedFloat32Array(0, 3.5666666, 8.533333)
+}
+
+[sub_resource type="Animation" id="Animation_ac2k7"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(3.23, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.193, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(3.433, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.14486232, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2cd5u"]
+_data = {
+&"CameraSway": SubResource("Animation_vhhms"),
+&"RESET": SubResource("Animation_ac2k7")
+}
+
+[node name="MainMenuWorld" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.7880108, 0.14685586, -0.59788996, 0, 0.9711343, 0.23853347, 0.61566144, 0.18796694, -0.7652643, 0, 0, 0)
+light_color = Color(1, 0.8901961, 0.6901961, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ti60f")
+compositor = SubResource("Compositor_0cuqo")
+
+[node name="mainmenuTest" parent="." instance=ExtResource("2_y4dnw")]
+
+[node name="Camera3D" parent="." instance=ExtResource("3_f3a3r")]
+transform = Transform3D(0.6386552, 0.10126157, 0.7628012, 0.015542796, 0.9894037, -0.14435619, -0.769336, 0.1040499, 0.630314, 3.23, 0.193, 3.433)
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+material = SubResource("ShaderMaterial_3mkyo")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" parent="." instance=ExtResource("5_wm533")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2cd5u")
+}
+autoplay = "CameraSway"

@@ -1,9 +1,28 @@
-[gd_scene load_steps=14 format=3 uid="uid://b7ju5ebcspygg"]
+[gd_scene load_steps=33 format=3 uid="uid://b7ju5ebcspygg"]
 
 [ext_resource type="Script" uid="uid://c6x1xajmkurav" path="res://Scenes/GameManager/GameManager.cs" id="1_jmpc8"]
 [ext_resource type="Texture2D" uid="uid://d4cj5qnd8tha3" path="res://Assets/Images/Textures/PaperTex.png" id="2_pbnlu"]
-[ext_resource type="PackedScene" uid="uid://cgalnmmbimcuw" path="res://Assets/BackgroundVisuals/MainMenuWorld.tscn" id="2_um3qg"]
+[ext_resource type="PackedScene" uid="uid://cgalnmmbimcuw" path="res://Scenes/MainMenu/MainMenuWorld.tscn" id="2_um3qg"]
 [ext_resource type="Shader" uid="uid://dfgpe5eshsaa8" path="res://Assets/Shaders/crt.gdshader" id="3_pbnlu"]
+[ext_resource type="Script" uid="uid://c4ginecvkrjsh" path="res://Scenes/GameManager/UiAudioController.cs" id="5_wwsdi"]
+[ext_resource type="Script" uid="uid://bbd8gmuheqoc8" path="res://Scenes/GameManager/AudioBank.cs" id="6_r12i2"]
+[ext_resource type="AudioStream" uid="uid://sqwhkyieu8kb" path="res://Assets/Audio/SoundEffects/click/wood_click (1).wav" id="7_edw2g"]
+[ext_resource type="AudioStream" uid="uid://j8isqssvn2jm" path="res://Assets/Audio/SoundEffects/click/wood_click (2).wav" id="8_om58u"]
+[ext_resource type="AudioStream" uid="uid://wdlf6orpwslv" path="res://Assets/Audio/SoundEffects/click/wood_click (3).wav" id="9_s86us"]
+[ext_resource type="AudioStream" uid="uid://jlgwoiavy42a" path="res://Assets/Audio/SoundEffects/click/wood_click (4).wav" id="10_hvyv7"]
+[ext_resource type="AudioStream" uid="uid://bfg4gxg2mg1lt" path="res://Assets/Audio/SoundEffects/click/wood_click (5).wav" id="11_gtxkj"]
+[ext_resource type="AudioStream" uid="uid://c3a6g1taxxb6n" path="res://Assets/Audio/SoundEffects/click/wood_click (6).wav" id="12_ruywd"]
+[ext_resource type="AudioStream" uid="uid://cti5dvgmpy34p" path="res://Assets/Audio/SoundEffects/click/wood_click (7).wav" id="13_b132q"]
+[ext_resource type="AudioStream" uid="uid://baeerp8krc4na" path="res://Assets/Audio/SoundEffects/hover/wood_hover (1).wav" id="14_wcdfp"]
+[ext_resource type="AudioStream" uid="uid://ncxphfsj8kps" path="res://Assets/Audio/SoundEffects/hover/wood_hover (2).wav" id="15_5017c"]
+[ext_resource type="AudioStream" uid="uid://try28vhsv3kg" path="res://Assets/Audio/SoundEffects/hover/wood_hover (3).wav" id="16_bldnn"]
+[ext_resource type="AudioStream" uid="uid://cfcuefqv1kmop" path="res://Assets/Audio/SoundEffects/death/sound_death.wav" id="17_ghclm"]
+[ext_resource type="AudioStream" uid="uid://dk1oyxh8x44ku" path="res://Assets/Audio/SoundEffects/draw/sound_draw.wav" id="18_fuq8d"]
+[ext_resource type="AudioStream" uid="uid://sgca2wh8qtpf" path="res://Assets/Audio/SoundEffects/attack/attack (1).wav" id="19_dwqbh"]
+[ext_resource type="AudioStream" uid="uid://dvly5k4ku0v8y" path="res://Assets/Audio/SoundEffects/attack/attack (2).wav" id="20_yh7xr"]
+[ext_resource type="AudioStream" uid="uid://idcv7223d7jo" path="res://Assets/Audio/SoundEffects/levelup/sound_level_up.wav" id="21_qvjl3"]
+[ext_resource type="AudioStream" uid="uid://c3rr1xhve48tc" path="res://Assets/Audio/SoundEffects/fight/sound_win.wav" id="22_w8mb3"]
+[ext_resource type="AudioStream" uid="uid://oya486vh72rd" path="res://Assets/Audio/SoundEffects/fight/sound_lose.wav" id="23_154qo"]
 
 [sub_resource type="Shader" id="Shader_um3qg"]
 code = "shader_type canvas_item;
@@ -23,6 +42,8 @@ void fragment(){
 	if(!(dot(normUV, degreesToPerpendicular()) + (texture(noiseTexture, UV).r * noiseForce) > progress)){
 		COLOR.a = 0.0;
 	}
+	
+	
 }"
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_wwsdi"]
@@ -39,58 +60,6 @@ shader_parameter/noiseTexture = SubResource("NoiseTexture2D_48k5m")
 shader_parameter/burnColor = Color(0.5, 0.18041667, 0.17500001, 1)
 shader_parameter/borderWidth = 0.045
 shader_parameter/direction = 90.0
-
-[sub_resource type="Animation" id="Animation_gdlka"]
-resource_name = "SceneTransition"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:material:shader_parameter/progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.5, -1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TextureRect:material:shader_parameter/burnColor")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.5, 0.18041667, 0.17500001, 1), Color(0.9, 0.6465, 0.31500003, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("TextureRect:material:shader_parameter/direction")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [90.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("TextureRect:mouse_filter")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
 
 [sub_resource type="Animation" id="Animation_okk2x"]
 length = 0.001
@@ -141,6 +110,58 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_gdlka"]
+resource_name = "SceneTransition"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.5, -1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:material:shader_parameter/burnColor")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.5731573, 0.3120905, 0.17511669, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:material:shader_parameter/direction")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [90.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureRect:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_um3qg"]
@@ -205,23 +226,23 @@ _data = {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_um3qg"]
 shader = ExtResource("3_pbnlu")
 shader_parameter/overlay = true
-shader_parameter/scanlines_opacity = 0.0
-shader_parameter/scanlines_width = 0.2850000135375
-shader_parameter/grille_opacity = 0.0970000046075
-shader_parameter/resolution = Vector2(720, 360)
+shader_parameter/scanlines_opacity = 0.162000007695
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.1600000076
+shader_parameter/resolution = Vector2(640, 480)
 shader_parameter/pixelate = false
-shader_parameter/roll = true
-shader_parameter/roll_speed = 0.73
-shader_parameter/roll_size = 18.1510008621725
-shader_parameter/roll_variation = 1.21800005459512
-shader_parameter/distort_intensity = 0.00400000019
+shader_parameter/roll = false
+shader_parameter/roll_speed = 3.395
+shader_parameter/roll_size = 0.0
+shader_parameter/roll_variation = 0.40800001612012
+shader_parameter/distort_intensity = 0.018000000855
 shader_parameter/noise_opacity = 0.4
 shader_parameter/noise_speed = 5.0
 shader_parameter/static_noise_intensity = 0.010000000475
-shader_parameter/aberration = 0.003000047642500059
+shader_parameter/aberration = 0.00300004764250005
 shader_parameter/brightness = 1.4
 shader_parameter/discolor = false
-shader_parameter/warp_amount = 0.010000000475
+shader_parameter/warp_amount = 0.0150000007125
 shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.325
 shader_parameter/vignette_opacity = 0.4370000207575
@@ -266,3 +287,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="UIAudioController" type="Node" parent="." node_paths=PackedStringArray("audioBank", "sfxAudioPlayer")]
+script = ExtResource("5_wwsdi")
+audioBank = NodePath("AudioBank")
+sfxAudioPlayer = NodePath("SFXAudioPlayer")
+
+[node name="SFXAudioPlayer" type="AudioStreamPlayer" parent="UIAudioController"]
+max_polyphony = 16
+
+[node name="AudioBank" type="Node" parent="UIAudioController"]
+script = ExtResource("6_r12i2")
+clickSounds = Array[AudioStream]([ExtResource("7_edw2g"), ExtResource("8_om58u"), ExtResource("9_s86us"), ExtResource("10_hvyv7"), ExtResource("11_gtxkj"), ExtResource("12_ruywd"), ExtResource("13_b132q")])
+hoverSounds = Array[AudioStream]([ExtResource("14_wcdfp"), ExtResource("15_5017c"), ExtResource("16_bldnn")])
+deathSounds = Array[AudioStream]([ExtResource("17_ghclm")])
+drawSounds = Array[AudioStream]([ExtResource("18_fuq8d")])
+attackSounds = Array[AudioStream]([ExtResource("19_dwqbh"), ExtResource("20_yh7xr")])
+levelupSounds = Array[AudioStream]([ExtResource("21_qvjl3")])
+winSounds = Array[AudioStream]([ExtResource("22_w8mb3")])
+loseSounds = Array[AudioStream]([ExtResource("23_154qo")])
