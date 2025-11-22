@@ -26,8 +26,8 @@ public partial class FightLogic : Node
 	{
 		foreach (IItem item in itemList)
 		{
-			item.ApplyPlayerBuff(PlayerCard);
-			item.ApplyDungeonBuff(DungeonCard);
+			item.ApplyPlayerBuff(PlayerCard, Round);
+			item.ApplyDungeonBuff(DungeonCard, Round);
 		}
 
 		GD.Print("Dungeon Attack: " + DungeonCard.Attack(PlayerCard));
@@ -78,6 +78,6 @@ public partial class FightLogic : Node
 	public void OnAddToItemListPressed(int item)
     {
 		IItem createdItem = Items.CreateItemFromType((ItemType)item);
-  	    if (!ItemList.Contains(createdItem)) ItemList.Add(createdItem);
+  	    if (!Utility.ItemListToNameList(ItemList).Contains(createdItem.Name)) ItemList.Add(createdItem);
     }
 }

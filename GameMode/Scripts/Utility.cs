@@ -11,4 +11,12 @@ public static class Utility
 			nameList.Add(currObj.Name);
 		return nameList;
     }
+
+	public static List<string> ItemListToNameList(List<IItem> itemList)
+    {
+		List<string> nameList = new List<string>();
+		foreach (IItem currItem in itemList)
+			nameList.Add(currItem.Name);
+		return nameList;
+    }
 }

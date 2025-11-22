@@ -39,9 +39,10 @@ public class BuffHandler
         OwnerCard.SetDamage(damage);
     }
 
-	public double CalculateDamageTakenMultiplier()
+	public float CalculateDamageTakenMultiplier()
     {
-		double damageTaken = 1.0;
+        GD.Print("BRuh: " + CurrentBuffs.Count);
+		float damageTaken = 1.0f;
 		foreach (IBuff buff in CurrentBuffs)
         {
             damageTaken *= buff.DamageTakenMultiplier;

@@ -1,0 +1,14 @@
+using Godot;
+using System;
+
+public partial class ElementalBuffItem : IItem
+{
+	public string Name { private set; get; } = "Elemental Buff";
+	public string Description { private set; get; } = "I don't know part 2";
+	public IBuff Buff { get; }
+	public void ApplyPlayerBuff(Card card, int round)
+    {
+        card.buffHandler.AddBuff(new ElementalBuff(round));
+    }
+	public void ApplyDungeonBuff(Card card, int round) { }
+}
