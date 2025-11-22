@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6chsl4nd1iy5"]
+[gd_scene load_steps=9 format=3 uid="uid://c6chsl4nd1iy5"]
 
 [ext_resource type="Script" uid="uid://b6b68i6jcla5g" path="res://Scenes/UI/GameMaster/CardEditor.cs" id="1_4ikgl"]
 [ext_resource type="Texture2D" uid="uid://txhi2xptu3ib" path="res://Assets/Images/Sign/sign.png" id="1_bbocn"]
 [ext_resource type="Texture2D" uid="uid://22ju51isokfd" path="res://Assets/Images/Button/button_bgr_dark_tile_base.png" id="1_cr75k"]
+[ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_hkpj5"]
 [ext_resource type="PackedScene" uid="uid://dk32ss75ce3lw" path="res://Assets/UI/Scenes/UICard/UICard.tscn" id="1_nonii"]
 [ext_resource type="Script" uid="uid://ds20bp7dht0gu" path="res://Scenes/UI/GameMaster/Editors.cs" id="1_rbxpr"]
-[ext_resource type="Script" uid="uid://cbn3r1swnuibn" path="res://Scenes/UI/GameMaster/KazamataEditor.cs" id="3_8slam"]
-[ext_resource type="PackedScene" uid="uid://bkxac5mrr13pu" path="res://Assets/UI/Scenes/UIKazamata/UIKazamata.tscn" id="3_j6eix"]
+[ext_resource type="Script" uid="uid://cbn3r1swnuibn" path="res://Scenes/UI/GameMaster/DungeonEditor.cs" id="3_8slam"]
+[ext_resource type="PackedScene" uid="uid://bkxac5mrr13pu" path="res://Assets/UI/Scenes/UIDungeon/UIDungeon.tscn" id="3_j6eix"]
 
 [node name="GameMaster" type="Control"]
 layout_mode = 3
@@ -15,6 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_hkpj5")
 
 [node name="ButtonBackgroundHolder" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -26,10 +28,11 @@ grow_vertical = 2
 alignment = 2
 
 [node name="ButtonBackground" type="TextureRect" parent="ButtonBackgroundHolder"]
-custom_minimum_size = Vector2(0, 225)
+custom_minimum_size = Vector2(0, 99.535)
 layout_mode = 2
 texture = ExtResource("1_bbocn")
 expand_mode = 1
+stretch_mode = 6
 flip_v = true
 
 [node name="BackgroundMargin" type="MarginContainer" parent="."]
@@ -39,10 +42,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 200
-theme_override_constants/margin_top = 100
-theme_override_constants/margin_right = 200
-theme_override_constants/margin_bottom = 200
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 100
 
 [node name="TextureRect" type="TextureRect" parent="BackgroundMargin"]
 layout_mode = 2
@@ -74,15 +77,19 @@ size_flags_vertical = 3
 alignment = 1
 script = ExtResource("1_rbxpr")
 CardEditor = NodePath("CardEditor")
-KazamataEditor = NodePath("KazamataEditor")
+KazamataEditor = NodePath("DungeonEditor")
 
 [node name="CardEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/Editors" node_paths=PackedStringArray("card")]
 layout_mode = 2
 alignment = 1
 script = ExtResource("1_4ikgl")
-card = NodePath("Card")
+card = NodePath("VBoxContainer/Card")
 
-[node name="Card" parent="Margin/HBox/GameMaster/Editors/CardEditor" instance=ExtResource("1_nonii")]
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/HBox/GameMaster/Editors/CardEditor"]
+layout_mode = 2
+alignment = 1
+
+[node name="Card" parent="Margin/HBox/GameMaster/Editors/CardEditor/VBoxContainer" instance=ExtResource("1_nonii")]
 layout_mode = 2
 
 [node name="Properties" type="VBoxContainer" parent="Margin/HBox/GameMaster/Editors/CardEditor"]
@@ -130,28 +137,27 @@ text = "Karakter tallózása"
 layout_mode = 2
 text = "Mentés"
 
-[node name="KazamataEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/Editors" node_paths=PackedStringArray("kazamata")]
+[node name="DungeonEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/Editors"]
 visible = false
 layout_mode = 2
 alignment = 1
 script = ExtResource("3_8slam")
-kazamata = NodePath("UIKazamata")
 
-[node name="UIKazamata" parent="Margin/HBox/GameMaster/Editors/KazamataEditor" instance=ExtResource("3_j6eix")]
+[node name="UIDungeon" parent="Margin/HBox/GameMaster/Editors/DungeonEditor" instance=ExtResource("3_j6eix")]
 layout_mode = 2
 
-[node name="Properties" type="VBoxContainer" parent="Margin/HBox/GameMaster/Editors/KazamataEditor"]
+[node name="Properties" type="VBoxContainer" parent="Margin/HBox/GameMaster/Editors/DungeonEditor"]
 layout_mode = 2
 alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="Margin/HBox/GameMaster/Editors/KazamataEditor/Properties"]
+[node name="LineEdit" type="LineEdit" parent="Margin/HBox/GameMaster/Editors/DungeonEditor/Properties"]
 layout_mode = 2
 placeholder_text = "Név"
 max_length = 20
 emoji_menu_enabled = false
 clear_button_enabled = true
 
-[node name="KazamataType" type="OptionButton" parent="Margin/HBox/GameMaster/Editors/KazamataEditor/Properties"]
+[node name="DungeonType" type="OptionButton" parent="Margin/HBox/GameMaster/Editors/DungeonEditor/Properties"]
 layout_mode = 2
 selected = 0
 item_count = 3
@@ -162,7 +168,7 @@ popup/item_1/id = 1
 popup/item_2/text = "nagy"
 popup/item_2/id = 2
 
-[node name="Save" type="Button" parent="Margin/HBox/GameMaster/Editors/KazamataEditor/Properties"]
+[node name="Save" type="Button" parent="Margin/HBox/GameMaster/Editors/DungeonEditor/Properties"]
 layout_mode = 2
 text = "Mentés"
 
@@ -178,6 +184,7 @@ theme_override_constants/margin_bottom = 20
 
 [node name="Buttons" type="HBoxContainer" parent="Margin/HBox/GameMaster/MainButtons/Margin"]
 layout_mode = 2
+theme_override_constants/separation = 14
 alignment = 1
 
 [node name="Back" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons"]
@@ -223,9 +230,9 @@ text = "Mentés"
 [connection signal="item_selected" from="Margin/HBox/GameMaster/Editors/CardEditor/Properties/ElementMenu" to="Margin/HBox/GameMaster/Editors/CardEditor" method="ChangeElement"]
 [connection signal="pressed" from="Margin/HBox/GameMaster/Editors/CardEditor/Properties/IconChooser" to="Margin/HBox/GameMaster/Editors/CardEditor" method="ChangeIcon"]
 [connection signal="pressed" from="Margin/HBox/GameMaster/Editors/CardEditor/Properties/Save" to="Margin/HBox/GameMaster/Editors/CardEditor" method="SaveCard"]
-[connection signal="text_changed" from="Margin/HBox/GameMaster/Editors/KazamataEditor/Properties/LineEdit" to="Margin/HBox/GameMaster/Editors/KazamataEditor" method="ChangeName"]
-[connection signal="item_selected" from="Margin/HBox/GameMaster/Editors/KazamataEditor/Properties/KazamataType" to="Margin/HBox/GameMaster/Editors/KazamataEditor" method="ChangeType"]
-[connection signal="pressed" from="Margin/HBox/GameMaster/Editors/KazamataEditor/Properties/Save" to="Margin/HBox/GameMaster/Editors/KazamataEditor" method="SaveKazamata"]
+[connection signal="text_changed" from="Margin/HBox/GameMaster/Editors/DungeonEditor/Properties/LineEdit" to="Margin/HBox/GameMaster/Editors/DungeonEditor" method="ChangeName"]
+[connection signal="item_selected" from="Margin/HBox/GameMaster/Editors/DungeonEditor/Properties/DungeonType" to="Margin/HBox/GameMaster/Editors/DungeonEditor" method="ChangeType"]
+[connection signal="pressed" from="Margin/HBox/GameMaster/Editors/DungeonEditor/Properties/Save" to="Margin/HBox/GameMaster/Editors/DungeonEditor" method="SaveKazamata"]
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/Back" to="Margin/HBox/GameMaster/Editors" method="ChangeEditor" binds= ["main"]]
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/MenuButtons/CardEditor" to="Margin/HBox/GameMaster/Editors" method="ChangeEditor" binds= ["card"]]
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/MenuButtons/DungeonEditor" to="Margin/HBox/GameMaster/Editors" method="ChangeEditor" binds= ["kazamata"]]

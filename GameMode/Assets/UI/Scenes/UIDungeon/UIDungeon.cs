@@ -1,23 +1,19 @@
 using Godot;
 using System;
-using System.Runtime.CompilerServices;
 
-public partial class UIKazamata : Control
+public partial class UIDungeon : Control
 {
-
-    // TODO: KAZAMATA code reward option
-
     Label nameLabel;
     TextureRect iconTexture;
     Button enterButton;
 
 
-    public string kazamataName 
+    public string dungeonName 
     {
         private set {} 
         get {return nameLabel.Text;}
     }
-    public DungeonTypes kazamataType {private set; get;}
+    public DungeonTypes dungeonType {private set; get;}
 
 
     private bool _previewMode = true;
@@ -40,13 +36,13 @@ public partial class UIKazamata : Control
         PreviewMode = true;
     }
 
-    public void SetUpKazamata(Dungeon kazamata)
+    public void SetUpdungeon(Dungeon dungeon)
     {
-        EditName(kazamata.Name);
-        EditType(kazamata.DungeonType);
+        EditName(dungeon.Name);
+        EditType(dungeon.DungeonType);
     }
 
-    public void SetUpKazamata(string name = "Teszt Kazamata", DungeonTypes type = DungeonTypes.simple)
+    public void SetUpdungeon(string name = "Teszt dungeon", DungeonTypes type = DungeonTypes.simple)
     {
         EditName(name);
         EditType(type);
@@ -61,7 +57,7 @@ public partial class UIKazamata : Control
 
     public void EditType(DungeonTypes type)
     {
-        kazamataType = type;
+        dungeonType = type;
         string[] iconPathList = {"res://Assets/Images/Portal/portal_frame_egyszeru.png", "res://Assets/Images/Portal/portal_frame_kis.png", "res://Assets/Images/Portal/portal_frame_nagy.png"};
         iconTexture.Texture = CreateTexture(iconPathList[(int)type]);
     }

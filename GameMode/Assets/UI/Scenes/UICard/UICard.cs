@@ -4,14 +4,14 @@ using System;
 public partial class UICard : Control
 {   
     private const string iconFolderPath = "res://Assets/Images/Elements/NewElementSprites/";
-    private Label damageLabel;
-    private Label healthLabel;  
-    private Label nameLabel;  
+    [Export] private Label damageLabel;
+    [Export] private Label healthLabel;  
+    [Export] private Label nameLabel;  
 
-    private ColorRect cardBackground;
-    private TextureRect charcaterIcon;
-    private TextureRect effectTexture;
-    private TextureRect elementTexture;
+    [Export] private ColorRect cardBackground;
+    [Export] private TextureRect charcaterIcon;
+    [Export] private TextureRect effectTexture;
+    [Export] private TextureRect elementTexture;
 
     public bool isBoss;
     public bool isEnemy;
@@ -34,18 +34,6 @@ public partial class UICard : Control
     {
         private set {}
         get {return nameLabel.Text;}
-    }
-
-    public override void _Ready()
-    {
-        damageLabel = GetNode<Label>("Axe/Damage");
-        healthLabel = GetNode<Label>("Heart/Health");  
-        nameLabel = GetNode<Label>("Control/Name");  
-
-        cardBackground = GetNode<ColorRect>("Control/Background");
-        charcaterIcon = GetNode<TextureRect>("Character");
-        effectTexture = GetNode<TextureRect>("Effect");
-        elementTexture = GetNode<TextureRect>("Element");
     }
     
     // TODO: update later with mate
@@ -113,21 +101,21 @@ public partial class UICard : Control
         if (name.Replace(" ", "") == "") name = "Please Holder";
 
         nameLabel.Text = name;
-        if (name.Length > 13)
+        if (name.Length > 12)
         {
-            nameLabel.AddThemeFontSizeOverride("font_size", 10);
+            nameLabel.AddThemeFontSizeOverride("font_size", 8);
         } else
         {
-            nameLabel.AddThemeFontSizeOverride("font_size", 16);
+            nameLabel.AddThemeFontSizeOverride("font_size", 10);
         }
     }
 
     public void EditElement(CardElements element)
     {
         CardElement = element;
-        string[] elementPathList = {iconFolderPath+"earth.png", iconFolderPath+"wind.png", iconFolderPath+"water.png", iconFolderPath+"fire.png"};
+        Resource[] elementPathList = {GD.Load("uid://flp5hfrmldcm"), GD.Load("uid://ubulfv30qw2x"), GD.Load("uid://dfmsxlsr24dcu"), GD.Load("uid://flp5hfrmldcm")};
         
-        elementTexture.Texture = CreateTexture(elementPathList[(int)element]);
+        elementTexture.Texture = (Texture2D)elementPathList[(int)element];
     }
 
     public void EditIcon(string icon)
