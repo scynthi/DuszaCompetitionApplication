@@ -10,6 +10,10 @@ anchor_left = -0.06944445
 anchor_top = -0.049382716
 anchor_right = 0.104166664
 anchor_bottom = 0.41358024
+offset_left = -22.0
+offset_top = -1.0
+offset_right = -22.0
+offset_bottom = -1.0
 script = ExtResource("1_a771a")
 metadata/_edit_use_anchors_ = true
 

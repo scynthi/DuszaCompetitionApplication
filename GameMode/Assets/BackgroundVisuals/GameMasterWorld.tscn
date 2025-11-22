@@ -1,10 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cgalnmmbimcuw"]
+[gd_scene load_steps=14 format=3 uid="uid://t05qnqewfh32"]
 
-[ext_resource type="Script" uid="uid://jtuoap7qxnl5" path="res://Assets/Shaders/quantization_shader.gd" id="1_xs16b"]
-[ext_resource type="PackedScene" uid="uid://ce7g0oth38mpg" path="res://Assets/BackgroundVisuals/mainmenuTest.glb" id="2_y4dnw"]
-[ext_resource type="PackedScene" uid="uid://cpidsg2b56hne" path="res://Assets/BackgroundVisuals/StyledCamera.tscn" id="3_f3a3r"]
-[ext_resource type="Shader" uid="uid://dfgpe5eshsaa8" path="res://Assets/Shaders/crt.gdshader" id="4_tc1q6"]
-[ext_resource type="PackedScene" uid="uid://cd7wdb77hi6lr" path="res://Scenes/UI/MainMenu/MainMenu.tscn" id="5_wm533"]
+[ext_resource type="Script" uid="uid://jtuoap7qxnl5" path="res://Assets/Shaders/quantization_shader.gd" id="1_anmlt"]
+[ext_resource type="PackedScene" uid="uid://ce7g0oth38mpg" path="res://Assets/BackgroundVisuals/mainmenuTest.glb" id="2_rd0qj"]
+[ext_resource type="PackedScene" uid="uid://cpidsg2b56hne" path="res://Assets/BackgroundVisuals/StyledCamera.tscn" id="3_la1sx"]
+[ext_resource type="Shader" uid="uid://dfgpe5eshsaa8" path="res://Assets/Shaders/crt.gdshader" id="4_pyu8d"]
+[ext_resource type="PackedScene" uid="uid://c6chsl4nd1iy5" path="res://Scenes/UI/GameMaster/GameMaster.tscn" id="5_anmlt"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ti60f"]
 frequency = 0.0256
@@ -44,7 +44,7 @@ enabled = true
 effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
-script = ExtResource("1_xs16b")
+script = ExtResource("1_anmlt")
 color_depth = 16.0
 metadata/_custom_type_script = "uid://jtuoap7qxnl5"
 
@@ -52,7 +52,7 @@ metadata/_custom_type_script = "uid://jtuoap7qxnl5"
 compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_x2c5x")])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3mkyo"]
-shader = ExtResource("4_tc1q6")
+shader = ExtResource("4_pyu8d")
 shader_parameter/overlay = true
 shader_parameter/scanlines_opacity = 0.0
 shader_parameter/scanlines_width = 0.2850000135375
@@ -86,9 +86,9 @@ shadow_enabled = true
 environment = SubResource("Environment_ti60f")
 compositor = SubResource("Compositor_0cuqo")
 
-[node name="mainmenuTest" parent="." instance=ExtResource("2_y4dnw")]
+[node name="mainmenuTest" parent="." instance=ExtResource("2_rd0qj")]
 
-[node name="Camera3D" parent="." instance=ExtResource("3_f3a3r")]
+[node name="Camera3D" parent="." instance=ExtResource("3_la1sx")]
 transform = Transform3D(0.62965024, 0.10246673, 0.7700916, 0.015542796, 0.9894037, -0.14435619, -0.7767232, 0.10286329, 0.6213857, 3.23, 0.193, 3.433)
 
 [node name="Control" type="Control" parent="."]
@@ -110,4 +110,4 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MainMenu" parent="." instance=ExtResource("5_wm533")]
+[node name="GameMaster" parent="." instance=ExtResource("5_anmlt")]

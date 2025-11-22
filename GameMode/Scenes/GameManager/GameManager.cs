@@ -13,6 +13,7 @@ public partial class GameManager : Node
     public static class ScenePaths
     {
         public const string MainMenu = "uid://cgalnmmbimcuw";
+        public const string EditorMenu = "uid://t05qnqewfh32";
     }
 
     public override void _Ready()

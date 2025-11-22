@@ -24,7 +24,7 @@ public partial class Editors : VBoxContainer
         CurrentMenu = CardEditor;
     }
 
-    public void ChangeEditor(string name)
+    public async void ChangeEditor(string name)
     {
         switch(name)
         {
@@ -35,7 +35,7 @@ public partial class Editors : VBoxContainer
                 CurrentMenu = KazamataEditor;
                 break;
             case "main":
-                GetTree().ChangeSceneToFile("res://Scenes/MainMenu/MainMenu.tscn");
+                await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.MainMenu);
                 break;
         }
     }

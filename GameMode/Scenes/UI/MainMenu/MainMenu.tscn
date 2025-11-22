@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd7wdb77hi6lr"]
+[gd_scene load_steps=4 format=3 uid="uid://cd7wdb77hi6lr"]
 
-[ext_resource type="Script" uid="uid://crrjwkdrkhon6" path="res://Scenes/MainMenu/MainMenu.cs" id="1_cdkru"]
+[ext_resource type="Script" uid="uid://crrjwkdrkhon6" path="res://Scenes/UI/MainMenu/MainMenu.cs" id="1_cdkru"]
 [ext_resource type="Texture2D" uid="uid://be04w1ls8fdoi" path="res://Assets/Images/Team logo/undefined_team_logo.png" id="2_c7oo3"]
-[ext_resource type="Texture2D" uid="uid://c8ld0ymmc1sxh" path="res://Assets/Images/Backgrounds/bg_outside.png" id="3_sg7ab"]
 [ext_resource type="Texture2D" uid="uid://o2xic7w1kk7s" path="res://Assets/Images/Sign/hanging_sign.png" id="4_kpx3y"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("mainMenu", "creditsMenu")]
@@ -15,17 +14,6 @@ grow_vertical = 2
 script = ExtResource("1_cdkru")
 mainMenu = NodePath("MarginContainer/HBox/Margin/MainMenu")
 creditsMenu = NodePath("MarginContainer/HBox/Margin/Credits")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_sg7ab")
-expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -107,9 +95,14 @@ theme_override_constants/margin_top = 20
 
 [node name="Items" type="VBoxContainer" parent="MarginContainer/HBox/Margin/Credits/Margin"]
 layout_mode = 2
+theme_override_constants/separation = 34
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBox/Margin/Credits/Margin/Items"]
-custom_minimum_size = Vector2(300, 100)
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBox/Margin/Credits/Margin/Items"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBox/Margin/Credits/Margin/Items/HBoxContainer"]
+custom_minimum_size = Vector2(275, 50)
 layout_mode = 2
 texture = ExtResource("2_c7oo3")
 expand_mode = 1
@@ -125,7 +118,8 @@ Assets - Tóth Péter Sándor
 Backend - Borók Máté
 
 
-Készült  a Godot 4.5.1-mono verziójában."
+Készült  a Godot 4.5.1-mono 
+verziójában."
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="MarginContainer/HBox/Margin/Credits/Margin/Items/VBoxContainer"]

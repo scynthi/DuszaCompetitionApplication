@@ -25,12 +25,12 @@ public partial class MainMenu : Control
         CurrentMenu = mainMenu;
     }
 
-    private void ButtonPressed(string option)
+    public async void ButtonPressed(string option)
     {
         switch(option)
         {
             case "editor":
-                GetTree().ChangeSceneToFile("res://Scenes/GameMaster/GameMaster.tscn");
+                await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.EditorMenu);
                 break;
             case "continue":
                 //
