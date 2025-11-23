@@ -73,7 +73,7 @@ public partial class NewGameSubMenu : Control
         int waterCount = bindedSaveFile.worldCards.ToList<Card>().Count(c => c.CardElement == CardElements.WATER);
         int fireCount = bindedSaveFile.worldCards.ToList<Card>().Count(c => c.CardElement == CardElements.FIRE);
 
-        string cardText = $"{fireCount}x-[color=red]Tűz[/color] {waterCount}x-[color=blue]Víz[/color] {earthCount}x-[color=brown]Föld[/color] {windCount}x-[color=cyan]Szél[/color]";
+        string cardText = $"{fireCount}x-[color=red]Tűz[/color] {waterCount}x-[color=blue]Víz[/color] {earthCount}x-[color=green]Föld[/color] {windCount}x-[color=cyan]Szél[/color]";
         displayCardElements.Text = cardText;
         displayCardAmount.Text = "Összesen: "+$"{bindedSaveFile.worldCards.Count}";
 

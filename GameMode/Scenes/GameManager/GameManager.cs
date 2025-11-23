@@ -14,9 +14,9 @@ public partial class GameManager : Node
 
     public static class ScenePaths
     {
-        public const string MainMenu = "uid://cgalnmmbimcuw";
-        public const string EditorMenu = "uid://t05qnqewfh32";
-        public const string DungeonMap = "uid://oihoapowoy2t";
+        public const string MainMenu = "res://Scenes/UI/MainMenu/MainMenuWorld.tscn";
+        public const string EditorMenu = "res://Scenes/UI/GameMaster/GameMasterWorld.tscn";
+        public const string DungeonMap = "res://Scenes/DungeonMap/DungeonMap.tscn";
     }
 
     public override void _Ready()

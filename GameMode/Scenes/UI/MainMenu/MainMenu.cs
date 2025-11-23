@@ -76,7 +76,7 @@ public partial class MainMenu : Control
                     ],
                     new Player(0,0,[randCard],[randCard])
                     );
-                Global.gameManager.saverLoader.currSaveFile = newSaveFile;
+
                 Global.gameManager.saverLoader.WriteSaveFile(newSaveFile);
 
                 break;

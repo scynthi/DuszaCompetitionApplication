@@ -204,11 +204,17 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Főmenü"
 
-[node name="NewGameMenu" type="Control" parent="MenuContainer" node_paths=PackedStringArray("saveFileItemsHolder")]
+[node name="NewGameMenu" type="Control" parent="MenuContainer" node_paths=PackedStringArray("saveFileItemsHolder", "inspectorField", "displaySaveName", "displayCardElements", "displayCardAmount", "displayDungeonElements", "displayDungeonAmount")]
 layout_mode = 2
 script = ExtResource("6_tc2ed")
 uiSaveFileItem = ExtResource("7_67d64")
 saveFileItemsHolder = NodePath("Control/HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer")
+inspectorField = NodePath("Control/HBoxContainer/VBoxContainer")
+displaySaveName = NodePath("Control/HBoxContainer/VBoxContainer/Thumbnail/Label")
+displayCardElements = NodePath("Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/HBoxContainer/VBoxContainer/RichTextLabel2")
+displayCardAmount = NodePath("Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/HBoxContainer/VBoxContainer/RichTextLabel3")
+displayDungeonElements = NodePath("Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/HBoxContainer/VBoxContainer3/RichTextLabel2")
+displayDungeonAmount = NodePath("Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/HBoxContainer/VBoxContainer3/RichTextLabel3")
 
 [node name="Control" type="Control" parent="MenuContainer/NewGameMenu"]
 layout_mode = 1
