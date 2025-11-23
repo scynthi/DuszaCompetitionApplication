@@ -1,13 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://cd7wdb77hi6lr"]
+[gd_scene load_steps=8 format=3 uid="uid://cd7wdb77hi6lr"]
 
 [ext_resource type="Script" uid="uid://crrjwkdrkhon6" path="res://Scenes/UI/MainMenu/MainMenu.cs" id="1_cdkru"]
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_gwdte"]
 [ext_resource type="Texture2D" uid="uid://be04w1ls8fdoi" path="res://Assets/Images/Team logo/undefined_team_logo.png" id="2_c7oo3"]
 [ext_resource type="Texture2D" uid="uid://o2xic7w1kk7s" path="res://Assets/Images/Sign/hanging_sign.png" id="4_kpx3y"]
 [ext_resource type="Texture2D" uid="uid://chnum6s8tk8ah" path="res://Assets/Images/Backgrounds/main_menu_border.png" id="5_7nukq"]
-[ext_resource type="Script" path="res://Scenes/UI/MainMenu/NewGameSubMenu.cs" id="6_tc2ed"]
+[ext_resource type="Script" uid="uid://d4c08tqcq36iv" path="res://Scenes/UI/MainMenu/NewGameSubMenu.cs" id="6_tc2ed"]
+[ext_resource type="PackedScene" uid="uid://ba8fe80dhddy3" path="res://Scenes/UI/MainMenu/UISaveFileItem.tscn" id="7_67d64"]
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("mainMenu", "creditsMenu")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("mainMenu", "creditsMenu", "newGameMenu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +20,7 @@ theme = ExtResource("1_gwdte")
 script = ExtResource("1_cdkru")
 mainMenu = NodePath("MenuContainer/MainMenu")
 creditsMenu = NodePath("MenuContainer/Credits")
+newGameMenu = NodePath("MenuContainer/NewGameMenu")
 
 [node name="BorderImage" type="TextureRect" parent="."]
 layout_mode = 1
@@ -58,7 +60,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 
 [node name="MainMenu" type="VBoxContainer" parent="MenuContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Items" type="VBoxContainer" parent="MenuContainer/MainMenu"]
@@ -138,9 +139,12 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Főmenü"
 
-[node name="NewGameMenu" type="Control" parent="MenuContainer"]
+[node name="NewGameMenu" type="Control" parent="MenuContainer" node_paths=PackedStringArray("saveFileItemsHolder")]
+visible = false
 layout_mode = 2
 script = ExtResource("6_tc2ed")
+uiSaveFileItem = ExtResource("7_67d64")
+saveFileItemsHolder = NodePath("Control/ScrollContainer/VBoxContainer")
 
 [node name="Control" type="Control" parent="MenuContainer/NewGameMenu"]
 layout_mode = 1
@@ -179,32 +183,6 @@ vertical_scroll_mode = 0
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="UINewSaveFileItem" type="Control" parent="MenuContainer/NewGameMenu/Control/ScrollContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-
-[node name="ColorRect" type="ColorRect" parent="MenuContainer/NewGameMenu/Control/ScrollContainer/VBoxContainer/UINewSaveFileItem"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
-[node name="Button" type="Button" parent="MenuContainer/NewGameMenu/Control/ScrollContainer/VBoxContainer/UINewSaveFileItem"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-theme_override_font_sizes/font_size = 16
-text = "Cudar vilag 1234"
-flat = true
-text_overrun_behavior = 3
 
 [connection signal="pressed" from="MenuContainer/MainMenu/Items/ButtonBox/NewGame" to="." method="ButtonPressed" binds= ["newgame"]]
 [connection signal="pressed" from="MenuContainer/MainMenu/Items/ButtonBox/Settings" to="." method="ButtonPressed" binds= ["settings"]]

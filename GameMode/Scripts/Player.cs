@@ -2,13 +2,15 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public partial class Player : Node
+public partial class Player : Resource
 {
 	public int Xp { private set; get; }
 	public int Money { private set; get; }
 	public List<Card> Collection { private set; get; }
 	public List<Card> Deck { private set; get; }
     public List<IItem> ItemList { private set; get; }
+
+    public Player(){}
 
 	public Player(int xp, int money, List<Card> collection, List<Card> deck)
     {

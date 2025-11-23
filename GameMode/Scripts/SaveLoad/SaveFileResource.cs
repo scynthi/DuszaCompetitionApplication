@@ -5,23 +5,22 @@ using System.Collections.Generic;
 
 public partial class SaveFileResource : Resource
 {
-    public string name;
-    public bool isStarted = false;
+    [Export] public string name;
+    [Export] public bool isStarted = false;
 
-    public Player player;
-    public List<Card> worldCards;
+    [Export] public Player player;
+    [Export] public Godot.Collections.Array<Card> worldCards;
+    [Export] public Godot.Collections.Array<Dungeon> dungeons;
 
-    public List<Dungeon> dungeons;
+    [Export] public int gameDifficulty = 0;
 
-    public int gameDifficulty = 0;
-
+    public SaveFileResource() { }
 
     public SaveFileResource(string name, Player player, List<Card> worldCards, List<Dungeon> dungeons)
     {
         this.name = name;
-
         this.player = player;
-        this.worldCards = worldCards;
-        this.dungeons = dungeons;
+        this.worldCards = new Godot.Collections.Array<Card>(worldCards);
+        this.dungeons = new Godot.Collections.Array<Dungeon>(dungeons);
     }
 }

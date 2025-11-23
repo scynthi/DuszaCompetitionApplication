@@ -1,0 +1,43 @@
+[gd_resource type="Resource" load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://Scripts/WorldObject/Dungeon.cs" id="1_rekxh"]
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="2_t1vab"]
+[ext_resource type="Script" path="res://Scripts/SaveLoad/SaveFileResource.cs" id="3_sxr0d"]
+[ext_resource type="Script" path="res://Scripts/WorldObject/Card.cs" id="4_fcbik"]
+
+[sub_resource type="Resource" id="Resource_q07d5"]
+script = ExtResource("1_rekxh")
+
+[sub_resource type="Resource" id="Resource_jqai4"]
+script = ExtResource("1_rekxh")
+
+[sub_resource type="Resource" id="Resource_n6gmu"]
+script = ExtResource("1_rekxh")
+
+[sub_resource type="Resource" id="Resource_grkog"]
+script = ExtResource("1_rekxh")
+
+[sub_resource type="Resource" id="Resource_qli8o"]
+script = ExtResource("1_rekxh")
+
+[sub_resource type="Resource" id="Resource_s47kb"]
+script = ExtResource("1_rekxh")
+
+[sub_resource type="Resource" id="Resource_shd8l"]
+script = ExtResource("1_rekxh")
+
+[sub_resource type="Resource" id="Resource_ns64m"]
+script = ExtResource("1_rekxh")
+
+[sub_resource type="Resource" id="Resource_y5u8w"]
+script = ExtResource("2_t1vab")
+
+[sub_resource type="Resource" id="Resource_8b58l"]
+script = ExtResource("4_fcbik")
+
+[resource]
+script = ExtResource("3_sxr0d")
+name = "testSaveSikibidisad"
+player = SubResource("Resource_y5u8w")
+worldCards = Array[ExtResource("4_fcbik")]([SubResource("Resource_8b58l")])
+dungeons = Array[ExtResource("1_rekxh")]([SubResource("Resource_q07d5"), SubResource("Resource_jqai4"), SubResource("Resource_n6gmu"), SubResource("Resource_grkog"), SubResource("Resource_qli8o"), SubResource("Resource_s47kb"), SubResource("Resource_shd8l"), SubResource("Resource_ns64m")])

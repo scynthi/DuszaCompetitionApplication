@@ -3,14 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public partial class Card : Node, IWorldObject
+public partial class Card : Resource, IWorldObject
 {
-	public new string Name { protected set; get; }
+	public new string Name {set; get; }
     public int Health { protected set; get; }
     public int BaseDamage { protected set; get; }
     public int Damage { protected set; get; }
     public CardElements CardElement { private set; get; }
     public BuffHandler buffHandler { private set; get; }
+
+    public Card(){}
 
     public Card(string name, int baseDamage, int health, CardElements cardElements)
     {

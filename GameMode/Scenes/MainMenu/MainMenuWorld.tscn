@@ -1,10 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://cgalnmmbimcuw"]
+[gd_scene load_steps=15 format=3 uid="uid://cgalnmmbimcuw"]
 
 [ext_resource type="Script" uid="uid://jtuoap7qxnl5" path="res://Assets/Shaders/quantization_shader.gd" id="1_xs16b"]
 [ext_resource type="PackedScene" uid="uid://ce7g0oth38mpg" path="res://Assets/Models/mainmenuTest.glb" id="2_y4dnw"]
 [ext_resource type="PackedScene" uid="uid://cpidsg2b56hne" path="res://Assets/StyledCamera.tscn" id="3_f3a3r"]
-[ext_resource type="Shader" uid="uid://dfgpe5eshsaa8" path="res://Assets/Shaders/crt.gdshader" id="4_tc1q6"]
-[ext_resource type="PackedScene" uid="uid://cd7wdb77hi6lr" path="res://Scenes/MainMenu/MainMenu.tscn" id="5_wm533"]
+[ext_resource type="PackedScene" uid="uid://cd7wdb77hi6lr" path="res://Scenes/UI/MainMenu/MainMenu.tscn" id="5_wm533"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ti60f"]
 frequency = 0.0256
@@ -50,30 +49,6 @@ metadata/_custom_type_script = "uid://jtuoap7qxnl5"
 
 [sub_resource type="Compositor" id="Compositor_0cuqo"]
 compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_x2c5x")])
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3mkyo"]
-shader = ExtResource("4_tc1q6")
-shader_parameter/overlay = true
-shader_parameter/scanlines_opacity = 0.0
-shader_parameter/scanlines_width = 0.2850000135375
-shader_parameter/grille_opacity = 0.0970000046075
-shader_parameter/resolution = Vector2(720, 360)
-shader_parameter/pixelate = false
-shader_parameter/roll = true
-shader_parameter/roll_speed = 0.73
-shader_parameter/roll_size = 18.1510008621725
-shader_parameter/roll_variation = 1.21800005459512
-shader_parameter/distort_intensity = 0.0790000037525
-shader_parameter/noise_opacity = 0.4
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.010000000475
-shader_parameter/aberration = 0.00900004792750008
-shader_parameter/brightness = 1.4
-shader_parameter/discolor = false
-shader_parameter/warp_amount = 0.010000000475
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.325
-shader_parameter/vignette_opacity = 0.4370000207575
 
 [sub_resource type="Animation" id="Animation_vhhms"]
 resource_name = "CameraSway"
@@ -191,26 +166,7 @@ compositor = SubResource("Compositor_0cuqo")
 [node name="mainmenuTest" parent="." instance=ExtResource("2_y4dnw")]
 
 [node name="Camera3D" parent="." instance=ExtResource("3_f3a3r")]
-transform = Transform3D(0.6386552, 0.10126157, 0.7628012, 0.015542796, 0.9894037, -0.14435619, -0.769336, 0.1040499, 0.630314, 3.23, 0.193, 3.433)
-
-[node name="Control" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="ColorRect" type="ColorRect" parent="Control"]
-material = SubResource("ShaderMaterial_3mkyo")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+transform = Transform3D(0.6386551, 0.10126157, 0.7628012, 0.015542795, 0.9894037, -0.14435619, -0.7693359, 0.1040499, 0.630314, 3.23, 0.193, 3.433)
 
 [node name="MainMenu" parent="." instance=ExtResource("5_wm533")]
 

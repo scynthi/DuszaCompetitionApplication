@@ -6,6 +6,7 @@ public partial class MainMenu : Control
 
     [Export] Control mainMenu;
     [Export] Control creditsMenu;
+    [Export] NewGameSubMenu newGameMenu;
 
     private Control _currentMenu;
     private Control CurrentMenu
@@ -37,12 +38,13 @@ public partial class MainMenu : Control
             case "continue":
                 break;
             case "newgame":
-                await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.DungeonMap);
+                CurrentMenu = newGameMenu;
+                newGameMenu.ReloadSaves();
                 break;
             case "settings":
 
                 Card randCard = new Card("asd", 10, 5, CardElements.EARTH);
-                SaveFileResource newSaveFile = SaveLoadSystem.CreateSaveFileFromData("testSaveSikibidi", 
+                SaveFileResource newSaveFile = SaveLoadSystem.CreateSaveFileFromData("testSave2", 
                     [randCard],
                     [new Dungeon("Dungi", DungeonTypes.simple, DungeonRewardTypes.health),
                     new Dungeon("Dungi1", DungeonTypes.small, DungeonRewardTypes.attack),
@@ -57,7 +59,6 @@ public partial class MainMenu : Control
                     );
                 Global.gameManager.saverLoader.currSaveFile = newSaveFile;
                 Global.gameManager.saverLoader.WriteSaveFile(newSaveFile);
-                GD.Print(newSaveFile);
 
                 break;
             case "credits":

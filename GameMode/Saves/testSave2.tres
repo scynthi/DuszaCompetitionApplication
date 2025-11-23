@@ -1,0 +1,43 @@
+[gd_resource type="Resource" load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://Scripts/WorldObject/Dungeon.cs" id="1_ipl83"]
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="2_ou36e"]
+[ext_resource type="Script" path="res://Scripts/SaveLoad/SaveFileResource.cs" id="3_uv4fy"]
+[ext_resource type="Script" path="res://Scripts/WorldObject/Card.cs" id="4_oap8q"]
+
+[sub_resource type="Resource" id="Resource_jj5yg"]
+script = ExtResource("1_ipl83")
+
+[sub_resource type="Resource" id="Resource_0tmrd"]
+script = ExtResource("1_ipl83")
+
+[sub_resource type="Resource" id="Resource_vbuy6"]
+script = ExtResource("1_ipl83")
+
+[sub_resource type="Resource" id="Resource_m3m0g"]
+script = ExtResource("1_ipl83")
+
+[sub_resource type="Resource" id="Resource_gwqgy"]
+script = ExtResource("1_ipl83")
+
+[sub_resource type="Resource" id="Resource_0d4fr"]
+script = ExtResource("1_ipl83")
+
+[sub_resource type="Resource" id="Resource_vy7at"]
+script = ExtResource("1_ipl83")
+
+[sub_resource type="Resource" id="Resource_aafio"]
+script = ExtResource("1_ipl83")
+
+[sub_resource type="Resource" id="Resource_rhqed"]
+script = ExtResource("2_ou36e")
+
+[sub_resource type="Resource" id="Resource_hulwb"]
+script = ExtResource("4_oap8q")
+
+[resource]
+script = ExtResource("3_uv4fy")
+name = "testSave2"
+player = SubResource("Resource_rhqed")
+worldCards = Array[ExtResource("4_oap8q")]([SubResource("Resource_hulwb")])
+dungeons = Array[ExtResource("1_ipl83")]([SubResource("Resource_jj5yg"), SubResource("Resource_0tmrd"), SubResource("Resource_vbuy6"), SubResource("Resource_m3m0g"), SubResource("Resource_gwqgy"), SubResource("Resource_0d4fr"), SubResource("Resource_vy7at"), SubResource("Resource_aafio")])

@@ -2,11 +2,13 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public partial class Dungeon : Node, IWorldObject
+public partial class Dungeon : Resource, IWorldObject
 {
 	public new string Name { private set; get; }
 	public DungeonTypes DungeonType {private set; get; }
 	public DungeonRewardTypes DungeonReward { private set; get; }
+
+    public Dungeon(){}
 
 	public Dungeon(string name, DungeonTypes dungeonType, DungeonRewardTypes dungeonReward)
     {

@@ -25,7 +25,7 @@ public partial class SaveLoadSystem : Node
 
 	public void WriteSaveFile(SaveFileResource saveFile)
     {
-        ResourceSaver.Save(saveFile, SAVE_PATH + $"{saveFile.name}"+".tres");
+        ResourceSaver.Save(saveFile, SAVE_PATH + $"{saveFile.name}.tres");
     }
 
 	public SaveFileResource LoadSaveFile(string saveFileName)
@@ -35,7 +35,6 @@ public partial class SaveLoadSystem : Node
             return GD.Load<SaveFileResource>(SAVE_PATH + $"{saveFileName}");
         } 
 		return null;
-        
     }
 
 }
