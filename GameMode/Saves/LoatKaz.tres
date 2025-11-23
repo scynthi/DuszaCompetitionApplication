@@ -1,0 +1,133 @@
+[gd_resource type="Resource" load_steps=34 format=3]
+
+[ext_resource type="Script" path="res://Scripts/WorldObject/Dungeon.cs" id="1_04gde"]
+[ext_resource type="Script" path="res://Scripts/WorldObject/Card.cs" id="2_yxpl0"]
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="3_3wg1f"]
+[ext_resource type="Script" path="res://Scripts/SaveLoad/SaveFileResource.cs" id="4_aia7f"]
+
+[sub_resource type="Resource" id="Resource_npo45"]
+script = ExtResource("1_04gde")
+Name = "123"
+
+[sub_resource type="Resource" id="Resource_68jo3"]
+script = ExtResource("1_04gde")
+Name = "123"
+
+[sub_resource type="Resource" id="Resource_kreu4"]
+script = ExtResource("1_04gde")
+Name = "121"
+
+[sub_resource type="Resource" id="Resource_t4ha1"]
+script = ExtResource("1_04gde")
+Name = "1231"
+
+[sub_resource type="Resource" id="Resource_lvqtn"]
+script = ExtResource("1_04gde")
+Name = "12313"
+
+[sub_resource type="Resource" id="Resource_p5lxf"]
+script = ExtResource("1_04gde")
+Name = "123313"
+
+[sub_resource type="Resource" id="Resource_0nrlh"]
+script = ExtResource("1_04gde")
+Name = "1233313"
+
+[sub_resource type="Resource" id="Resource_3277v"]
+script = ExtResource("1_04gde")
+Name = "12333313"
+
+[sub_resource type="Resource" id="Resource_4gfec"]
+script = ExtResource("1_04gde")
+Name = "123333313"
+
+[sub_resource type="Resource" id="Resource_paokw"]
+script = ExtResource("1_04gde")
+Name = "1233333313"
+
+[sub_resource type="Resource" id="Resource_v0jte"]
+script = ExtResource("1_04gde")
+Name = "12133333313"
+
+[sub_resource type="Resource" id="Resource_a45gv"]
+script = ExtResource("1_04gde")
+Name = "121233333313"
+
+[sub_resource type="Resource" id="Resource_vr7is"]
+script = ExtResource("1_04gde")
+Name = "1213233333313"
+
+[sub_resource type="Resource" id="Resource_gl2lx"]
+script = ExtResource("1_04gde")
+Name = "12143233333313"
+
+[sub_resource type="Resource" id="Resource_243la"]
+script = ExtResource("1_04gde")
+Name = "121433233333313"
+
+[sub_resource type="Resource" id="Resource_d62ns"]
+script = ExtResource("1_04gde")
+Name = "1241433233333313"
+
+[sub_resource type="Resource" id="Resource_fl8p2"]
+script = ExtResource("1_04gde")
+Name = "132341433233333313"
+
+[sub_resource type="Resource" id="Resource_aigar"]
+script = ExtResource("1_04gde")
+Name = "1323341433233333313"
+
+[sub_resource type="Resource" id="Resource_3r6tj"]
+script = ExtResource("1_04gde")
+Name = "13233341433233333313"
+
+[sub_resource type="Resource" id="Resource_qxyk2"]
+script = ExtResource("1_04gde")
+Name = "13233341433233333313"
+
+[sub_resource type="Resource" id="Resource_ahqoo"]
+script = ExtResource("1_04gde")
+Name = "13233341433233333313"
+
+[sub_resource type="Resource" id="Resource_2rjca"]
+script = ExtResource("1_04gde")
+Name = "13233341433233333313"
+
+[sub_resource type="Resource" id="Resource_c1bdc"]
+script = ExtResource("1_04gde")
+Name = "13233341433233333313"
+
+[sub_resource type="Resource" id="Resource_edco4"]
+script = ExtResource("1_04gde")
+Name = "13233341433233333313"
+
+[sub_resource type="Resource" id="Resource_k6ona"]
+script = ExtResource("1_04gde")
+Name = "13233341433233333313"
+
+[sub_resource type="Resource" id="Resource_8m3ps"]
+script = ExtResource("1_04gde")
+Name = "13233341433233333313"
+
+[sub_resource type="Resource" id="Resource_owuen"]
+script = ExtResource("1_04gde")
+Name = "13233341433233333313"
+
+[sub_resource type="Resource" id="Resource_np252"]
+script = ExtResource("2_yxpl0")
+Name = "Egyetlen kártya"
+Health = 89
+BaseDamage = 8
+Damage = 8
+
+[sub_resource type="Resource" id="Resource_hwfhi"]
+script = ExtResource("3_3wg1f")
+Collection = Array[ExtResource("2_yxpl0")]([])
+Deck = Array[ExtResource("2_yxpl0")]([SubResource("Resource_np252")])
+
+[resource]
+script = ExtResource("4_aia7f")
+name = "LoatKaz"
+player = SubResource("Resource_hwfhi")
+worldCards = Array[ExtResource("2_yxpl0")]([])
+dungeons = Array[ExtResource("1_04gde")]([SubResource("Resource_npo45"), SubResource("Resource_68jo3"), SubResource("Resource_kreu4"), SubResource("Resource_t4ha1"), SubResource("Resource_lvqtn"), SubResource("Resource_p5lxf"), SubResource("Resource_0nrlh"), SubResource("Resource_3277v"), SubResource("Resource_4gfec"), SubResource("Resource_paokw"), SubResource("Resource_v0jte"), SubResource("Resource_a45gv"), SubResource("Resource_vr7is"), SubResource("Resource_gl2lx"), SubResource("Resource_243la"), SubResource("Resource_d62ns"), SubResource("Resource_fl8p2"), SubResource("Resource_aigar"), SubResource("Resource_3r6tj"), SubResource("Resource_qxyk2"), SubResource("Resource_ahqoo"), SubResource("Resource_2rjca"), SubResource("Resource_c1bdc"), SubResource("Resource_edco4"), SubResource("Resource_k6ona"), SubResource("Resource_8m3ps"), SubResource("Resource_owuen")])

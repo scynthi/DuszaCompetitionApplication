@@ -62,6 +62,7 @@ public partial class MapMenu : Control
                 await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.MainMenu);
                 break;
             case "main":
+                Global.gameManager.saverLoader.WriteSaveFile(Global.gameManager.saverLoader.currSaveFile);
                 await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.MainMenu);
                 break;
         }

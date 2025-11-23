@@ -41,6 +41,10 @@ public partial class NewGameSubMenu : Control
                     
                     if (saveFile != null)
                     {
+                        if (saveFile.isStarted){
+                            fileName = dir.GetNext();
+                            continue;}
+
                         UiSaveFileItem newUiSaveFileItem = (UiSaveFileItem)uiSaveFileItem.Instantiate();
 
                         newUiSaveFileItem.BindSaveFile(saveFile);
@@ -94,6 +98,7 @@ public partial class NewGameSubMenu : Control
 
     public void _OnStartPressed()
     {
+        currDisplayedSave.isStarted = true;
         Global.gameManager.saverLoader.currSaveFile = currDisplayedSave;
         Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.DungeonMap);
     }

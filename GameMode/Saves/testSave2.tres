@@ -87,6 +87,7 @@ CardElement = 2
 [resource]
 script = ExtResource("4_oap8q")
 name = "testSave2"
+isStarted = true
 player = SubResource("Resource_hulwb")
 worldCards = Array[ExtResource("2_ou36e")]([SubResource("Resource_rhqed"), SubResource("Resource_fxm5a"), SubResource("Resource_lquur"), SubResource("Resource_c1low"), SubResource("Resource_uxx6m")])
 dungeons = Array[ExtResource("1_ipl83")]([SubResource("Resource_jj5yg"), SubResource("Resource_0tmrd"), SubResource("Resource_vbuy6"), SubResource("Resource_m3m0g"), SubResource("Resource_gwqgy"), SubResource("Resource_0d4fr"), SubResource("Resource_vy7at"), SubResource("Resource_aafio")])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://oihoapowoy2t"]
+[gd_scene load_steps=17 format=3 uid="uid://oihoapowoy2t"]
 
 [ext_resource type="Script" uid="uid://ctr2m1ncuyxwi" path="res://Scenes/DungeonMap/CameraController.cs" id="1_6u8ww"]
 [ext_resource type="PackedScene" uid="uid://dohu3ccoui2n5" path="res://Scenes/DungeonMap/MapBackgrounds/DungeonMapBackground.tscn" id="2_0enam"]
@@ -13,8 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://btotl77m5yxnk" path="res://Assets/Images/Sign/HandingCardSign.png" id="8_phkkq"]
 [ext_resource type="Texture2D" uid="uid://ddx53uhdti82k" path="res://Assets/Images/Sign/HangingSignBetter.png" id="9_1kwds"]
 [ext_resource type="Script" uid="uid://bg7xtl2rvon71" path="res://Scenes/DungeonMap/WorldCardsSubmenu.cs" id="9_yw7fq"]
-[ext_resource type="PackedScene" uid="uid://dk32ss75ce3lw" path="res://Assets/UI/Scenes/UICard/UICard.tscn" id="10_w01ju"]
-[ext_resource type="PackedScene" uid="uid://dsnbg78nbu0vo" path="res://Assets/UI/Scenes/UIBossCard/UIBossCard.tscn" id="11_fv8kk"]
 
 [sub_resource type="Animation" id="Animation_yw7fq"]
 resource_name = "ChangeSubmenu"
@@ -103,6 +101,7 @@ anchor_bottom = 1.0
 offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="DeckSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign"]
 layout_mode = 1
@@ -181,10 +180,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("9_yw7fq")
 cardContainer = NodePath("Control/ScrollContainer/GridContainer")
-UICard = ExtResource("10_w01ju")
-UIBossCard = ExtResource("11_fv8kk")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/UpperSign/WorldCardsSubmenu"]
 modulate = Color(0.72, 0.72, 0.72, 1)

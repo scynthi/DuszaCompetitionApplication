@@ -3,13 +3,15 @@ using System;
 
 public partial class MainMenu : Control
 {
+    [Export] Control MenuContainer;
+    [Export] AnimationPlayer animationPlayer;
 
+    [ExportGroup("Menus")]
     [Export] Control mainMenu;
     [Export] Control creditsMenu;
     [Export] NewGameSubMenu newGameMenu;
-    [Export] Control MenuContainer;
+    [Export] ContinueGameSubMenu continueGameMenu;
 
-    [Export] AnimationPlayer animationPlayer;
 
     private Control _currentMenu;
     private Control CurrentMenu
@@ -45,6 +47,8 @@ public partial class MainMenu : Control
                 await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.EditorMenu);
                 break;
             case "continue":
+                queuedMenu = continueGameMenu;
+                continueGameMenu.ReloadSaves();
                 break;
             case "newgame":
                 queuedMenu = newGameMenu;
