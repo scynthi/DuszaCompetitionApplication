@@ -4,8 +4,8 @@
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_uky3w"]
 [ext_resource type="Texture2D" uid="uid://bdmnd11s75frm" path="res://Assets/Images/Portal/portal_frame_egyszeru.png" id="2_3smau"]
 
-[node name="UIDungeon" type="Control"]
-custom_minimum_size = Vector2(125, 150)
+[node name="UIDungeon" type="Control" node_paths=PackedStringArray("nameRichText", "nameLabel", "iconTexture", "enterButton")]
+custom_minimum_size = Vector2(100, 150)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -14,54 +14,61 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -62.5
 offset_top = -89.0
-offset_right = 62.5
-offset_bottom = 75.0
+offset_right = 37.5
+offset_bottom = 61.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_uky3w")
 script = ExtResource("1_a771a")
+nameRichText = NodePath("VBox/Label")
+nameLabel = NodePath("VBox/CenterContainer/VBoxContainer/UILabel")
+iconTexture = NodePath("VBox/CenterContainer/VBoxContainer/TextureRect")
+enterButton = NodePath("VBox/CenterContainer/VBoxContainer/Button")
 
-[node name="Label" type="RichTextLabel" parent="."]
+[node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -223.0
-offset_right = 223.0
-offset_bottom = 45.0
-grow_horizontal = 2
-theme_override_font_sizes/normal_font_size = 29
-text = "12345678912345678912"
-horizontal_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -50.0
-offset_right = 50.0
-offset_bottom = 50.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="RichTextLabel" parent="VBox"]
+custom_minimum_size = Vector2(400, 40)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 29
+text = "12345678912345678912"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBox/CenterContainer"]
+layout_mode = 2
+
+[node name="UILabel" type="Label" parent="VBox/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Teszt Kazamata"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="VBox/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
 texture = ExtResource("2_3smau")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -31.0
-offset_top = -22.0
-offset_right = 31.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="Button" type="Button" parent="VBox/CenterContainer/VBoxContainer"]
+layout_mode = 2
 text = "Kiválasztás"
+
+[node name="Dungeon" type="Control" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

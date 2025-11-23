@@ -1,15 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://dk32ss75ce3lw"]
+[gd_scene load_steps=11 format=3 uid="uid://dsnbg78nbu0vo"]
 
-[ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_bqwth"]
-[ext_resource type="Texture2D" uid="uid://bnophesfbq3vi" path="res://Assets/Images/Entities/Heroes/man.png" id="1_egfyg"]
-[ext_resource type="Script" uid="uid://cqcurt0gop2t4" path="res://Assets/UI/Scenes/UICard/UICard.cs" id="1_mkdqw"]
-[ext_resource type="Texture2D" uid="uid://dcbyhic481tbl" path="res://Assets/Images/Cards/cards_base.png" id="1_tj12e"]
-[ext_resource type="Texture2D" uid="uid://b3mo4atbtgp7w" path="res://Assets/Images/Cards/cards_heart_base.png" id="3_2ja5q"]
-[ext_resource type="Texture2D" uid="uid://ruoa1sjpbu7j" path="res://Assets/Images/Cards/cards_heart_buffed.png" id="4_40ahx"]
-[ext_resource type="Texture2D" uid="uid://doww5jvob8iw2" path="res://Assets/Images/Elements/NewElementSprites/fire.png" id="4_ndynx"]
-[ext_resource type="Texture2D" uid="uid://dnov8t4p650wk" path="res://Assets/Images/Cards/cards_axe_base.png" id="4_vyadu"]
-[ext_resource type="Texture2D" uid="uid://b8d3aqx88rk1q" path="res://Assets/Images/Cards/cards_border.png" id="5_ndynx"]
-[ext_resource type="Texture2D" uid="uid://bmiley3dm5mth" path="res://Assets/Images/Cards/cards_axe_buffed.png" id="6_4n0vk"]
+[ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_fm8t1"]
+[ext_resource type="Script" uid="uid://bi8556gvsdm8h" path="res://Assets/UI/Scenes/UIBossCard/UIBossCard.cs" id="2_j2uvf"]
+[ext_resource type="Texture2D" uid="uid://bnophesfbq3vi" path="res://Assets/Images/Entities/Heroes/man.png" id="3_8poxu"]
+[ext_resource type="Texture2D" uid="uid://dcbyhic481tbl" path="res://Assets/Images/Cards/cards_base.png" id="4_j3uay"]
+[ext_resource type="Texture2D" uid="uid://doww5jvob8iw2" path="res://Assets/Images/Elements/NewElementSprites/fire.png" id="5_yv6ta"]
+[ext_resource type="Texture2D" uid="uid://bpvqj2jyrl0rp" path="res://Assets/Images/Cards/cards_player_leader_effect.png" id="6_gxnqs"]
+[ext_resource type="Texture2D" uid="uid://b3mo4atbtgp7w" path="res://Assets/Images/Cards/cards_heart_base.png" id="7_mtuec"]
+[ext_resource type="Texture2D" uid="uid://ruoa1sjpbu7j" path="res://Assets/Images/Cards/cards_heart_buffed.png" id="8_3pg7d"]
+[ext_resource type="Texture2D" uid="uid://dnov8t4p650wk" path="res://Assets/Images/Cards/cards_axe_base.png" id="9_bpufm"]
+[ext_resource type="Texture2D" uid="uid://bmiley3dm5mth" path="res://Assets/Images/Cards/cards_axe_buffed.png" id="10_dhuuv"]
 
 [node name="Card" type="Control" node_paths=PackedStringArray("damageLabel", "healthLabel", "nameLabel", "cardBackground", "charcaterIcon", "effectTexture", "elementTexture")]
 custom_minimum_size = Vector2(84, 110)
@@ -20,8 +20,8 @@ offset_top = -62.000008
 offset_right = 43.0
 offset_bottom = 47.999992
 scale = Vector2(1, 1.059)
-theme = ExtResource("1_bqwth")
-script = ExtResource("1_mkdqw")
+theme = ExtResource("1_fm8t1")
+script = ExtResource("2_j2uvf")
 damageLabel = NodePath("Panel/Control2/Axe/Damage")
 healthLabel = NodePath("Panel/Control2/Heart/Health")
 nameLabel = NodePath("Panel/Control/Name")
@@ -56,11 +56,10 @@ layout_mode = 0
 offset_left = 37.0
 offset_top = 0.9442942
 offset_right = 81.0
-offset_bottom = 23.944294
+offset_bottom = 24.551468
 theme_override_constants/line_spacing = -5
-theme_override_font_sizes/font_size = 10
-text = "Please
-Holder"
+theme_override_font_sizes/font_size = 7
+text = "Lord Please Holder"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -74,7 +73,7 @@ offset_left = 5.0
 offset_top = 32.105774
 offset_right = 80.0
 offset_bottom = 107.105774
-texture = ExtResource("1_egfyg")
+texture = ExtResource("3_8poxu")
 expand_mode = 1
 stretch_mode = 5
 
@@ -82,7 +81,7 @@ stretch_mode = 5
 layout_mode = 0
 offset_right = 84.0
 offset_bottom = 110.0
-texture = ExtResource("1_tj12e")
+texture = ExtResource("4_j3uay")
 expand_mode = 1
 stretch_mode = 5
 
@@ -92,7 +91,7 @@ offset_left = 4.0
 offset_top = 2.8328705
 offset_right = 24.0
 offset_bottom = 22.33287
-texture = ExtResource("4_ndynx")
+texture = ExtResource("5_yv6ta")
 expand_mode = 1
 stretch_mode = 4
 
@@ -100,7 +99,7 @@ stretch_mode = 4
 layout_mode = 1
 offset_right = 84.0
 offset_bottom = 110.04
-texture = ExtResource("5_ndynx")
+texture = ExtResource("6_gxnqs")
 expand_mode = 1
 stretch_mode = 5
 
@@ -116,7 +115,7 @@ offset_bottom = 84.04156
 layout_mode = 0
 offset_right = 20.0
 offset_bottom = 23.5
-texture = ExtResource("3_2ja5q")
+texture = ExtResource("7_mtuec")
 expand_mode = 1
 stretch_mode = 5
 
@@ -127,7 +126,7 @@ offset_left = -3.0
 offset_top = -12.0
 offset_right = 31.5
 offset_bottom = 17.0
-texture = ExtResource("4_40ahx")
+texture = ExtResource("8_3pg7d")
 expand_mode = 1
 stretch_mode = 5
 
@@ -151,7 +150,7 @@ offset_bottom = 83.097275
 layout_mode = 0
 offset_right = 24.5
 offset_bottom = 23.5
-texture = ExtResource("4_vyadu")
+texture = ExtResource("9_bpufm")
 expand_mode = 1
 
 [node name="AxeBuffedIcon" type="TextureRect" parent="Panel/Control2/Axe"]
@@ -161,7 +160,7 @@ offset_left = -17.0
 offset_top = -31.0
 offset_right = 21.0
 offset_bottom = -2.0
-texture = ExtResource("6_4n0vk")
+texture = ExtResource("10_dhuuv")
 expand_mode = 1
 stretch_mode = 5
 
@@ -174,7 +173,7 @@ offset_bottom = 24.888573
 text = "1"
 horizontal_alignment = 1
 
-[node name="SimpleCard" type="Control" parent="."]
+[node name="BossCard" type="Control" parent="."]
 z_index = 1
 layout_mode = 1
 anchors_preset = 15

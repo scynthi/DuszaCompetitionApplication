@@ -1,0 +1,77 @@
+[gd_resource type="Resource" load_steps=15 format=3]
+
+[ext_resource type="Script" path="res://Scripts/WorldObject/Dungeon.cs" id="1_url4f"]
+[ext_resource type="Script" path="res://Scripts/WorldObject/Card.cs" id="2_hssfg"]
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="3_gh2ja"]
+[ext_resource type="Script" path="res://Scripts/SaveLoad/SaveFileResource.cs" id="4_thjln"]
+
+[sub_resource type="Resource" id="Resource_7uixo"]
+script = ExtResource("1_url4f")
+Name = "Záhony"
+
+[sub_resource type="Resource" id="Resource_ynfpq"]
+script = ExtResource("1_url4f")
+Name = "Debrecen"
+
+[sub_resource type="Resource" id="Resource_ry3b0"]
+script = ExtResource("1_url4f")
+Name = "Mechwrat"
+DungeonType = 2
+DungeonReward = 2
+
+[sub_resource type="Resource" id="Resource_j266y"]
+script = ExtResource("2_hssfg")
+Name = "petike"
+Health = 12
+BaseDamage = 2
+Damage = 2
+CardElement = 3
+
+[sub_resource type="Resource" id="Resource_wm2ys"]
+script = ExtResource("2_hssfg")
+Name = "dani"
+Health = 6
+BaseDamage = 4
+Damage = 4
+CardElement = 2
+
+[sub_resource type="Resource" id="Resource_lvji5"]
+script = ExtResource("2_hssfg")
+Name = "mát"
+Health = 99
+BaseDamage = 1
+Damage = 1
+CardElement = 1
+
+[sub_resource type="Resource" id="Resource_jjjgn"]
+script = ExtResource("2_hssfg")
+Name = "MSI"
+Health = 99
+BaseDamage = 20
+Damage = 20
+
+[sub_resource type="Resource" id="Resource_iu16t"]
+script = ExtResource("2_hssfg")
+Name = "MSI"
+Health = 99
+BaseDamage = 40
+Damage = 40
+
+[sub_resource type="Resource" id="Resource_4vi7n"]
+script = ExtResource("2_hssfg")
+Name = "Egyetlen kártya"
+Health = 89
+BaseDamage = 8
+Damage = 8
+
+[sub_resource type="Resource" id="Resource_pod4l"]
+script = ExtResource("3_gh2ja")
+Collection = Array[ExtResource("2_hssfg")]([SubResource("Resource_j266y"), SubResource("Resource_wm2ys"), SubResource("Resource_lvji5"), SubResource("Resource_jjjgn"), SubResource("Resource_iu16t")])
+Deck = Array[ExtResource("2_hssfg")]([SubResource("Resource_4vi7n")])
+
+[resource]
+script = ExtResource("4_thjln")
+name = "itshouldbeworking"
+player = SubResource("Resource_pod4l")
+worldCards = Array[ExtResource("2_hssfg")]([SubResource("Resource_j266y"), SubResource("Resource_wm2ys"), SubResource("Resource_lvji5"), SubResource("Resource_jjjgn"), SubResource("Resource_iu16t")])
+dungeons = Array[ExtResource("1_url4f")]([SubResource("Resource_7uixo"), SubResource("Resource_ynfpq"), SubResource("Resource_ry3b0")])

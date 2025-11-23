@@ -24,16 +24,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="PiciMenüItems" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
 
-[node name="ByHP" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="ByHP" type="Button" parent="PanelContainer/PiciMenüItems"]
 layout_mode = 2
 text = "Származtatás életerővel"
 
-[node name="ByDMG" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="ByDMG" type="Button" parent="PanelContainer/PiciMenüItems"]
 layout_mode = 2
 text = "Származtatás sebzéssel"
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/ByHP" to="." method="ButtonPressed" binds= ["hp"]]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/ByDMG" to="." method="ButtonPressed" binds= ["dmg"]]
+[connection signal="pressed" from="PanelContainer/PiciMenüItems/ByHP" to="." method="ButtonPressed" binds= ["hp"]]
+[connection signal="pressed" from="PanelContainer/PiciMenüItems/ByDMG" to="." method="ButtonPressed" binds= ["dmg"]]

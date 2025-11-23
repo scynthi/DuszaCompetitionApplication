@@ -64,16 +64,11 @@ public partial class CardEditor : HBoxContainer
         card.EditIcon(image);
     }
 
-    public void ChangeType()
-    {
-        card.isBoss = !card.isBoss;
-        card.EditEffect();
-    }
-
     // TODO: rewrite it when backend arrives
+    // TODO: Do more checks for name
+
     public void SaveCard()
     {
-        // GD.Print($"{card.CardName} {card.CardDamage}, {card.CardHealth}, {card.CardElement}, {card.isBoss}, {card.CardIcon}");
         editor.BossEditor.AddCardToList(card);
     }
 

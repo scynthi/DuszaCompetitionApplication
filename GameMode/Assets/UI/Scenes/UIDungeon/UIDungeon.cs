@@ -3,15 +3,18 @@ using System;
 
 public partial class UIDungeon : Control
 {
-    RichTextLabel nameLabel;
-    TextureRect iconTexture;
-    Button enterButton;
+    [Export] RichTextLabel nameRichText;
+    [Export] Label nameLabel;
+    [Export] TextureRect iconTexture;
+    [Export] Button enterButton;
 
+
+    private string _dungeonName = "Teszt Kazamata";
 
     public string DungeonName 
     {
         private set {} 
-        get {return nameLabel.Text;}
+        get {return _dungeonName;}
     }
     public DungeonTypes DungeonType {private set; get;}
 
@@ -23,17 +26,16 @@ public partial class UIDungeon : Control
         set
         {
             _previewMode = value;
-            if (enterButton != null) enterButton.Visible = !value;
+            nameLabel.Visible = value;
+            nameRichText.Visible = !value;
+            enterButton.Visible = !value;
         } 
         get {return _previewMode;}
     }
 
     public override void _Ready()
     {
-        nameLabel = GetNode<RichTextLabel>("Label");
-        iconTexture = GetNode<TextureRect>("TextureRect");
-        enterButton = GetNode<Button>("Button");
-        PreviewMode = false;
+        PreviewMode = true;
     }
 
     public void SetUpDungeon(UIDungeon dungeon)
@@ -58,7 +60,10 @@ public partial class UIDungeon : Control
     public void EditName(string name)
     {
         if (name.Replace(" ", "") == "") return;
+
         nameLabel.Text = name;
+        nameRichText.Text = name;
+        _dungeonName = name;
     }
 
     public void EditType(DungeonTypes type)
@@ -74,7 +79,7 @@ public partial class UIDungeon : Control
         return ImageTexture.CreateFromImage(Image.LoadFromFile(resourcePath));
     }
 
-    public Dungeon CreateInstance()
+    public Dungeon CreateDungeonInstance()
     {
         return new Dungeon(DungeonName, DungeonType, (DungeonRewardTypes)DungeonType);
     }

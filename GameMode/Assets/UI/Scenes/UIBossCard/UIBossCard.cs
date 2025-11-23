@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class UICard : Control
+public partial class UIBossCard : Control
 {   
     [Export] private Label damageLabel;
     [Export] private Label healthLabel;  
@@ -14,27 +14,29 @@ public partial class UICard : Control
 
     public bool isEnemy;
 
-    public int CardDamage {
-        private set{} 
-        get {return Convert.ToInt32(damageLabel.Text);}
+    private BossCard _bossCard;
+    public BossCard BossCard
+    {
+        private set {_bossCard = value;}
+        get {return _bossCard;}
     }
 
-    public int CardHealth {
-        private set{} 
-        get {return Convert.ToInt32(healthLabel.Text);}
-    }
 
     private CardElements _cardElement = CardElements.FIRE;
-
     public CardElements CardElement {
         private set {_cardElement = value;} 
         get {return _cardElement;}
     }
 
-    public Texture2D CardIcon
-    {
-        private set {}
-        get {return charcaterIcon.Texture;}
+
+    public int CardDamage {
+        private set {} 
+        get {return Convert.ToInt32(damageLabel.Text);}
+    }
+
+    public int CardHealth {
+        private set {} 
+        get {return Convert.ToInt32(healthLabel.Text);}
     }
 
     public string CardName
@@ -42,41 +44,54 @@ public partial class UICard : Control
         private set {}
         get {return nameLabel.Text;}
     }
+
+    public Texture2D CardIcon
+    {
+        private set {}
+        get {return charcaterIcon.Texture;}
+    }
     
-    // TODO: update later with mate
-    public Card CreateCardInstance()
+    public BossCard CreateBossCardInstance()
     {
-        return new Card(CardName, int.Parse(damageLabel.Text), int.Parse(healthLabel.Text), CardElement);
+        return BossCard;
     }
 
-    public void EditAllCardInformation(Card card)
-    {
-        EditElement(card.CardElement);
-        EditName(card.Name);
-        EditHealth(card.Health);
-        EditDamage(card.Damage);
-    }
-
-    public void EditAllCardInformation(UICard card)
-    {
-        isEnemy = card.isEnemy;
-        EditElement(card.CardElement);
-        EditName(card.CardName);
-        EditHealth(card.CardHealth);
-        EditDamage(card.CardDamage);
-        EditIcon(card.CardIcon);
-    }
-
-    public void EditAllCardInformation(string icon = "res://Assets/Images/Entities/Heroes/man.png", CardElements element = CardElements.EARTH, string name = "Please Holder", int hp = 10, int damage = 2, bool isEnemy = false, bool isBoss = false)
+    public void EditAllCardInformation(Card baseCard, BossDouble evolveType, string addedName = "lord ", bool isEnemy = false)
     {
         this.isEnemy = isEnemy;
-        EditElement(element);
-        EditName(name);
-        EditHealth(hp);
-        EditDamage(damage);
+        BossCard = new BossCard(baseCard, addedName, evolveType);
 
-        if (isEnemy) cardBackground.Color = Color.FromString("#5f0f5c", Colors.Purple);
-        if (icon != null) EditIcon(icon);
+        EditName(BossCard.Name);
+        EditDamage(BossCard.Damage);
+        EditHealth(BossCard.Health);
+        EditElement(BossCard.CardElement);
+        SetupEffect();
+    }
+
+    public void EditAllCardInformation(BossCard bossCard, bool isEnemy = false)
+    {
+        this.isEnemy = isEnemy;
+        BossCard = bossCard;
+
+        EditName(BossCard.Name);
+        EditDamage(BossCard.Damage);
+        EditHealth(BossCard.Health);
+        EditElement(BossCard.CardElement);
+        SetupEffect();
+    }
+
+    public void EditAllCardInformation(UIBossCard UIBossCard)
+    {
+        EditName(BossCard.Name);
+        EditDamage(BossCard.Damage);
+        EditHealth(BossCard.Health);
+        EditElement(BossCard.CardElement);
+        SetupEffect();
+    }
+
+    private void SetupEffect()
+    {
+        if (isEnemy) effectTexture.Texture = CreateTexture("res://Assets/Images/Cards/cards_enemy_leader_effect.png");
     }
 
     public void EditDamage(int damage)
@@ -98,7 +113,7 @@ public partial class UICard : Control
         nameLabel.Text = name;
         if (name.Length > 12)
         {
-            nameLabel.AddThemeFontSizeOverride("font_size", 8);
+            nameLabel.AddThemeFontSizeOverride("font_size", 7);
         } else
         {
             nameLabel.AddThemeFontSizeOverride("font_size", 10);

@@ -41,6 +41,7 @@ public partial class BackgroundGenerator : Node2D
             
             GD.Print(dungeon.Name);
             newMapDungeonButton.uIDungeon.SetUpDungeon(dungeon);
+            newMapDungeonButton.uIDungeon.PreviewMode = false;
 
             dungeonIndex++;
         }

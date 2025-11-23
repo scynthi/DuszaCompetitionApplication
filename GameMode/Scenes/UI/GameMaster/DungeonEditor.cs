@@ -7,8 +7,6 @@ public partial class DungeonEditor : HBoxContainer
 
     public void ChangeName(string text)
     {
-        if (text.Replace(" ", "") == "") return;
-
         dungeon.EditName(text);
     }
 
@@ -18,8 +16,9 @@ public partial class DungeonEditor : HBoxContainer
     }
     
     // TODO: rewrite it when backend arrives
-    public void SaveKazamata()
+    // TODO: Do more checks for name
+    public void SaveDungeon()
     {
-        GD.Print($"{dungeon.DungeonName}, {dungeon.DungeonType}");
+        ((Editors)GetParent()).DungeonViewer.AddDungeonToList(dungeon);
     }
 }
