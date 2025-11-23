@@ -97,9 +97,4 @@ public partial class NewGameSubMenu : Control
         Global.gameManager.saverLoader.currSaveFile = currDisplayedSave;
         Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.DungeonMap);
     }
-
-    public void _OnBackButtonPressed()
-    {
-        
-    }
 }
