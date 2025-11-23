@@ -60,8 +60,9 @@ public partial class UIBossCard : Control
     {
         this.isEnemy = isEnemy;
         BossCard = new BossCard(baseCard, addedName, evolveType);
-
+        UpdateIconForCardInstace(BossCard);
         EditName(BossCard.Name);
+        EditIcon(BossCard.Icon);
         EditDamage(BossCard.Damage);
         EditHealth(BossCard.Health);
         EditElement(BossCard.CardElement);
@@ -72,7 +73,8 @@ public partial class UIBossCard : Control
     {
         this.isEnemy = isEnemy;
         BossCard = bossCard;
-
+        UpdateIconForCardInstace(BossCard);
+        EditIcon(BossCard.Icon);
         EditName(BossCard.Name);
         EditDamage(BossCard.Damage);
         EditHealth(BossCard.Health);
@@ -82,10 +84,11 @@ public partial class UIBossCard : Control
 
     public void EditAllCardInformation(UIBossCard UIBossCard)
     {
-        EditName(BossCard.Name);
-        EditDamage(BossCard.Damage);
-        EditHealth(BossCard.Health);
-        EditElement(BossCard.CardElement);
+        EditName(UIBossCard.CardName);
+        EditDamage(UIBossCard.CardDamage);
+        EditHealth(UIBossCard.CardHealth);
+        EditElement(UIBossCard.CardElement);
+        EditIcon(UIBossCard.CardIcon);
         SetupEffect();
     }
 
@@ -141,6 +144,11 @@ public partial class UIBossCard : Control
     public void EditIcon(Texture2D icon)
     {
         charcaterIcon.Texture = icon;
+    }
+
+    public void UpdateIconForCardInstace(BossCard card)
+    {
+        if (card.Icon == null) card.Icon = CardIcon;
     }
 
     private ImageTexture CreateTexture(string resourcePath)
