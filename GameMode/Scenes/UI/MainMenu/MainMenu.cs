@@ -7,6 +7,7 @@ public partial class MainMenu : Control
     [Export] Control mainMenu;
     [Export] Control creditsMenu;
     [Export] NewGameSubMenu newGameMenu;
+    [Export] Control MenuContainer;
 
     [Export] AnimationPlayer animationPlayer;
 
@@ -25,6 +26,11 @@ public partial class MainMenu : Control
 
     public override void _Ready()
     {
+        foreach (Control control in MenuContainer.GetChildren())
+        {
+            control.Visible = false;
+        }
+
         CurrentMenu = mainMenu;
     }
 
@@ -32,8 +38,6 @@ public partial class MainMenu : Control
     public async void ButtonPressed(string option)
     {
         Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
-
-        
 
         switch(option)
         {

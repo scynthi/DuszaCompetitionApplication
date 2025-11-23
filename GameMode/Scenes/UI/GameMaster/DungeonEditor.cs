@@ -20,6 +20,6 @@ public partial class DungeonEditor : HBoxContainer
     // TODO: rewrite it when backend arrives
     public void SaveKazamata()
     {
-        GD.Print($"{dungeon.dungeonName}, {dungeon.dungeonType}");
+        GD.Print($"{dungeon.DungeonName}, {dungeon.DungeonType}");
     }
 }

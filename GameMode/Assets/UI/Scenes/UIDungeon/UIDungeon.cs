@@ -8,12 +8,12 @@ public partial class UIDungeon : Control
     Button enterButton;
 
 
-    public string dungeonName 
+    public string DungeonName 
     {
         private set {} 
         get {return nameLabel.Text;}
     }
-    public DungeonTypes dungeonType {private set; get;}
+    public DungeonTypes DungeonType {private set; get;}
 
 
     private bool _previewMode = true;
@@ -36,13 +36,19 @@ public partial class UIDungeon : Control
         PreviewMode = false;
     }
 
-    public void SetUpdungeon(Dungeon dungeon)
+    public void SetUpDungeon(UIDungeon dungeon)
+    {
+        EditName(dungeon.DungeonName);
+        EditType(dungeon.DungeonType);
+    }
+
+    public void SetUpDungeon(Dungeon dungeon)
     {
         EditName(dungeon.Name);
         EditType(dungeon.DungeonType);
     }
 
-    public void SetUpdungeon(string name = "Teszt dungeon", DungeonTypes type = DungeonTypes.simple)
+    public void SetUpDungeon(string name = "Teszt dungeon", DungeonTypes type = DungeonTypes.simple)
     {
         EditName(name);
         EditType(type);
@@ -57,7 +63,7 @@ public partial class UIDungeon : Control
 
     public void EditType(DungeonTypes type)
     {
-        dungeonType = type;
+        DungeonType = type;
         string[] iconPathList = {"res://Assets/Images/Portal/portal_frame_egyszeru.png", "res://Assets/Images/Portal/portal_frame_kis.png", "res://Assets/Images/Portal/portal_frame_nagy.png"};
         // iconTexture.Texture = CreateTexture(iconPathList[(int)type]);
         iconTexture.Texture = GD.Load<Texture2D>(iconPathList[(int)type]);
@@ -68,6 +74,8 @@ public partial class UIDungeon : Control
         return ImageTexture.CreateFromImage(Image.LoadFromFile(resourcePath));
     }
 
-
-
+    public Dungeon CreateInstance()
+    {
+        return new Dungeon(DungeonName, DungeonType, (DungeonRewardTypes)DungeonType);
+    }
 }

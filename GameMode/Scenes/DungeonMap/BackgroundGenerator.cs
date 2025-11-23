@@ -40,7 +40,7 @@ public partial class BackgroundGenerator : Node2D
             markers[dungeonIndex].AddChild(newMapDungeonButton);
             
             GD.Print(dungeon.Name);
-            newMapDungeonButton.uIDungeon.SetUpdungeon(dungeon);
+            newMapDungeonButton.uIDungeon.SetUpDungeon(dungeon);
 
             dungeonIndex++;
         }

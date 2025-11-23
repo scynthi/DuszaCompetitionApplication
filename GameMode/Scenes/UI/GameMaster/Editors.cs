@@ -1,11 +1,18 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class Editors : VBoxContainer
 {
     [Export] public CardEditor CardEditor;
     [Export] public DungeonEditor DungeonEditor;
     [Export] public BossEditor BossEditor;
+
+
+    public List<Card> worldCards = new();
+    public List<Card> playerCollection = new();
+    public List<Card> dungeonsList = new();
+
     
     private Control _currentMenu;
     private Control CurrentMenu
