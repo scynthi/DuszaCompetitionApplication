@@ -9,6 +9,7 @@ public partial class GameManager : Node
     [Export] private AnimationPlayer transitionAnimator;
     [Export] public SaveLoadSystem saverLoader;
     [Export] public UiAudioController audioController;
+    [Export] public UiPackedSceneReferences uiPackedSceneReferences;
 
     public Node currentWorldScene { private set; get; }
 

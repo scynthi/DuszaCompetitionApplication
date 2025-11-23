@@ -19,4 +19,32 @@ public static class Utility
 			nameList.Add(currItem.Name);
 		return nameList;
     }
+
+	public static void AddUiCardsUnderContainer(Godot.Collections.Array<Card> cards, Control container, bool clearContainerChildren = true)
+    {
+		if (clearContainerChildren){
+			foreach (Node child in container.GetChildren())
+				{
+					child.QueueFree();
+				}    
+        }
+		
+		foreach(Card card in cards)
+		{
+			if (card is BossCard)
+			{
+				UIBossCard newUiCard = Global.gameManager.uiPackedSceneReferences.UIBossCardScene.Instantiate<UIBossCard>();
+				newUiCard.EditAllCardInformation((BossCard)card);
+				container.AddChild(newUiCard);
+
+			} else
+			{
+				UICard newUiCard = Global.gameManager.uiPackedSceneReferences.UICardScene.Instantiate<UICard>();
+				newUiCard.EditAllCardInformation(card);
+				container.AddChild(newUiCard);
+			}
+		}
+    }
+
+
 }

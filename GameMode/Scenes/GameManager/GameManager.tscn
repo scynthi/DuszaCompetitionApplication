@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b7ju5ebcspygg"]
+[gd_scene load_steps=37 format=3 uid="uid://b7ju5ebcspygg"]
 
 [ext_resource type="Script" uid="uid://c6x1xajmkurav" path="res://Scenes/GameManager/GameManager.cs" id="1_jmpc8"]
 [ext_resource type="Texture2D" uid="uid://d4cj5qnd8tha3" path="res://Assets/Images/Textures/PaperTex.png" id="2_pbnlu"]
@@ -24,6 +24,9 @@
 [ext_resource type="AudioStream" uid="uid://c3rr1xhve48tc" path="res://Assets/Audio/SoundEffects/fight/sound_win.wav" id="22_w8mb3"]
 [ext_resource type="AudioStream" uid="uid://oya486vh72rd" path="res://Assets/Audio/SoundEffects/fight/sound_lose.wav" id="23_154qo"]
 [ext_resource type="Script" uid="uid://cfjaujefqq6es" path="res://Scripts/SaveLoad/SaveLoadSystem.cs" id="24_edw2g"]
+[ext_resource type="Script" uid="uid://dxu8ki21twten" path="res://Scenes/GameManager/UiPackedSceneReferences.cs" id="25_hvyv7"]
+[ext_resource type="PackedScene" uid="uid://dk32ss75ce3lw" path="res://Assets/UI/Scenes/UICard/UICard.tscn" id="26_gtxkj"]
+[ext_resource type="PackedScene" uid="uid://dsnbg78nbu0vo" path="res://Assets/UI/Scenes/UIBossCard/UIBossCard.tscn" id="27_ruywd"]
 
 [sub_resource type="Shader" id="Shader_um3qg"]
 code = "shader_type canvas_item;
@@ -248,12 +251,13 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.325
 shader_parameter/vignette_opacity = 0.4370000207575
 
-[node name="GameManager" type="Node" node_paths=PackedStringArray("World", "transitionAnimator", "saverLoader", "audioController")]
+[node name="GameManager" type="Node" node_paths=PackedStringArray("World", "transitionAnimator", "saverLoader", "audioController", "uiPackedSceneReferences")]
 script = ExtResource("1_jmpc8")
 World = NodePath("GameLayer/World")
 transitionAnimator = NodePath("TransitionLayer/AnimationPlayer")
 saverLoader = NodePath("SaverLoader")
 audioController = NodePath("UIAudioController")
+uiPackedSceneReferences = NodePath("UIPackedSceneReferences")
 
 [node name="GameLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -315,3 +319,8 @@ loseSounds = Array[AudioStream]([ExtResource("23_154qo")])
 
 [node name="SaverLoader" type="Node" parent="."]
 script = ExtResource("24_edw2g")
+
+[node name="UIPackedSceneReferences" type="Node" parent="."]
+script = ExtResource("25_hvyv7")
+UICardScene = ExtResource("26_gtxkj")
+UIBossCardScene = ExtResource("27_ruywd")
