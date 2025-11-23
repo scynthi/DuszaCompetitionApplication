@@ -263,6 +263,7 @@ follow_viewport_enabled = true
 [node name="MainMenuWorld" parent="GameLayer/World" instance=ExtResource("2_um3qg")]
 
 [node name="TransitionLayer" type="CanvasLayer" parent="."]
+layer = 99
 
 [node name="TextureRect" type="TextureRect" parent="TransitionLayer"]
 modulate = Color(0.59, 0.59, 0.59, 1)
@@ -282,6 +283,7 @@ libraries = {
 }
 
 [node name="ShaderLayer" type="CanvasLayer" parent="."]
+layer = 100
 
 [node name="ColorRect" type="ColorRect" parent="ShaderLayer"]
 material = SubResource("ShaderMaterial_um3qg")

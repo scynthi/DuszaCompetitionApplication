@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://8k43paiu8u73"]
+
+[ext_resource type="Texture2D" uid="uid://dgctedxwuvae6" path="res://Assets/Images/Backgrounds/NewBackgrounds/bg_map_final.png" id="1_d51g6"]
+
+[node name="DungeonMapBackgroundFinal" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.69, 0.69, 0.69, 1)
+texture = ExtResource("1_d51g6")
+
+[node name="DungeonPositionMarker" type="Marker2D" parent="." groups=["DungeonPositions"]]
+position = Vector2(-190, -92)
+
+[node name="DungeonPositionMarker6" type="Marker2D" parent="." groups=["DungeonPositions"]]
+position = Vector2(-79, 52)
+
+[node name="DungeonPositionMarker2" type="Marker2D" parent="." groups=["DungeonPositions"]]
+position = Vector2(-75, -107)
+
+[node name="DungeonPositionMarker3" type="Marker2D" parent="." groups=["DungeonPositions"]]
+position = Vector2(7, -12)
+
+[node name="DungeonPositionMarker4" type="Marker2D" parent="." groups=["DungeonPositions"]]
+position = Vector2(181, -123)
+
+[node name="DungeonPositionMarker5" type="Marker2D" parent="." groups=["DungeonPositions"]]
+position = Vector2(240, 0)

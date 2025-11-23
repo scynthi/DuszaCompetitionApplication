@@ -1,0 +1,46 @@
+[gd_resource type="Resource" load_steps=11 format=3]
+
+[ext_resource type="Script" path="res://Scripts/WorldObject/Dungeon.cs" id="1_cq6ll"]
+[ext_resource type="Script" path="res://Scripts/WorldObject/Card.cs" id="2_qd6so"]
+[ext_resource type="Script" path="res://Scripts/WorldObject/BossCard.cs" id="3_bbxs5"]
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="4_wh08m"]
+[ext_resource type="Script" path="res://Scripts/SaveLoad/SaveFileResource.cs" id="5_78ho1"]
+
+[sub_resource type="Resource" id="Resource_0v6ra"]
+script = ExtResource("1_cq6ll")
+Name = "Kakazmata"
+DungeonType = 1
+DungeonReward = 1
+
+[sub_resource type="Resource" id="Resource_ba0db"]
+script = ExtResource("2_qd6so")
+Name = "Sima"
+Health = 23
+BaseDamage = 23
+Damage = 23
+
+[sub_resource type="Resource" id="Resource_0wqbs"]
+script = ExtResource("3_bbxs5")
+Name = "Lord  Sima"
+Health = 46
+BaseDamage = 23
+Damage = 23
+
+[sub_resource type="Resource" id="Resource_mf3cq"]
+script = ExtResource("2_qd6so")
+Name = "Egyetlen kártya"
+Health = 89
+BaseDamage = 8
+Damage = 8
+
+[sub_resource type="Resource" id="Resource_pqlnq"]
+script = ExtResource("4_wh08m")
+Collection = Array[ExtResource("2_qd6so")]([SubResource("Resource_ba0db"), SubResource("Resource_0wqbs")])
+Deck = Array[ExtResource("2_qd6so")]([SubResource("Resource_mf3cq")])
+
+[resource]
+script = ExtResource("5_78ho1")
+name = "UltraTestSave"
+player = SubResource("Resource_pqlnq")
+worldCards = Array[ExtResource("2_qd6so")]([SubResource("Resource_ba0db"), SubResource("Resource_0wqbs")])
+dungeons = Array[ExtResource("1_cq6ll")]([SubResource("Resource_0v6ra")])

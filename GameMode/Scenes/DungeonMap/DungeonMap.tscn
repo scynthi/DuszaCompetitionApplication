@@ -1,9 +1,68 @@
-[gd_scene load_steps=5 format=3 uid="uid://oihoapowoy2t"]
+[gd_scene load_steps=19 format=3 uid="uid://oihoapowoy2t"]
 
 [ext_resource type="Script" uid="uid://ctr2m1ncuyxwi" path="res://Scenes/DungeonMap/CameraController.cs" id="1_6u8ww"]
-[ext_resource type="PackedScene" uid="uid://dohu3ccoui2n5" path="res://Scenes/DungeonMap/DungeonMapBackground.tscn" id="2_0enam"]
+[ext_resource type="PackedScene" uid="uid://dohu3ccoui2n5" path="res://Scenes/DungeonMap/MapBackgrounds/DungeonMapBackground.tscn" id="2_0enam"]
 [ext_resource type="Script" uid="uid://ixsg7hroneus" path="res://Scenes/DungeonMap/BackgroundGenerator.cs" id="2_bg5ac"]
+[ext_resource type="PackedScene" uid="uid://dry8muujapfrn" path="res://Scenes/DungeonMap/MapBackgrounds/DungeonMapBacgroundV2.tscn" id="3_38684"]
 [ext_resource type="PackedScene" uid="uid://dxrm434y034c6" path="res://Scenes/DungeonMap/MapDungeonButton.tscn" id="3_bg5ac"]
+[ext_resource type="PackedScene" uid="uid://8k43paiu8u73" path="res://Scenes/DungeonMap/MapBackgrounds/DungeonMapBackgroundFinal.tscn" id="4_02c5i"]
+[ext_resource type="Texture2D" uid="uid://txhi2xptu3ib" path="res://Assets/Images/Sign/sign.png" id="5_rg46u"]
+[ext_resource type="Texture2D" uid="uid://chnum6s8tk8ah" path="res://Assets/Images/Backgrounds/main_menu_border.png" id="6_jdxr6"]
+[ext_resource type="Script" uid="uid://cu53btaguc3tk" path="res://Scenes/DungeonMap/MapMenu.cs" id="7_02c5i"]
+[ext_resource type="Script" uid="uid://bfj8w1cox4hui" path="res://Scenes/DungeonMap/DeckSubmenu.cs" id="8_fv8kk"]
+[ext_resource type="Texture2D" uid="uid://btotl77m5yxnk" path="res://Assets/Images/Sign/HandingCardSign.png" id="8_phkkq"]
+[ext_resource type="Texture2D" uid="uid://ddx53uhdti82k" path="res://Assets/Images/Sign/HangingSignBetter.png" id="9_1kwds"]
+[ext_resource type="Script" uid="uid://bg7xtl2rvon71" path="res://Scenes/DungeonMap/WorldCardsSubmenu.cs" id="9_yw7fq"]
+[ext_resource type="PackedScene" uid="uid://dk32ss75ce3lw" path="res://Assets/UI/Scenes/UICard/UICard.tscn" id="10_w01ju"]
+[ext_resource type="PackedScene" uid="uid://dsnbg78nbu0vo" path="res://Assets/UI/Scenes/UIBossCard/UIBossCard.tscn" id="11_fv8kk"]
+
+[sub_resource type="Animation" id="Animation_yw7fq"]
+resource_name = "ChangeSubmenu"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UpperSign:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.16666667, -113.04697, -363.84714, -0.31666666, -10.717957, 0.25000003, 15.005157, 0, -0.3, 73.445465, 0.25, 0),
+"times": PackedFloat32Array(0, 0.48333332, 1)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"ChangeMenu"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_w01ju"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UpperSign:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fv8kk"]
+_data = {
+&"ChangeSubmenu": SubResource("Animation_yw7fq"),
+&"RESET": SubResource("Animation_w01ju")
+}
 
 [node name="DungeonMap" type="Node2D"]
 
@@ -12,7 +71,277 @@
 [node name="BackgroundGenerator" type="Node2D" parent="MapContainer"]
 script = ExtResource("2_bg5ac")
 mapBackground = ExtResource("2_0enam")
+mapBackgroundV2 = ExtResource("3_38684")
+mapBackgroundFinal = ExtResource("4_02c5i")
 dungeonButton = ExtResource("3_bg5ac")
 
 [node name="Camera2D" type="Camera2D" parent="MapContainer"]
 script = ExtResource("1_6u8ww")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer" node_paths=PackedStringArray("submenuContainer", "deckMenu", "worldCardsMenu", "emptyMenu", "animationPlayer")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("7_02c5i")
+submenuContainer = NodePath("UpperSign")
+deckMenu = NodePath("UpperSign/DeckSubmenu")
+worldCardsMenu = NodePath("UpperSign/WorldCardsSubmenu")
+emptyMenu = NodePath("UpperSign/EmptyMenu")
+animationPlayer = NodePath("AnimationPlayer")
+
+[node name="UpperSign" type="Control" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DeckSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("8_fv8kk")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/UpperSign/DeckSubmenu"]
+modulate = Color(0.78, 0.78, 0.78, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.70352
+offset_top = -224.0
+offset_right = 259.7035
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_phkkq")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/UpperSign/DeckSubmenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.0
+offset_top = -112.0
+offset_right = 253.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerDeck" type="ScrollContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/PlayerDeck"]
+layout_mode = 2
+size_flags_horizontal = 6
+columns = 5
+
+[node name="PlayerCollection" type="ScrollContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/PlayerCollection"]
+layout_mode = 2
+size_flags_horizontal = 6
+columns = 5
+
+[node name="WorldCardsSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign" node_paths=PackedStringArray("cardContainer")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("9_yw7fq")
+cardContainer = NodePath("Control/ScrollContainer/GridContainer")
+UICard = ExtResource("10_w01ju")
+UIBossCard = ExtResource("11_fv8kk")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/UpperSign/WorldCardsSubmenu"]
+modulate = Color(0.72, 0.72, 0.72, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -259.70352
+offset_top = -224.0
+offset_right = 259.7035
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_1kwds")
+expand_mode = 2
+stretch_mode = 6
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/UpperSign/WorldCardsSubmenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -249.0
+offset_top = -112.0
+offset_right = 249.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control/UpperSign/WorldCardsSubmenu/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/UpperSign/WorldCardsSubmenu/Control/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+columns = 5
+
+[node name="EmptyMenu" type="Control" parent="CanvasLayer/Control/UpperSign"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BottomSign" type="Control" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -74.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/BottomSign"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_rg46u")
+expand_mode = 1
+stretch_mode = 5
+flip_h = true
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/Control/BottomSign"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.0
+offset_top = -19.0
+offset_right = -119.85501
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Főmenü"
+
+[node name="PlayerDeckButton" type="Button" parent="CanvasLayer/Control/BottomSign"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -19.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Gyűjtemény"
+
+[node name="WorldCardsButton" type="Button" parent="CanvasLayer/Control/BottomSign"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 4.0
+offset_top = -19.0
+offset_right = 108.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Világkártyák"
+
+[node name="ShopButton" type="Button" parent="CanvasLayer/Control/BottomSign"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 123.0
+offset_top = -19.0
+offset_right = 206.14502
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Bolt"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("6_jdxr6")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Control"]
+libraries = {
+&"": SubResource("AnimationLibrary_fv8kk")
+}
+speed_scale = 1.5
+
+[connection signal="pressed" from="CanvasLayer/Control/BottomSign/MainMenuButton" to="CanvasLayer/Control" method="ChangeSubMenu" binds= ["main"]]
+[connection signal="pressed" from="CanvasLayer/Control/BottomSign/PlayerDeckButton" to="CanvasLayer/Control" method="ChangeSubMenu" binds= ["deckmenu"]]
+[connection signal="pressed" from="CanvasLayer/Control/BottomSign/WorldCardsButton" to="CanvasLayer/Control" method="ChangeSubMenu" binds= ["cardsmenu"]]
+[connection signal="pressed" from="CanvasLayer/Control/BottomSign/ShopButton" to="CanvasLayer/Control" method="ChangeSubMenu" binds= ["shop"]]

@@ -1,0 +1,75 @@
+using Godot;
+using System;
+
+public partial class MapMenu : Control
+{
+    [Export] Control submenuContainer;
+    [Export] Control deckMenu;
+    [Export] WorldCardsSubmenu worldCardsMenu;
+    [Export] Control emptyMenu;
+
+    [Export] AnimationPlayer animationPlayer;
+    
+    private Control _currentMenu;
+    private Control CurrentMenu
+    {
+        get {return _currentMenu;}
+        set
+        {
+            if (_currentMenu != null) CurrentMenu.Visible = false;
+
+            _currentMenu = value;
+            _currentMenu.Visible = true;
+        }
+    }
+
+    public override void _Ready()
+    {
+        foreach (Control child in submenuContainer.GetChildren())
+        {
+            child.Visible = false;
+        }
+    }
+
+
+    Control queuedMenu;
+    string lastMenuName;
+
+    public async void ChangeSubMenu(string name)
+    {
+        if (lastMenuName == name)
+        {
+            queuedMenu = emptyMenu;
+            animationPlayer.Play("ChangeSubmenu");
+            lastMenuName = null;
+            return;
+        }
+
+        switch(name)
+        {
+            case "deckmenu":
+                queuedMenu = deckMenu;
+                lastMenuName = name;
+                animationPlayer.Play("ChangeSubmenu");
+                break;
+            case "cardsmenu":
+                queuedMenu = worldCardsMenu;
+                lastMenuName = name;
+                worldCardsMenu.ReloadWorldCards();
+                animationPlayer.Play("ChangeSubmenu");
+                break;
+            case "shop":
+                await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.MainMenu);
+                break;
+            case "main":
+                await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.MainMenu);
+                break;
+        }
+    }
+
+    private void ChangeMenu()
+    {
+        CurrentMenu = queuedMenu;
+    }
+
+}

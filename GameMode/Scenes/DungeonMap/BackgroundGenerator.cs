@@ -7,6 +7,9 @@ using System.Linq;
 public partial class BackgroundGenerator : Node2D
 {
     [Export] public PackedScene mapBackground;
+    [Export] public PackedScene mapBackgroundV2;
+    [Export] public PackedScene mapBackgroundFinal;
+
     [Export] public int backgroundWidth = 640;
     [Export] public int dungeonsPerTile = 6;
     [Export] public PackedScene dungeonButton;
@@ -15,7 +18,24 @@ public partial class BackgroundGenerator : Node2D
     {
         for (int i = 0; i < Math.Ceiling((float)Global.gameManager.saverLoader.currSaveFile.dungeons.Count / (float)dungeonsPerTile); i++)
         {
-            Node2D newBackgroundTile = (Node2D)mapBackground.Instantiate();
+            Node2D newBackgroundTile = null;
+
+            if (i + 1 == Math.Ceiling((float)Global.gameManager.saverLoader.currSaveFile.dungeons.Count / (float)dungeonsPerTile))
+            {
+                newBackgroundTile = mapBackgroundFinal.Instantiate<Node2D>();
+            }
+            else
+            {
+                switch (Math.Round(GD.Randf()))
+                {
+                    case 0:
+                        newBackgroundTile = mapBackground.Instantiate<Node2D>();
+                        break;
+                    case 1:
+                        newBackgroundTile = mapBackgroundV2.Instantiate<Node2D>();
+                        break;
+                }
+            }
 
             this.AddChild(newBackgroundTile);
             newBackgroundTile.Position = new Vector2(i * backgroundWidth, 0.0f);
@@ -38,8 +58,7 @@ public partial class BackgroundGenerator : Node2D
             MapDungeonButton newMapDungeonButton = (MapDungeonButton)dungeonButton.Instantiate();
 
             markers[dungeonIndex].AddChild(newMapDungeonButton);
-            
-            GD.Print(dungeon.Name);
+
             newMapDungeonButton.uIDungeon.SetUpDungeon(dungeon);
             newMapDungeonButton.uIDungeon.PreviewMode = false;
 
