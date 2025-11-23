@@ -5,11 +5,11 @@ using System.Linq;
 
 public partial class Card : Resource, IWorldObject
 {
-	public new string Name {set; get; }
-    public int Health { protected set; get; }
-    public int BaseDamage { protected set; get; }
-    public int Damage { protected set; get; }
-    public CardElements CardElement { private set; get; }
+	[Export] public string Name {set; get; }
+    [Export] public int Health { protected set; get; }
+    [Export] public int BaseDamage { protected set; get; }
+    [Export] public int Damage { protected set; get; }
+    [Export] public CardElements CardElement { private set; get; }
     public BuffHandler buffHandler { private set; get; }
 
     public Card(){}

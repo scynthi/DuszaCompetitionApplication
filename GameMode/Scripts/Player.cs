@@ -1,13 +1,14 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public partial class Player : Resource
 {
-	public int Xp { private set; get; }
-	public int Money { private set; get; }
-	public List<Card> Collection { private set; get; }
-	public List<Card> Deck { private set; get; }
+	[Export] public int Xp { private set; get; }
+	[Export] public int Money { private set; get; }
+	[Export] public Godot.Collections.Array<Card> Collection { private set; get; }
+	[Export] public Godot.Collections.Array<Card> Deck { private set; get; }
     public List<IItem> ItemList { private set; get; }
 
     public Player(){}
@@ -16,8 +17,8 @@ public partial class Player : Resource
     {
         Xp         = xp;
         Money      = money;
-        Collection = collection;
-        Deck       = deck;
+        Collection = new Godot.Collections.Array<Card>(collection);;
+        Deck       = new Godot.Collections.Array<Card>(deck);
     }
 
 	public void SetCollection(List<Card> cardList)

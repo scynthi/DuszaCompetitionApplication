@@ -8,6 +8,8 @@ public partial class MainMenu : Control
     [Export] Control creditsMenu;
     [Export] NewGameSubMenu newGameMenu;
 
+    [Export] AnimationPlayer animationPlayer;
+
     private Control _currentMenu;
     private Control CurrentMenu
     {
@@ -26,9 +28,12 @@ public partial class MainMenu : Control
         CurrentMenu = mainMenu;
     }
 
+    Control queuedMenu;
     public async void ButtonPressed(string option)
     {
         Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+
+        
 
         switch(option)
         {
@@ -38,14 +43,24 @@ public partial class MainMenu : Control
             case "continue":
                 break;
             case "newgame":
-                CurrentMenu = newGameMenu;
+                queuedMenu = newGameMenu;
                 newGameMenu.ReloadSaves();
                 break;
             case "settings":
-
                 Card randCard = new Card("asd", 10, 5, CardElements.EARTH);
+                Card rand1Card = new Card("asd1", 10, 5, CardElements.WATER);
+                Card rand2Card = new Card("asd2", 10, 5, CardElements.WIND);
+                Card rand3Card = new Card("asd3", 10, 5, CardElements.FIRE);
+                Card rand4Card = new Card("asd4", 10, 5, CardElements.WATER);
+
+                
                 SaveFileResource newSaveFile = SaveLoadSystem.CreateSaveFileFromData("testSave2", 
-                    [randCard],
+                    [randCard,
+                    rand1Card,
+                    rand2Card,
+                    rand3Card,
+                    rand4Card
+                    ],
                     [new Dungeon("Dungi", DungeonTypes.simple, DungeonRewardTypes.health),
                     new Dungeon("Dungi1", DungeonTypes.small, DungeonRewardTypes.attack),
                     new Dungeon("Dungi2", DungeonTypes.big, DungeonRewardTypes.health),
@@ -62,14 +77,21 @@ public partial class MainMenu : Control
 
                 break;
             case "credits":
-                CurrentMenu = creditsMenu;
+                queuedMenu = creditsMenu;
                 break;
             case "quit":
                 GetTree().Quit();
                 break;
             case "main":
-                CurrentMenu = mainMenu;
+                queuedMenu = mainMenu;
             break;
         }
+
+        animationPlayer.Play("ChangeSubMenu");
+    }
+
+    private void ChangeMenu()
+    {
+        CurrentMenu = queuedMenu;
     }
 }

@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 public partial class Dungeon : Resource, IWorldObject
 {
-	public new string Name { private set; get; }
-	public DungeonTypes DungeonType {private set; get; }
-	public DungeonRewardTypes DungeonReward { private set; get; }
+	[Export] public string Name { private set; get; }
+	[Export] public DungeonTypes DungeonType {private set; get; }
+	[Export] public DungeonRewardTypes DungeonReward { private set; get; }
 
     public Dungeon(){}
 
