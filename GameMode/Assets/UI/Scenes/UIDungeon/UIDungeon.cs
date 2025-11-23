@@ -3,7 +3,7 @@ using System;
 
 public partial class UIDungeon : Control
 {
-    Label nameLabel;
+    RichTextLabel nameLabel;
     TextureRect iconTexture;
     Button enterButton;
 
@@ -30,10 +30,10 @@ public partial class UIDungeon : Control
 
     public override void _Ready()
     {
-        nameLabel = GetNode<Label>("HBox/VBox/Label");
-        iconTexture = GetNode<TextureRect>("HBox/VBox/TextureRect");
-        enterButton = GetNode<Button>("HBox/VBox/Button");
-        PreviewMode = true;
+        nameLabel = GetNode<RichTextLabel>("Label");
+        iconTexture = GetNode<TextureRect>("TextureRect");
+        enterButton = GetNode<Button>("Button");
+        PreviewMode = false;
     }
 
     public void SetUpdungeon(Dungeon dungeon)
@@ -59,7 +59,8 @@ public partial class UIDungeon : Control
     {
         dungeonType = type;
         string[] iconPathList = {"res://Assets/Images/Portal/portal_frame_egyszeru.png", "res://Assets/Images/Portal/portal_frame_kis.png", "res://Assets/Images/Portal/portal_frame_nagy.png"};
-        iconTexture.Texture = CreateTexture(iconPathList[(int)type]);
+        // iconTexture.Texture = CreateTexture(iconPathList[(int)type]);
+        iconTexture.Texture = GD.Load<Texture2D>(iconPathList[(int)type]);
     }
 
     private ImageTexture CreateTexture(string resourcePath)

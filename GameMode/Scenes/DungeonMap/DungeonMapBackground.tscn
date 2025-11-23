@@ -5,7 +5,23 @@
 [node name="DungeonMapBackground" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.69, 0.69, 0.69, 1)
 texture = ExtResource("1_e5e8m")
 
 [node name="DungeonPositionMarker" type="Marker2D" parent="." groups=["DungeonPositions"]]
-position = Vector2(-150, -82)
+position = Vector2(-139, -57)
+
+[node name="DungeonPositionMarker6" type="Marker2D" parent="." groups=["DungeonPositions"]]
+position = Vector2(-213, 70)
+
+[node name="DungeonPositionMarker2" type="Marker2D" parent="." groups=["DungeonPositions"]]
+position = Vector2(-17, 62)
+
+[node name="DungeonPositionMarker3" type="Marker2D" parent="." groups=["DungeonPositions"]]
+position = Vector2(50, -96)
+
+[node name="DungeonPositionMarker4" type="Marker2D" parent="." groups=["DungeonPositions"]]
+position = Vector2(232, -44)
+
+[node name="DungeonPositionMarker5" type="Marker2D" parent="." groups=["DungeonPositions"]]
+position = Vector2(147, 55)

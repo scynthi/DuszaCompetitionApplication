@@ -28,6 +28,7 @@ Global="*res://Scripts/Global.cs"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/mode=3
 window/stretch/mode="viewport"
 
 [dotnet]
@@ -42,6 +43,7 @@ enabled=PackedStringArray()
 
 folder_colors={
 "res://Assets/": "red",
+"res://Saves/": "teal",
 "res://Scenes/": "orange",
 "res://Scripts/": "yellow"
 }

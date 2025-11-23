@@ -6,11 +6,11 @@ public partial class SaveLoadSystem : Node
 {
 	public SaveFileResource currSaveFile {get; set;}
 
-	public const string SAVE_PATH = "user://SaveFiles/";
+	public const string SAVE_PATH = "res://Saves/";
 
 	public static SaveFileResource CreateSaveFileFromData(string saveFileName, List<Card> worldCardsList, List<Dungeon> dungeonList, List<Card> playerCollection)
     {
-		Player newPlayer = new Player(0,0, playerCollection, []);		
+		Player newPlayer = new Player(0,0, playerCollection, []);
 		newPlayer.SetCollection(playerCollection);
 
 		return new SaveFileResource(saveFileName, newPlayer, worldCardsList, dungeonList);
@@ -25,7 +25,7 @@ public partial class SaveLoadSystem : Node
 
 	public void WriteSaveFile(SaveFileResource saveFile)
     {
-        ResourceSaver.Save(saveFile, SAVE_PATH + $"{saveFile.name}");
+        ResourceSaver.Save(saveFile, SAVE_PATH + $"{saveFile.name}"+".tres");
     }
 
 	public SaveFileResource LoadSaveFile(string saveFileName)

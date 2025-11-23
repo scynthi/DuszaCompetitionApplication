@@ -42,15 +42,22 @@ public partial class MainMenu : Control
             case "settings":
 
                 Card randCard = new Card("asd", 10, 5, CardElements.EARTH);
-
-                
                 SaveFileResource newSaveFile = SaveLoadSystem.CreateSaveFileFromData("testSaveSikibidi", 
                     [randCard],
-                    [new Dungeon("Dungi", DungeonTypes.simple, DungeonRewardTypes.health)],
+                    [new Dungeon("Dungi", DungeonTypes.simple, DungeonRewardTypes.health),
+                    new Dungeon("Dungi1", DungeonTypes.small, DungeonRewardTypes.attack),
+                    new Dungeon("Dungi2", DungeonTypes.big, DungeonRewardTypes.health),
+                    new Dungeon("Dungi3", DungeonTypes.simple, DungeonRewardTypes.health),
+                    new Dungeon("Dungi4", DungeonTypes.simple, DungeonRewardTypes.health),
+                    new Dungeon("Dungi5", DungeonTypes.simple, DungeonRewardTypes.health),
+                    new Dungeon("Dungi6", DungeonTypes.simple, DungeonRewardTypes.health),
+                    new Dungeon("Dungi7", DungeonTypes.simple, DungeonRewardTypes.health),
+                    ],
                     new Player(0,0,[randCard],[randCard])
                     );
                 Global.gameManager.saverLoader.currSaveFile = newSaveFile;
-
+                Global.gameManager.saverLoader.WriteSaveFile(newSaveFile);
+                GD.Print(newSaveFile);
 
                 break;
             case "credits":

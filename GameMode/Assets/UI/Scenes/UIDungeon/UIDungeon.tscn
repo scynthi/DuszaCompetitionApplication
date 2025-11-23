@@ -7,43 +7,61 @@
 [node name="UIDungeon" type="Control"]
 custom_minimum_size = Vector2(125, 150)
 layout_mode = 3
-anchor_left = -0.1171875
-anchor_top = -0.4861111
-anchor_right = -0.1171875
-anchor_bottom = -0.4861111
-offset_left = -22.0
-offset_top = 25.0
-offset_right = 178.0
-offset_bottom = 175.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -89.0
+offset_right = 62.5
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_uky3w")
 script = ExtResource("1_a771a")
 
-[node name="HBox" type="HBoxContainer" parent="."]
+[node name="Label" type="RichTextLabel" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -223.0
+offset_right = 223.0
+offset_bottom = 45.0
 grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="VBox" type="VBoxContainer" parent="HBox"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="HBox/VBox"]
-layout_mode = 2
-text = "Teszt Kazamata"
+theme_override_font_sizes/normal_font_size = 29
+text = "12345678912345678912"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="HBox/VBox"]
+[node name="TextureRect" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(100, 100)
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_3smau")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="Button" type="Button" parent="HBox/VBox"]
-layout_mode = 2
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = -22.0
+offset_right = 31.0
+grow_horizontal = 2
+grow_vertical = 0
 text = "Kiválasztás"
