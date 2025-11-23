@@ -3,6 +3,8 @@ using System;
 
 public partial class BossCard : Card
 {
+    public BossCard(){}
+
     public BossCard(Card other, string addedName, BossDouble bossDouble) : base(other)
     {
         Name = addedName + " " + Name;
