@@ -51,34 +51,6 @@ public partial class MainMenu : Control
                 newGameMenu.ReloadSaves();
                 break;
             case "settings":
-                Card randCard = new Card("asd", 10, 5, CardElements.EARTH);
-                Card rand1Card = new Card("asd1", 10, 5, CardElements.WATER);
-                Card rand2Card = new Card("asd2", 10, 5, CardElements.WIND);
-                Card rand3Card = new Card("asd3", 10, 5, CardElements.FIRE);
-                Card rand4Card = new Card("asd4", 10, 5, CardElements.WATER);
-
-                
-                SaveFileResource newSaveFile = SaveLoadSystem.CreateSaveFileFromData("testSave2", 
-                    [randCard,
-                    rand1Card,
-                    rand2Card,
-                    rand3Card,
-                    rand4Card
-                    ],
-                    [new Dungeon("Dungi", DungeonTypes.simple, DungeonRewardTypes.health),
-                    new Dungeon("Dungi1", DungeonTypes.small, DungeonRewardTypes.attack),
-                    new Dungeon("Dungi2", DungeonTypes.big, DungeonRewardTypes.health),
-                    new Dungeon("Dungi3", DungeonTypes.simple, DungeonRewardTypes.health),
-                    new Dungeon("Dungi4", DungeonTypes.simple, DungeonRewardTypes.health),
-                    new Dungeon("Dungi5", DungeonTypes.simple, DungeonRewardTypes.health),
-                    new Dungeon("Dungi6", DungeonTypes.simple, DungeonRewardTypes.health),
-                    new Dungeon("Dungi7", DungeonTypes.simple, DungeonRewardTypes.health),
-                    ],
-                    new Player(0,0,[randCard],[randCard])
-                    );
-
-                Global.gameManager.saverLoader.WriteSaveFile(newSaveFile);
-
                 break;
             case "credits":
                 queuedMenu = creditsMenu;

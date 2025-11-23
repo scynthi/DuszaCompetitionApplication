@@ -193,9 +193,9 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MenuContainer/Credits/Margin/Items/VBoxContainer"]
 layout_mode = 2
-text = "UI - Kovács Dániel Benedek
-Assets - Tóth Péter Sándor
-Backend - Borók Máté
+text = "UI, UI Backend - Dani
+Assets, UI, UI Backend, Backend - Peti
+Backend - Máté
 
 Készült  a Godot 4.5.1-mono 
 verziójában."
@@ -206,6 +206,7 @@ layout_mode = 2
 text = "Főmenü"
 
 [node name="NewGameMenu" type="Control" parent="MenuContainer" node_paths=PackedStringArray("saveFileItemsHolder", "inspectorField", "displaySaveName", "displayCardElements", "displayCardAmount", "displayDungeonElements", "displayDungeonAmount")]
+visible = false
 layout_mode = 2
 script = ExtResource("6_tc2ed")
 uiSaveFileItem = ExtResource("7_67d64")

@@ -46,15 +46,17 @@ public partial class UICard : Control
     // TODO: update later with mate
     public Card CreateCardInstance()
     {
-        return new Card(CardName, int.Parse(damageLabel.Text), int.Parse(healthLabel.Text), CardElement);
+        return new Card(CardName, int.Parse(damageLabel.Text), int.Parse(healthLabel.Text), CardElement, CardIcon);
     }
 
     public void EditAllCardInformation(Card card)
     {
+        UpdateIconForCardInstace(card);
         EditElement(card.CardElement);
         EditName(card.Name);
         EditHealth(card.Health);
         EditDamage(card.Damage);
+        EditIcon(card.Icon);
     }
 
     public void EditAllCardInformation(UICard card)
@@ -67,7 +69,7 @@ public partial class UICard : Control
         EditIcon(card.CardIcon);
     }
 
-    public void EditAllCardInformation(string icon = "res://Assets/Images/Entities/Heroes/man.png", CardElements element = CardElements.EARTH, string name = "Please Holder", int hp = 10, int damage = 2, bool isEnemy = false, bool isBoss = false)
+    public void EditAllCardInformation(string icon = "res://Assets/Images/Entities/Heroes/man.png", CardElements element = CardElements.EARTH, string name = "Please Holder", int hp = 10, int damage = 2, bool isEnemy = false)
     {
         this.isEnemy = isEnemy;
         EditElement(element);
@@ -126,6 +128,11 @@ public partial class UICard : Control
     public void EditIcon(Texture2D icon)
     {
         charcaterIcon.Texture = icon;
+    }
+
+    public void UpdateIconForCardInstace(Card card)
+    {
+        if (card.Icon == null) card.Icon = CardIcon;
     }
 
     private ImageTexture CreateTexture(string resourcePath)

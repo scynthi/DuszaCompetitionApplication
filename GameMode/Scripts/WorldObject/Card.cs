@@ -10,9 +10,22 @@ public partial class Card : Resource, IWorldObject
     [Export] public int BaseDamage { protected set; get; }
     [Export] public int Damage { protected set; get; }
     [Export] public CardElements CardElement { private set; get; }
+    [Export] public Texture2D Icon { set; get; }
     public BuffHandler buffHandler { private set; get; }
 
     public Card(){}
+
+    public Card(string name, int baseDamage, int health, CardElements cardElements, Texture2D cardIcon)
+    {
+        
+        Name        = name;
+        Health      = health;
+        Icon        = cardIcon;
+        BaseDamage  = baseDamage;
+        Damage      = baseDamage;
+        CardElement = cardElements;
+        buffHandler = new BuffHandler(this);
+    }
 
     public Card(string name, int baseDamage, int health, CardElements cardElements)
     {

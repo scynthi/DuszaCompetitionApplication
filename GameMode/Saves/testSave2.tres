@@ -1,0 +1,92 @@
+[gd_resource type="Resource" load_steps=19 format=3]
+
+[ext_resource type="Script" path="res://Scripts/WorldObject/Dungeon.cs" id="1_ipl83"]
+[ext_resource type="Script" path="res://Scripts/WorldObject/Card.cs" id="2_ou36e"]
+[ext_resource type="Script" path="res://Scripts/Player.cs" id="3_uv4fy"]
+[ext_resource type="Script" path="res://Scripts/SaveLoad/SaveFileResource.cs" id="4_oap8q"]
+
+[sub_resource type="Resource" id="Resource_jj5yg"]
+script = ExtResource("1_ipl83")
+Name = "Dungi"
+
+[sub_resource type="Resource" id="Resource_0tmrd"]
+script = ExtResource("1_ipl83")
+Name = "Dungi1"
+DungeonType = 1
+DungeonReward = 1
+
+[sub_resource type="Resource" id="Resource_vbuy6"]
+script = ExtResource("1_ipl83")
+Name = "Dungi2"
+DungeonType = 2
+
+[sub_resource type="Resource" id="Resource_m3m0g"]
+script = ExtResource("1_ipl83")
+Name = "Dungi3"
+
+[sub_resource type="Resource" id="Resource_gwqgy"]
+script = ExtResource("1_ipl83")
+Name = "Dungi4"
+
+[sub_resource type="Resource" id="Resource_0d4fr"]
+script = ExtResource("1_ipl83")
+Name = "Dungi5"
+
+[sub_resource type="Resource" id="Resource_vy7at"]
+script = ExtResource("1_ipl83")
+Name = "Dungi6"
+
+[sub_resource type="Resource" id="Resource_aafio"]
+script = ExtResource("1_ipl83")
+Name = "Dungi7"
+
+[sub_resource type="Resource" id="Resource_rhqed"]
+script = ExtResource("2_ou36e")
+Name = "asd"
+Health = 5
+BaseDamage = 10
+Damage = 10
+
+[sub_resource type="Resource" id="Resource_hulwb"]
+script = ExtResource("3_uv4fy")
+Collection = Array[ExtResource("2_ou36e")]([SubResource("Resource_rhqed")])
+Deck = Array[ExtResource("2_ou36e")]([SubResource("Resource_rhqed")])
+
+[sub_resource type="Resource" id="Resource_fxm5a"]
+script = ExtResource("2_ou36e")
+Name = "asd1"
+Health = 5
+BaseDamage = 10
+Damage = 10
+CardElement = 2
+
+[sub_resource type="Resource" id="Resource_lquur"]
+script = ExtResource("2_ou36e")
+Name = "asd2"
+Health = 5
+BaseDamage = 10
+Damage = 10
+CardElement = 1
+
+[sub_resource type="Resource" id="Resource_c1low"]
+script = ExtResource("2_ou36e")
+Name = "asd3"
+Health = 5
+BaseDamage = 10
+Damage = 10
+CardElement = 3
+
+[sub_resource type="Resource" id="Resource_uxx6m"]
+script = ExtResource("2_ou36e")
+Name = "asd4"
+Health = 5
+BaseDamage = 10
+Damage = 10
+CardElement = 2
+
+[resource]
+script = ExtResource("4_oap8q")
+name = "testSave2"
+player = SubResource("Resource_hulwb")
+worldCards = Array[ExtResource("2_ou36e")]([SubResource("Resource_rhqed"), SubResource("Resource_fxm5a"), SubResource("Resource_lquur"), SubResource("Resource_c1low"), SubResource("Resource_uxx6m")])
+dungeons = Array[ExtResource("1_ipl83")]([SubResource("Resource_jj5yg"), SubResource("Resource_0tmrd"), SubResource("Resource_vbuy6"), SubResource("Resource_m3m0g"), SubResource("Resource_gwqgy"), SubResource("Resource_0d4fr"), SubResource("Resource_vy7at"), SubResource("Resource_aafio")])
