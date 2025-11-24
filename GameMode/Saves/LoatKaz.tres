@@ -1,9 +1,9 @@
-[gd_resource type="Resource" load_steps=34 format=3]
+[gd_resource type="Resource" load_steps=34 format=3 uid="uid://8mbnujx2ujrq"]
 
-[ext_resource type="Script" path="res://Scripts/WorldObject/Dungeon.cs" id="1_04gde"]
-[ext_resource type="Script" path="res://Scripts/WorldObject/Card.cs" id="2_yxpl0"]
-[ext_resource type="Script" path="res://Scripts/Player.cs" id="3_3wg1f"]
-[ext_resource type="Script" path="res://Scripts/SaveLoad/SaveFileResource.cs" id="4_aia7f"]
+[ext_resource type="Script" uid="uid://d20iromatekep" path="res://Scripts/WorldObject/Dungeon.cs" id="1_04gde"]
+[ext_resource type="Script" uid="uid://ymlx7kt3nsxx" path="res://Scripts/WorldObject/Card.cs" id="2_yxpl0"]
+[ext_resource type="Script" uid="uid://fl67grexnimv" path="res://Scripts/Player.cs" id="3_3wg1f"]
+[ext_resource type="Script" uid="uid://cffrk4wjrrgqa" path="res://Scripts/SaveLoad/SaveFileResource.cs" id="4_aia7f"]
 
 [sub_resource type="Resource" id="Resource_npo45"]
 script = ExtResource("1_04gde")

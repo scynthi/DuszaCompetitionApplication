@@ -3,6 +3,8 @@ using System;
 
 public partial class UIBossCard : Control
 {   
+    [Signal] public delegate void CardClickedEventHandler(UIBossCard bossCard);
+
     [Export] private Label damageLabel;
     [Export] private Label healthLabel;  
     [Export] private Label nameLabel;  
@@ -154,5 +156,11 @@ public partial class UIBossCard : Control
     private ImageTexture CreateTexture(string resourcePath)
     {
         return ImageTexture.CreateFromImage(Image.LoadFromFile(resourcePath));
+    }
+
+
+    public void InteractButtonClicked()
+    {
+        EmitSignal(SignalName.CardClicked, this);
     }
 }

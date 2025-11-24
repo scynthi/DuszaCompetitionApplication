@@ -4,7 +4,7 @@ using System;
 public partial class MapMenu : Control
 {
     [Export] Control submenuContainer;
-    [Export] Control deckMenu;
+    [Export] DeckSubmenu deckMenu;
     [Export] WorldCardsSubmenu worldCardsMenu;
     [Export] Control emptyMenu;
 
@@ -50,6 +50,7 @@ public partial class MapMenu : Control
             case "deckmenu":
                 queuedMenu = deckMenu;
                 lastMenuName = name;
+                deckMenu.ReloadCards();
                 animationPlayer.Play("ChangeSubmenu");
                 break;
             case "cardsmenu":

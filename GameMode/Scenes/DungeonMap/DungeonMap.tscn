@@ -103,7 +103,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="DeckSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign"]
+[node name="DeckSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign" node_paths=PackedStringArray("collectionContainer", "deckContainer")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -111,6 +111,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_fv8kk")
+collectionContainer = NodePath("Control/VBoxContainer/PlayerCollection/GridContainer")
+deckContainer = NodePath("Control/VBoxContainer/PlayerDeck/HboxContainer")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/UpperSign/DeckSubmenu"]
 modulate = Color(0.78, 0.78, 0.78, 1)
@@ -155,14 +157,14 @@ grow_vertical = 2
 [node name="PlayerDeck" type="ScrollContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-horizontal_scroll_mode = 0
+vertical_scroll_mode = 0
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/PlayerDeck"]
+[node name="HboxContainer" type="HBoxContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/PlayerDeck"]
 layout_mode = 2
 size_flags_horizontal = 6
-columns = 5
 
 [node name="PlayerCollection" type="ScrollContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer"]
+custom_minimum_size = Vector2(0, 164.165)
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0

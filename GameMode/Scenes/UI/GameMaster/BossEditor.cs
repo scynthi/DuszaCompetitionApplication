@@ -16,6 +16,7 @@ public partial class BossEditor : HBoxContainer
 		if (@event is InputEventMouseButton mouse && mouse.Pressed && mouse.ButtonIndex == MouseButton.Left && Visible)
 		{
 			Control hoveredItem = GetViewport().GuiGetHoveredControl();
+			
 			if (hoveredItem == null) return;
 
 			if (piciMenüInstance != null && hoveredItem.GetParent().Name != "PiciMenüItems")
@@ -28,17 +29,20 @@ public partial class BossEditor : HBoxContainer
 				piciMenüInstance = null;
 			}
 
-			if (hoveredItem.Name.ToString() == "SimpleCard")
+			// sry dani ide kellett raknom mert rabasztam egy gombot a cardra hogy tudjam pakolni a collection es a deck kozott check scene tree UICard es UIBossCard
+			// NEZD A SOK GetParent() et
+
+			if (hoveredItem.GetParent().Name.ToString() == "SimpleCard")
             {
-				UICard card = (UICard)hoveredItem.GetParent();
+				UICard card = (UICard)hoveredItem.GetParent().GetParent();
 				if (card == null) return;
 
 				piciMenüInstance = CreatePiciMenü();
 				piciMenüInstance.Clicked += HandlePolymorphism;
 				piciMenüInstance.card = card;
-            } else if (hoveredItem.Name.ToString() == "BossCard")
+            } else if (hoveredItem.GetParent().Name.ToString() == "BossCard")
             {
-                UIBossCard asBossCard = (UIBossCard)hoveredItem.GetParent();
+                UIBossCard asBossCard = (UIBossCard)hoveredItem.GetParent().GetParent();
 				if (asBossCard != null) {
 					hoveredItem.QueueFree();
 					return;
@@ -97,4 +101,5 @@ public partial class BossEditor : HBoxContainer
 
 		return piciMenüInstance;
 	}
+	
 }

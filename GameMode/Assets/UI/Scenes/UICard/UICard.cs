@@ -3,6 +3,8 @@ using System;
 
 public partial class UICard : Control
 {   
+    [Signal] public delegate void CardClickedEventHandler(UICard card);
+
     [Export] private Label damageLabel;
     [Export] private Label healthLabel;  
     [Export] private Label nameLabel;  
@@ -138,5 +140,11 @@ public partial class UICard : Control
     private ImageTexture CreateTexture(string resourcePath)
     {
         return ImageTexture.CreateFromImage(Image.LoadFromFile(resourcePath));
+    }
+
+    public void InteractButtonClicked()
+    {
+        EmitSignal(SignalName.CardClicked, this);
+        GD.Print(Name);
     }
 }
