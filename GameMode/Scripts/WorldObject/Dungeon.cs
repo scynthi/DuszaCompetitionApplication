@@ -7,6 +7,7 @@ public partial class Dungeon : Resource, IWorldObject
 	[Export] public string Name { private set; get; }
 	[Export] public DungeonTypes DungeonType {private set; get; }
 	[Export] public DungeonRewardTypes DungeonReward { private set; get; }
+    [Export] public Godot.Collections.Array<Card> DungeonDeck { private set; get; }
 
     public Dungeon(){}
 
@@ -22,5 +23,11 @@ public partial class Dungeon : Resource, IWorldObject
         Name   		  = other.Name;
         DungeonType   = other.DungeonType;
         DungeonReward = other.DungeonReward;
+    }
+
+	public void SetDungeonDeck(List<Card> cardList)
+    {
+		DungeonDeck.Clear();
+        foreach (Card card in cardList) DungeonDeck.Add(new Card(card));
     }
 }

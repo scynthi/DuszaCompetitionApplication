@@ -1,44 +1,52 @@
-[gd_resource type="Resource" load_steps=19 format=3]
+[gd_resource type="Resource" load_steps=19 format=3 uid="uid://dcd4v5l8w0diy"]
 
-[ext_resource type="Script" path="res://Scripts/WorldObject/Dungeon.cs" id="1_ipl83"]
-[ext_resource type="Script" path="res://Scripts/WorldObject/Card.cs" id="2_ou36e"]
-[ext_resource type="Script" path="res://Scripts/Player.cs" id="3_uv4fy"]
-[ext_resource type="Script" path="res://Scripts/SaveLoad/SaveFileResource.cs" id="4_oap8q"]
+[ext_resource type="Script" uid="uid://d20iromatekep" path="res://Scripts/WorldObject/Dungeon.cs" id="1_ipl83"]
+[ext_resource type="Script" uid="uid://ymlx7kt3nsxx" path="res://Scripts/WorldObject/Card.cs" id="2_ou36e"]
+[ext_resource type="Script" uid="uid://fl67grexnimv" path="res://Scripts/Player.cs" id="3_uv4fy"]
+[ext_resource type="Script" uid="uid://cffrk4wjrrgqa" path="res://Scripts/SaveLoad/SaveFileResource.cs" id="4_oap8q"]
 
 [sub_resource type="Resource" id="Resource_jj5yg"]
 script = ExtResource("1_ipl83")
 Name = "Dungi"
+DungeonDeck = null
 
 [sub_resource type="Resource" id="Resource_0tmrd"]
 script = ExtResource("1_ipl83")
 Name = "Dungi1"
 DungeonType = 1
 DungeonReward = 1
+DungeonDeck = null
 
 [sub_resource type="Resource" id="Resource_vbuy6"]
 script = ExtResource("1_ipl83")
 Name = "Dungi2"
 DungeonType = 2
+DungeonDeck = null
 
 [sub_resource type="Resource" id="Resource_m3m0g"]
 script = ExtResource("1_ipl83")
 Name = "Dungi3"
+DungeonDeck = null
 
 [sub_resource type="Resource" id="Resource_gwqgy"]
 script = ExtResource("1_ipl83")
 Name = "Dungi4"
+DungeonDeck = null
 
 [sub_resource type="Resource" id="Resource_0d4fr"]
 script = ExtResource("1_ipl83")
 Name = "Dungi5"
+DungeonDeck = null
 
 [sub_resource type="Resource" id="Resource_vy7at"]
 script = ExtResource("1_ipl83")
 Name = "Dungi6"
+DungeonDeck = null
 
 [sub_resource type="Resource" id="Resource_aafio"]
 script = ExtResource("1_ipl83")
 Name = "Dungi7"
+DungeonDeck = null
 
 [sub_resource type="Resource" id="Resource_rhqed"]
 script = ExtResource("2_ou36e")
