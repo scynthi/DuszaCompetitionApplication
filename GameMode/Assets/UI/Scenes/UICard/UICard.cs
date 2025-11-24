@@ -145,6 +145,5 @@ public partial class UICard : Control
     public void InteractButtonClicked()
     {
         EmitSignal(SignalName.CardClicked, this);
-        GD.Print(Name);
     }
 }
