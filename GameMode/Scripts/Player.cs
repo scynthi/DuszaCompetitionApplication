@@ -41,6 +41,12 @@ public class Player
         return false;
     }
 
+    public bool TryRemoveFromDeck(string name)
+    {
+		foreach (Card card in Deck) if (card.Name == name) { Deck.Remove(card); return true; }
+        return false;
+    }
+
 	public bool TryAddToDeckAtIndex(string name, int index)
     {
 		foreach (Card card in Collection) if (card.Name == name) { Deck.Insert(index, card); return true; }

@@ -50,9 +50,8 @@ public partial class DeckSubmenu : Control
     public void _OnCardPressed(Control card)
     {
         Control cardParent = card.GetParent<Control>();
-        Player saveFile = Global.gameManager.saverLoader.currSaveFile.player;
-        var deck = saveFile.Deck;
-        var collection = saveFile.Collection;
+        
+        Player player = Global.gameManager.saverLoader.currSaveFile.player;
 
         string cardName = card switch
         {
@@ -67,26 +66,20 @@ public partial class DeckSubmenu : Control
 
         if (movingToDeck)
         {
-            int maxDeckSize = (int)Math.Ceiling(collection.Count / 2.0);
+            int maxDeckSize = (int)Math.Ceiling(player.Collection.Count / 2.0);
             if (deckContainer.GetChildCount() >= maxDeckSize) return;
         }
 
         Control targetContainer = movingToDeck ? deckContainer : collectionContainer;
         card.Reparent(targetContainer);
 
-        var sourceArray = movingToDeck ? collection : deck;
-        Card cardData = sourceArray.FirstOrDefault(c => c.Name == cardName);
-
-        if (cardData != null)
+        if (movingToDeck)
         {
-            if (movingToDeck)
-            {
-                deck.Add(cardData);
-            }
-            else
-            {
-                deck.Remove(cardData);
-            }
+            player.TryAddToDeck(cardName);
+        }
+        else
+        {
+            player.TryRemoveFromDeck(cardName);
         }
     }
 }
