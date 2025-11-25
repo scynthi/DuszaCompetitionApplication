@@ -60,7 +60,7 @@ public partial class MapMenu : Control
                 animationPlayer.Play("ChangeSubmenu");
                 break;
             case "shop":
-                await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.MainMenu);
+                await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.ShopMenu);
                 break;
             case "main":
                 Global.gameManager.saverLoader.SaveTo(Global.gameManager.saverLoader.currSaveFile);
