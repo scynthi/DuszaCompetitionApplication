@@ -46,6 +46,44 @@ public static class Utility
 		}
     }
 
+	public static void AddUiSimpleCardsUnderContainer(List<Card> cards, Control container, bool clearContainerChildren = true)
+    {
+		if (clearContainerChildren){
+			foreach (Node child in container.GetChildren())
+				{
+					child.QueueFree();
+				}    
+        }
+		
+		foreach(Card card in cards)
+		{
+			if (card is BossCard) continue;
+			
+			UICard newUiCard = Global.gameManager.uiPackedSceneReferences.UICardScene.Instantiate<UICard>();
+			newUiCard.EditAllCardInformation(card);
+			container.AddChild(newUiCard);
+		}
+    }
+
+	public static void AddUiBossCardsUnderContainer(List<Card> cards, Control container, bool clearContainerChildren = true)
+    {
+		if (clearContainerChildren){
+			foreach (Node child in container.GetChildren())
+				{
+					child.QueueFree();
+				}    
+        }
+		
+		foreach(Card card in cards)
+		{
+			if (card is not BossCard) continue;
+			
+			UIBossCard newUiCard = Global.gameManager.uiPackedSceneReferences.UIBossCardScene.Instantiate<UIBossCard>();
+			newUiCard.EditAllCardInformation((BossCard)card);
+			container.AddChild(newUiCard);
+		}
+    }
+
 	public static void AddUiDungeonsUnderContainer(List<Dungeon> dungeons, Control container, bool clearContainerChildren = true)
     {
 		if (clearContainerChildren){

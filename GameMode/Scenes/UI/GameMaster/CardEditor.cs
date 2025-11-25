@@ -9,9 +9,6 @@ public partial class CardEditor : HBoxContainer
 
     Editors editor;
 
-    //If you dont understand why is this here, ask Dani. -Dani "Hey, yep, heyo, this was me, Dani" -Dani
-	public void HandleDataChange() {}
-
     public override void _Ready()
     {
         editor = (Editors)GetParent();

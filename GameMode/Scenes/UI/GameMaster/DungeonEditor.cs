@@ -10,10 +10,7 @@ public partial class DungeonEditor : HBoxContainer
     public override void _Ready()
     {
         editor = (Editors)GetParent();
-        editor.gameMasterData.DungeonDataChanged += HandleDataChange;
     }
-
-    public void HandleDataChange() {}
 
     public void ChangeName(string text)
     {

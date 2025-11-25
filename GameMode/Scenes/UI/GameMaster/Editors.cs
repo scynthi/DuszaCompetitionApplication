@@ -10,7 +10,7 @@ public partial class Editors : VBoxContainer
     [Export] public DungeonViewer DungeonViewer;
     [Export] public SaveMenu SaveMenu;
 
-    public GameMasterData gameMasterData;
+    public GameMasterData gameMasterData = new();
 
 
     private Control _currentMenu;
@@ -23,6 +23,10 @@ public partial class Editors : VBoxContainer
 
             _currentMenu = value;
             _currentMenu.Visible = true;
+            if (_currentMenu.HasMethod("HandleDataChange"))
+            {
+                _currentMenu.Call("HandleDataChange");
+            }
         }
     }
 

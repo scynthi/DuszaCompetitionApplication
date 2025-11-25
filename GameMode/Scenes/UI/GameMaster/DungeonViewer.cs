@@ -32,7 +32,10 @@ public partial class DungeonViewer : HBoxContainer
 		{
 			Control hoveredItem = GetViewport().GuiGetHoveredControl();
 
+
 			if (hoveredItem == null) return;
+
+			GD.Print(hoveredItem.Name);
 			if (hoveredItem.Name.ToString() != "Dungeon") return;
 
 			UIDungeon dungeon = (UIDungeon)hoveredItem.GetParent();
@@ -44,11 +47,4 @@ public partial class DungeonViewer : HBoxContainer
 			dungeon.QueueFree();	
 		}
 	}
-
-	public void AddDungeonToList(UIDungeon dungeon)
-    {
-        UIDungeon newDungeon = dungeonScene.Instantiate() as UIDungeon;
-        dungeonHolder.AddChild(newDungeon);
-        newDungeon.SetUpDungeon(dungeon);
-    }
 }

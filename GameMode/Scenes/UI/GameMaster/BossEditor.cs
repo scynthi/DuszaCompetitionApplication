@@ -28,8 +28,8 @@ public partial class BossEditor : HBoxContainer
 	public void HandleDataChange()
     {
 		if (!Visible) return;
-        Utility.AddUiCardsUnderContainer(editor.gameMasterData.WorldCards, NormalCardHolder);
-        Utility.AddUiCardsUnderContainer(editor.gameMasterData.WorldCards, BossCardHolder);
+        Utility.AddUiSimpleCardsUnderContainer(editor.gameMasterData.WorldCards, NormalCardHolder);
+        Utility.AddUiBossCardsUnderContainer(editor.gameMasterData.WorldCards, BossCardHolder);
     }
 
 	public override void _Input(InputEvent @event)
