@@ -474,13 +474,13 @@ theme_override_font_sizes/font_size = 20
 text = "Világ indítása"
 
 [node name="ContinueGameMenu" type="Control" parent="MenuContainer" node_paths=PackedStringArray("saveFileContinueItemsHolder")]
+visible = false
 layout_mode = 2
 script = ExtResource("9_tbwd8")
 uiSaveFileContinueItem = ExtResource("10_geava")
 saveFileContinueItemsHolder = NodePath("Control/MarginContainer/ScrollContainer/GridContainer")
 
 [node name="Control" type="Control" parent="MenuContainer/ContinueGameMenu"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
