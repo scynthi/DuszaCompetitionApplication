@@ -9,7 +9,10 @@ public partial class Editors : VBoxContainer
     [Export] public BossEditor BossEditor;
     [Export] public DungeonViewer DungeonViewer;
     [Export] public SaveMenu SaveMenu;
-    
+
+    public GameMasterData gameMasterData = new();
+
+
     private Control _currentMenu;
     private Control CurrentMenu
     {
@@ -20,6 +23,10 @@ public partial class Editors : VBoxContainer
 
             _currentMenu = value;
             _currentMenu.Visible = true;
+            if (_currentMenu.HasMethod("HandleDataChange"))
+            {
+                _currentMenu.Call("HandleDataChange");
+            }
         }
     }
 
@@ -56,5 +63,27 @@ public partial class Editors : VBoxContainer
                 break;
         }
     }
+
+    // public void RemoveCard(string name)
+    // {
+    //     for (int i = 0; i < currentSaveFile.worldCards.Count; i++)
+    //     {
+    //         if (currentSaveFile.worldCards[i].Name == name)
+    //         {
+    //             currentSaveFile.worldCards.RemoveAt(i);
+    //         }
+    //     }
+    // }
+
+    // public void RemoveDungeon(string name)
+    // {
+    //     for (int i = 0; i < currentSaveFile.dungeons.Count; i++)
+    //     {
+    //         if (currentSaveFile.dungeons[i].Name == name)
+    //         {
+    //             currentSaveFile.dungeons.RemoveAt(i);
+    //         }
+    //     }
+    // }
 
 }

@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Data.Common;
+using System.Linq;
 
 public partial class BossEditor : HBoxContainer
 {
@@ -10,6 +11,26 @@ public partial class BossEditor : HBoxContainer
 	[Export] PackedScene UIBossCardScene;
 
 	PiciMenü piciMenüInstance;
+	Editors editor;
+
+    public override void _Ready()
+    {
+        editor = (Editors)GetParent();
+
+		editor.gameMasterData.CardDataChanged += HandleDataChange;
+    }
+
+    public override void _ExitTree()
+    {
+		editor.gameMasterData.CardDataChanged -= HandleDataChange;
+    }
+
+	public void HandleDataChange()
+    {
+		if (!Visible) return;
+        Utility.AddUiSimpleCardsUnderContainer(editor.gameMasterData.WorldCards, NormalCardHolder);
+        Utility.AddUiBossCardsUnderContainer(editor.gameMasterData.WorldCards, BossCardHolder);
+    }
 
 	public override void _Input(InputEvent @event)
 	{
@@ -40,21 +61,18 @@ public partial class BossEditor : HBoxContainer
 				piciMenüInstance = CreatePiciMenü();
 				piciMenüInstance.Clicked += HandlePolymorphism;
 				piciMenüInstance.card = card;
+
             } else if (hoveredItem.GetParent().Name.ToString() == "BossCard")
             {
                 UIBossCard asBossCard = (UIBossCard)hoveredItem.GetParent().GetParent();
 				if (asBossCard != null) {
-					hoveredItem.QueueFree();
+					editor.gameMasterData.RemoveCardFromWorldCards(asBossCard.CreateBossCardInstance());
 					return;
 				}
+
             }
 		}
 	}
-
-    public void AddCardToList(UICard card)
-    {
-        NormalCardHolder.AddChild(SpawnCardInstance(card));
-    }
 
 	public void HandlePolymorphism(PiciMenü piciMenüInstance)
     {
@@ -69,15 +87,7 @@ public partial class BossEditor : HBoxContainer
             bossCard = CreateBossCardInstance(card, BossDouble.ATTACK);
         }
 
-		BossCardHolder.AddChild(bossCard);
-    }
-
-	private UICard SpawnCardInstance(UICard card)
-    {
-		UICard newCard = ((PackedScene)GD.Load("uid://dk32ss75ce3lw")).Instantiate<UICard>();
-		newCard.EditAllCardInformation(card);
-
-		return newCard;
+		editor.gameMasterData.AddCardToWorldCards(bossCard.CreateBossCardInstance());
     }
 
 	private UIBossCard CreateBossCardInstance(UICard uicard, BossDouble evolveType, string addedName = "Lord ")

@@ -480,6 +480,7 @@ uiSaveFileContinueItem = ExtResource("10_geava")
 saveFileContinueItemsHolder = NodePath("Control/MarginContainer/ScrollContainer/GridContainer")
 
 [node name="Control" type="Control" parent="MenuContainer/ContinueGameMenu"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

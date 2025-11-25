@@ -68,3 +68,12 @@ layout_mode = 2
 text = "Kiválasztás"
 script = ExtResource("4_m6imu")
 nameLabel = NodePath("../../../Label")
+
+[node name="Dungeon" type="Control" parent="."]
+z_index = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
