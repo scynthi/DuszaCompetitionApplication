@@ -5,8 +5,10 @@ public partial class ElementalBuffItem : IItem
 {
 	public string Name { private set; get; } = "Elemental Buff";
 	public string Description { private set; get; } = "I don't know part 2";
+	public string Icon { private set; get; } = "uid://cc17bg13ixypu";
+    public ItemType Type { private set; get; } = ItemType.ElementalBuff;
 	public IBuff Buff { get; }
-	public void ApplyPlayerBuff(Card card, int round)
+    public void ApplyPlayerBuff(Card card, int round)
     {
         card.buffHandler.AddBuff(new ElementalBuff(round));
     }

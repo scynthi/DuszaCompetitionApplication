@@ -7,7 +7,10 @@ public class BuffHandler
 	private List<IBuff> CurrentBuffs = new List<IBuff>();
 	private Card OwnerCard;
 
-	public BuffHandler(Card card)
+	public BuffHandler()
+    { }
+
+    public void BindCard(Card card)
     {
         OwnerCard = card;
     }
@@ -41,7 +44,6 @@ public class BuffHandler
 
 	public float CalculateDamageTakenMultiplier()
     {
-        GD.Print("BRuh: " + CurrentBuffs.Count);
 		float damageTaken = 1.0f;
 		foreach (IBuff buff in CurrentBuffs)
         {

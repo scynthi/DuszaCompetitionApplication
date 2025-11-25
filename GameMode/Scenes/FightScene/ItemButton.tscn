@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://duqvkh3tdlkve"]
+
+[ext_resource type="Script" uid="uid://cb3b81rshu7rf" path="res://Scripts/Buttons/ItemButton.cs" id="1_u21i3"]
+
+[node name="ItemButton" type="Button"]
+custom_minimum_size = Vector2(50, 50)
+offset_right = 50.0
+offset_bottom = 50.0
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("1_u21i3")

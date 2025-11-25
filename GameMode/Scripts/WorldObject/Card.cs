@@ -22,7 +22,8 @@ public partial class Card : IWorldObject
         BaseDamage  = baseDamage;
         Damage      = baseDamage;
         CardElement = cardElements;
-        buffHandler = new BuffHandler(this);
+        buffHandler = new BuffHandler();
+        buffHandler.BindCard(this);
     }
 
     public Card(string name, int baseDamage, int health, CardElements cardElements)
@@ -32,7 +33,8 @@ public partial class Card : IWorldObject
         BaseDamage  = baseDamage;
         Damage      = baseDamage;
         CardElement = cardElements;
-        buffHandler = new BuffHandler(this);
+        buffHandler = new BuffHandler();
+        buffHandler.BindCard(this);
     }
 	
 	public Card(Card other)
@@ -42,7 +44,8 @@ public partial class Card : IWorldObject
         BaseDamage  = other.BaseDamage;
         Damage      = other.BaseDamage;
         CardElement = other.CardElement;
-        buffHandler = new BuffHandler(this);
+        buffHandler = new BuffHandler();
+        buffHandler.BindCard(this);
     }
 
     public void ModifyBaseDamage(int value)

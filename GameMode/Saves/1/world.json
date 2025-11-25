@@ -1,0 +1,30 @@
+{
+  "WorldCards": [
+    {
+      "Name": "10",
+      "Health": 10,
+      "BaseDamage": 10,
+      "Damage": 10,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/man.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "Lord  10",
+      "Health": 20,
+      "BaseDamage": 10,
+      "Damage": 10,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/man.png",
+      "buffHandler": {}
+    }
+  ],
+  "WorldDungeons": [
+    {
+      "Name": "1",
+      "DungeonType": 0,
+      "DungeonReward": 0,
+      "DungeonDeck": null
+    }
+  ]
+}

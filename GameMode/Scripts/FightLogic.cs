@@ -15,18 +15,31 @@ public partial class FightLogic : Node
 	// List<IItem> ItemList = new List<IItem>();
 
 	[Export] RichTextLabel RoundText;
+	[Export] HBoxContainer IconContainer;
 
 	// TEST
 	List<Card> PlayerDeck = new List<Card> { new Card("Corky", 2, 4, CardElements.EARTH), new Card("Kira", 2, 7, CardElements.WIND) };
 	List<Card> DungeonDeck = new List<Card> { new Card("Sadan", 2, 4, CardElements.WIND) };
-	List<IItem> ItemList = new List<IItem>();
+	List<IItem> ItemList = new List<IItem> { };
 	private int Round = 1;
 
-    public override void _Ready()
-    {
-        // SaverLoader.SaveTo(new WorldContext("test", new Player(0, 0), new List<Card>(), new List<Dungeon>()));
-    }
+	public override void _Ready()
+	{
+		
+	}
 
+	public void LoadItemButtons(List<IItem> itemList)
+    {
+        PackedScene iconButtonScene = GD.Load<PackedScene>("uid://duqvkh3tdlkve");
+
+		foreach (IItem item in itemList)
+		{
+			ItemButton btn = iconButtonScene.Instantiate<ItemButton>();
+			btn.itemType = item.Type;
+			btn.Send_Item += OnAddToItemListPressed;
+			IconContainer.AddChild(btn);
+		}
+    }
 
 	public RoundState SimulateRound(Card DungeonCard, Card PlayerCard, List<IItem> itemList)
 	{
@@ -72,10 +85,10 @@ public partial class FightLogic : Node
 	}
 
 	private void OnItemPressed()
-    {
-        GD.Print("BRUH");
+	{
+		GD.Print("BRUH");
 		GD.Print("pront");
-    }
+	}
 
 	private void EndFight(string output)
 	{
@@ -83,8 +96,9 @@ public partial class FightLogic : Node
 	}
 
 	public void OnAddToItemListPressed(int item)
-    {
+	{
+		GD.Print("BRUH");
 		IItem createdItem = Items.CreateItemFromType((ItemType)item);
-  	    if (!Utility.ItemListToNameList(ItemList).Contains(createdItem.Name)) ItemList.Add(createdItem);
-    }
+		if (!Utility.ItemListToNameList(ItemList).Contains(createdItem.Name)) ItemList.Add(createdItem);
+	}
 }

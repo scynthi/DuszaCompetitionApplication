@@ -8,6 +8,7 @@ public partial class DescriptionBox : Control
 
 	private Label NameLabel;
 	private Label DescriptionLabel;
+    [Export] public PanelContainer Panel;
 
     public override void _Ready()
     {
@@ -20,13 +21,13 @@ public partial class DescriptionBox : Control
 		Visible = false;
     }
 
-	public void ShowDescription(string name, string description, Vector2 pos)
+	public void ShowDescription(string name, string description, Vector2 pos, float width)
     {
-		Position = pos;
         NameLabel.Text = name;
         DescriptionLabel.Text = description;
 
 		Visible = true;
+		Position = pos + new Vector2(-Panel.Size.X / 2 + width / 2, -Panel.Size.Y);
     }
 
 	public void HideDescription()
