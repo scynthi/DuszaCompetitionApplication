@@ -8,12 +8,12 @@ public partial class Card : IWorldObject
     public int BaseDamage { set; get; }
     public int Damage { set; get; }
     public CardElements CardElement { set; get; }
-    public Texture2D Icon { set; get; }
+    public string Icon { set; get; }
     public BuffHandler buffHandler { set; get; }
 
     public Card(){}
 
-    public Card(string name, int baseDamage, int health, CardElements cardElements, Texture2D cardIcon)
+    public Card(string name, int baseDamage, int health, CardElements cardElements, string cardIcon)
     {
         
         Name        = name;
@@ -41,6 +41,7 @@ public partial class Card : IWorldObject
     {
         Name        = other.Name;
         Health      = other.Health;
+        Icon        = other.Icon;
         BaseDamage  = other.BaseDamage;
         Damage      = other.BaseDamage;
         CardElement = other.CardElement;
