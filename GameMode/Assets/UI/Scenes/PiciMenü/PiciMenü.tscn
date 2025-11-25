@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_dgdr4"]
 [ext_resource type="Script" uid="uid://c7ax833v0ukrg" path="res://Assets/UI/Scenes/PiciMenü/PiciMenü.cs" id="2_ybnvk"]
 
-[node name="PiciMenü" type="Control"]
+[node name="PiciMenü" type="Control" node_paths=PackedStringArray("HPButton", "DMGButton", "CollectionButton")]
 z_index = 2
 layout_mode = 3
 anchors_preset = 15
@@ -15,25 +15,45 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_dgdr4")
 script = ExtResource("2_ybnvk")
+HPButton = NodePath("PanelContainer/PiciMenüItems/VBoxContainer/ByHP")
+DMGButton = NodePath("PanelContainer/PiciMenüItems/VBoxContainer/ByDMG")
+CollectionButton = NodePath("PanelContainer/PiciMenüItems/VBoxContainer/AddToCollection")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.75000006
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PiciMenüItems" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
+alignment = 1
 
-[node name="ByHP" type="Button" parent="PanelContainer/PiciMenüItems"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/PiciMenüItems"]
+layout_mode = 2
+
+[node name="ByHP" type="Button" parent="PanelContainer/PiciMenüItems/VBoxContainer"]
 layout_mode = 2
 text = "Származtatás életerővel"
 
-[node name="ByDMG" type="Button" parent="PanelContainer/PiciMenüItems"]
+[node name="ByDMG" type="Button" parent="PanelContainer/PiciMenüItems/VBoxContainer"]
 layout_mode = 2
 text = "Származtatás sebzéssel"
 
-[connection signal="pressed" from="PanelContainer/PiciMenüItems/ByHP" to="." method="ButtonPressed" binds= ["hp"]]
-[connection signal="pressed" from="PanelContainer/PiciMenüItems/ByDMG" to="." method="ButtonPressed" binds= ["dmg"]]
+[node name="AddToCollection" type="Button" parent="PanelContainer/PiciMenüItems/VBoxContainer"]
+layout_mode = 2
+text = "Hozzáadás kollekcióhoz"
+
+[node name="ColorRect" type="ColorRect" parent="PanelContainer/PiciMenüItems/VBoxContainer"]
+custom_minimum_size = Vector2(0, 1)
+layout_mode = 2
+
+[node name="Delete" type="Button" parent="PanelContainer/PiciMenüItems"]
+layout_mode = 2
+text = "Törlés"
+
+[connection signal="pressed" from="PanelContainer/PiciMenüItems/VBoxContainer/ByHP" to="." method="ButtonPressed" binds= ["hp"]]
+[connection signal="pressed" from="PanelContainer/PiciMenüItems/VBoxContainer/ByDMG" to="." method="ButtonPressed" binds= ["dmg"]]
+[connection signal="pressed" from="PanelContainer/PiciMenüItems/Delete" to="." method="DeleteItem"]

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Godot;
+using Microsoft.VisualBasic;
 
 public class GameMasterData
 {
@@ -39,9 +40,17 @@ public class GameMasterData
     {
         try
         {
-            WorldCards.Remove(card); 
-            PlayerDeck.Remove(card);
-            PlayerCollection.Remove(card);
+            foreach (List<Card> currentCardList in new List<Card>[]{WorldCards, PlayerDeck, PlayerCollection})
+            {
+                foreach (Card cardInList in currentCardList)
+                {
+                    if (cardInList.Name == card.Name)
+                    {
+                        WorldCards.RemoveAt(WorldCards.IndexOf(cardInList)); 
+                    }
+                }
+            }
+
         }
         catch (System.Exception)
         {
@@ -54,8 +63,16 @@ public class GameMasterData
     {
         try
         {
-            PlayerDeck.Remove(card);
-            PlayerCollection.Remove(card);
+            foreach (List<Card> currentCardList in new List<Card>[]{PlayerDeck, PlayerCollection})
+            {
+                foreach (Card cardInList in currentCardList)
+                {
+                    if (cardInList.Name == card.Name)
+                    {
+                        WorldCards.RemoveAt(WorldCards.IndexOf(cardInList)); 
+                    }
+                }
+            }
         }
         catch (System.Exception)
         {
@@ -68,7 +85,13 @@ public class GameMasterData
     {
         try
         {
-            PlayerDeck.Remove(card);
+            foreach (Card cardInList in PlayerDeck)
+            {
+                if (cardInList.Name == card.Name)
+                {
+                    WorldCards.RemoveAt(WorldCards.IndexOf(cardInList)); 
+                }
+            }
         }
         catch (System.Exception)
         {
@@ -87,7 +110,13 @@ public class GameMasterData
     {
         try
         {
-            Dungeons.Remove(dungeon);
+            foreach (Dungeon dungeonInList in Dungeons)
+            {
+                if (dungeonInList.Name == dungeon.Name)
+                {
+                    Dungeons.RemoveAt(Dungeons.IndexOf(dungeonInList)); 
+                }
+            }
         }
         catch (System.Exception)
         {

@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://rri2sofoubid" path="res://Assets/UI/Scenes/UIDungeon/DungeonStartButton.cs" id="4_m6imu"]
 
 [node name="UIDungeon" type="Control" node_paths=PackedStringArray("nameRichText", "nameLabel", "iconTexture", "enterButton")]
-custom_minimum_size = Vector2(100, 150)
+custom_minimum_size = Vector2(140, 150)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -40,7 +40,7 @@ alignment = 1
 custom_minimum_size = Vector2(400, 40)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 29
-text = "12345678912345678912"
+text = "12345678910111213141"
 scroll_active = false
 horizontal_alignment = 1
 
@@ -48,6 +48,7 @@ horizontal_alignment = 1
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBox/CenterContainer"]
+custom_minimum_size = Vector2(140, 0)
 layout_mode = 2
 
 [node name="UILabel" type="Label" parent="VBox/CenterContainer/VBoxContainer"]
@@ -59,7 +60,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 texture = ExtResource("2_3smau")
-expand_mode = 4
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Button" type="Button" parent="VBox/CenterContainer/VBoxContainer" node_paths=PackedStringArray("nameLabel")]
@@ -70,7 +71,7 @@ script = ExtResource("4_m6imu")
 nameLabel = NodePath("../../../Label")
 
 [node name="Dungeon" type="Control" parent="."]
-z_index = 2
+z_index = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

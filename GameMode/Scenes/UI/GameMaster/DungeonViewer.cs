@@ -6,7 +6,8 @@ using System.Collections.Generic;
 public partial class DungeonViewer : HBoxContainer
 {
 	[Export] public Control dungeonHolder;
-    [Export] PackedScene dungeonScene;
+
+	PiciMenü piciMenüInstance;
 	Editors editor;
 
     public override void _Ready()
@@ -32,19 +33,32 @@ public partial class DungeonViewer : HBoxContainer
 		{
 			Control hoveredItem = GetViewport().GuiGetHoveredControl();
 
-
 			if (hoveredItem == null) return;
+			GD.Print(hoveredItem);
 
-			GD.Print(hoveredItem.Name);
 			if (hoveredItem.Name.ToString() != "Dungeon") return;
 
 			UIDungeon dungeon = (UIDungeon)hoveredItem.GetParent();
 
 			if (dungeon == null) return;
 
-
-			editor.gameMasterData.RemoveDungeonFromDungeonList(dungeon.CreateDungeonInstance());
-			dungeon.QueueFree();	
+			piciMenüInstance = CreatePiciMenü();
+			piciMenüInstance.Item = dungeon;
 		}
+	}
+
+	private PiciMenü CreatePiciMenü()
+	{
+		PiciMenü piciMenüInstance = Global.gameManager.uiPackedSceneReferences.PiciMenü.Instantiate<PiciMenü>();
+
+		var uiRoot = GetTree().CurrentScene.GetNode("GameLayer/World");
+		uiRoot.AddChild(piciMenüInstance);
+
+		piciMenüInstance.editor = editor;
+		piciMenüInstance.ZIndex = 999;
+		piciMenüInstance.MouseFilter = MouseFilterEnum.Stop;
+		piciMenüInstance.GlobalPosition = GetGlobalMousePosition();
+
+		return piciMenüInstance;
 	}
 }

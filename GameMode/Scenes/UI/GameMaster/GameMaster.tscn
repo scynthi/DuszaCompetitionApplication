@@ -188,6 +188,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="CardViewer" type="HBoxContainer" parent="Margin/HBox/GameMaster/Editors" node_paths=PackedStringArray("cardHolder")]
+visible = false
 layout_mode = 2
 script = ExtResource("10_4h88p")
 cardHolder = NodePath("MarginContainer/ScrollContainer/HBoxContainer/GridContainer")
@@ -214,12 +215,12 @@ layout_mode = 2
 size_flags_vertical = 3
 columns = 4
 
-[node name="DungeonEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/Editors" node_paths=PackedStringArray("dungeon")]
-visible = false
+[node name="DungeonEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/Editors" node_paths=PackedStringArray("dungeon", "rewardType")]
 layout_mode = 2
 alignment = 1
 script = ExtResource("3_8slam")
 dungeon = NodePath("UIDungeon")
+rewardType = NodePath("Properties/RewardType")
 
 [node name="UIDungeon" parent="Margin/HBox/GameMaster/Editors/DungeonEditor" instance=ExtResource("3_j6eix")]
 layout_mode = 2
@@ -245,6 +246,15 @@ popup/item_1/text = "kicsi"
 popup/item_1/id = 1
 popup/item_2/text = "nagy"
 popup/item_2/id = 2
+
+[node name="RewardType" type="OptionButton" parent="Margin/HBox/GameMaster/Editors/DungeonEditor/Properties"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "életerő"
+popup/item_0/id = 0
+popup/item_1/text = "sebzés"
+popup/item_1/id = 1
 
 [node name="Save" type="Button" parent="Margin/HBox/GameMaster/Editors/DungeonEditor/Properties"]
 layout_mode = 2
@@ -362,6 +372,7 @@ text = "Mentés"
 [connection signal="pressed" from="Margin/HBox/GameMaster/Editors/CardEditor/Properties/Save" to="Margin/HBox/GameMaster/Editors/CardEditor" method="SaveCard"]
 [connection signal="text_changed" from="Margin/HBox/GameMaster/Editors/DungeonEditor/Properties/LineEdit" to="Margin/HBox/GameMaster/Editors/DungeonEditor" method="ChangeName"]
 [connection signal="item_selected" from="Margin/HBox/GameMaster/Editors/DungeonEditor/Properties/DungeonType" to="Margin/HBox/GameMaster/Editors/DungeonEditor" method="ChangeType"]
+[connection signal="item_selected" from="Margin/HBox/GameMaster/Editors/DungeonEditor/Properties/RewardType" to="Margin/HBox/GameMaster/Editors/DungeonEditor" method="ChangeReward"]
 [connection signal="pressed" from="Margin/HBox/GameMaster/Editors/DungeonEditor/Properties/Save" to="Margin/HBox/GameMaster/Editors/DungeonEditor" method="SaveDungeon"]
 [connection signal="pressed" from="Margin/HBox/GameMaster/Editors/SaveMenu/VBoxContainer/Button" to="Margin/HBox/GameMaster/Editors/SaveMenu" method="CreateSave"]
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/Back" to="Margin/HBox/GameMaster/Editors" method="ChangeEditor" binds= ["main"]]

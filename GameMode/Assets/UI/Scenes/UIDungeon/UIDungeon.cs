@@ -8,6 +8,7 @@ public partial class UIDungeon : Control
     [Export] TextureRect iconTexture;
     [Export] Button enterButton;
 
+    [Signal] public delegate void DungeonClickedEventHandler(UIDungeon uidungeon);
 
     private string _dungeonName = "Teszt Kazamata";
 
@@ -18,7 +19,6 @@ public partial class UIDungeon : Control
     }
     public DungeonTypes DungeonType {private set; get;}
     public DungeonRewardTypes DungeonReward {private set; get;}
-
 
     private bool _previewMode = true;
 
@@ -53,10 +53,11 @@ public partial class UIDungeon : Control
         EditReward(dungeon.DungeonReward);
     }
 
-    public void SetUpDungeon(string name = "Teszt dungeon", DungeonTypes type = DungeonTypes.simple, DungeonRewardTypes rewardType = DungeonRewardTypes.health)
+    public void SetUpDungeon(string name = "Teszt kazamata", DungeonTypes type = DungeonTypes.simple, DungeonRewardTypes rewardType = DungeonRewardTypes.health)
     {
         EditName(name);
         EditType(type);
+        EditReward(rewardType);
     }
 
 
@@ -89,6 +90,11 @@ public partial class UIDungeon : Control
 
     public Dungeon CreateDungeonInstance()
     {
-        return new Dungeon(DungeonName, DungeonType, (DungeonRewardTypes)DungeonType);
+        return new Dungeon(DungeonName, DungeonType, DungeonReward);
+    }
+
+    public void InteractButtonClicked()
+    {
+        EmitSignal(SignalName.DungeonClicked, this);
     }
 }

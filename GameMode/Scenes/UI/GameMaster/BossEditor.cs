@@ -7,8 +7,6 @@ public partial class BossEditor : HBoxContainer
 {
     [Export] public HBoxContainer NormalCardHolder;
     [Export] public HBoxContainer BossCardHolder;
-	[Export] PackedScene piciMenüScene;
-	[Export] PackedScene UIBossCardScene;
 
 	PiciMenü piciMenüInstance;
 	Editors editor;
@@ -40,19 +38,6 @@ public partial class BossEditor : HBoxContainer
 			
 			if (hoveredItem == null) return;
 
-			if (piciMenüInstance != null && hoveredItem.GetParent().Name != "PiciMenüItems")
-			{
-				if (IsInstanceValid(piciMenüInstance))
-				{
-					piciMenüInstance.Clicked -= HandlePolymorphism;
-					piciMenüInstance.QueueFree();
-				}
-				piciMenüInstance = null;
-			}
-
-			// sry dani ide kellett raknom mert rabasztam egy gombot a cardra hogy tudjam pakolni a collection es a deck kozott check scene tree UICard es UIBossCard
-			// NEZD A SOK GetParent() et
-
 			if (hoveredItem.GetParent().Name.ToString() == "SimpleCard")
             {
 				UICard card = (UICard)hoveredItem.GetParent().GetParent();
@@ -60,7 +45,7 @@ public partial class BossEditor : HBoxContainer
 
 				piciMenüInstance = CreatePiciMenü();
 				piciMenüInstance.Clicked += HandlePolymorphism;
-				piciMenüInstance.Card = card;
+				piciMenüInstance.Item = card;
 
             } else if (hoveredItem.GetParent().Name.ToString() == "BossCard")
             {
@@ -76,7 +61,7 @@ public partial class BossEditor : HBoxContainer
 
 	public void HandlePolymorphism(PiciMenü piciMenüInstance)
     {
-		UICard card = (UICard)piciMenüInstance.Card;
+		UICard card = (UICard)piciMenüInstance.Item;
         UIBossCard bossCard;
 		
         if (piciMenüInstance.option  == "hp")
@@ -92,24 +77,24 @@ public partial class BossEditor : HBoxContainer
 
 	private UIBossCard CreateBossCardInstance(UICard uicard, BossDouble evolveType, string addedName = "Lord ")
     {
-        UIBossCard newBossCard = UIBossCardScene.Instantiate<UIBossCard>();
+        UIBossCard newBossCard = Global.gameManager.uiPackedSceneReferences.UIBossCardScene.Instantiate<UIBossCard>();
 		newBossCard.EditAllCardInformation(uicard.CreateCardInstance(), evolveType, addedName);
 
 		return newBossCard;
-    }
+	}
 
-	private PiciMenü CreatePiciMenü()
+	public PiciMenü CreatePiciMenü()
 	{
-		PiciMenü piciMenüInstance = (PiciMenü)piciMenüScene.Instantiate();
+		PiciMenü piciMenüInstance = Global.gameManager.uiPackedSceneReferences.PiciMenü.Instantiate<PiciMenü>();
 
 		var uiRoot = GetTree().CurrentScene.GetNode("GameLayer/World");
 		uiRoot.AddChild(piciMenüInstance);
 
+		piciMenüInstance.editor = editor;
 		piciMenüInstance.ZIndex = 999;
 		piciMenüInstance.MouseFilter = MouseFilterEnum.Stop;
 		piciMenüInstance.GlobalPosition = GetGlobalMousePosition();
 
 		return piciMenüInstance;
 	}
-	
 }
