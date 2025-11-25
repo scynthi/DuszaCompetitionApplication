@@ -19,6 +19,7 @@ public partial class GameManager : Node
         public const string EditorMenu = "res://Scenes/UI/GameMaster/GameMasterWorld.tscn";
         public const string DungeonMap = "res://Scenes/DungeonMap/DungeonMap.tscn";
         public const string FightMap = "res://Scenes/FightScene/FightScene.tscn";
+        public const string ShopMenu = "res://Scenes/ShopScene/ShopWorld.tscn";
     }
 
     public override void _Ready()
