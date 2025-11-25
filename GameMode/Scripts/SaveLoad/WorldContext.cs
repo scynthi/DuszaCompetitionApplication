@@ -12,6 +12,8 @@ public partial class WorldContext : Node
     public List<Card> WorldCards { private set; get; } = new List<Card>();
     public List<Dungeon> WorldDungeons { private set; get; } = new List<Dungeon>();
 
+	public string currDungeonName = "";
+
     // public override void _Ready()
     // {
     //     Instance = this;

@@ -74,6 +74,7 @@ public partial class FightLogic : Node
 	private void OnItemPressed()
     {
         GD.Print("BRUH");
+		GD.Print("pront");
     }
 
 	private void EndFight(string output)

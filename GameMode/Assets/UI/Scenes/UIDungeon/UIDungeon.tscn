@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bkxac5mrr13pu"]
+[gd_scene load_steps=5 format=3 uid="uid://bkxac5mrr13pu"]
 
 [ext_resource type="Script" uid="uid://crryffgn53yln" path="res://Assets/UI/Scenes/UIDungeon/UIDungeon.cs" id="1_a771a"]
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_uky3w"]
 [ext_resource type="Texture2D" uid="uid://bdmnd11s75frm" path="res://Assets/Images/Portal/portal_frame_egyszeru.png" id="2_3smau"]
+[ext_resource type="Script" uid="uid://rri2sofoubid" path="res://Assets/UI/Scenes/UIDungeon/DungeonStartButton.cs" id="4_m6imu"]
 
 [node name="UIDungeon" type="Control" node_paths=PackedStringArray("nameRichText", "nameLabel", "iconTexture", "enterButton")]
 custom_minimum_size = Vector2(100, 150)
@@ -61,7 +62,9 @@ texture = ExtResource("2_3smau")
 expand_mode = 4
 stretch_mode = 5
 
-[node name="Button" type="Button" parent="VBox/CenterContainer/VBoxContainer"]
+[node name="Button" type="Button" parent="VBox/CenterContainer/VBoxContainer" node_paths=PackedStringArray("nameLabel")]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "Kiválasztás"
+script = ExtResource("4_m6imu")
+nameLabel = NodePath("../../../Label")
