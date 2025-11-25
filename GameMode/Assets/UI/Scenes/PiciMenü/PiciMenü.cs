@@ -3,7 +3,16 @@ using System;
 
 public partial class PiciMenü : Control
 {
-	[Export] public UICard card;
+	private Control _card;
+	public Control Card
+    {
+        get {return _card;}
+		set
+        {
+            
+        }
+
+    }
 	public string option;
 
 	public delegate void ClickedEventHandler(PiciMenü option);

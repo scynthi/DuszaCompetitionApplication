@@ -134,11 +134,12 @@ public partial class UICard : Control
 
     public void UpdateIconForCardInstace(Card card)
     {
-        if (card.Icon == null) card.Icon = CardIcon.ResourcePath;
+        if (card.Icon == null) card.Icon = CardIcon;
     }
 
     private ImageTexture CreateTexture(string resourcePath)
     {
+        GD.Print(resourcePath);
         return ImageTexture.CreateFromImage(Image.LoadFromFile(resourcePath));
     }
 
