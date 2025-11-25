@@ -48,7 +48,7 @@ public partial class UICard : Control
     // TODO: update later with mate
     public Card CreateCardInstance()
     {
-        return new Card(CardName, int.Parse(damageLabel.Text), int.Parse(healthLabel.Text), CardElement, CardIcon);
+        return new Card(CardName, int.Parse(damageLabel.Text), int.Parse(healthLabel.Text), CardElement, charcaterIcon.Texture.ResourcePath);
     }
 
     public void EditAllCardInformation(Card card)
@@ -134,12 +134,11 @@ public partial class UICard : Control
 
     public void UpdateIconForCardInstace(Card card)
     {
-        if (card.Icon == null) card.Icon = CardIcon;
+        if (card.Icon == null) card.Icon = charcaterIcon.Texture.ResourcePath;
     }
 
     private ImageTexture CreateTexture(string resourcePath)
     {
-        GD.Print(resourcePath);
         return ImageTexture.CreateFromImage(Image.LoadFromFile(resourcePath));
     }
 

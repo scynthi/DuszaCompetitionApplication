@@ -17,6 +17,7 @@ public partial class UIDungeon : Control
         get {return _dungeonName;}
     }
     public DungeonTypes DungeonType {private set; get;}
+    public DungeonRewardTypes DungeonReward {private set; get;}
 
 
     private bool _previewMode = true;
@@ -42,15 +43,17 @@ public partial class UIDungeon : Control
     {
         EditName(dungeon.DungeonName);
         EditType(dungeon.DungeonType);
+        EditReward(dungeon.DungeonReward);
     }
 
     public void SetUpDungeon(Dungeon dungeon)
     {
         EditName(dungeon.Name);
         EditType(dungeon.DungeonType);
+        EditReward(dungeon.DungeonReward);
     }
 
-    public void SetUpDungeon(string name = "Teszt dungeon", DungeonTypes type = DungeonTypes.simple)
+    public void SetUpDungeon(string name = "Teszt dungeon", DungeonTypes type = DungeonTypes.simple, DungeonRewardTypes rewardType = DungeonRewardTypes.health)
     {
         EditName(name);
         EditType(type);
@@ -64,6 +67,11 @@ public partial class UIDungeon : Control
         nameLabel.Text = name;
         nameRichText.Text = name;
         _dungeonName = name;
+    }
+
+    public void EditReward(DungeonRewardTypes rewardType)
+    {
+        DungeonReward = rewardType; 
     }
 
     public void EditType(DungeonTypes type)

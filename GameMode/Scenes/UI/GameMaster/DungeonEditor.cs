@@ -21,6 +21,11 @@ public partial class DungeonEditor : HBoxContainer
     {
         dungeon.EditType((DungeonTypes)index);
     }
+
+    public void ChangeReward(int index)
+    {
+        dungeon.EditReward((DungeonRewardTypes)index);
+    }
     
     // TODO: rewrite it when backend arrives
     // TODO: Do more checks for name

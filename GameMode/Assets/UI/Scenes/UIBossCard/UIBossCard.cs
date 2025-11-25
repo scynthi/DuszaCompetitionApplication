@@ -150,7 +150,7 @@ public partial class UIBossCard : Control
 
     public void UpdateIconForCardInstace(BossCard card)
     {
-        if (card.Icon == null) card.Icon = CardIcon;
+        if (card.Icon == null) card.Icon = charcaterIcon.Texture.ResourcePath;
     }
 
     private ImageTexture CreateTexture(string resourcePath)

@@ -9,9 +9,10 @@ public partial class PiciMenü : Control
         get {return _card;}
 		set
         {
-            
-        }
+			_card = value;
 
+			SetUpButtons();
+        }
     }
 	public string option;
 
@@ -23,5 +24,13 @@ public partial class PiciMenü : Control
 		this.option = option;
         Clicked.Invoke(this);
 		QueueFree();
+    }
+
+	private void SetUpButtons()
+    {
+        if (Card is UICard)
+        {
+            
+        }
     }
 }

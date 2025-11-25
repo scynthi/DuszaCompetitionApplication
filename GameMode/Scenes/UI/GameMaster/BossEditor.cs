@@ -60,7 +60,7 @@ public partial class BossEditor : HBoxContainer
 
 				piciMenüInstance = CreatePiciMenü();
 				piciMenüInstance.Clicked += HandlePolymorphism;
-				piciMenüInstance.card = card;
+				piciMenüInstance.Card = card;
 
             } else if (hoveredItem.GetParent().Name.ToString() == "BossCard")
             {
@@ -76,7 +76,7 @@ public partial class BossEditor : HBoxContainer
 
 	public void HandlePolymorphism(PiciMenü piciMenüInstance)
     {
-		UICard card = (UICard)piciMenüInstance.card;
+		UICard card = (UICard)piciMenüInstance.Card;
         UIBossCard bossCard;
 		
         if (piciMenüInstance.option  == "hp")
