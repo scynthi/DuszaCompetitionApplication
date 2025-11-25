@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://6oiws6jda0wi"]
+
+[ext_resource type="PackedScene" uid="uid://cpidsg2b56hne" path="res://Assets/StyledCamera.tscn" id="1_68qub"]
+
+[node name="ShopWorld" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5409242, -1.7981389)
+size = Vector3(1, 0.63378906, 1.1837158)
+
+[node name="DtyledCamera" parent="." instance=ExtResource("1_68qub")]
