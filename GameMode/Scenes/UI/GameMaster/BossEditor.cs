@@ -76,7 +76,7 @@ public partial class BossEditor : HBoxContainer
 
 	public void HandlePolymorphism(PiciMenü piciMenüInstance)
     {
-		UICard card = piciMenüInstance.card;
+		UICard card = (UICard)piciMenüInstance.card;
         UIBossCard bossCard;
 		
         if (piciMenüInstance.option  == "hp")

@@ -9,6 +9,7 @@ public partial class Editors : VBoxContainer
     [Export] public BossEditor BossEditor;
     [Export] public DungeonViewer DungeonViewer;
     [Export] public SaveMenu SaveMenu;
+    [Export] public CardViewer CardViewer;
 
     public GameMasterData gameMasterData = new();
 
@@ -57,6 +58,9 @@ public partial class Editors : VBoxContainer
                 break;
             case "save":
                 CurrentMenu = SaveMenu;
+                break;
+            case "cards":
+                CurrentMenu = CardViewer;
                 break;
             case "main":
                 await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.MainMenu);

@@ -8,7 +8,7 @@ public partial class Card : IWorldObject
     public int BaseDamage { set; get; }
     public int Damage { set; get; }
     public CardElements CardElement { set; get; }
-    public string Icon { set; get; }
+    public Texture2D Icon { set; get; }
     public BuffHandler buffHandler { set; get; }
 
     public Card(){}
@@ -18,7 +18,7 @@ public partial class Card : IWorldObject
         
         Name        = name;
         Health      = health;
-        Icon        = cardIcon.ResourcePath;
+        Icon        = cardIcon;
         BaseDamage  = baseDamage;
         Damage      = baseDamage;
         CardElement = cardElements;
