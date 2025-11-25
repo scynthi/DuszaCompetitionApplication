@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Linq;
 using System.Reflection.Metadata;
 
 public partial class CardEditor : HBoxContainer
@@ -8,11 +9,13 @@ public partial class CardEditor : HBoxContainer
 
     Editors editor;
 
+    //If you dont understand why is this here, ask Dani. -Dani "Hey, yep, heyo, this was me, Dani" -Dani
+	public void HandleDataChange() {}
+
     public override void _Ready()
     {
         editor = (Editors)GetParent();
     }
-
 
 	public void ChangeName(string text)
     {
@@ -64,12 +67,11 @@ public partial class CardEditor : HBoxContainer
         card.EditIcon(image);
     }
 
-    // TODO: rewrite it when backend arrives
     // TODO: Do more checks for name
 
     public void SaveCard()
     {
-        editor.BossEditor.AddCardToList(card);
+        editor.gameMasterData.AddCardToWorldCards(card.CreateCardInstance());
     }
 
 }

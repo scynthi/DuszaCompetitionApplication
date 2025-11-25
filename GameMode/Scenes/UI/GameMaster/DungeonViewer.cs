@@ -1,10 +1,30 @@
 using Godot;
 using System;
+using System.Collections.Generic;
+
 
 public partial class DungeonViewer : HBoxContainer
 {
 	[Export] public Control dungeonHolder;
     [Export] PackedScene dungeonScene;
+	Editors editor;
+
+    public override void _Ready()
+    {
+        editor = (Editors)GetParent();
+    	editor.gameMasterData.DungeonDataChanged += HandleDataChange;
+    }
+
+    public override void _ExitTree()
+    {
+		editor.gameMasterData.DungeonDataChanged -= HandleDataChange;
+    }
+
+	public void HandleDataChange()
+    {
+		if (!Visible) return;
+        Utility.AddUiDungeonsUnderContainer(editor.gameMasterData.Dungeons, dungeonHolder);
+    }
 
 	public override void _Input(InputEvent @event)
 	{
@@ -18,7 +38,10 @@ public partial class DungeonViewer : HBoxContainer
 			UIDungeon dungeon = (UIDungeon)hoveredItem.GetParent();
 
 			if (dungeon == null) return;
-			dungeon.QueueFree();
+
+
+			editor.gameMasterData.RemoveDungeonFromDungeonList(dungeon.CreateDungeonInstance());
+			dungeon.QueueFree();	
 		}
 	}
 

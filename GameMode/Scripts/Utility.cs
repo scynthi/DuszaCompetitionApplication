@@ -46,5 +46,22 @@ public static class Utility
 		}
     }
 
+	public static void AddUiDungeonsUnderContainer(List<Dungeon> dungeons, Control container, bool clearContainerChildren = true)
+    {
+		if (clearContainerChildren){
+			foreach (Node child in container.GetChildren())
+				{
+					child.QueueFree();
+				}    
+        }
+		
+		foreach(Dungeon dungeon in dungeons)
+		{
+			UIDungeon UIDungeon = Global.gameManager.uiPackedSceneReferences.UIDungeonScene.Instantiate<UIDungeon>();
+			UIDungeon.SetUpDungeon(dungeon);
+			container.AddChild(UIDungeon);
+		}
+    }
+
 
 }
