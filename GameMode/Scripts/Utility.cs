@@ -12,6 +12,14 @@ public static class Utility
 		return nameList;
 	}
 
+	// public static T WorldObjectListToNameList<T>(List<T> objectList) where T : IWorldObject
+	// {
+	// 	List<string> nameList = new List<string>();
+	// 	foreach (T currObj in objectList)
+	// 		nameList.Add(currObj.Name);
+	// 	return nameList;
+	// }
+
 	public static List<string> ItemListToNameList(List<IItem> itemList)
 	{
 		List<string> nameList = new List<string>();

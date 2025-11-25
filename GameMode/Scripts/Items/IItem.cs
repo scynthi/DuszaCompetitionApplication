@@ -1,5 +1,11 @@
 using Godot;
 using System;
+using System.Text.Json.Serialization;
+
+[JsonPolymorphic(TypeDiscriminatorPropertyName = "$type")]
+[JsonDerivedType(typeof(HealthPotion), "health_potion")]
+[JsonDerivedType(typeof(ElementalBuffItem), "elemental_buff")]
+[JsonDerivedType(typeof(GlassShieldItem), "glass_shield")]
 public interface IItem
 {
 	public string Name { get; }

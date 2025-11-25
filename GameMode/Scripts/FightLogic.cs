@@ -25,7 +25,9 @@ public partial class FightLogic : Node
 
 	public override void _Ready()
 	{
-		
+		foreach (Card card in Global.gameManager.saverLoader.currSaveFile.player.Deck) PlayerDeck.Add(new Card(card));
+		foreach (Card card in Global.gameManager.saverLoader.currSaveFile.player.Deck) PlayerDeck.Add(new Card(card));
+		foreach (Card card in Global.gameManager.saverLoader.currSaveFile.player.Deck) PlayerDeck.Add(new Card(card));
 	}
 
 	public void LoadItemButtons(List<IItem> itemList)
