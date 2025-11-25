@@ -20,7 +20,7 @@ public static class Utility
 		return nameList;
     }
 
-	public static void AddUiCardsUnderContainer(Godot.Collections.Array<Card> cards, Control container, bool clearContainerChildren = true)
+	public static void AddUiCardsUnderContainer(List<Card> cards, Control container, bool clearContainerChildren = true)
     {
 		if (clearContainerChildren){
 			foreach (Node child in container.GetChildren())

@@ -23,7 +23,7 @@
 [ext_resource type="AudioStream" uid="uid://idcv7223d7jo" path="res://Assets/Audio/SoundEffects/levelup/sound_level_up.wav" id="21_qvjl3"]
 [ext_resource type="AudioStream" uid="uid://c3rr1xhve48tc" path="res://Assets/Audio/SoundEffects/fight/sound_win.wav" id="22_w8mb3"]
 [ext_resource type="AudioStream" uid="uid://oya486vh72rd" path="res://Assets/Audio/SoundEffects/fight/sound_lose.wav" id="23_154qo"]
-[ext_resource type="Script" uid="uid://cfjaujefqq6es" path="res://Scripts/SaveLoad/SaveLoadSystem.cs" id="24_edw2g"]
+[ext_resource type="Script" uid="uid://cedlsepu42pqa" path="res://Scripts/SaveLoad/SaverLoader.cs" id="24_hvyv7"]
 [ext_resource type="Script" uid="uid://dxu8ki21twten" path="res://Scenes/GameManager/UiPackedSceneReferences.cs" id="25_hvyv7"]
 [ext_resource type="PackedScene" uid="uid://dk32ss75ce3lw" path="res://Assets/UI/Scenes/UICard/UICard.tscn" id="26_gtxkj"]
 [ext_resource type="PackedScene" uid="uid://dsnbg78nbu0vo" path="res://Assets/UI/Scenes/UIBossCard/UIBossCard.tscn" id="27_ruywd"]
@@ -318,7 +318,7 @@ winSounds = Array[AudioStream]([ExtResource("22_w8mb3")])
 loseSounds = Array[AudioStream]([ExtResource("23_154qo")])
 
 [node name="SaverLoader" type="Node" parent="."]
-script = ExtResource("24_edw2g")
+script = ExtResource("24_hvyv7")
 
 [node name="UIPackedSceneReferences" type="Node" parent="."]
 script = ExtResource("25_hvyv7")

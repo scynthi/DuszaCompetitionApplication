@@ -3,11 +3,11 @@ using System;
 
 public partial class UiSaveFileItem : Control
 {
-    [Signal] public delegate void SaveOpenedEventHandler(SaveFileResource saveFileResource);
+    [Signal] public delegate void SaveOpenedEventHandler(WorldContext saveFileResource);
 
     private Button button;
 
-    public SaveFileResource bindedSaveFile {get; private set;}
+    public WorldContext bindedSaveFile {get; private set;}
 
     public override void _Ready()
     {
@@ -15,7 +15,7 @@ public partial class UiSaveFileItem : Control
     }
 
 
-    public void BindSaveFile(SaveFileResource saveFile)
+    public void BindSaveFile(WorldContext saveFile)
     {
         bindedSaveFile = saveFile;
     }

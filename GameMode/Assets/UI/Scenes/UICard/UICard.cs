@@ -134,7 +134,7 @@ public partial class UICard : Control
 
     public void UpdateIconForCardInstace(Card card)
     {
-        if (card.Icon == null) card.Icon = CardIcon;
+        if (card.Icon == null) card.Icon = CardIcon.ResourcePath;
     }
 
     private ImageTexture CreateTexture(string resourcePath)

@@ -4,35 +4,35 @@ using System.Collections.Generic;
 
 public partial class SaveLoadSystem : Node
 {
-	public SaveFileResource currSaveFile {get; set;}
+	public WorldContext currSaveFile { get; set; }
 
 	public const string SAVE_PATH = "res://Saves/";
 
-	public static SaveFileResource CreateSaveFileFromData(string saveFileName, List<Card> worldCardsList, List<Dungeon> dungeonList, List<Card> playerCollection)
+	public static WorldContext CreateSaveFileFromData(string saveFileName, List<Card> worldCardsList, List<Dungeon> dungeonList, List<Card> playerCollection)
     {
-		Player newPlayer = new Player(0,0, playerCollection, []);
+		Player newPlayer = new Player(0, 0);
 		newPlayer.SetCollection(playerCollection);
 
-		return new SaveFileResource(saveFileName, newPlayer, worldCardsList, dungeonList);
+		return new WorldContext(saveFileName, newPlayer, worldCardsList, dungeonList);
     }
 
-	public static SaveFileResource CreateSaveFileFromData(string saveFileName, List<Card> worldCardsList, List<Dungeon> dungeonList, Player playerInstance)
+	public static WorldContext CreateSaveFileFromData(string saveFileName, List<Card> worldCardsList, List<Dungeon> dungeonList, Player playerInstance)
     {
-		return new SaveFileResource(saveFileName, playerInstance, worldCardsList, dungeonList);
+		return new WorldContext(saveFileName, playerInstance, worldCardsList, dungeonList);
     }
 
 
 
-	public void WriteSaveFile(SaveFileResource saveFile)
+	public void WriteSaveFile(WorldContext saveFile)
     {
-        ResourceSaver.Save(saveFile, SAVE_PATH + $"{saveFile.name}.tres");
+        // ResourceSaver.Save(saveFile, SAVE_PATH + $"{saveFile.Name}.tres");
     }
 
-	public SaveFileResource LoadSaveFile(string saveFileName)
+	public WorldContext LoadSaveFile(string saveFileName)
     {
         if (ResourceLoader.Exists(SAVE_PATH + $"{saveFileName}"))
         {
-            return GD.Load<SaveFileResource>(SAVE_PATH + $"{saveFileName}");
+            return GD.Load<WorldContext>(SAVE_PATH + $"{saveFileName}");
         } 
 		return null;
     }

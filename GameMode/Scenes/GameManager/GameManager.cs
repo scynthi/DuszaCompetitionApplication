@@ -7,7 +7,7 @@ public partial class GameManager : Node
     [Export] private Node World;
 
     [Export] private AnimationPlayer transitionAnimator;
-    [Export] public SaveLoadSystem saverLoader;
+    [Export] public SaverLoader saverLoader;
     [Export] public UiAudioController audioController;
     [Export] public UiPackedSceneReferences uiPackedSceneReferences;
 

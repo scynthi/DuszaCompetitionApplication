@@ -22,6 +22,12 @@ public partial class FightLogic : Node
 	List<IItem> ItemList = new List<IItem>();
 	private int Round = 1;
 
+    public override void _Ready()
+    {
+        // SaverLoader.SaveTo(new WorldContext("test", new Player(0, 0), new List<Card>(), new List<Dungeon>()));
+    }
+
+
 	public RoundState SimulateRound(Card DungeonCard, Card PlayerCard, List<IItem> itemList)
 	{
 		foreach (IItem item in itemList)

@@ -8,7 +8,7 @@ public partial class ContinueGameSubMenu : Control
 
     public void ReloadSaves()
     {
-        DirAccess dir = DirAccess.Open(SaveLoadSystem.SAVE_PATH);
+        DirAccess dir = DirAccess.Open(SaverLoader.SAVE_PATH);
 
         if (dir != null)
         {
@@ -23,13 +23,13 @@ public partial class ContinueGameSubMenu : Control
             while (fileName != "")
             {
 
-                if (fileName.EndsWith(".tres"))
+                if (!fileName.Contains("."))
                 {
-                    var saveFile = Global.gameManager.saverLoader.LoadSaveFile(fileName);
+                    var saveFile = Global.gameManager.saverLoader.Load(fileName);
 
                     if (saveFile != null)
                     {
-                        if (!saveFile.isStarted){
+                        if (!saveFile.IsStarted){
                             fileName = dir.GetNext();
                             continue;}
 
@@ -40,7 +40,7 @@ public partial class ContinueGameSubMenu : Control
 
                         saveFileContinueItemsHolder.AddChild(newUiSaveFileContinueItem);
 
-                        newUiSaveFileContinueItem.SetLabelText(saveFile.name);
+                        newUiSaveFileContinueItem.SetLabelText(saveFile.Name);
 
                     }
                 }
@@ -51,7 +51,7 @@ public partial class ContinueGameSubMenu : Control
     }
 
 
-    private async void _SaveFileContinueItemPressed(SaveFileResource bindedSaveFile)
+    private async void _SaveFileContinueItemPressed(WorldContext bindedSaveFile)
     {
         Global.gameManager.saverLoader.currSaveFile = bindedSaveFile;
         await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.DungeonMap);

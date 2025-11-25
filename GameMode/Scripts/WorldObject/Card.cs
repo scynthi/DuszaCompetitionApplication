@@ -1,17 +1,15 @@
 using Godot;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
-public partial class Card : Resource, IWorldObject
+public partial class Card : IWorldObject
 {
-	[Export] public string Name {set; get; }
-    [Export] public int Health { protected set; get; }
-    [Export] public int BaseDamage { protected set; get; }
-    [Export] public int Damage { protected set; get; }
-    [Export] public CardElements CardElement { private set; get; }
-    [Export] public Texture2D Icon { set; get; }
-    public BuffHandler buffHandler { private set; get; }
+	public string Name { set; get; }
+    public int Health { set; get; }
+    public int BaseDamage { set; get; }
+    public int Damage { set; get; }
+    public CardElements CardElement { set; get; }
+    public string Icon { set; get; }
+    public BuffHandler buffHandler { set; get; }
 
     public Card(){}
 
@@ -20,7 +18,7 @@ public partial class Card : Resource, IWorldObject
         
         Name        = name;
         Health      = health;
-        Icon        = cardIcon;
+        Icon        = cardIcon.ResourcePath;
         BaseDamage  = baseDamage;
         Damage      = baseDamage;
         CardElement = cardElements;

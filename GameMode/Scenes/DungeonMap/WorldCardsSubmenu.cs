@@ -7,6 +7,6 @@ public partial class WorldCardsSubmenu : Control
 
     public void ReloadWorldCards()
     {
-        Utility.AddUiCardsUnderContainer(Global.gameManager.saverLoader.currSaveFile.worldCards, cardContainer);
+        Utility.AddUiCardsUnderContainer(Global.gameManager.saverLoader.currSaveFile.WorldCards, cardContainer);
     }
 }

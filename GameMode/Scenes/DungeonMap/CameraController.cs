@@ -15,7 +15,8 @@ public partial class CameraController : Camera2D
 
     public override void _Ready()
     {
-        mapSize = new Vector2(GetViewportRect().Size.X * (int)Math.Ceiling((float)Global.gameManager.saverLoader.currSaveFile.dungeons.Count / (float)6), mapSize.Y);
+        GD.Print(Global.gameManager.saverLoader.currSaveFile.WorldDungeons.Count);
+        mapSize = new Vector2(GetViewportRect().Size.X * (int)Math.Ceiling((float)Global.gameManager.saverLoader.currSaveFile.WorldDungeons.Count / (float)6), mapSize.Y);
     }
 
     // I have no Idea what these do but it works (it was created from an unholy fusion dance of chatgpt and a random youtubers code)

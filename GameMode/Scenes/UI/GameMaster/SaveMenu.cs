@@ -48,15 +48,18 @@ public partial class SaveMenu : HBoxContainer
 			dungeonList.Add(dungeon);
 		}
 
-
-		SaveFileResource saveFile = SaveLoadSystem.CreateSaveFileFromData(
+		foreach (Dungeon dgon in dungeonList)
+        {
+            GD.Print(dgon.Name);
+        }
+		WorldContext saveFile = SaverLoader.CreateSave(
 			saveName, 
 			cardsList,
 			dungeonList,
-			new Player(0,0, cardsList, [new Card("Egyetlen kártya", 8, 89, CardElements.EARTH)])
+			new Player(0, 0)
 		);
-        Global.gameManager.saverLoader.WriteSaveFile(saveFile);
 
 		GD.Print($"Save file ({saveName}) has been saved by InterPeter's hyper super backend of Saving files sponsored by Godot and God himself.");
+		GD.Print($"Peti this in fact doesnát work, and it wasn't so hyper super");
     }
 }

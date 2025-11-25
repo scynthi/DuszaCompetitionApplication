@@ -16,11 +16,11 @@ public partial class BackgroundGenerator : Node2D
 
     public override void _Ready()
     {
-        for (int i = 0; i < Math.Ceiling((float)Global.gameManager.saverLoader.currSaveFile.dungeons.Count / (float)dungeonsPerTile); i++)
+        for (int i = 0; i < Math.Ceiling((float)Global.gameManager.saverLoader.currSaveFile.WorldDungeons.Count / (float)dungeonsPerTile); i++)
         {
             Node2D newBackgroundTile = null;
 
-            if (i + 1 == Math.Ceiling((float)Global.gameManager.saverLoader.currSaveFile.dungeons.Count / (float)dungeonsPerTile))
+            if (i + 1 == Math.Ceiling((float)Global.gameManager.saverLoader.currSaveFile.WorldDungeons.Count / (float)dungeonsPerTile))
             {
                 newBackgroundTile = mapBackgroundFinal.Instantiate<Node2D>();
             }
@@ -53,7 +53,7 @@ public partial class BackgroundGenerator : Node2D
         
         int dungeonIndex = 0;
 
-        foreach(Dungeon dungeon in Global.gameManager.saverLoader.currSaveFile.dungeons)
+        foreach(Dungeon dungeon in Global.gameManager.saverLoader.currSaveFile.WorldDungeons)
         {
             MapDungeonButton newMapDungeonButton = (MapDungeonButton)dungeonButton.Instantiate();
 

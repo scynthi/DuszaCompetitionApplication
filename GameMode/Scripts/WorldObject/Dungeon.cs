@@ -2,12 +2,12 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public partial class Dungeon : Resource, IWorldObject
+public partial class Dungeon : IWorldObject
 {
-	[Export] public string Name { private set; get; }
-	[Export] public DungeonTypes DungeonType {private set; get; }
-	[Export] public DungeonRewardTypes DungeonReward { private set; get; }
-    [Export] public Godot.Collections.Array<Card> DungeonDeck { private set; get; }
+	public string Name { set; get; }
+	public DungeonTypes DungeonType { set; get; }
+	public DungeonRewardTypes DungeonReward { set; get; }
+    public List<Card> DungeonDeck { set; get; }
 
     public Dungeon(){}
 

@@ -11,8 +11,8 @@ public partial class DeckSubmenu : Control
 
     public void ReloadCards()
     {
-        Godot.Collections.Array<Card> collectionLoadList = [];
-        Godot.Collections.Array<Card> deckLoadList = [];
+        List<Card> collectionLoadList = [];
+        List<Card> deckLoadList = [];
 
         foreach(Card card in Global.gameManager.saverLoader.currSaveFile.player.Collection)
         {

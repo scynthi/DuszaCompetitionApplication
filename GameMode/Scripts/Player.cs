@@ -3,22 +3,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-public partial class Player : Resource
+public class Player
 {
-	[Export] public int Xp { private set; get; }
-	[Export] public int Money { private set; get; }
-	[Export] public Godot.Collections.Array<Card> Collection { private set; get; }
-	[Export] public Godot.Collections.Array<Card> Deck { private set; get; }
-    public List<IItem> ItemList { private set; get; }
+	public int Xp { set; get; }
+	public int Money { set; get; }
+	public List<Card> Collection { set; get; }
+	public List<Card> Deck { set; get; }
+    public List<IItem> ItemList { set; get; }
 
     public Player(){}
 
-	public Player(int xp, int money, List<Card> collection, List<Card> deck)
+	public Player(int xp, int money)
     {
         Xp         = xp;
         Money      = money;
-        Collection = new Godot.Collections.Array<Card>(collection);;
-        Deck       = new Godot.Collections.Array<Card>(deck);
+        Collection = new List<Card>();
+        Deck       = new List<Card>();
+        ItemList   = new List<IItem>();
     }
 
 	public void SetCollection(List<Card> cardList)
@@ -50,7 +51,7 @@ public partial class Player : Resource
     {
 		Card selectedCard = null;
 		int oldIndex = -1;
-
+        newIndex--;
 		for (int i = 0; i < Deck.Count; i++)
             if (Deck[i].Name == name)
             {
@@ -65,6 +66,7 @@ public partial class Player : Resource
     }
 	public void MoveCardToIndexInDeck(int oldIndex, int newIndex)
     {
+        newIndex--;
 		if (oldIndex < 0 || oldIndex >= Deck.Count) return;
 		if (newIndex < 0 || newIndex >= Deck.Count) return;
 
