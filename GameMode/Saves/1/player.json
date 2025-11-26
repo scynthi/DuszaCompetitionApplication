@@ -1,9 +1,9 @@
 {
   "player": {
-	"Xp": 0,
-	"Money": 1000000,
-	"Collection": [],
-	"Deck": [],
-	"ItemList": []
+    "Xp": 0,
+    "Money": 0,
+    "Collection": [],
+    "Deck": [],
+    "ItemList": []
   }
 }

@@ -20,6 +20,13 @@ public class Player
         Collection = new List<Card>();
         Deck       = new List<Card>();
         ItemList   = new List<IItem>();
+        SetUpCollection();
+    }
+
+    public void SetUpCollection()
+    {
+        foreach (ItemType itemType in Enum.GetValues(typeof(ItemType)))
+            AddToItemList(Items.CreateItemFromType(itemType));
     }
 
 	public void SetCollection(List<Card> cardList)
@@ -80,5 +87,42 @@ public class Player
 
 		Deck.RemoveAt(oldIndex);
 		Deck.Insert(newIndex, selectedCard);
+    }
+    public void AddToItemList(IItem item)
+    {
+        foreach (IItem currItem in ItemList)
+            if (currItem.Name == item.Name)
+            {
+                currItem.IncreaseAmount();
+                return;
+            }
+        ItemList.Add(item);
+    }
+    public void RemoveFromItemList(IItem item)
+    {
+        foreach (IItem currItem in ItemList)
+            if (currItem.Name == item.Name)
+            {
+                currItem.DecreaseAmount();
+                return;
+            }
+    }
+    public bool IsInItemList(IItem item)
+    {
+        foreach (IItem currItem in ItemList)
+            if (currItem.Name == item.Name)
+            {
+                return currItem.Amount > 0;
+            }
+        return false;
+    }
+    public int ReturnItemAmount(IItem item)
+    {
+        foreach (IItem currItem in ItemList)
+            if (currItem.Name == item.Name)
+            {
+                return currItem.Amount;
+            }
+        return 0;
     }
 }

@@ -7,6 +7,7 @@ public partial class ElementalBuffItem : IItem
 	public string Description { private set; get; } = "I don't know part 2";
 	public string Icon { private set; get; } = "uid://cc17bg13ixypu";
     public int Price { private set; get; } = 15;
+	public int Amount { set; get; } = 0;
     public ItemType Type { private set; get; } = ItemType.ElementalBuff;
 	public IBuff Buff { get; }
     public void ApplyPlayerBuff(Card card, int round)
@@ -14,4 +15,14 @@ public partial class ElementalBuffItem : IItem
         card.buffHandler.AddBuff(new ElementalBuff(round));
     }
 	public void ApplyDungeonBuff(Card card, int round) { }
+    public void IncreaseAmount()
+    {
+        Amount++;
+    }
+	public void DecreaseAmount()
+    {
+        Amount--;
+    }
+    public ElementalBuffItem() {}
+
 }

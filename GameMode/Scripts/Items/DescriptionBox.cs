@@ -3,31 +3,31 @@ using System;
 
 public partial class DescriptionBox : Control
 {
-	
-	public static DescriptionBox Instance;
-
-	private Label NameLabel;
-	private Label DescriptionLabel;
+	[Export] private Label NameLabel;
+	[Export] private Label DescriptionLabel;
+    [Export] public Label Amount;
     [Export] public PanelContainer Panel;
 
     public override void _Ready()
     {
-        Instance = this;
-		NameLabel = GetNode<Label>("PanelContainer/MarginContainer/VBoxContainer/Name");
-		DescriptionLabel = GetNode<Label>("PanelContainer/MarginContainer/VBoxContainer/Descripiton");
-
-		NameLabel.Text = "APPLE";
-
 		Visible = false;
     }
 
-	public void ShowDescription(string name, string description, Vector2 pos, float width)
+	public void ShowDescription(string name, string description, int amount, Vector2 pos, float width)
     {
         NameLabel.Text = name;
         DescriptionLabel.Text = description;
+        Amount.Text = amount.ToString();
 
 		Visible = true;
-		Position = pos + new Vector2(-Panel.Size.X / 2 + width / 2, -Panel.Size.Y);
+		GlobalPosition = pos + new Vector2(-Panel.Size.X / 2 + width / 2, -Panel.Size.Y);
+    }
+
+    public void UpdateDescription(string name, string description, int amount)
+    {
+        NameLabel.Text = name;
+        DescriptionLabel.Text = description;
+        Amount.Text = amount.ToString();
     }
 
 	public void HideDescription()

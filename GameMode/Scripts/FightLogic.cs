@@ -20,14 +20,15 @@ public partial class FightLogic : Node
 	// TEST
 	List<Card> PlayerDeck = new List<Card> { new Card("Corky", 2, 4, CardElements.EARTH), new Card("Kira", 2, 7, CardElements.WIND) };
 	List<Card> DungeonDeck = new List<Card> { new Card("Sadan", 2, 4, CardElements.WIND) };
-	List<IItem> ItemList = new List<IItem> { };
+	List<IItem> ItemList = new List<IItem>();
 	private int Round = 1;
+	Player player = Global.gameManager.saverLoader.currSaveFile.player;
 
 	public override void _Ready()
 	{
-		foreach (Card card in Global.gameManager.saverLoader.currSaveFile.player.Deck) PlayerDeck.Add(new Card(card));
-		foreach (Card card in Global.gameManager.saverLoader.currSaveFile.player.Deck) PlayerDeck.Add(new Card(card));
-		foreach (Card card in Global.gameManager.saverLoader.currSaveFile.player.Deck) PlayerDeck.Add(new Card(card));
+		foreach (Card card in player.Deck) PlayerDeck.Add(new Card(card));
+		// foreach (Card card in Global.gameManager.saverLoader.currSaveFile.player.Deck) PlayerDeck.Add(new Card(card));
+		LoadItemButtons(player.ItemList);
 	}
 
 	public void LoadItemButtons(List<IItem> itemList)
@@ -38,7 +39,9 @@ public partial class FightLogic : Node
 		{
 			ItemButton btn = iconButtonScene.Instantiate<ItemButton>();
 			btn.itemType = item.Type;
-			btn.Send_Item += OnAddToItemListPressed;
+			btn.SetToggledOn();
+			btn.Send_Item_Added += OnAddToItemListPressed;
+			btn.Send_Item_Removed += OnRemoveFromItemListPressed;
 			IconContainer.AddChild(btn);
 		}
     }
@@ -49,6 +52,7 @@ public partial class FightLogic : Node
 		{
 			item.ApplyPlayerBuff(PlayerCard, Round);
 			item.ApplyDungeonBuff(DungeonCard, Round);
+			player.RemoveFromItemList(item);
 		}
 
 		GD.Print("Dungeon Attack: " + DungeonCard.Attack(PlayerCard));
@@ -103,4 +107,15 @@ public partial class FightLogic : Node
 		IItem createdItem = Items.CreateItemFromType((ItemType)item);
 		if (!Utility.ItemListToNameList(ItemList).Contains(createdItem.Name)) ItemList.Add(createdItem);
 	}
+
+	public void OnRemoveFromItemListPressed(int item)
+    {
+		IItem createdItem = Items.CreateItemFromType((ItemType)item);
+        foreach (IItem curritem in ItemList)
+			if (curritem.Name == createdItem.Name)
+            {
+				ItemList.Remove(curritem);
+				return;
+            } 
+    }
 }

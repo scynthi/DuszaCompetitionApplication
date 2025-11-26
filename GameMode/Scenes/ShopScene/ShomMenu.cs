@@ -10,7 +10,7 @@ public partial class ShomMenu : Control
         if (Global.gameManager.saverLoader.currSaveFile.player.Money < item.Price) return;
 
         Global.gameManager.saverLoader.currSaveFile.player.Money -= item.Price;
-        Global.gameManager.saverLoader.currSaveFile.player.ItemList.Add(item);
+        Global.gameManager.saverLoader.currSaveFile.player.AddToItemList(item);
     
         GD.Print(Global.gameManager.saverLoader.currSaveFile.player.Money);
 

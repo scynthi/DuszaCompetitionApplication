@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
+using System.Text.Json.Serialization.Metadata;
 
 public class PlayerSave
 {
@@ -28,6 +29,12 @@ public partial class SaverLoader : Node
 	public const string SAVE_PATH = "res://Saves/";
 	public WorldContext currSaveFile { get; set; }
 
+	private static JsonSerializerOptions options = new JsonSerializerOptions 
+	{
+		WriteIndented = true,
+		TypeInfoResolver = new DefaultJsonTypeInfoResolver()
+	};
+
 	public void SaveTo(WorldContext WorldContext)
 	{
 		string folder = $"{SAVE_PATH}{WorldContext.Name}";
@@ -39,19 +46,9 @@ public partial class SaverLoader : Node
 		Settings settingsData;
 
 		Convert(WorldContext, out playerData, out worldSave, out settingsData);
-
-		string playerJson = JsonSerializer.Serialize(playerData, new JsonSerializerOptions
-		{
-			WriteIndented = true
-		});
-		string worldJson = JsonSerializer.Serialize(worldSave, new JsonSerializerOptions
-		{
-			WriteIndented = true
-		});
-		string settingsJson = JsonSerializer.Serialize(settingsData, new JsonSerializerOptions
-		{
-			WriteIndented = true
-		});
+		string playerJson = JsonSerializer.Serialize(playerData, options);
+		string worldJson = JsonSerializer.Serialize(worldSave, options);
+		string settingsJson = JsonSerializer.Serialize(settingsData, options);
 
 		File.WriteAllText(Path.Combine(fullPath, "player.json"), playerJson);
 		File.WriteAllText(Path.Combine(fullPath, "world.json"), worldJson);
@@ -72,18 +69,9 @@ public partial class SaverLoader : Node
 
 		Convert(saveName, cardsList, dungeonList, player, out playerData, out worldSave, out settingsData);
 
-		string playerJson = JsonSerializer.Serialize(playerData, new JsonSerializerOptions
-		{
-			WriteIndented = true
-		});
-		string worldJson = JsonSerializer.Serialize(worldSave, new JsonSerializerOptions
-		{
-			WriteIndented = true
-		});
-		string settingsJson = JsonSerializer.Serialize(settingsData, new JsonSerializerOptions
-		{
-			WriteIndented = true
-		});
+		string playerJson = JsonSerializer.Serialize<PlayerSave>(playerData, options);
+		string worldJson = JsonSerializer.Serialize(worldSave, options);
+		string settingsJson = JsonSerializer.Serialize(settingsData, options);
 
 		File.WriteAllText(Path.Combine(fullPath, "player.json"), playerJson);
 		File.WriteAllText(Path.Combine(fullPath, "world.json"), worldJson);
@@ -105,9 +93,10 @@ public partial class SaverLoader : Node
 		string playerJson = File.ReadAllText(Path.Combine(filePath, "player.json"));
 		string worldJson = File.ReadAllText(Path.Combine(filePath, "world.json"));
 		string settingsJson = File.ReadAllText(Path.Combine(filePath, "settings.json"));
-		PlayerSave playerData = JsonSerializer.Deserialize<PlayerSave>(playerJson);
-		WorldSave worldData = JsonSerializer.Deserialize<WorldSave>(worldJson);
-		Settings settings = JsonSerializer.Deserialize<Settings>(settingsJson);
+		PlayerSave playerData = JsonSerializer.Deserialize<PlayerSave>(playerJson, options);
+		WorldSave worldData = JsonSerializer.Deserialize<WorldSave>(worldJson, options);
+		Settings settings = JsonSerializer.Deserialize<Settings>(settingsJson, options);
+		GD.Print("burg part 2");
 
 		return new WorldContext(playerData, worldData, settings);
     }

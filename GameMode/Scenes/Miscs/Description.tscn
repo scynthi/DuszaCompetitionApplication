@@ -2,10 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bxof0tgktloom" path="res://Scripts/Items/DescriptionBox.cs" id="1_50le0"]
 
-[node name="DescriptionBox" type="Control" node_paths=PackedStringArray("Panel")]
+[node name="DescriptionBox" type="Control" node_paths=PackedStringArray("NameLabel", "DescriptionLabel", "Amount", "Panel")]
 layout_mode = 3
 anchors_preset = 0
+mouse_filter = 2
 script = ExtResource("1_50le0")
+NameLabel = NodePath("PanelContainer/MarginContainer/VBoxContainer/Name")
+DescriptionLabel = NodePath("PanelContainer/MarginContainer/VBoxContainer/Descripiton")
+Amount = NodePath("PanelContainer/MarginContainer/VBoxContainer/Amount")
 Panel = NodePath("PanelContainer")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -23,6 +27,13 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Descripiton" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "ís
+a
+a
+a"
+
+[node name="Amount" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "ís
 a
