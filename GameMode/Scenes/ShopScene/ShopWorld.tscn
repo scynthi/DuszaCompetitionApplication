@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://6oiws6jda0wi"]
+[gd_scene load_steps=16 format=3 uid="uid://6oiws6jda0wi"]
 
 [ext_resource type="PackedScene" uid="uid://cpidsg2b56hne" path="res://Assets/StyledCamera.tscn" id="1_68qub"]
 [ext_resource type="PackedScene" uid="uid://bbpn6eshxwvxq" path="res://Assets/Models/shop.glb" id="1_emkcw"]
@@ -7,16 +7,25 @@
 [ext_resource type="PackedScene" uid="uid://duqvkh3tdlkve" path="res://Scenes/FightScene/ItemButton.tscn" id="3_iliwk"]
 [ext_resource type="Script" uid="uid://bbbnbyfjkbg8e" path="res://Scripts/Buttons/BackButton.cs" id="4_wdj8d"]
 [ext_resource type="Texture2D" uid="uid://b6kxxoiuifnem" path="res://Assets/Images/player/coin.png" id="7_7glmu"]
+[ext_resource type="Texture2D" uid="uid://chnum6s8tk8ah" path="res://Assets/Images/Backgrounds/main_menu_border.png" id="8_60d55"]
+[ext_resource type="PackedScene" uid="uid://dk32ss75ce3lw" path="res://Assets/UI/Scenes/UICard/UICard.tscn" id="8_r66ni"]
+[ext_resource type="Texture2D" uid="uid://c784rnnp8bpja" path="res://Assets/Images/Shop/reroll.png" id="9_42hqr"]
 
 [sub_resource type="Environment" id="Environment_7glmu"]
-ambient_light_source = 1
-ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.45, 0.39885, 0.3105, 1)
+ambient_light_energy = 0.15
+tonemap_mode = 4
 ssao_enabled = true
 ssao_radius = 1.65
 ssao_intensity = 3.07
 glow_enabled = true
-volumetric_fog_enabled = true
+fog_light_color = Color(0.69086254, 0.7289716, 0.8756145, 1)
+fog_light_energy = 8.04
 volumetric_fog_density = 0.0
+adjustment_enabled = true
+adjustment_contrast = 1.68
+adjustment_saturation = 1.09
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_x2c5x"]
 resource_local_to_scene = false
@@ -32,10 +41,28 @@ metadata/_custom_type_script = "uid://jtuoap7qxnl5"
 [sub_resource type="Compositor" id="Compositor_60d55"]
 compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_x2c5x")])
 
-[sub_resource type="FogMaterial" id="FogMaterial_7glmu"]
-density = 0.1214
-albedo = Color(0.16, 0, 0, 1)
-edge_fade = 0.13660437
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r66ni"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.36662653, 0.21088445, 1.92523e-07, 0.6)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60d55"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.01862038, 0.045158714, 0.064274326, 0.6)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+corner_detail = 5
 
 [node name="ShopWorld" type="Node3D"]
 
@@ -46,13 +73,9 @@ compositor = SubResource("Compositor_60d55")
 [node name="shop" parent="." instance=ExtResource("1_emkcw")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.06497955, -2.6206665, -1.2547932)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5409242, -1.7981389)
-visible = false
-size = Vector3(1, 0.63378906, 1.1837158)
-
 [node name="StyledCamera" parent="." instance=ExtResource("1_68qub")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.034503937, -0.2, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9983418, 0.057564024, 0, -0.057564024, 0.9983418, -0.09, 0.11, -0.17)
+size = 4.779
 
 [node name="ShomMenu" type="Control" parent="." node_paths=PackedStringArray("moneyLabel")]
 layout_mode = 3
@@ -71,10 +94,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
+theme_override_constants/margin_left = 35
+theme_override_constants/margin_top = 35
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 35
 
 [node name="Control" type="Control" parent="ShomMenu/MarginContainer"]
 layout_mode = 2
@@ -90,43 +113,30 @@ grow_vertical = 0
 text = "Vissza a térképre"
 script = ExtResource("4_wdj8d")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ShomMenu/MarginContainer/Control"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 136.0
-offset_top = -344.0
-offset_right = 671.0
-offset_bottom = -194.0
-grow_vertical = 0
-theme_override_constants/separation = 34
-alignment = 1
-
-[node name="ItemButton" parent="ShomMenu/MarginContainer/Control/HBoxContainer" instance=ExtResource("3_iliwk")]
-layout_mode = 2
-
-[node name="ItemButton2" parent="ShomMenu/MarginContainer/Control/HBoxContainer" instance=ExtResource("3_iliwk")]
-layout_mode = 2
-itemType = 1
-
-[node name="ItemButton3" parent="ShomMenu/MarginContainer/Control/HBoxContainer" instance=ExtResource("3_iliwk")]
-layout_mode = 2
-itemType = 2
-
 [node name="Control" type="Control" parent="ShomMenu/MarginContainer/Control"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(75, 75)
 layout_mode = 1
 anchors_preset = 0
-offset_right = 108.0
-offset_bottom = 108.0
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 427.0
+offset_bottom = 81.0
 
-[node name="TextureRect" type="TextureRect" parent="ShomMenu/MarginContainer/Control/Control"]
+[node name="Panel" type="Panel" parent="ShomMenu/MarginContainer/Control/Control"]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r66ni")
+
+[node name="TextureRect" type="TextureRect" parent="ShomMenu/MarginContainer/Control/Control"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 75.0
 grow_vertical = 2
 texture = ExtResource("7_7glmu")
 expand_mode = 1
@@ -137,36 +147,183 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 122.0
+offset_left = 78.0
+offset_top = -10.5
+offset_right = 400.0
+offset_bottom = 10.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 70
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 50
+text = "121213"
 vertical_alignment = 1
 clip_text = true
 text_overrun_behavior = 1
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.532818, -8.065249)
+[node name="Control3" type="Control" parent="ShomMenu/MarginContainer/Control"]
+anchors_preset = 0
+offset_left = 60.0
+offset_top = 356.0
+offset_right = 1160.0
+offset_bottom = 521.0
+
+[node name="Control2" type="Control" parent="ShomMenu/MarginContainer/Control/Control3"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 738.0
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="ShomMenu/MarginContainer/Control/Control3/Control2"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -81.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_60d55")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShomMenu/MarginContainer/Control/Control3/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 34
+alignment = 1
+
+[node name="ItemButton" parent="ShomMenu/MarginContainer/Control/Control3/Control2/HBoxContainer" instance=ExtResource("3_iliwk")]
+layout_mode = 2
+flat = true
+
+[node name="ItemButton2" parent="ShomMenu/MarginContainer/Control/Control3/Control2/HBoxContainer" instance=ExtResource("3_iliwk")]
+layout_mode = 2
+flat = true
+itemType = 1
+
+[node name="ItemButton3" parent="ShomMenu/MarginContainer/Control/Control3/Control2/HBoxContainer" instance=ExtResource("3_iliwk")]
+layout_mode = 2
+flat = true
+itemType = 2
+
+[node name="Control" type="Control" parent="ShomMenu/MarginContainer/Control/Control3"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -296.0
+offset_top = -189.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="ShomMenu/MarginContainer/Control/Control3/Control"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -81.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_60d55")
+
+[node name="CenterContainer" type="CenterContainer" parent="ShomMenu/MarginContainer/Control/Control3/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card" parent="ShomMenu/MarginContainer/Control/Control3/Control/CenterContainer" instance=ExtResource("8_r66ni")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ShomMenu/MarginContainer/Control/Control3/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -62.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Button" type="Button" parent="ShomMenu/MarginContainer/Control/Control3/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Reroll"
+icon = ExtResource("9_42hqr")
+
+[node name="Button2" type="Button" parent="ShomMenu/MarginContainer/Control/Control3/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 30
+text = "Buy"
+
+[node name="TextureRect" type="TextureRect" parent="ShomMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("8_60d55")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 0.8836839, 0.4680841, 0, -0.4680841, 0.8836839, -1.7189267, 2.5364192, -13.222461)
 light_color = Color(1, 0.8877197, 0.7942801, 1)
-light_energy = 1.512
+light_energy = 0.757
 shadow_enabled = true
-spot_range = 1665.159
-spot_attenuation = 0.24
+spot_range = 40.495
+spot_attenuation = 0.7
 spot_angle = 63.28125
+spot_angle_attenuation = 0.8122549
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(0.16943547, -3.0540164e-08, 0.98554134, -0.98554134, -3.127273e-08, 0.16943547, 2.5645981e-08, -1, -3.5397303e-08, 11.919516, 3.3287122, -14.070623)
+light_color = Color(0.84, 0.616, 0, 1)
+light_energy = 5.108
+shadow_enabled = true
+spot_range = 40.495
+spot_angle = 18.142176
 spot_angle_attenuation = 0.39229196
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.649781, 1.8705374)
-light_color = Color(1, 0.81, 0.81, 1)
-omni_range = 13.278235
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9624331, 1.9436343, -6.524365)
+light_color = Color(1, 0.97316664, 0.77, 1)
+light_energy = 5.355
+omni_range = 11.455
 
-[node name="FogVolume" type="FogVolume" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4230347, -17.478155)
-size = Vector3(12.083984, 9.551392, 11.453613)
-shape = 2
-material = SubResource("FogMaterial_7glmu")
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22, -0.649, -0.576)
+light_color = Color(1, 0.791, 0.78, 1)
+light_energy = 0.479
+shadow_enabled = true
+omni_range = 7.5774736
 
-[connection signal="Send_Item" from="ShomMenu/MarginContainer/Control/HBoxContainer/ItemButton" to="ShomMenu" method="GiveItemToPlayer"]
-[connection signal="Send_Item" from="ShomMenu/MarginContainer/Control/HBoxContainer/ItemButton2" to="ShomMenu" method="GiveItemToPlayer"]
-[connection signal="Send_Item" from="ShomMenu/MarginContainer/Control/HBoxContainer/ItemButton3" to="ShomMenu" method="GiveItemToPlayer"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.835, 0.6579428, -22.98)
+light_color = Color(0.63, 0.056699984, 0.056699984, 1)
+light_energy = 9.941
+shadow_enabled = true
+omni_range = 35.445
+
+[connection signal="Send_Item" from="ShomMenu/MarginContainer/Control/Control3/Control2/HBoxContainer/ItemButton" to="ShomMenu" method="GiveItemToPlayer"]
+[connection signal="Send_Item" from="ShomMenu/MarginContainer/Control/Control3/Control2/HBoxContainer/ItemButton2" to="ShomMenu" method="GiveItemToPlayer"]
+[connection signal="Send_Item" from="ShomMenu/MarginContainer/Control/Control3/Control2/HBoxContainer/ItemButton3" to="ShomMenu" method="GiveItemToPlayer"]

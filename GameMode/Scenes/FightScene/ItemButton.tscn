@@ -1,15 +1,60 @@
-[gd_scene load_steps=3 format=3 uid="uid://duqvkh3tdlkve"]
+[gd_scene load_steps=4 format=3 uid="uid://duqvkh3tdlkve"]
 
 [ext_resource type="Script" uid="uid://cb3b81rshu7rf" path="res://Scripts/Buttons/ItemButton.cs" id="1_u21i3"]
 [ext_resource type="PackedScene" uid="uid://fpu5astyeknw" path="res://Scenes/Miscs/Description.tscn" id="2_v1xfx"]
 
-[node name="ItemButton" type="Button"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1xfx"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.20691353, 0.20691356, 0.20691353, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.07, 0.07, 0.07, 1)
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="ItemButton" type="Button" node_paths=PackedStringArray("descriptionBox")]
 custom_minimum_size = Vector2(150, 150)
 offset_right = 150.0
 offset_bottom = 150.0
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("1_u21i3")
+descriptionBox = NodePath("DescriptionBox")
 
 [node name="DescriptionBox" parent="." instance=ExtResource("2_v1xfx")]
 layout_mode = 0
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = 1.0
+offset_right = 32.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_v1xfx")
+
+[node name="RichTextLabel" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "$99"
+horizontal_alignment = 1
+vertical_alignment = 1

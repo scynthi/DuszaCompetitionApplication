@@ -1,0 +1,65 @@
+{
+  "WorldCards": [],
+  "WorldDungeons": [
+    {
+      "Name": "Teszt Kazamata",
+      "DungeonType": 0,
+      "DungeonReward": 0,
+      "DungeonDeck": null
+    },
+    {
+      "Name": "Teszt Kazamata",
+      "DungeonType": 0,
+      "DungeonReward": 0,
+      "DungeonDeck": null
+    },
+    {
+      "Name": "Teszt Kazamata",
+      "DungeonType": 0,
+      "DungeonReward": 0,
+      "DungeonDeck": null
+    },
+    {
+      "Name": "Teszt Kazamata",
+      "DungeonType": 0,
+      "DungeonReward": 0,
+      "DungeonDeck": null
+    },
+    {
+      "Name": "Teszt Kazamata",
+      "DungeonType": 0,
+      "DungeonReward": 0,
+      "DungeonDeck": null
+    },
+    {
+      "Name": "Teszt Kazamata",
+      "DungeonType": 0,
+      "DungeonReward": 0,
+      "DungeonDeck": null
+    },
+    {
+      "Name": "Teszt Kazamata",
+      "DungeonType": 0,
+      "DungeonReward": 0,
+      "DungeonDeck": null
+    },
+    {
+      "Name": "Teszt Kazamata",
+      "DungeonType": 0,
+      "DungeonReward": 0,
+      "DungeonDeck": null
+    },
+    {
+      "Name": "Teszt Kazamata",
+      "DungeonType": 0,
+      "DungeonReward": 0,
+      "DungeonDeck": null
+    },
+    {
+      "Name": "Teszt Kazamata",
+      "DungeonType": 0,
+      "DungeonReward": 0,
+      "DungeonDeck": null
+    }
+  ]
+}

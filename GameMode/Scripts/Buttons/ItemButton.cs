@@ -12,6 +12,7 @@ public partial class ItemButton : Button
 
 	[Export] public ItemType itemType;
     [Export] public DescriptionBox descriptionBox;
+    [Export] public Label priceLabel;
 	private IItem item;
 
     public override void _Ready()
@@ -20,6 +21,7 @@ public partial class ItemButton : Button
         MouseExited += NoHover;
 		item = Items.CreateItemFromType(itemType);
         Icon = Utility.LoadTextureFromPath(item.Icon);
+        priceLabel.Text = "$" + Convert.ToString(item.Price);
     }
 
 	public override void _Pressed()
