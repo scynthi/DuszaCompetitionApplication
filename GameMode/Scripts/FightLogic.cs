@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Threading.Tasks;
 
 public enum RoundState
@@ -28,6 +29,7 @@ public partial class FightLogic : Node
 	List<IItem> ItemList = new List<IItem>();
 	private int Round = 1;
 	Player player = Global.gameManager.saverLoader.currSaveFile.player;
+	Variant StateMachine;
 
 	public override void _Ready()
 	{
@@ -60,8 +62,9 @@ public partial class FightLogic : Node
 
 	public void DisplayAttack(int damage)
     {
-        // DamageNum.Text = damage.ToString();
-		AnimPlayer.Play("DisplayDamage");
+        DamageNum.Text = damage.ToString();
+		// StateMachine.AsSystemArrayOfStringName
+		GD.Print("WHAT");
     }
 
 	public RoundState SimulateRound(Card DungeonCard, Card PlayerCard, List<IItem> itemList)

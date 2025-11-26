@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://nq0gnkgglhi6"]
+[gd_scene load_steps=6 format=3 uid="uid://nq0gnkgglhi6"]
 
 [ext_resource type="Script" uid="uid://cqbvhjwb8smc1" path="res://Scripts/FightLogic.cs" id="1_ugqt7"]
 [ext_resource type="Script" uid="uid://bbbnbyfjkbg8e" path="res://Scripts/Buttons/BackButton.cs" id="4_7d0qi"]
@@ -18,6 +18,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Control/RichTextLabel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(268, 63), Vector2(268, 80)]
+}
 
 [sub_resource type="Animation" id="Animation_f6n1v"]
 length = 0.001
@@ -33,6 +45,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Control/RichTextLabel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(268, 63)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f6n1v"]
 _data = {
@@ -40,17 +64,16 @@ _data = {
 &"RESET": SubResource("Animation_f6n1v")
 }
 
-[sub_resource type="AnimationRootNode" id="AnimationRootNode_xjksd"]
-
 [node name="FightScene" type="Node2D"]
 
-[node name="BattleManager" type="Node" parent="." node_paths=PackedStringArray("RoundText", "IconContainer", "PlayerCard", "EnemyCard", "DamageNum", "AnimPlayer")]
+[node name="BattleManager" type="Node" parent="." node_paths=PackedStringArray("RoundText", "IconContainer", "PlayerCard", "EnemyCard", "DamageNum", "AnimTree", "AnimPlayer")]
 script = ExtResource("1_ugqt7")
 RoundText = NodePath("../CanvasLayer/Control/Round display")
 IconContainer = NodePath("../CanvasLayer/Control/HBoxContainer")
 PlayerCard = NodePath("../CanvasLayer/Control/PlayerCard")
 EnemyCard = NodePath("../CanvasLayer/Control/EnemyCard")
 DamageNum = NodePath("../CanvasLayer/Control/RichTextLabel")
+AnimTree = NodePath("")
 AnimPlayer = NodePath("../CanvasLayer/Control/AnimationPlayer")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -69,7 +92,7 @@ layout_mode = 0
 offset_left = 268.0
 offset_top = 63.0
 offset_right = 324.0
-offset_bottom = 103.0
+offset_bottom = 103.00004
 text = "ADADA
 "
 fit_content = true
@@ -136,10 +159,5 @@ root_node = NodePath("../../..")
 libraries = {
 &"": SubResource("AnimationLibrary_f6n1v")
 }
-
-[node name="AnimationTree" type="AnimationTree" parent="CanvasLayer/Control"]
-root_node = NodePath("../../..")
-tree_root = SubResource("AnimationRootNode_xjksd")
-anim_player = NodePath("../AnimationPlayer")
 
 [connection signal="pressed" from="CanvasLayer/Control/StepBattle" to="BattleManager" method="OnButtonPressed"]
