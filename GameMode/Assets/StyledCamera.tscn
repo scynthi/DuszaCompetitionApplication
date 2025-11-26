@@ -16,6 +16,6 @@ metadata/_custom_type_script = "uid://jtuoap7qxnl5"
 [sub_resource type="Compositor" id="Compositor_fejld"]
 compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_8vrvh")])
 
-[node name="DtyledCamera" type="Camera3D"]
+[node name="StyledCamera" type="Camera3D"]
 compositor = SubResource("Compositor_fejld")
 fov = 36.2

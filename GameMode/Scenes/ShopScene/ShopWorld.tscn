@@ -1,19 +1,60 @@
-[gd_scene load_steps=5 format=3 uid="uid://6oiws6jda0wi"]
+[gd_scene load_steps=12 format=3 uid="uid://6oiws6jda0wi"]
 
 [ext_resource type="PackedScene" uid="uid://cpidsg2b56hne" path="res://Assets/StyledCamera.tscn" id="1_68qub"]
+[ext_resource type="PackedScene" uid="uid://bbpn6eshxwvxq" path="res://Assets/Models/shop.glb" id="1_emkcw"]
+[ext_resource type="Script" uid="uid://jtuoap7qxnl5" path="res://Assets/Shaders/quantization_shader.gd" id="1_qc2na"]
 [ext_resource type="Script" uid="uid://c2dg2wfyc6tix" path="res://Scenes/ShopScene/ShomMenu.cs" id="2_x4p3p"]
 [ext_resource type="PackedScene" uid="uid://duqvkh3tdlkve" path="res://Scenes/FightScene/ItemButton.tscn" id="3_iliwk"]
 [ext_resource type="Script" uid="uid://bbbnbyfjkbg8e" path="res://Scripts/Buttons/BackButton.cs" id="4_wdj8d"]
+[ext_resource type="Texture2D" uid="uid://b6kxxoiuifnem" path="res://Assets/Images/player/coin.png" id="7_7glmu"]
+
+[sub_resource type="Environment" id="Environment_7glmu"]
+ambient_light_source = 1
+ambient_light_color = Color(1, 1, 1, 1)
+ssao_enabled = true
+ssao_radius = 1.65
+ssao_intensity = 3.07
+glow_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_x2c5x"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("1_qc2na")
+color_depth = 16.0
+metadata/_custom_type_script = "uid://jtuoap7qxnl5"
+
+[sub_resource type="Compositor" id="Compositor_60d55"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_x2c5x")])
+
+[sub_resource type="FogMaterial" id="FogMaterial_7glmu"]
+density = 0.1214
+albedo = Color(0.16, 0, 0, 1)
+edge_fade = 0.13660437
 
 [node name="ShopWorld" type="Node3D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7glmu")
+compositor = SubResource("Compositor_60d55")
+
+[node name="shop" parent="." instance=ExtResource("1_emkcw")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.06497955, -2.6206665, -1.2547932)
+
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5409242, -1.7981389)
+visible = false
 size = Vector3(1, 0.63378906, 1.1837158)
 
-[node name="DtyledCamera" parent="." instance=ExtResource("1_68qub")]
+[node name="StyledCamera" parent="." instance=ExtResource("1_68qub")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.034503937, -0.2, 0)
 
-[node name="ShomMenu" type="Control" parent="."]
+[node name="ShomMenu" type="Control" parent="." node_paths=PackedStringArray("moneyLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,39 +62,111 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_x4p3p")
+moneyLabel = NodePath("MarginContainer/Control/Control/Label")
 
-[node name="ItemButton" parent="ShomMenu" instance=ExtResource("3_iliwk")]
-layout_mode = 0
-offset_left = 105.0
-offset_top = 26.0
-offset_right = 215.0
-offset_bottom = 76.0
+[node name="MarginContainer" type="MarginContainer" parent="ShomMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
 
-[node name="ItemButton2" parent="ShomMenu" instance=ExtResource("3_iliwk")]
-layout_mode = 0
-offset_left = 101.0
-offset_top = 95.0
-offset_right = 211.0
-offset_bottom = 145.0
-itemType = 1
+[node name="Control" type="Control" parent="ShomMenu/MarginContainer"]
+layout_mode = 2
 
-[node name="ItemButton3" parent="ShomMenu" instance=ExtResource("3_iliwk")]
-layout_mode = 0
-offset_left = 97.0
-offset_top = 155.0
-offset_right = 219.0
-offset_bottom = 205.0
-itemType = 2
-
-[node name="Button" type="Button" parent="ShomMenu"]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 314.0
-offset_right = 162.0
-offset_bottom = 345.0
+[node name="Button" type="Button" parent="ShomMenu/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -60.0
+offset_right = 221.0
+grow_vertical = 0
 text = "Vissza a térképre"
 script = ExtResource("4_wdj8d")
 
-[connection signal="Send_Item" from="ShomMenu/ItemButton" to="ShomMenu" method="GiveItemToPlayer"]
-[connection signal="Send_Item" from="ShomMenu/ItemButton2" to="ShomMenu" method="GiveItemToPlayer"]
-[connection signal="Send_Item" from="ShomMenu/ItemButton3" to="ShomMenu" method="GiveItemToPlayer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ShomMenu/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 136.0
+offset_top = -344.0
+offset_right = 671.0
+offset_bottom = -194.0
+grow_vertical = 0
+theme_override_constants/separation = 34
+alignment = 1
+
+[node name="ItemButton" parent="ShomMenu/MarginContainer/Control/HBoxContainer" instance=ExtResource("3_iliwk")]
+layout_mode = 2
+
+[node name="ItemButton2" parent="ShomMenu/MarginContainer/Control/HBoxContainer" instance=ExtResource("3_iliwk")]
+layout_mode = 2
+itemType = 1
+
+[node name="ItemButton3" parent="ShomMenu/MarginContainer/Control/HBoxContainer" instance=ExtResource("3_iliwk")]
+layout_mode = 2
+itemType = 2
+
+[node name="Control" type="Control" parent="ShomMenu/MarginContainer/Control"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 0
+offset_right = 108.0
+offset_bottom = 108.0
+
+[node name="TextureRect" type="TextureRect" parent="ShomMenu/MarginContainer/Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_7glmu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="ShomMenu/MarginContainer/Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 70
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.532818, -8.065249)
+light_color = Color(1, 0.8877197, 0.7942801, 1)
+light_energy = 1.512
+shadow_enabled = true
+spot_range = 1665.159
+spot_attenuation = 0.24
+spot_angle = 63.28125
+spot_angle_attenuation = 0.39229196
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.649781, 1.8705374)
+light_color = Color(1, 0.81, 0.81, 1)
+omni_range = 13.278235
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4230347, -17.478155)
+size = Vector3(12.083984, 9.551392, 11.453613)
+shape = 2
+material = SubResource("FogMaterial_7glmu")
+
+[connection signal="Send_Item" from="ShomMenu/MarginContainer/Control/HBoxContainer/ItemButton" to="ShomMenu" method="GiveItemToPlayer"]
+[connection signal="Send_Item" from="ShomMenu/MarginContainer/Control/HBoxContainer/ItemButton2" to="ShomMenu" method="GiveItemToPlayer"]
+[connection signal="Send_Item" from="ShomMenu/MarginContainer/Control/HBoxContainer/ItemButton3" to="ShomMenu" method="GiveItemToPlayer"]

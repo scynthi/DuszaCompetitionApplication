@@ -3,15 +3,13 @@
 [ext_resource type="Script" uid="uid://cb3b81rshu7rf" path="res://Scripts/Buttons/ItemButton.cs" id="1_u21i3"]
 [ext_resource type="PackedScene" uid="uid://fpu5astyeknw" path="res://Scenes/Miscs/Description.tscn" id="2_v1xfx"]
 
-[node name="ItemButton" type="Button" node_paths=PackedStringArray("descriptionBox")]
-custom_minimum_size = Vector2(50, 50)
-offset_right = 50.0
-offset_bottom = 50.0
+[node name="ItemButton" type="Button"]
+custom_minimum_size = Vector2(150, 150)
+offset_right = 150.0
+offset_bottom = 150.0
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("1_u21i3")
-descriptionBox = NodePath("DescriptionBox")
 
 [node name="DescriptionBox" parent="." instance=ExtResource("2_v1xfx")]
 layout_mode = 0
-mouse_filter = 2
