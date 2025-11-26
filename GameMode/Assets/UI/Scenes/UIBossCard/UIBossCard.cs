@@ -121,10 +121,10 @@ public partial class UIBossCard : Control
         nameLabel.Text = name;
         if (name.Length > 12)
         {
-            nameLabel.AddThemeFontSizeOverride("font_size", 7);
+            nameLabel.AddThemeFontSizeOverride("font_size", 12);
         } else
         {
-            nameLabel.AddThemeFontSizeOverride("font_size", 10);
+            nameLabel.AddThemeFontSizeOverride("font_size", 16);
         }
     }
 

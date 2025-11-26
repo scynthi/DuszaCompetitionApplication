@@ -6,17 +6,17 @@
 [ext_resource type="Script" uid="uid://rri2sofoubid" path="res://Assets/UI/Scenes/UIDungeon/DungeonStartButton.cs" id="4_m6imu"]
 
 [node name="UIDungeon" type="Control" node_paths=PackedStringArray("nameRichText", "nameLabel", "iconTexture", "enterButton")]
-custom_minimum_size = Vector2(140, 150)
+custom_minimum_size = Vector2(190, 230)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -62.5
-offset_top = -89.0
-offset_right = 37.5
-offset_bottom = 61.0
+offset_left = -108.0
+offset_top = -128.0
+offset_right = 82.0
+offset_bottom = 102.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -53,6 +53,7 @@ layout_mode = 2
 
 [node name="UILabel" type="Label" parent="VBox/CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 22
 text = "Teszt Kazamata"
 horizontal_alignment = 1
 
@@ -60,7 +61,6 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 texture = ExtResource("2_3smau")
-expand_mode = 1
 stretch_mode = 5
 
 [node name="Button" type="Button" parent="VBox/CenterContainer/VBoxContainer" node_paths=PackedStringArray("nameLabel")]

@@ -106,10 +106,10 @@ public partial class UICard : Control
         nameLabel.Text = name;
         if (name.Length > 12)
         {
-            nameLabel.AddThemeFontSizeOverride("font_size", 8);
+            nameLabel.AddThemeFontSizeOverride("font_size", 16);
         } else
         {
-            nameLabel.AddThemeFontSizeOverride("font_size", 10);
+            nameLabel.AddThemeFontSizeOverride("font_size", 20);
         }
     }
 

@@ -110,15 +110,14 @@ size_flags_horizontal = 4
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MenuContainer/MainMenu"]
-custom_minimum_size = Vector2(253.69, 0)
+custom_minimum_size = Vector2(0, 600)
 layout_mode = 0
-offset_left = -127.0
-offset_top = -180.0
-offset_right = 126.69
-offset_bottom = 180.0
+offset_left = -208.0
+offset_top = -360.0
+offset_right = 215.06122
+offset_bottom = 240.0
 texture = ExtResource("4_kpx3y")
-expand_mode = 1
-stretch_mode = 5
+expand_mode = 3
 
 [node name="Items" type="VBoxContainer" parent="MenuContainer/MainMenu"]
 layout_mode = 1
@@ -127,22 +126,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -77.5
-offset_top = -112.0
-offset_right = 77.5
-offset_bottom = 112.0
+offset_left = -160.0
+offset_top = -232.0
+offset_right = 168.0
+offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 25
+theme_override_constants/separation = 50
 
 [node name="Label" type="Label" parent="MenuContainer/MainMenu/Items"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 42
+theme_override_font_sizes/font_size = 60
 text = "Charter"
 horizontal_alignment = 1
 
 [node name="ButtonBox" type="VBoxContainer" parent="MenuContainer/MainMenu/Items"]
 layout_mode = 2
+theme_override_constants/separation = 8
 
 [node name="Continue" type="Button" parent="MenuContainer/MainMenu/Items/ButtonBox"]
 layout_mode = 2

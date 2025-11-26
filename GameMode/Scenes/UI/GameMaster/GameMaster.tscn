@@ -25,16 +25,15 @@ theme = ExtResource("1_hkpj5")
 
 [node name="ButtonBackgroundHolder" type="VBoxContainer" parent="."]
 layout_mode = 1
-offset_left = 640.0
-offset_top = 1.2239188e-05
-offset_right = 1000.0
-offset_bottom = 640.0
+offset_left = 227.69229
+offset_right = 946.69226
+offset_bottom = 227.69229
 rotation = 1.5707964
 alignment = 2
 
 [node name="ButtonBackground" type="TextureRect" parent="ButtonBackgroundHolder"]
 modulate = Color(0.8, 0.8, 0.8, 1)
-custom_minimum_size = Vector2(0, 140)
+custom_minimum_size = Vector2(0, 240)
 layout_mode = 2
 texture = ExtResource("1_bbocn")
 expand_mode = 1
@@ -46,7 +45,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 140
+theme_override_constants/margin_left = 240
 theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
@@ -82,7 +81,8 @@ alignment = 2
 [node name="Margin" type="MarginContainer" parent="Margin/HBox/GameMaster/MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 20
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
@@ -94,6 +94,7 @@ alignment = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 8
 
 [node name="Collection" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
@@ -134,9 +135,10 @@ size_flags_horizontal = 3
 [node name="MarginContainer" type="MarginContainer" parent="Margin/HBox/GameMaster/EditorContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 5
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 0
+theme_override_constants/margin_bottom = 25
 
 [node name="Editors" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer" node_paths=PackedStringArray("CardEditor", "DungeonEditor", "BossEditor", "DungeonViewer", "SaveMenu", "CardViewer")]
 layout_mode = 2
@@ -214,32 +216,36 @@ text = "Mentés"
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
+alignment = 2
 script = ExtResource("9_pahx4")
-NormalCardHolder = NodePath("Margin/VBox/NormalCards/Cards")
-BossCardHolder = NodePath("Margin/VBox/BossCards/Cards")
+NormalCardHolder = NodePath("MarginContainer/VBox/NormalCards/Cards")
+BossCardHolder = NodePath("MarginContainer/VBox/BossCards/Cards")
 
-[node name="Margin" type="MarginContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor"]
+[node name="MarginContainer" type="MarginContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_right = 25
 
-[node name="VBox" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/Margin"]
+[node name="VBox" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 alignment = 1
 
-[node name="NormalCards" type="ScrollContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/Margin/VBox"]
-custom_minimum_size = Vector2(110, 110)
+[node name="NormalCards" type="ScrollContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/MarginContainer/VBox"]
+custom_minimum_size = Vector2(220, 220)
 layout_mode = 2
 
-[node name="Cards" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/Margin/VBox/NormalCards"]
+[node name="Cards" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/MarginContainer/VBox/NormalCards"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="BossCards" type="ScrollContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/Margin/VBox"]
-custom_minimum_size = Vector2(0, 110)
+[node name="BossCards" type="ScrollContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/MarginContainer/VBox"]
+custom_minimum_size = Vector2(220, 220)
 layout_mode = 2
 
-[node name="Cards" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/Margin/VBox/BossCards"]
+[node name="Cards" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/MarginContainer/VBox/BossCards"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -247,27 +253,23 @@ size_flags_vertical = 3
 [node name="CardViewer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("cardHolder")]
 visible = false
 layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
 script = ExtResource("10_4h88p")
-cardHolder = NodePath("MarginContainer/ScrollContainer/HBoxContainer/GridContainer")
+cardHolder = NodePath("ScrollContainer/HBoxContainer/GridContainer")
 
-[node name="MarginContainer" type="MarginContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardViewer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 70
-theme_override_constants/margin_right = 70
-theme_override_constants/margin_bottom = 30
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardViewer/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardViewer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardViewer/MarginContainer/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardViewer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardViewer/MarginContainer/ScrollContainer/HBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardViewer/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 columns = 4
@@ -318,13 +320,13 @@ layout_mode = 2
 text = "Mentés"
 
 [node name="DungeonViewer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeonHolder")]
-visible = false
 layout_mode = 2
 alignment = 1
 script = ExtResource("11_mf5kw")
 dungeonHolder = NodePath("Margin/VBox/Scroll/DungeonHolder")
 
 [node name="Margin" type="MarginContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonViewer"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 50

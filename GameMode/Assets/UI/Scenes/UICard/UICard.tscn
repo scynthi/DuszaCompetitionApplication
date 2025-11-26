@@ -12,13 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://bmiley3dm5mth" path="res://Assets/Images/Cards/cards_axe_buffed.png" id="6_4n0vk"]
 
 [node name="Card" type="Control" node_paths=PackedStringArray("damageLabel", "healthLabel", "nameLabel", "cardBackground", "charcaterIcon", "effectTexture", "elementTexture")]
-custom_minimum_size = Vector2(84, 110)
+custom_minimum_size = Vector2(168, 220)
 layout_mode = 3
 anchors_preset = 0
-offset_left = -41.0
-offset_top = -62.000008
-offset_right = 43.0
-offset_bottom = 47.999992
+offset_right = 168.0
+offset_bottom = 220.0
 scale = Vector2(1, 1.059)
 theme = ExtResource("1_bqwth")
 script = ExtResource("1_mkdqw")
@@ -32,12 +30,11 @@ elementTexture = NodePath("Panel/Control2/Element")
 
 [node name="Panel" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="Control" type="Control" parent="Panel"]
 layout_mode = 2
@@ -53,12 +50,12 @@ color = Color(0.56023794, 0.35918114, 0.20011234, 1)
 
 [node name="Name" type="Label" parent="Panel/Control"]
 layout_mode = 0
-offset_left = 37.0
-offset_top = 0.9442942
-offset_right = 81.0
-offset_bottom = 23.944294
+offset_left = 72.0
+offset_top = 7.5543003
+offset_right = 162.0
+offset_bottom = 45.5543
 theme_override_constants/line_spacing = 0
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 20
 text = "Please
 Holder"
 horizontal_alignment = 1
@@ -69,31 +66,29 @@ autowrap_mode = 3
 layout_mode = 2
 
 [node name="Character" type="TextureRect" parent="Panel/Control2"]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
-offset_left = 5.0
-offset_top = 32.105774
-offset_right = 80.0
-offset_bottom = 107.105774
+offset_left = 8.0
+offset_top = 67.98867
+offset_right = 158.0
+offset_bottom = 217.98868
 texture = ExtResource("1_egfyg")
-expand_mode = 1
-stretch_mode = 5
+stretch_mode = 6
 
 [node name="Base" type="TextureRect" parent="Panel/Control2"]
 layout_mode = 0
 offset_right = 84.0
 offset_bottom = 110.0
 texture = ExtResource("1_tj12e")
-expand_mode = 1
 stretch_mode = 5
 
 [node name="Element" type="TextureRect" parent="Panel/Control2"]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 2.8328705
-offset_right = 24.0
-offset_bottom = 22.33287
+offset_left = 12.0
+offset_top = 10.387163
+offset_right = 44.0
+offset_bottom = 42.38716
 texture = ExtResource("4_ndynx")
-expand_mode = 1
 stretch_mode = 4
 
 [node name="Effect" type="TextureRect" parent="Panel/Control2"]
@@ -101,23 +96,21 @@ layout_mode = 1
 offset_right = 84.0
 offset_bottom = 110.04
 texture = ExtResource("5_ndynx")
-expand_mode = 1
 stretch_mode = 5
 
 [node name="Heart" type="Control" parent="Panel/Control2"]
 layout_mode = 1
 anchors_preset = 0
-offset_left = 4.0
-offset_top = 84.04156
-offset_right = 4.0
-offset_bottom = 84.04156
+offset_left = 6.0
+offset_top = 171.86024
+offset_right = 6.0
+offset_bottom = 171.86024
 
 [node name="HeartIcon" type="TextureRect" parent="Panel/Control2/Heart"]
 layout_mode = 0
 offset_right = 20.0
 offset_bottom = 23.5
 texture = ExtResource("3_2ja5q")
-expand_mode = 1
 stretch_mode = 5
 
 [node name="HeartBuffedIcon" type="TextureRect" parent="Panel/Control2/Heart"]
@@ -128,31 +121,31 @@ offset_top = -12.0
 offset_right = 31.5
 offset_bottom = 17.0
 texture = ExtResource("4_40ahx")
-expand_mode = 1
 stretch_mode = 5
 
 [node name="Health" type="Label" parent="Panel/Control2/Heart"]
 layout_mode = 0
-offset_left = -4.0
-offset_right = 23.0
-offset_bottom = 23.0
+offset_left = 6.0
+offset_top = 10.387151
+offset_right = 33.0
+offset_bottom = 33.38715
+theme_override_font_sizes/font_size = 22
 text = "1"
 horizontal_alignment = 1
 
 [node name="Axe" type="Control" parent="Panel/Control2"]
 layout_mode = 1
 anchors_preset = 0
-offset_left = 57.0
-offset_top = 83.097275
-offset_right = 57.0
-offset_bottom = 83.097275
+offset_left = 113.0
+offset_top = 165.25024
+offset_right = 113.0
+offset_bottom = 165.25024
 
 [node name="AxeIcon" type="TextureRect" parent="Panel/Control2/Axe"]
 layout_mode = 0
 offset_right = 24.5
 offset_bottom = 23.5
 texture = ExtResource("4_vyadu")
-expand_mode = 1
 
 [node name="AxeBuffedIcon" type="TextureRect" parent="Panel/Control2/Axe"]
 visible = false
@@ -162,15 +155,15 @@ offset_top = -14.16431
 offset_right = 29.0
 offset_bottom = 14.83569
 texture = ExtResource("6_4n0vk")
-expand_mode = 1
 stretch_mode = 5
 
 [node name="Damage" type="Label" parent="Panel/Control2/Axe"]
 layout_mode = 0
-offset_left = -4.0
-offset_top = 1.8885736
-offset_right = 29.0
-offset_bottom = 24.888573
+offset_left = 8.0
+offset_top = 16.997158
+offset_right = 41.0
+offset_bottom = 39.997158
+theme_override_font_sizes/font_size = 22
 text = "1"
 horizontal_alignment = 1
 
