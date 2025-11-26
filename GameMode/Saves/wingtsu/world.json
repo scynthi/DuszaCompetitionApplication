@@ -1,0 +1,30 @@
+{
+  "WorldCards": [
+    {
+      "Name": "Sz\u00E9l G\u00E1bor",
+      "Health": 98,
+      "BaseDamage": 99,
+      "Damage": 99,
+      "CardElement": 3,
+      "Icon": "/home/dani/Desktop/images.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "Lord  Sz\u00E9l G\u00E1bor",
+      "Health": 98,
+      "BaseDamage": 99,
+      "Damage": 198,
+      "CardElement": 3,
+      "Icon": "/home/dani/Desktop/images.png",
+      "buffHandler": {}
+    }
+  ],
+  "WorldDungeons": [
+    {
+      "Name": "Teszt Kazamata",
+      "DungeonType": 0,
+      "DungeonReward": 0,
+      "DungeonDeck": null
+    }
+  ]
+}

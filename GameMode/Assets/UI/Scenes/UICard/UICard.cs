@@ -33,7 +33,9 @@ public partial class UICard : Control
         get {return _cardElement;}
     }
 
-    private string _iconPath;
+    const string DEFAULT_ICON = "res://Assets/Images/Entities/Heroes/man.png";
+
+    private string _iconPath = DEFAULT_ICON;
 
     public string CardIcon
     {
@@ -73,7 +75,7 @@ public partial class UICard : Control
         EditIcon(card.CardIcon);
     }
 
-    public void EditAllCardInformation(string icon = "res://Assets/Images/Entities/Heroes/man.png", CardElements element = CardElements.EARTH, string name = "Please Holder", int hp = 10, int damage = 2, bool isEnemy = false)
+    public void EditAllCardInformation(string icon = DEFAULT_ICON, CardElements element = CardElements.EARTH, string name = "Please Holder", int hp = 10, int damage = 2, bool isEnemy = false)
     {
         this.isEnemy = isEnemy;
         EditElement(element);
@@ -122,7 +124,6 @@ public partial class UICard : Control
     public void EditIcon(string icon)
     {
         charcaterIcon.Texture = CreateTexture(icon);
-        
     }
 
     public void EditIcon(Image icon)
@@ -138,12 +139,13 @@ public partial class UICard : Control
     public void UpdateIconForCardInstace(Card card)
     {
         if (card.Icon == null) card.Icon = CardIcon;
-        GD.Print($"Set Card icon to: {CardIcon}");
     }
 
     private ImageTexture CreateTexture(string resourcePath)
     {
+        if (resourcePath == null || resourcePath == "") resourcePath = DEFAULT_ICON;
 
+        CardIcon = resourcePath;
         FileAccess file = FileAccess.Open(resourcePath, FileAccess.ModeFlags.Read);
         byte[] buffer = file.GetBuffer((long)file.GetLength());
         Image image = new Image();

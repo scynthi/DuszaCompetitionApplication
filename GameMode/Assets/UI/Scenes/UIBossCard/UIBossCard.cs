@@ -15,6 +15,7 @@ public partial class UIBossCard : Control
     [Export] private TextureRect elementTexture;
 
     public bool isEnemy;
+    const string DEFAULT_ICON = "res://Assets/Images/Entities/Heroes/man.png";
 
     private BossCard _bossCard;
     public BossCard BossCard
@@ -47,7 +48,7 @@ public partial class UIBossCard : Control
         get {return nameLabel.Text;}
     }
 
-    private string _iconPath;
+    private string _iconPath = DEFAULT_ICON;
 
     public string CardIcon
     {
@@ -153,16 +154,14 @@ public partial class UIBossCard : Control
     public void UpdateIconForCardInstace(BossCard card)
     {
         if (card.Icon == null) card.Icon = CardIcon;
-        GD.Print($"BOSS --> Set Card icon to: {CardIcon}");
-
     }
 
     private ImageTexture CreateTexture(string resourcePath)
     {
-        if (resourcePath == null || resourcePath == "") GD.Print("Given path was null or empty string, now Dani's system will explode. Good bye.");
+        if (resourcePath == null || resourcePath == "") resourcePath = DEFAULT_ICON;
 
+        CardIcon = resourcePath;
         FileAccess file = FileAccess.Open(resourcePath, FileAccess.ModeFlags.Read);
-        GD.Print($"{resourcePath}  ==> {file}");
         byte[] buffer = file.GetBuffer((long)file.GetLength());
         Image image = new Image();
         Error err = image.LoadPngFromBuffer(buffer);
