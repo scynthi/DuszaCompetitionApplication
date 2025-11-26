@@ -15,7 +15,6 @@ public partial class UIBossCard : Control
     [Export] private TextureRect elementTexture;
 
     public bool isEnemy;
-    const string DEFAULT_ICON = "res://Assets/Images/Entities/Heroes/man.png";
 
     private BossCard _bossCard;
     public BossCard BossCard
@@ -48,7 +47,7 @@ public partial class UIBossCard : Control
         get {return nameLabel.Text;}
     }
 
-    private string _iconPath = DEFAULT_ICON;
+    private string _iconPath = Global.gameManager.uiPackedSceneReferences.ManTexture.ResourcePath;
 
     public string CardIcon
     {
@@ -158,7 +157,7 @@ public partial class UIBossCard : Control
 
     private ImageTexture CreateTexture(string resourcePath)
     {
-        if (resourcePath == null || resourcePath == "") resourcePath = DEFAULT_ICON;
+        if (resourcePath == null || resourcePath == "") resourcePath = Global.gameManager.uiPackedSceneReferences.ManTexture.ResourcePath;
 
         CardIcon = resourcePath;
         FileAccess file = FileAccess.Open(resourcePath, FileAccess.ModeFlags.Read);

@@ -33,9 +33,7 @@ public partial class UICard : Control
         get {return _cardElement;}
     }
 
-    const string DEFAULT_ICON = "res://Assets/Images/Entities/Heroes/man.png";
-
-    private string _iconPath = DEFAULT_ICON;
+    private string _iconPath = Global.gameManager.uiPackedSceneReferences.ManTexture.ResourcePath;
 
     public string CardIcon
     {
@@ -75,7 +73,7 @@ public partial class UICard : Control
         EditIcon(card.CardIcon);
     }
 
-    public void EditAllCardInformation(string icon = DEFAULT_ICON, CardElements element = CardElements.EARTH, string name = "Please Holder", int hp = 10, int damage = 2, bool isEnemy = false)
+    public void EditAllCardInformation(string icon, CardElements element = CardElements.EARTH, string name = "Please Holder", int hp = 10, int damage = 2, bool isEnemy = false)
     {
         this.isEnemy = isEnemy;
         EditElement(element);
@@ -143,7 +141,7 @@ public partial class UICard : Control
 
     private ImageTexture CreateTexture(string resourcePath)
     {
-        if (resourcePath == null || resourcePath == "") resourcePath = DEFAULT_ICON;
+        if (resourcePath == null || resourcePath == "") resourcePath = Global.gameManager.uiPackedSceneReferences.ManTexture.ResourcePath;
 
         CardIcon = resourcePath;
         FileAccess file = FileAccess.Open(resourcePath, FileAccess.ModeFlags.Read);

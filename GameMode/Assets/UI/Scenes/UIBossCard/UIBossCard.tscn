@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_fm8t1"]
 [ext_resource type="Script" uid="uid://bi8556gvsdm8h" path="res://Assets/UI/Scenes/UIBossCard/UIBossCard.cs" id="2_j2uvf"]
-[ext_resource type="Texture2D" uid="uid://bnophesfbq3vi" path="res://Assets/Images/Entities/Heroes/man.png" id="3_8poxu"]
+[ext_resource type="Texture2D" uid="uid://boja6vh76fs8h" path="res://Assets/Images/Entities/Heroes/char_hunter.png" id="3_gxnqs"]
 [ext_resource type="Texture2D" uid="uid://dcbyhic481tbl" path="res://Assets/Images/Cards/cards_base.png" id="4_j3uay"]
 [ext_resource type="Texture2D" uid="uid://doww5jvob8iw2" path="res://Assets/Images/Elements/NewElementSprites/fire.png" id="5_yv6ta"]
 [ext_resource type="Texture2D" uid="uid://bpvqj2jyrl0rp" path="res://Assets/Images/Cards/cards_player_leader_effect.png" id="6_gxnqs"]
@@ -75,7 +75,7 @@ offset_left = 9.0
 offset_top = 67.04439
 offset_right = 159.0
 offset_bottom = 217.04439
-texture = ExtResource("3_8poxu")
+texture = ExtResource("3_gxnqs")
 expand_mode = 1
 stretch_mode = 5
 

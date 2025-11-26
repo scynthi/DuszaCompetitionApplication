@@ -19,18 +19,14 @@ public partial class CardEditor : HBoxContainer
         card.EditName(text);
     }
 
-    public void ChangeHealth(string text)
-    {
-        if (!int.TryParse(text, out _) || text.Replace(" ", "") == "") return;
-        
-        card.EditHealth(int.Parse(text));
+    public void ChangeHealth(float number)
+    {   
+        card.EditHealth((int)number);
     }
 
-    public void ChangeDamage(string text)
+    public void ChangeDamage(float number)
     {
-        if (!int.TryParse(text, out _) || text.Replace(" ", "") == "") return;
-
-        card.EditDamage(int.Parse(text));
+        card.EditDamage((int)number);
     }
 
     public void ChangeElement(int index)
@@ -38,18 +34,35 @@ public partial class CardEditor : HBoxContainer
         card.EditElement((CardElements)index);
     }
 
-    public void ChangeIcon()
+    public void ChangeIcon(int index)
     {
-        FileDialog fileDialogInstance = new();
-        fileDialogInstance.Access = FileDialog.AccessEnum.Filesystem;
-        fileDialogInstance.FileMode = FileDialog.FileModeEnum.OpenFile;
-        fileDialogInstance.InitialPosition = Window.WindowInitialPosition.CenterMainWindowScreen;
-        fileDialogInstance.FileSelected += HandleFile;
-        fileDialogInstance.CurrentDir = "C:/";
-        fileDialogInstance.AddFilter("*.png");
-        fileDialogInstance.Visible = true;
+        switch(index)
+        {
+            case 0:
+                card.EditIcon(Global.gameManager.uiPackedSceneReferences.ManTexture.ResourcePath);
+                break;
+            case 1:
+                card.EditIcon(Global.gameManager.uiPackedSceneReferences.WomanTexture.ResourcePath);
+                break;
+            case 2:
+                card.EditIcon(Global.gameManager.uiPackedSceneReferences.GoblinTexture.ResourcePath);
+                break;
+            case 3:
+                card.EditIcon(Global.gameManager.uiPackedSceneReferences.WendigoTexture.ResourcePath);
+                break;
+            case 4:
+                FileDialog fileDialogInstance = new();
+                fileDialogInstance.Access = FileDialog.AccessEnum.Filesystem;
+                fileDialogInstance.FileMode = FileDialog.FileModeEnum.OpenFile;
+                fileDialogInstance.InitialPosition = Window.WindowInitialPosition.CenterMainWindowScreen;
+                fileDialogInstance.FileSelected += HandleFile;
+                fileDialogInstance.CurrentDir = "C:/";
+                fileDialogInstance.AddFilter("*.png");
+                fileDialogInstance.Visible = true;
 
-        GetTree().CurrentScene.AddChild(fileDialogInstance);
+                GetTree().CurrentScene.AddChild(fileDialogInstance);
+                break;
+        }
     }
 
     private void HandleFile(object receivedInfo)

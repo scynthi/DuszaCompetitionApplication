@@ -19,17 +19,18 @@ public partial class PiciMenü : Control
 		set
         {
 			_item = value;
-
 			UpdateButtons();
         }
     }
 	public string option;
 
-    public override void _Ready()
+    public override void _Process(double delta)
     {
-        // MouseExited += QueueFree; 
+        if (!GetGlobalRect().HasPoint(GetGlobalMousePosition()))
+        {
+            QueueFree();
+        }
     }
-
 
 	public void ButtonPressed(string option)
     {

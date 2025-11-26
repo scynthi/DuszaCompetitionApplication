@@ -154,7 +154,6 @@ SaveMenu = NodePath("SaveMenu")
 CardViewer = NodePath("CardViewer")
 
 [node name="CardEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("card")]
-visible = false
 layout_mode = 2
 alignment = 1
 script = ExtResource("1_4ikgl")
@@ -177,19 +176,31 @@ max_length = 16
 emoji_menu_enabled = false
 clear_button_enabled = true
 
-[node name="Health" type="LineEdit" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties"]
+[node name="HPContainer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties"]
 layout_mode = 2
-placeholder_text = "Életerő"
-max_length = 3
-emoji_menu_enabled = false
-clear_button_enabled = true
 
-[node name="Damage" type="LineEdit" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties"]
+[node name="Label" type="Label" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/HPContainer"]
 layout_mode = 2
-placeholder_text = "Sebzés"
-max_length = 3
-emoji_menu_enabled = false
-clear_button_enabled = true
+size_flags_horizontal = 3
+text = "Életerő: "
+
+[node name="HealthSpinBox" type="SpinBox" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/HPContainer"]
+layout_mode = 2
+min_value = 1.0
+value = 1.0
+
+[node name="DMGContainer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/DMGContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sebzés: "
+
+[node name="DamageSpinBoxe" type="SpinBox" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/DMGContainer"]
+layout_mode = 2
+min_value = 1.0
+value = 1.0
 
 [node name="ElementMenu" type="OptionButton" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties"]
 layout_mode = 2
@@ -204,9 +215,21 @@ popup/item_2/id = 0
 popup/item_3/text = "Tűz"
 popup/item_3/id = 1
 
-[node name="IconChooser" type="Button" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties"]
+[node name="IconMenu" type="OptionButton" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties"]
 layout_mode = 2
-text = "Karakter tallózása"
+selected = 0
+allow_reselect = true
+item_count = 5
+popup/item_0/text = "Vadász"
+popup/item_0/id = 0
+popup/item_1/text = "Felderítő"
+popup/item_1/id = 1
+popup/item_2/text = "Goblin"
+popup/item_2/id = 2
+popup/item_3/text = "Wendigo"
+popup/item_3/id = 3
+popup/item_4/text = "Saját importálása"
+popup/item_4/id = 4
 
 [node name="Save" type="Button" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties"]
 layout_mode = 2
@@ -378,10 +401,10 @@ text = "Mentés"
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/Save" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["save"]]
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/Back" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["main"]]
 [connection signal="text_changed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/Name" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="ChangeName"]
-[connection signal="text_changed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/Health" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="ChangeHealth"]
-[connection signal="text_changed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/Damage" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="ChangeDamage"]
+[connection signal="value_changed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/HPContainer/HealthSpinBox" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="ChangeHealth"]
+[connection signal="value_changed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/DMGContainer/DamageSpinBoxe" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="ChangeDamage"]
 [connection signal="item_selected" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/ElementMenu" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="ChangeElement"]
-[connection signal="pressed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/IconChooser" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="ChangeIcon"]
+[connection signal="item_selected" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/IconMenu" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="ChangeIcon"]
 [connection signal="pressed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/Save" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="SaveCard"]
 [connection signal="text_changed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/Properties/LineEdit" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" method="ChangeName"]
 [connection signal="item_selected" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/Properties/DungeonType" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" method="ChangeType"]
