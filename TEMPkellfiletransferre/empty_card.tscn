@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cc7couas16714"]
+
+[node name="EmptyCard" type="Control"]
+custom_minimum_size = Vector2(94, 148)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
