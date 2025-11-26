@@ -47,10 +47,12 @@ public partial class UIBossCard : Control
         get {return nameLabel.Text;}
     }
 
-    public Texture2D CardIcon
+    private string _iconPath;
+
+    public string CardIcon
     {
-        private set {}
-        get {return charcaterIcon.Texture;}
+        get { return _iconPath;}
+        private set {_iconPath = value;}
     }
     
     public BossCard CreateBossCardInstance()
@@ -150,12 +152,24 @@ public partial class UIBossCard : Control
 
     public void UpdateIconForCardInstace(BossCard card)
     {
-        if (card.Icon == null) card.Icon = charcaterIcon.Texture.ResourcePath;
+        if (card.Icon == null) card.Icon = CardIcon;
+        GD.Print($"BOSS --> Set Card icon to: {CardIcon}");
+
     }
 
     private ImageTexture CreateTexture(string resourcePath)
     {
-        return ImageTexture.CreateFromImage(Image.LoadFromFile(resourcePath));
+        if (resourcePath == null || resourcePath == "") GD.Print("Given path was null or empty string, now Dani's system will explode. Good bye.");
+
+        FileAccess file = FileAccess.Open(resourcePath, FileAccess.ModeFlags.Read);
+        GD.Print($"{resourcePath}  ==> {file}");
+        byte[] buffer = file.GetBuffer((long)file.GetLength());
+        Image image = new Image();
+        Error err = image.LoadPngFromBuffer(buffer);
+
+        if (err != Error.Ok) GD.PrintErr($"Failed to load image! {resourcePath}");
+
+        return ImageTexture.CreateFromImage(image);
     }
 
 

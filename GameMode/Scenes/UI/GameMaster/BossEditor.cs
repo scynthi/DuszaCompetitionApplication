@@ -26,6 +26,7 @@ public partial class BossEditor : HBoxContainer
 	public void HandleDataChange()
     {
 		if (!Visible) return;
+		GD.Print(editor.gameMasterData.WorldCards.Count);
         Utility.AddUiSimpleCardsUnderContainer(editor.gameMasterData.WorldCards, NormalCardHolder);
         Utility.AddUiBossCardsUnderContainer(editor.gameMasterData.WorldCards, BossCardHolder);
     }

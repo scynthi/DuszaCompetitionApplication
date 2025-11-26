@@ -1,59 +1,64 @@
-[gd_scene load_steps=3 format=3 uid="uid://cc3ylluj0f6w1"]
+[gd_scene load_steps=4 format=3 uid="uid://cc3ylluj0f6w1"]
 
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_dgdr4"]
 [ext_resource type="Script" uid="uid://c7ax833v0ukrg" path="res://Assets/UI/Scenes/PiciMenü/PiciMenü.cs" id="2_ybnvk"]
+[ext_resource type="Texture2D" uid="uid://drg81v8by0ak7" path="res://Assets/Images/Sign/simple_sign.png" id="3_s2vlx"]
 
 [node name="PiciMenü" type="Control" node_paths=PackedStringArray("HPButton", "DMGButton", "CollectionButton")]
 z_index = 2
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -509.0
-offset_bottom = -312.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 145.0
+offset_bottom = 134.0
 theme = ExtResource("1_dgdr4")
 script = ExtResource("2_ybnvk")
-HPButton = NodePath("PanelContainer/PiciMenüItems/VBoxContainer/ByHP")
-DMGButton = NodePath("PanelContainer/PiciMenüItems/VBoxContainer/ByDMG")
-CollectionButton = NodePath("PanelContainer/PiciMenüItems/VBoxContainer/AddToCollection")
+HPButton = NodePath("MarginContainer/PiciMenüItems/VBoxContainer/ByHP")
+DMGButton = NodePath("MarginContainer/PiciMenüItems/VBoxContainer/ByDMG")
+CollectionButton = NodePath("MarginContainer/PiciMenüItems/VBoxContainer/AddToCollection")
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.75000006
-grow_horizontal = 2
-grow_vertical = 2
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.8, 0.8, 0.8, 1)
+layout_mode = 0
+offset_right = 147.0
+offset_bottom = 133.0
+texture = ExtResource("3_s2vlx")
+expand_mode = 1
 
-[node name="PiciMenüItems" type="VBoxContainer" parent="PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 147.0
+offset_bottom = 138.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="PiciMenüItems" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/PiciMenüItems"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PiciMenüItems"]
 layout_mode = 2
 
-[node name="ByHP" type="Button" parent="PanelContainer/PiciMenüItems/VBoxContainer"]
+[node name="ByHP" type="Button" parent="MarginContainer/PiciMenüItems/VBoxContainer"]
 layout_mode = 2
 text = "Származtatás életerővel"
 
-[node name="ByDMG" type="Button" parent="PanelContainer/PiciMenüItems/VBoxContainer"]
+[node name="ByDMG" type="Button" parent="MarginContainer/PiciMenüItems/VBoxContainer"]
 layout_mode = 2
 text = "Származtatás sebzéssel"
 
-[node name="AddToCollection" type="Button" parent="PanelContainer/PiciMenüItems/VBoxContainer"]
+[node name="AddToCollection" type="Button" parent="MarginContainer/PiciMenüItems/VBoxContainer"]
 layout_mode = 2
 text = "Hozzáadás kollekcióhoz"
 
-[node name="ColorRect" type="ColorRect" parent="PanelContainer/PiciMenüItems/VBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/PiciMenüItems/VBoxContainer"]
 custom_minimum_size = Vector2(0, 1)
 layout_mode = 2
 
-[node name="Delete" type="Button" parent="PanelContainer/PiciMenüItems"]
+[node name="Delete" type="Button" parent="MarginContainer/PiciMenüItems"]
 layout_mode = 2
 text = "Törlés"
 
-[connection signal="pressed" from="PanelContainer/PiciMenüItems/VBoxContainer/ByHP" to="." method="ButtonPressed" binds= ["hp"]]
-[connection signal="pressed" from="PanelContainer/PiciMenüItems/VBoxContainer/ByDMG" to="." method="ButtonPressed" binds= ["dmg"]]
-[connection signal="pressed" from="PanelContainer/PiciMenüItems/Delete" to="." method="DeleteItem"]
+[connection signal="pressed" from="MarginContainer/PiciMenüItems/VBoxContainer/ByHP" to="." method="ButtonPressed" binds= ["hp"]]
+[connection signal="pressed" from="MarginContainer/PiciMenüItems/VBoxContainer/ByDMG" to="." method="ButtonPressed" binds= ["dmg"]]
+[connection signal="pressed" from="MarginContainer/PiciMenüItems/Delete" to="." method="DeleteItem"]

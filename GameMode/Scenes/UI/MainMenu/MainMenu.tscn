@@ -133,7 +133,7 @@ offset_right = 77.5
 offset_bottom = 112.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 14
+theme_override_constants/separation = 25
 
 [node name="Label" type="Label" parent="MenuContainer/MainMenu/Items"]
 layout_mode = 2

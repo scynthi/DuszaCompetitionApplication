@@ -54,14 +54,7 @@ public partial class CardEditor : HBoxContainer
 
     private void HandleFile(object receivedInfo)
     {
-        FileAccess file = FileAccess.Open(receivedInfo.ToString(), FileAccess.ModeFlags.Read);
-        byte[] buffer = file.GetBuffer((long)file.GetLength());
-        Image image = new Image();
-        Error err = image.LoadPngFromBuffer(buffer);
-
-        if (err != Error.Ok) GD.PrintErr($"Failed to load image! {receivedInfo}");
-
-        card.EditIcon(image);
+        card.EditIcon((string)receivedInfo);
     }
 
     // TODO: Do more checks for name

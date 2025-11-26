@@ -57,7 +57,7 @@ offset_left = 37.0
 offset_top = 0.9442942
 offset_right = 81.0
 offset_bottom = 23.944294
-theme_override_constants/line_spacing = -5
+theme_override_constants/line_spacing = 0
 theme_override_font_sizes/font_size = 10
 text = "Please
 Holder"

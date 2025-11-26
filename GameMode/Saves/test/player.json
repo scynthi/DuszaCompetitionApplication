@@ -1,0 +1,9 @@
+{
+  "player": {
+    "Xp": 0,
+    "Money": 0,
+    "Collection": [],
+    "Deck": [],
+    "ItemList": []
+  }
+}

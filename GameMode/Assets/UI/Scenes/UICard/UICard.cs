@@ -33,10 +33,12 @@ public partial class UICard : Control
         get {return _cardElement;}
     }
 
-    public Texture2D CardIcon
+    private string _iconPath;
+
+    public string CardIcon
     {
-        private set {}
-        get {return charcaterIcon.Texture;}
+        get { return _iconPath;}
+        private set {_iconPath = value;}
     }
 
     public string CardName
@@ -48,7 +50,7 @@ public partial class UICard : Control
     // TODO: update later with mate
     public Card CreateCardInstance()
     {
-        return new Card(CardName, int.Parse(damageLabel.Text), int.Parse(healthLabel.Text), CardElement, charcaterIcon.Texture.ResourcePath);
+        return new Card(CardName, int.Parse(damageLabel.Text), int.Parse(healthLabel.Text), CardElement, CardIcon);
     }
 
     public void EditAllCardInformation(Card card)
@@ -120,6 +122,7 @@ public partial class UICard : Control
     public void EditIcon(string icon)
     {
         charcaterIcon.Texture = CreateTexture(icon);
+        
     }
 
     public void EditIcon(Image icon)
@@ -134,12 +137,21 @@ public partial class UICard : Control
 
     public void UpdateIconForCardInstace(Card card)
     {
-        if (card.Icon == null) card.Icon = charcaterIcon.Texture.ResourcePath;
+        if (card.Icon == null) card.Icon = CardIcon;
+        GD.Print($"Set Card icon to: {CardIcon}");
     }
 
     private ImageTexture CreateTexture(string resourcePath)
     {
-        return ImageTexture.CreateFromImage(Image.LoadFromFile(resourcePath));
+
+        FileAccess file = FileAccess.Open(resourcePath, FileAccess.ModeFlags.Read);
+        byte[] buffer = file.GetBuffer((long)file.GetLength());
+        Image image = new Image();
+        Error err = image.LoadPngFromBuffer(buffer);
+
+        if (err != Error.Ok) GD.PrintErr($"Failed to load image! {resourcePath}");
+
+        return ImageTexture.CreateFromImage(image);
     }
 
     public void InteractButtonClicked()

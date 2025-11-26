@@ -27,7 +27,7 @@ public partial class PiciMenü : Control
 
     public override void _Ready()
     {
-        MouseExited += QueueFree; 
+        // MouseExited += QueueFree; 
     }
 
 
