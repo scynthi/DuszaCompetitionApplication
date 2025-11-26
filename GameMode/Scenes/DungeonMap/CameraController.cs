@@ -9,8 +9,8 @@ public partial class CameraController : Camera2D
 
     int edgeMarign = 5;
     int cameraSpeed = 200;
-    Vector2 mapSize = new Vector2(0, 360);
-    Vector2 viewportSize = new Vector2(640,360);
+    Vector2 mapSize = new Vector2(0, 720);
+    Vector2 viewportSize = new Vector2(1280,720);
 
 
     public override void _Ready()
