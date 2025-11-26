@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 public enum RoundState
 {
@@ -16,6 +17,10 @@ public partial class FightLogic : Node
 
 	[Export] RichTextLabel RoundText;
 	[Export] HBoxContainer IconContainer;
+	[Export] Control PlayerCard;
+	[Export] Control EnemyCard;
+	[Export] RichTextLabel DamageNum;
+	[Export] AnimationPlayer AnimPlayer;
 
 	// TEST
 	List<Card> PlayerDeck = new List<Card> { new Card("Corky", 2, 4, CardElements.EARTH), new Card("Kira", 2, 7, CardElements.WIND) };
@@ -29,6 +34,7 @@ public partial class FightLogic : Node
 		foreach (Card card in player.Deck) PlayerDeck.Add(new Card(card));
 		// foreach (Card card in Global.gameManager.saverLoader.currSaveFile.player.Deck) PlayerDeck.Add(new Card(card));
 		LoadItemButtons(player.ItemList);
+		LoadBattleItems();
 	}
 
 	public void LoadItemButtons(List<IItem> itemList)
@@ -46,19 +52,35 @@ public partial class FightLogic : Node
 		}
     }
 
+	public void LoadBattleItems()
+    {
+        Utility.AddUiCardUnderContainer(PlayerDeck[0], PlayerCard);
+        Utility.AddUiCardUnderContainer(DungeonDeck[0], EnemyCard);
+    }
+
+	public void DisplayAttack(int damage)
+    {
+        // DamageNum.Text = damage.ToString();
+		AnimPlayer.Play("DisplayDamage");
+    }
+
 	public RoundState SimulateRound(Card DungeonCard, Card PlayerCard, List<IItem> itemList)
 	{
+		int damage; 
 		foreach (IItem item in itemList)
 		{
 			item.ApplyPlayerBuff(PlayerCard, Round);
 			item.ApplyDungeonBuff(DungeonCard, Round);
 			player.RemoveFromItemList(item);
 		}
-
-		GD.Print("Dungeon Attack: " + DungeonCard.Attack(PlayerCard));
+		damage = DungeonCard.Attack(PlayerCard);
+		GD.Print("Dungeon Attack: " + damage);
+		DisplayAttack(damage);
 		if (PlayerCard.Health == 0) return RoundState.PLAYERDEATH;
 
-		GD.Print("Player Attack: " + PlayerCard.Attack(DungeonCard));
+		damage = PlayerCard.Attack(DungeonCard);
+		GD.Print("Player Attack: " + damage);
+		DisplayAttack(damage);
 		if (DungeonCard.Health == 0) return RoundState.DUNGEONDEATH;
 		return RoundState.NODEATH;
 	}
