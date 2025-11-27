@@ -7,12 +7,7 @@ public partial class DungeonEditor : HBoxContainer
     [Export] UIDungeon dungeon;
     [Export] OptionButton rewardType;
 
-    Editors editor;
-
-    public override void _Ready()
-    {
-        editor = (Editors)GetParent();
-    }
+    Editors editor = Global.masterEditor;
 
     public void ChangeName(string text)
     {

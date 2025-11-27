@@ -4,21 +4,27 @@ using System.Collections.Generic;
 
 public partial class Editors : VBoxContainer
 {
+    public Editors()
+    {
+        Global.masterEditor = this;
+    }
+
     [Export] public CardEditor CardEditor;
     [Export] public DungeonEditor DungeonEditor;
     [Export] public BossEditor BossEditor;
     [Export] public DungeonViewer DungeonViewer;
     [Export] public SaveMenu SaveMenu;
     [Export] public CardViewer CardViewer;
+    [Export] public PlayerCollection PlayerCollection;
 
     public GameMasterData gameMasterData = new();
 
 
     private Control _currentMenu;
-    private Control CurrentMenu
+    public Control CurrentMenu
     {
         get {return _currentMenu;}
-        set
+        private set
         {
             if (_currentMenu != null) CurrentMenu.Visible = false;
 
@@ -30,6 +36,10 @@ public partial class Editors : VBoxContainer
             }
         }
     }
+	public override void _Input(InputEvent @event)
+	{
+		PiciMenüHandler.HandlePiciMenüCreation(@event);
+	}
 
     public override void _Ready()
     {
@@ -61,6 +71,9 @@ public partial class Editors : VBoxContainer
                 break;
             case "cards":
                 CurrentMenu = CardViewer;
+                break;
+            case "collection":
+                CurrentMenu = PlayerCollection;
                 break;
             case "main":
                 await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.MainMenu);
