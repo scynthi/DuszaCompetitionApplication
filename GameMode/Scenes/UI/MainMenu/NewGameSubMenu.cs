@@ -98,10 +98,10 @@ public partial class NewGameSubMenu : Control
         currDisplayedSave.gameDifficulty = (int)Math.Round(value);
     }
 
-    public void _OnStartPressed()
+    public async void _OnStartPressed()
     {
         currDisplayedSave.IsStarted = true;
         Global.gameManager.saverLoader.currSaveFile = currDisplayedSave;
-        Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.DungeonMap);
+        await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.DungeonMap);
     }
 }

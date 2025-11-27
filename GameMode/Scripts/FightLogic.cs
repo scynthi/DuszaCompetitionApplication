@@ -47,7 +47,7 @@ public partial class FightLogic : Node
 		{
 			ItemButton btn = iconButtonScene.Instantiate<ItemButton>();
 			btn.itemType = item.Type;
-			btn.SetToggledOn();
+			// btn.SetToggledOn();
 			btn.Send_Item_Added += OnAddToItemListPressed;
 			btn.Send_Item_Removed += OnRemoveFromItemListPressed;
 			IconContainer.AddChild(btn);

@@ -1,48 +1,85 @@
-[gd_scene load_steps=4 format=3 uid="uid://duqvkh3tdlkve"]
+[gd_scene load_steps=6 format=3 uid="uid://duqvkh3tdlkve"]
 
+[ext_resource type="Texture2D" uid="uid://bvjhb1o33kk30" path="res://Assets/Images/Sign/bg_item.png" id="1_ae48k"]
 [ext_resource type="Script" uid="uid://cb3b81rshu7rf" path="res://Scripts/Buttons/ItemButton.cs" id="1_u21i3"]
 [ext_resource type="PackedScene" uid="uid://fpu5astyeknw" path="res://Scenes/Miscs/Description.tscn" id="2_v1xfx"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1xfx"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.20691353, 0.20691356, 0.20691353, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.07, 0.07, 0.07, 1)
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_imdrp"]
+texture = ExtResource("1_ae48k")
 
-[node name="ItemButton" type="Button" node_paths=PackedStringArray("priceLabel")]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2vms8"]
+texture = ExtResource("1_ae48k")
+
+[node name="ItemButton" type="Control" node_paths=PackedStringArray("descriptionBox", "priceLabel", "iconHolder", "buyButton")]
 custom_minimum_size = Vector2(150, 150)
+layout_mode = 3
+anchors_preset = 0
 offset_right = 150.0
-offset_bottom = 150.0
-icon_alignment = 1
-expand_icon = true
+offset_bottom = 209.0
 script = ExtResource("1_u21i3")
+descriptionBox = NodePath("DescriptionBox")
 priceLabel = NodePath("Panel/RichTextLabel")
+iconHolder = NodePath("TextureRect2")
+buyButton = NodePath("Button")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(0.853, 1, 0.82, 1)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 37.0
+offset_top = 98.0
+offset_right = -37.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 31
+theme_override_styles/normal = SubResource("StyleBoxTexture_imdrp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_imdrp")
+theme_override_styles/hover = SubResource("StyleBoxTexture_imdrp")
+text = "BUY"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_ae48k")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = -15.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch_mode = 4
 
 [node name="DescriptionBox" parent="." instance=ExtResource("2_v1xfx")]
 layout_mode = 0
 
 [node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 0.90466666, 0.48000002, 1)
 layout_mode = 1
-anchors_preset = 7
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 1.0
 offset_left = -32.0
-offset_top = -202.0
+offset_top = -46.0
 offset_right = 32.0
-offset_bottom = -150.0
 grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_v1xfx")
+theme_override_styles/panel = SubResource("StyleBoxTexture_2vms8")
 
 [node name="RichTextLabel" type="Label" parent="Panel"]
 layout_mode = 1
