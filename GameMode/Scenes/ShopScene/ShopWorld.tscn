@@ -1,15 +1,18 @@
-[gd_scene load_steps=16 format=3 uid="uid://6oiws6jda0wi"]
+[gd_scene load_steps=20 format=3 uid="uid://6oiws6jda0wi"]
 
 [ext_resource type="PackedScene" uid="uid://cpidsg2b56hne" path="res://Assets/StyledCamera.tscn" id="1_68qub"]
 [ext_resource type="PackedScene" uid="uid://bbpn6eshxwvxq" path="res://Assets/Models/shop.glb" id="1_emkcw"]
 [ext_resource type="Script" uid="uid://jtuoap7qxnl5" path="res://Assets/Shaders/quantization_shader.gd" id="1_qc2na"]
 [ext_resource type="Script" uid="uid://c2dg2wfyc6tix" path="res://Scenes/ShopScene/ShomMenu.cs" id="2_x4p3p"]
 [ext_resource type="PackedScene" uid="uid://duqvkh3tdlkve" path="res://Scenes/FightScene/ItemButton.tscn" id="3_iliwk"]
-[ext_resource type="Script" uid="uid://bbbnbyfjkbg8e" path="res://Scripts/Buttons/BackButton.cs" id="4_wdj8d"]
+[ext_resource type="Texture2D" uid="uid://bspjcso0u47w7" path="res://Assets/Images/Sign/upper_sign.png" id="5_ufa72"]
 [ext_resource type="Texture2D" uid="uid://b6kxxoiuifnem" path="res://Assets/Images/player/coin.png" id="7_7glmu"]
+[ext_resource type="Texture2D" uid="uid://boryvw4xe8eie" path="res://Assets/Images/Sign/bg_shop.png" id="7_rqv8k"]
 [ext_resource type="Texture2D" uid="uid://chnum6s8tk8ah" path="res://Assets/Images/Backgrounds/main_menu_border.png" id="8_60d55"]
 [ext_resource type="PackedScene" uid="uid://dk32ss75ce3lw" path="res://Assets/UI/Scenes/UICard/UICard.tscn" id="8_r66ni"]
 [ext_resource type="Texture2D" uid="uid://c784rnnp8bpja" path="res://Assets/Images/Shop/reroll.png" id="9_42hqr"]
+[ext_resource type="PackedScene" uid="uid://c67e3kgjql3x4" path="res://Scenes/Miscs/BackToMapBtn.tscn" id="11_dvv65"]
+[ext_resource type="Texture2D" uid="uid://chdfpuvasoth7" path="res://Assets/Images/Button/button_bg_light.png" id="12_rqv8k"]
 
 [sub_resource type="Environment" id="Environment_7glmu"]
 ambient_light_source = 2
@@ -64,6 +67,9 @@ corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 corner_detail = 5
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dvv65"]
+texture = ExtResource("12_rqv8k")
+
 [node name="ShopWorld" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -94,33 +100,32 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 35
-theme_override_constants/margin_top = 35
-theme_override_constants/margin_right = 35
-theme_override_constants/margin_bottom = 35
 
 [node name="Control" type="Control" parent="ShomMenu/MarginContainer"]
 layout_mode = 2
-
-[node name="Button" type="Button" parent="ShomMenu/MarginContainer/Control"]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -60.0
-offset_right = 221.0
-grow_vertical = 0
-text = "Vissza a térképre"
-script = ExtResource("4_wdj8d")
 
 [node name="Control" type="Control" parent="ShomMenu/MarginContainer/Control"]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 1
 anchors_preset = 0
-offset_left = 7.0
-offset_top = 6.0
-offset_right = 427.0
-offset_bottom = 81.0
+offset_left = 80.0
+offset_top = 18.0
+offset_right = 500.0
+offset_bottom = 93.0
+
+[node name="TextureRect2" type="TextureRect" parent="ShomMenu/MarginContainer/Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -18.0
+offset_right = 30.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ufa72")
+expand_mode = 1
 
 [node name="Panel" type="Panel" parent="ShomMenu/MarginContainer/Control/Control"]
 clip_contents = true
@@ -160,11 +165,35 @@ clip_text = true
 text_overrun_behavior = 1
 
 [node name="Control3" type="Control" parent="ShomMenu/MarginContainer/Control"]
-anchors_preset = 0
-offset_left = 60.0
-offset_top = 356.0
-offset_right = 1160.0
-offset_bottom = 521.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = 68.0
+offset_right = 550.0
+offset_bottom = 233.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="ShomMenu/MarginContainer/Control/Control3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -651.0
+offset_top = -132.5
+offset_right = 651.0
+offset_bottom = 132.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("7_rqv8k")
+expand_mode = 1
 
 [node name="Control2" type="Control" parent="ShomMenu/MarginContainer/Control/Control3"]
 layout_mode = 1
@@ -174,6 +203,7 @@ offset_right = 738.0
 grow_vertical = 2
 
 [node name="Panel" type="Panel" parent="ShomMenu/MarginContainer/Control/Control3/Control2"]
+visible = false
 clip_contents = true
 layout_mode = 1
 anchors_preset = 12
@@ -217,8 +247,9 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -296.0
+offset_left = -359.0
 offset_top = -189.0
+offset_right = -63.0
 grow_horizontal = 0
 grow_vertical = 2
 
@@ -269,6 +300,24 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 30
 text = "Buy"
+
+[node name="BottomThing" type="Control" parent="ShomMenu/MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -86.0
+offset_right = 402.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button" parent="ShomMenu/MarginContainer/Control/BottomThing" instance=ExtResource("11_dvv65")]
+layout_mode = 0
+anchors_preset = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_dvv65")
 
 [node name="TextureRect" type="TextureRect" parent="ShomMenu"]
 layout_mode = 1
