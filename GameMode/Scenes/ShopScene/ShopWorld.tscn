@@ -128,6 +128,7 @@ texture = ExtResource("5_ufa72")
 expand_mode = 1
 
 [node name="Panel" type="Panel" parent="ShomMenu/MarginContainer/Control/Control"]
+visible = false
 clip_contents = true
 layout_mode = 1
 anchors_preset = 15
@@ -288,25 +289,16 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -14.0
+offset_left = -208.0
 offset_top = -86.0
-offset_right = 402.0
+offset_right = 208.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Button" parent="ShomMenu/MarginContainer/Control/BottomThing" instance=ExtResource("11_dvv65")]
-layout_mode = 0
-anchors_preset = 0
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 223.5
-offset_bottom = 60.0
-grow_horizontal = 1
-grow_vertical = 1
+layout_mode = 1
+offset_top = -30.0
+offset_bottom = 30.0
 theme_override_styles/normal = SubResource("StyleBoxTexture_dvv65")
 
 [node name="TextureRect" type="TextureRect" parent="ShomMenu"]
@@ -361,3 +353,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.835, 0.6579428, -22.98)
 light_color = Color(0.63, 0.056699984, 0.056699984, 1)
 shadow_enabled = true
 omni_range = 35.445
+
+[connection signal="Send_Item" from="ShomMenu/MarginContainer/Control/Control3/Control2/ItemButton" to="ShomMenu" method="GiveItemToPlayer"]
+[connection signal="Send_Item" from="ShomMenu/MarginContainer/Control/Control3/Control2/ItemButton2" to="ShomMenu" method="GiveItemToPlayer"]
+[connection signal="Send_Item" from="ShomMenu/MarginContainer/Control/Control3/Control2/ItemButton3" to="ShomMenu" method="GiveItemToPlayer"]

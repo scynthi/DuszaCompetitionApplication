@@ -22,6 +22,7 @@ public partial class ItemButton : Control
 
     private Tween _tween;
     private Tween _buyTween;
+    private Tween _shakeTween;
 
     private float _hoverOffset = -10f;
     private float _buyHoverOffset = 52f;
@@ -59,6 +60,7 @@ public partial class ItemButton : Control
     {
         EmitSignal(SignalName.Send_Item, (int)itemType);
         descriptionBox.UpdateDescription(item.Name, item.Description, Global.gameManager.saverLoader.currSaveFile.player.ReturnItemAmount(item));
+        ShakeControl();
     }
 
     // public override void _Toggled(bool toggledOn)
@@ -126,9 +128,29 @@ public partial class ItemButton : Control
         descriptionBox.HideDescription();
     }
 
-    // public void SetToggledOn()
-    // {
-    //     ToggleMode = true;
-    // }
-	
+    
+    public void ShakeControl(float duration = 0.5f, float intensity = 10.0f)
+	{
+        if (_shakeTween != null && _shakeTween.IsRunning())
+        {
+            _shakeTween.Kill();
+        }
+
+        _shakeTween = CreateTween();
+		
+		_shakeTween.SetTrans(Tween.TransitionType.Sine);
+		_shakeTween.SetEase(Tween.EaseType.InOut);
+		
+		int shakeSteps = 8;
+		float stepDuration = duration / shakeSteps;
+		
+		for (int i = 0; i < shakeSteps; i++)
+		{
+			float shakeAmount = intensity * (1.0f - (float)i / shakeSteps);
+			float targetRotation = 0.0f + (i % 2 == 0 ? shakeAmount : -shakeAmount);
+			_shakeTween.TweenProperty(iconHolder, "rotation_degrees", targetRotation, stepDuration);
+		}
+		
+		_shakeTween.TweenProperty(iconHolder, "rotation_degrees", 0.0f, stepDuration);
+	}
 }

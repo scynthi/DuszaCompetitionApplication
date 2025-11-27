@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://duqvkh3tdlkve"]
+[gd_scene load_steps=7 format=3 uid="uid://duqvkh3tdlkve"]
 
 [ext_resource type="Texture2D" uid="uid://bvjhb1o33kk30" path="res://Assets/Images/Sign/bg_item.png" id="1_ae48k"]
 [ext_resource type="Script" uid="uid://cb3b81rshu7rf" path="res://Scripts/Buttons/ItemButton.cs" id="1_u21i3"]
 [ext_resource type="PackedScene" uid="uid://fpu5astyeknw" path="res://Scenes/Miscs/Description.tscn" id="2_v1xfx"]
+[ext_resource type="Texture2D" uid="uid://duvi63fq53dex" path="res://Assets/Images/Items/GlassShield.png" id="3_phcs4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_imdrp"]
 texture = ExtResource("1_ae48k")
@@ -35,6 +36,7 @@ offset_right = -37.0
 offset_bottom = -59.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 31
 theme_override_styles/normal = SubResource("StyleBoxTexture_imdrp")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_imdrp")
@@ -54,19 +56,25 @@ stretch_mode = 4
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 15.0
-offset_top = 15.0
-offset_right = -15.0
-offset_bottom = -15.0
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.354
+anchor_right = 0.5
+anchor_bottom = 0.354
+offset_left = -75.0
+offset_top = -73.986
+offset_right = 75.0
+offset_bottom = 135.014
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(75, 74)
 mouse_filter = 2
+texture = ExtResource("3_phcs4")
 stretch_mode = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="DescriptionBox" parent="." instance=ExtResource("2_v1xfx")]
+visible = false
 layout_mode = 0
 
 [node name="Panel" type="Panel" parent="."]
