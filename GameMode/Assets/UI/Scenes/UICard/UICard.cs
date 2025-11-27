@@ -14,6 +14,9 @@ public partial class UICard : Control
     [Export] private TextureRect effectTexture;
     [Export] private TextureRect elementTexture;
 
+    const byte DEFAULT_FONTSIZE = 19; 
+    const byte DECREASED_FONTSIZE = 14; 
+
     public bool isEnemy;
 
     public int CardDamage {
@@ -104,10 +107,10 @@ public partial class UICard : Control
         nameLabel.Text = name;
         if (name.Length > 12)
         {
-            nameLabel.AddThemeFontSizeOverride("font_size", 16);
+            nameLabel.AddThemeFontSizeOverride("font_size", DECREASED_FONTSIZE);
         } else
         {
-            nameLabel.AddThemeFontSizeOverride("font_size", 20);
+            nameLabel.AddThemeFontSizeOverride("font_size", DEFAULT_FONTSIZE);
         }
     }
 

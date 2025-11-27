@@ -1,9 +1,9 @@
 using Godot;
 using System;
 
-public partial class CardViewer : HBoxContainer
+public partial class PlayerCollection : HBoxContainer
 {
-    [Export] Control cardHolder;
+	[Export] Control cardHolder;
 	Editors editor = Global.masterEditor;
 
     public override void _Ready()
@@ -19,7 +19,6 @@ public partial class CardViewer : HBoxContainer
 	public void HandleDataChange()
     {
 		if (!Visible) return;
-        Utility.AddUiCardsUnderContainer(editor.gameMasterData.WorldCards, cardHolder);
+        Utility.AddUiSimpleCardsUnderContainer(editor.gameMasterData.PlayerCollection, cardHolder);
     }
-
 }

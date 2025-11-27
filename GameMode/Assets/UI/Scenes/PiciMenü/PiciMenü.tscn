@@ -12,7 +12,7 @@ anchor_top = -0.019000001
 offset_left = -0.23999786
 offset_top = -0.31999874
 offset_right = 178.0
-offset_bottom = 120.0
+offset_bottom = 134.0
 theme = ExtResource("1_dgdr4")
 script = ExtResource("2_ybnvk")
 HPButton = NodePath("MarginContainer/PiciMenüItems/VBoxContainer/ByHP")
@@ -22,9 +22,10 @@ CollectionButton = NodePath("MarginContainer/PiciMenüItems/VBoxContainer/AddToC
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.8, 0.8, 0.8, 1)
 layout_mode = 0
-offset_left = -3.0
-offset_right = 202.0
-offset_bottom = 133.0
+offset_left = -4.0
+offset_top = -6.0
+offset_right = 204.0
+offset_bottom = 158.0
 texture = ExtResource("3_s2vlx")
 expand_mode = 1
 
@@ -64,4 +65,5 @@ text = "Törlés"
 
 [connection signal="pressed" from="MarginContainer/PiciMenüItems/VBoxContainer/ByHP" to="." method="ButtonPressed" binds= ["hp"]]
 [connection signal="pressed" from="MarginContainer/PiciMenüItems/VBoxContainer/ByDMG" to="." method="ButtonPressed" binds= ["dmg"]]
+[connection signal="pressed" from="MarginContainer/PiciMenüItems/VBoxContainer/AddToCollection" to="." method="AddToCollection"]
 [connection signal="pressed" from="MarginContainer/PiciMenüItems/Delete" to="." method="DeleteItem"]

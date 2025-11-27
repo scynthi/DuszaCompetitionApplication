@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Godot;
-using Microsoft.VisualBasic;
 
 public class GameMasterData
 {
@@ -24,60 +23,61 @@ public class GameMasterData
 
     public void AddCardToPlayerDeck(Card card)
     {
-        if (!WorldCards.Contains(card)) WorldCards.Add(card);
+        // if (!WorldCards.Contains(card)) WorldCards.Add(card);
         PlayerDeck.Add(card);
         CardDataChanged.Invoke();
     }
 
     public void AddCardToPlayerCollection(Card card)
     {
-        if (!WorldCards.Contains(card)) WorldCards.Add(card);
-        PlayerDeck.Add(card);
+        // if (!WorldCards.Contains(card)) WorldCards.Add(card);
+        PlayerCollection.Add(card);
         CardDataChanged.Invoke();
     }
 
     public void RemoveCardFromWorldCards(Card card)
     {
-        try
+
+        foreach (List<Card> currentCardList in new List<Card>[]{WorldCards, PlayerDeck, PlayerCollection})
         {
-            foreach (List<Card> currentCardList in new List<Card>[]{WorldCards, PlayerDeck, PlayerCollection})
+            try
             {
                 foreach (Card cardInList in currentCardList)
                 {
-                    if (cardInList.Name == card.Name)
-                    {
-                        WorldCards.RemoveAt(WorldCards.IndexOf(cardInList)); 
-                    }
+                    if (cardInList.Name != card.Name) continue;
+
+                    currentCardList.Remove(cardInList);
                 }
             }
+            catch (System.Exception)
+            {
+                GD.Print($"WORLD DELETION: {card} can't be removed since it is not included in list.");
+            }
+        }
 
-        }
-        catch (System.Exception)
-        {
-            GD.Print($"{card} can't be removed since it is not included in list.");
-        }
         CardDataChanged.Invoke();
     }
 
     public void RemoveCardFromPlayerCollection(Card card)
     {
-        try
+        foreach (List<Card> currentCardList in new List<Card>[]{PlayerDeck, PlayerCollection})
         {
-            foreach (List<Card> currentCardList in new List<Card>[]{PlayerDeck, PlayerCollection})
+            try
             {
                 foreach (Card cardInList in currentCardList)
                 {
-                    if (cardInList.Name == card.Name)
-                    {
-                        WorldCards.RemoveAt(WorldCards.IndexOf(cardInList)); 
-                    }
+                    if (cardInList.Name != card.Name) continue;
+                    
+                    currentCardList.Remove(cardInList);
+                    GD.Print($"{card.Name} has been deleted.");
                 }
             }
+            catch (System.Exception)
+            {
+                GD.Print($"COLLECTION DELETION: {card} can't be removed since it is not included in list.");
+            }
         }
-        catch (System.Exception)
-        {
-            GD.Print($"{card} can't be removed since it is not included in list.");
-        }
+
         CardDataChanged.Invoke();
     }
 
@@ -87,16 +87,16 @@ public class GameMasterData
         {
             foreach (Card cardInList in PlayerDeck)
             {
-                if (cardInList.Name == card.Name)
-                {
-                    WorldCards.RemoveAt(WorldCards.IndexOf(cardInList)); 
-                }
+                if (cardInList.Name != card.Name) continue;
+                
+                PlayerDeck.RemoveAt(WorldCards.IndexOf(cardInList));   
             }
         }
         catch (System.Exception)
         {
-            GD.Print($"{card} can't be removed since it is not included in list.");
+            GD.Print($"DECK DELETION: {card} can't be removed since it is not included in list.");
         }
+
         CardDataChanged.Invoke();
     }
 
