@@ -3,8 +3,8 @@ using System;
 
 public partial class GlassShieldItem : IItem
 {
-	public string Name { private set; get; } = "Glass Shield";
-	public string Description { private set; get; } = "I don't know";
+	public string Name { private set; get; } = "Üveg pajzs";
+	public string Description { private set; get; } = "Használata után az \n elenfél első ütése \n bármekkora is nem érvényes";
 	public string Icon { private set; get; } = "uid://duvi63fq53dex";
     public int Price { private set; get; } = 10;
 	public int Amount { set; get; } = 0;

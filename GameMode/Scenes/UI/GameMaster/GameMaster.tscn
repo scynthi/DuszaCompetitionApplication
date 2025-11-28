@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c6chsl4nd1iy5"]
+[gd_scene load_steps=14 format=3 uid="uid://c6chsl4nd1iy5"]
 
 [ext_resource type="Script" uid="uid://b6b68i6jcla5g" path="res://Scenes/UI/GameMaster/CardEditor.cs" id="1_4ikgl"]
 [ext_resource type="Texture2D" uid="uid://txhi2xptu3ib" path="res://Assets/Images/Sign/sign.png" id="1_bbocn"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://ds20bp7dht0gu" path="res://Scenes/UI/GameMaster/Editors.cs" id="1_rbxpr"]
 [ext_resource type="Script" uid="uid://cbn3r1swnuibn" path="res://Scenes/UI/GameMaster/DungeonEditor.cs" id="3_8slam"]
 [ext_resource type="PackedScene" uid="uid://bkxac5mrr13pu" path="res://Assets/UI/Scenes/UIDungeon/UIDungeon.tscn" id="3_j6eix"]
+[ext_resource type="Script" uid="uid://diy1asnsgjskg" path="res://Scenes/UI/GameMaster/PlayerCollection.cs" id="5_vrmix"]
 [ext_resource type="Script" uid="uid://dg7jqog8dii27" path="res://Scenes/UI/GameMaster/BossEditor.cs" id="9_pahx4"]
 [ext_resource type="Script" uid="uid://c3ngslqx8653y" path="res://Scenes/UI/GameMaster/CardViewer.cs" id="10_4h88p"]
 [ext_resource type="Script" uid="uid://dwjmh8lxmdcva" path="res://Scenes/UI/GameMaster/DungeonViewer.cs" id="11_mf5kw"]
@@ -140,7 +141,7 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="Editors" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer" node_paths=PackedStringArray("CardEditor", "DungeonEditor", "BossEditor", "DungeonViewer", "SaveMenu", "CardViewer")]
+[node name="Editors" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer" node_paths=PackedStringArray("CardEditor", "DungeonEditor", "BossEditor", "DungeonViewer", "SaveMenu", "CardViewer", "PlayerCollection")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -152,8 +153,33 @@ BossEditor = NodePath("BossEditor")
 DungeonViewer = NodePath("DungeonViewer")
 SaveMenu = NodePath("SaveMenu")
 CardViewer = NodePath("CardViewer")
+PlayerCollection = NodePath("PlayerCollection")
+
+[node name="PlayerCollection" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("cardHolder")]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+script = ExtResource("5_vrmix")
+cardHolder = NodePath("ScrollContainer/HBoxContainer/GridContainer")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/PlayerCollection"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/PlayerCollection/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/PlayerCollection/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 4
 
 [node name="CardEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("card")]
+visible = false
 layout_mode = 2
 alignment = 1
 script = ExtResource("1_4ikgl")
@@ -297,12 +323,13 @@ layout_mode = 2
 size_flags_vertical = 3
 columns = 4
 
-[node name="DungeonEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeon")]
+[node name="DungeonEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeon", "rewardType")]
 visible = false
 layout_mode = 2
 alignment = 1
 script = ExtResource("3_8slam")
 dungeon = NodePath("UIDungeon")
+rewardType = NodePath("Properties/RewardType")
 
 [node name="UIDungeon" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" instance=ExtResource("3_j6eix")]
 layout_mode = 2
@@ -343,6 +370,7 @@ layout_mode = 2
 text = "Mentés"
 
 [node name="DungeonViewer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeonHolder")]
+visible = false
 layout_mode = 2
 alignment = 1
 script = ExtResource("11_mf5kw")
@@ -393,6 +421,7 @@ emoji_menu_enabled = false
 layout_mode = 2
 text = "Mentés"
 
+[connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/Collection" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["collection"]]
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/CardEditor" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["card"]]
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/BossEditor" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["boss"]]
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/Cards" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["cards"]]

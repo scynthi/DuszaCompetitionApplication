@@ -10,7 +10,7 @@ public partial class PiciMenü : Control
 	public delegate void ClickedEventHandler(PiciMenü option);
 	public event ClickedEventHandler Clicked;
 
-    public Editors editor;
+    public Editors editor = Global.masterEditor;
 
 	private Control _item;
 	public Control Item
@@ -32,23 +32,45 @@ public partial class PiciMenü : Control
         }
     }
 
+    public void AddToCollection()
+    {
+        QueueFree();
+        // Todo check for duplicate, if duplicate disable add to collection option
+        if (Item is UICard)
+        {
+            editor.gameMasterData.AddCardToPlayerCollection(((UICard)Item).CreateCardInstance());   
+        }
+    }
+
 	public void ButtonPressed(string option)
     {
+        QueueFree();
 		this.option = option;
         Clicked.Invoke(this);
-		QueueFree();
     }
 
     private void DeleteItem()
     {
+        QueueFree();
         if (Item is UICard)
         {
+            if (editor.CurrentMenu is PlayerCollection)
+            {
+                editor.gameMasterData.RemoveCardFromPlayerCollection(((UICard)Item).CreateCardInstance());
+                return;
+            }
+            
             editor.gameMasterData.RemoveCardFromWorldCards(((UICard)Item).CreateCardInstance());
+
         } else if (Item is UIDungeon)
         {
             editor.gameMasterData.RemoveDungeonFromDungeonList(((UIDungeon)Item).CreateDungeonInstance());
+
+        } else if (Item is UIBossCard)
+        {
+            editor.gameMasterData.RemoveCardFromWorldCards(((UIBossCard)Item).CreateBossCardInstance());
+
         }
-        QueueFree();
     }
 
 	private void UpdateButtons()

@@ -7,12 +7,7 @@ public partial class CardEditor : HBoxContainer
 {
 	[Export] UICard card;
 
-    Editors editor;
-
-    public override void _Ready()
-    {
-        editor = (Editors)GetParent();
-    }
+    Editors editor = Global.masterEditor;
 
 	public void ChangeName(string text)
     {
@@ -71,7 +66,6 @@ public partial class CardEditor : HBoxContainer
     }
 
     // TODO: Do more checks for name
-
     public void SaveCard()
     {
         editor.gameMasterData.AddCardToWorldCards(card.CreateCardInstance());
