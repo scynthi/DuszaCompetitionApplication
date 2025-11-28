@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class UIDungeon : Control
 {
@@ -90,7 +91,8 @@ public partial class UIDungeon : Control
 
     public Dungeon CreateDungeonInstance()
     {
-        return new Dungeon(DungeonName, DungeonType, DungeonReward);
+        List<Card> DungeonCards = new List<Card>();
+        return new Dungeon(DungeonName, DungeonType, DungeonReward, DungeonCards);
     }
 
     public void InteractButtonClicked()

@@ -28,7 +28,7 @@ public static class ElementRules
     {
 		if (GetStrenghts(attackingCard).Contains(defendingCard)) 
 			damage *= 2;
-		else
+		else if (attackingCard != defendingCard)
 			damage = Convert.ToInt32(Math.Floor((double)damage / 2));
         return damage;
     }

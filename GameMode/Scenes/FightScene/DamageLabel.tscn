@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq8tgihxie003"]
+
+[ext_resource type="Script" uid="uid://b1yn8s6o660de" path="res://Scripts/DamageLabel.cs" id="1_8bh0x"]
+[ext_resource type="FontFile" uid="uid://6obpbt445wnf" path="res://Assets/Fonts/alagard.ttf" id="1_15vuj"]
+
+[node name="Label" type="Label"]
+z_index = 100
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_15vuj")
+theme_override_font_sizes/font_size = 120
+text = "APPLE"
+script = ExtResource("1_8bh0x")

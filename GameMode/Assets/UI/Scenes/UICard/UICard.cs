@@ -53,6 +53,12 @@ public partial class UICard : Control
         return new Card(CardName, int.Parse(damageLabel.Text), int.Parse(healthLabel.Text), CardElement, CardIcon);
     }
 
+    public Vector2 UIPosition
+    {
+        get => Position; 
+        set => Position = value; 
+    }
+
     public void EditAllCardInformation(Card card)
     {
         UpdateIconForCardInstace(card);

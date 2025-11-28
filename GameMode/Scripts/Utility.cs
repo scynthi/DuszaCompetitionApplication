@@ -12,13 +12,13 @@ public static class Utility
 		return nameList;
 	}
 
-	// public static T WorldObjectListToNameList<T>(List<T> objectList) where T : IWorldObject
-	// {
-	// 	List<string> nameList = new List<string>();
-	// 	foreach (T currObj in objectList)
-	// 		nameList.Add(currObj.Name);
-	// 	return nameList;
-	// }
+	public static Dungeon ReturnDungeonFromList(List<Dungeon> objectList, string name)
+	{
+		foreach (Dungeon currObj in objectList)
+			if (name == currObj.Name)
+				return currObj;
+		return null;
+	}
 
 	public static List<string> ItemListToNameList(List<IItem> itemList)
 	{
@@ -70,7 +70,6 @@ public static class Utility
 			UIBossCard newUiCard = Global.gameManager.uiPackedSceneReferences.UIBossCardScene.Instantiate<UIBossCard>();
 			newUiCard.EditAllCardInformation((BossCard)card);
 			container.AddChild(newUiCard);
-
 		}
 		else
 		{

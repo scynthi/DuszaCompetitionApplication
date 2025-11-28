@@ -26,6 +26,7 @@ public partial class WorldContext : Node
 		IsStarted = false;
 		gameDifficulty = 0;
 		player = playerInstance;
+		AddSaveDeckToRealDeck(player);
 		WorldCards = worldCardsList;
 		WorldDungeons = dungeonList;
     }
@@ -36,7 +37,18 @@ public partial class WorldContext : Node
 		IsStarted = settings.isStarted;
 		gameDifficulty = settings.gameDifficulty;
 		player = pSave.player;
+		AddSaveDeckToRealDeck(player);
 		WorldCards = wSave.WorldCards;
 		WorldDungeons = wSave.WorldDungeons;
+    }
+
+	private void AddSaveDeckToRealDeck(Player player)
+    {
+        List<string> deckNames = Utility.WorldObjectListToNameList(player.Deck);
+		player.Deck.Clear();
+		foreach (string name in deckNames)
+        {
+            player.TryAddToDeck(name);
+        }
     }
 }

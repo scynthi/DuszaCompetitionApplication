@@ -60,6 +60,12 @@ public partial class UIBossCard : Control
         return BossCard;
     }
 
+    public Vector2 UIPosition
+    {
+        get => Position; 
+        set => Position = value; 
+    }
+
     public void EditAllCardInformation(Card baseCard, BossDouble evolveType, string addedName = "lord ", bool isEnemy = false)
     {
         this.isEnemy = isEnemy;

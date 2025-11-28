@@ -28,13 +28,13 @@ public partial class SaveLoadSystem : Node
         // ResourceSaver.Save(saveFile, SAVE_PATH + $"{saveFile.Name}.tres");
     }
 
-	public WorldContext LoadSaveFile(string saveFileName)
-    {
-        if (ResourceLoader.Exists(SAVE_PATH + $"{saveFileName}"))
-        {
-            return GD.Load<WorldContext>(SAVE_PATH + $"{saveFileName}");
-        } 
-		return null;
-    }
+	// public WorldContext LoadSaveFile(string saveFileName)
+    // {
+    //     if (ResourceLoader.Exists(SAVE_PATH + $"{saveFileName}"))
+    //     {
+    //         return GD.Load<WorldContext>(SAVE_PATH + $"{saveFileName}");
+    //     } 
+	// 	return null;
+    // }
 
 }

@@ -11,11 +11,12 @@ public partial class Dungeon : IWorldObject
 
     public Dungeon(){}
 
-	public Dungeon(string name, DungeonTypes dungeonType, DungeonRewardTypes dungeonReward)
+	public Dungeon(string name, DungeonTypes dungeonType, DungeonRewardTypes dungeonReward, List<Card> dungeonDeck)
     {
         Name          = name;
         DungeonType   = dungeonType;
         DungeonReward = dungeonReward;
+        DungeonDeck   = dungeonDeck;
     }
 
 	public Dungeon(Dungeon other)
@@ -23,6 +24,7 @@ public partial class Dungeon : IWorldObject
         Name   		  = other.Name;
         DungeonType   = other.DungeonType;
         DungeonReward = other.DungeonReward;
+        DungeonDeck   = other.DungeonDeck;
     }
 
 	public void SetDungeonDeck(List<Card> cardList)

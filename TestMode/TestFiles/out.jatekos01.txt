@@ -1,10 +1,7 @@
-gyujtemeny;Nabooru;5;6;tuz
-gyujtemeny;Darunia;6;7;fold
-gyujtemeny;Ruto;4;5;viz
-gyujtemeny;Sheik;5;6;levego
-gyujtemeny;Impa;4;6;fold
-gyujtemeny;Dark Ganon;16;9;levego
+gyujtemeny;Aragorn;2;5;tuz
+gyujtemeny;Sadan;2;4;levego
+gyujtemeny;Corky;2;4;fold
+gyujtemeny;Kira;2;7;levego
 
-pakli;Nabooru
-pakli;Darunia
-pakli;Dark Ganon
+pakli;Corky
+pakli;Kira
