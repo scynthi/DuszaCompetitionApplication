@@ -39,14 +39,10 @@ public partial class NewGameSubMenu : Control
                 if (!fileName.Contains("."))
                 {
                     GD.Print(fileName);
-                    var saveFile = Global.gameManager.saverLoader.Load(fileName);
+                    var saveFile = Global.gameManager.saverLoader.Load(fileName, SaverLoader.SAVE_PATH);
                     
                     if (saveFile != null)
                     {
-                        if (saveFile.IsStarted){
-                            fileName = dir.GetNext();
-                            continue;}
-
                         UiSaveFileItem newUiSaveFileItem = (UiSaveFileItem)uiSaveFileItem.Instantiate();
 
                         newUiSaveFileItem.BindSaveFile(saveFile);
@@ -100,7 +96,6 @@ public partial class NewGameSubMenu : Control
 
     public async void _OnStartPressed()
     {
-        currDisplayedSave.IsStarted = true;
         Global.gameManager.saverLoader.currSaveFile = currDisplayedSave;
         await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.DungeonMap);
     }

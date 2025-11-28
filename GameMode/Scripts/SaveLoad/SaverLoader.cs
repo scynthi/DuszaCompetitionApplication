@@ -20,13 +20,13 @@ public class WorldSave
 public class Settings
 {
 	public string Name { get; set; }
-    public bool isStarted { get; set; }
 	public int gameDifficulty { get; set; }
 }
 
 public partial class SaverLoader : Node
 {
-	public const string SAVE_PATH = "res://Saves/";
+	public const string SAVE_PATH = "res://Saves/Template/";
+	public const string CONTINUE_PATH = "res://Saves/Continue/";
 	public WorldContext currSaveFile { get; set; }
 
 	private static JsonSerializerOptions options = new JsonSerializerOptions 
@@ -37,9 +37,9 @@ public partial class SaverLoader : Node
 
 	public void SaveTo(WorldContext WorldContext)
 	{
-		string folder = $"{SAVE_PATH}{WorldContext.Name}";
+		string folder = $"{CONTINUE_PATH}{WorldContext.Name}";
 		string fullPath = ProjectSettings.GlobalizePath(folder);
-		if (!SaveFolderExists(WorldContext.Name)) Directory.CreateDirectory(fullPath);
+		if (!SaveFolderExists(WorldContext.Name, CONTINUE_PATH)) Directory.CreateDirectory(fullPath);
 
 		PlayerSave playerData;
 		WorldSave worldSave;
@@ -61,7 +61,7 @@ public partial class SaverLoader : Node
 	{
 		string folder = $"{SAVE_PATH}{saveName}";
 		string fullPath = ProjectSettings.GlobalizePath(folder);
-		if (!SaveFolderExists(saveName)) Directory.CreateDirectory(fullPath);
+		if (!SaveFolderExists(saveName, SAVE_PATH)) Directory.CreateDirectory(fullPath);
 
 		PlayerSave playerData;
 		WorldSave worldSave;
@@ -81,22 +81,18 @@ public partial class SaverLoader : Node
 		return new WorldContext(playerData, worldSave, settingsData);
 	}
 
-	public WorldContext Load(string saveName)
+	public WorldContext Load(string saveName, string path)
     {
-		string filePath = ProjectSettings.GlobalizePath($"{SAVE_PATH}{saveName}/");
-		GD.Print("OMD", filePath);
-
+		string filePath = ProjectSettings.GlobalizePath($"{path}{saveName}/");
 		if (!Directory.Exists(filePath))
-			return null;
+			Directory.CreateDirectory(filePath);
 
-		GD.Print("WHY");
 		string playerJson = File.ReadAllText(Path.Combine(filePath, "player.json"));
 		string worldJson = File.ReadAllText(Path.Combine(filePath, "world.json"));
 		string settingsJson = File.ReadAllText(Path.Combine(filePath, "settings.json"));
 		PlayerSave playerData = JsonSerializer.Deserialize<PlayerSave>(playerJson, options);
 		WorldSave worldData = JsonSerializer.Deserialize<WorldSave>(worldJson, options);
 		Settings settings = JsonSerializer.Deserialize<Settings>(settingsJson, options);
-		GD.Print("burg part 2");
 
 		return new WorldContext(playerData, worldData, settings);
     }
@@ -114,14 +110,15 @@ public partial class SaverLoader : Node
 
 	// public static LoadWorldObjects
 
-	public static bool SaveFolderExists(string saveName)
+	public static bool SaveFolderExists(string saveName, string path)
 	{
-		string fullPath = ProjectSettings.GlobalizePath($"{SAVE_PATH}{saveName}");
+		string fullPath = ProjectSettings.GlobalizePath($"{path}{saveName}");
 		return Directory.Exists(fullPath);
 	}
 
 	public static void Convert(WorldContext r, out PlayerSave pSave, out WorldSave wSave, out Settings settings)
     {
+		GD.Print(r);
         pSave = new PlayerSave
 		{
 			player = r.player
@@ -134,7 +131,6 @@ public partial class SaverLoader : Node
 		settings = new Settings
 		{
 			Name = r.Name,
-			isStarted = r.IsStarted,
 			gameDifficulty = r.gameDifficulty
 		};
     }
@@ -153,7 +149,6 @@ public partial class SaverLoader : Node
 		settings = new Settings
 		{
 			Name = saveName,
-			isStarted = false,
 			gameDifficulty = 0
 		};
     }

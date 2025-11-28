@@ -6,7 +6,6 @@ public partial class WorldContext : Node
 {
 	// public static WorldContext Instance { get; set; }
 	public new string Name { private set; get; }
-    public bool IsStarted { set; get; }
 	public int gameDifficulty;
     public Player player { private set; get; }
     public List<Card> WorldCards { private set; get; } = new List<Card>();
@@ -23,7 +22,6 @@ public partial class WorldContext : Node
 	public WorldContext(string saveFileName, Player playerInstance, List<Card> worldCardsList, List<Dungeon> dungeonList)
     {
         Name = saveFileName;
-		IsStarted = false;
 		gameDifficulty = 0;
 		player = playerInstance;
 		AddSaveDeckToRealDeck(player);
@@ -34,7 +32,6 @@ public partial class WorldContext : Node
 	public WorldContext(PlayerSave pSave, WorldSave wSave, Settings settings)
     {
         Name = settings.Name;
-		IsStarted = settings.isStarted;
 		gameDifficulty = settings.gameDifficulty;
 		player = pSave.player;
 		AddSaveDeckToRealDeck(player);

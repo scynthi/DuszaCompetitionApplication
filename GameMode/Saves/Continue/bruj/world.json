@@ -1,0 +1,30 @@
+{
+  "WorldCards": [
+    {
+      "Name": "alma",
+      "Health": 6,
+      "BaseDamage": 7,
+      "Damage": 7,
+      "CardElement": 1,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_huntress.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "Lord  alma",
+      "Health": 12,
+      "BaseDamage": 7,
+      "Damage": 7,
+      "CardElement": 1,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_huntress.png",
+      "buffHandler": {}
+    }
+  ],
+  "WorldDungeons": [
+    {
+      "Name": "alap",
+      "DungeonType": 0,
+      "DungeonReward": 0,
+      "DungeonDeck": []
+    }
+  ]
+}

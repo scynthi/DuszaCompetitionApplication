@@ -8,7 +8,7 @@ public partial class ContinueGameSubMenu : Control
 
     public void ReloadSaves()
     {
-        DirAccess dir = DirAccess.Open(SaverLoader.SAVE_PATH);
+        DirAccess dir = DirAccess.Open(SaverLoader.CONTINUE_PATH);
 
         if (dir != null)
         {
@@ -25,14 +25,10 @@ public partial class ContinueGameSubMenu : Control
 
                 if (!fileName.Contains("."))
                 {
-                    var saveFile = Global.gameManager.saverLoader.Load(fileName);
+                    var saveFile = Global.gameManager.saverLoader.Load(fileName, SaverLoader.CONTINUE_PATH);
 
                     if (saveFile != null)
                     {
-                        if (!saveFile.IsStarted){
-                            fileName = dir.GetNext();
-                            continue;}
-
                         UiSaveFileContinueItem newUiSaveFileContinueItem = uiSaveFileContinueItem.Instantiate<UiSaveFileContinueItem>();
 
                         newUiSaveFileContinueItem.BindSaveFile(saveFile);
