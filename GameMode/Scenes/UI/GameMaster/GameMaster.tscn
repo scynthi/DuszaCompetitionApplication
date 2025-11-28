@@ -445,6 +445,24 @@ emoji_menu_enabled = false
 layout_mode = 2
 text = "Mentés"
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1085.0
+offset_top = 634.0
+offset_right = 1152.1285
+offset_bottom = 675.0
+scale = Vector2(2.309, 1)
+text = "IDK"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1085.0
+offset_top = 581.0
+offset_right = 1152.1285
+offset_bottom = 622.0
+scale = Vector2(2.309, 1)
+text = "To in"
+
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/CardEditor" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["card"]]
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/Cards" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["cards"]]
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/Collection" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["collection"]]
@@ -464,3 +482,5 @@ text = "Mentés"
 [connection signal="item_selected" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/Properties/RewardType" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" method="ChangeReward"]
 [connection signal="pressed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/Properties/Save" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" method="SaveDungeon"]
 [connection signal="pressed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu/VBoxContainer/Button" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu" method="CreateSave"]
+[connection signal="pressed" from="Button" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="LoadSaveFile"]
+[connection signal="pressed" from="Button2" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="CreateInTxt"]

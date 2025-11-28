@@ -235,7 +235,7 @@ public partial class FightLogic : Node
 		}
 		else if (!IsEnded)
 		{
-			EndFight(PlayerDeck != null ? $"Player Won {PlayerCard.Name}, {PlayerCard.Health}" : $"Enemy Won {DungeonCard.Name}, {DungeonCard.Health}");
+			EndFight(PlayerCard != null ? $"Player Won {PlayerCard.Name}, {PlayerCard.Health}" : $"Enemy Won {DungeonCard.Name}, {DungeonCard.Health}");
 		}
 	}
 

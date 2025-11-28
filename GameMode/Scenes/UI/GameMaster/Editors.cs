@@ -23,7 +23,7 @@ public partial class Editors : VBoxContainer
     private Control _currentMenu;
     public Control CurrentMenu
     {
-        get {return _currentMenu;}
+        get { return _currentMenu; }
         private set
         {
             if (_currentMenu != null) CurrentMenu.Visible = false;
@@ -36,10 +36,10 @@ public partial class Editors : VBoxContainer
             }
         }
     }
-	public override void _Input(InputEvent @event)
-	{
-		PiciMenüHandler.HandlePiciMenüCreation(@event);
-	}
+    public override void _Input(InputEvent @event)
+    {
+        PiciMenüHandler.HandlePiciMenüCreation(@event);
+    }
 
     public override void _Ready()
     {
@@ -54,7 +54,7 @@ public partial class Editors : VBoxContainer
 
     public async void ChangeEditor(string name)
     {
-        switch(name)
+        switch (name)
         {
             case "card":
                 CurrentMenu = CardEditor;
@@ -102,6 +102,58 @@ public partial class Editors : VBoxContainer
         tween.Play();
         await ToSignal(tween, "finished");
         tween.Kill();
+    }
+
+    public void LoadSaveFile()
+    {
+        string path = FileDialogHelper.ShowOpenFileDialog();
+        if (path != null)
+        {
+            GD.Print("User selected: " + path);
+        }
+        else
+        {
+            GD.Print("User cancelled");
+        }
+        string fileName = "pleaseWork";
+
+        for (int i = gameMasterData.WorldCards.Count - 1; i >= 0; i--)
+        {
+            Card card = gameMasterData.WorldCards[i];
+            if (card is BossCard) continue;
+
+            gameMasterData.RemoveCardFromWorldCards(card);
+        }
+
+        for (int i = gameMasterData.Dungeons.Count - 1; i >= 0; i--)
+        {
+            Dungeon dungeon = gameMasterData.Dungeons[i];
+            gameMasterData.RemoveDungeonFromDungeonList(dungeon);
+        }
+
+        WorldContext worldContext = Global.gameManager.saverLoader.Load(fileName, SaverLoader.SAVE_PATH);
+
+        foreach (Card card in worldContext.WorldCards)
+        {
+            if (card is BossCard boss)
+            {
+                GD.Print(boss.Name);
+                GD.Print(boss.BaseCard);
+            }
+            gameMasterData.AddCardToWorldCards(card);
+            if (Utility.WorldObjectListToNameList(worldContext.player.Collection).Contains(card.Name))
+                gameMasterData.AddCardToPlayerCollection(card);
+        }
+
+        foreach (Dungeon dungeon in worldContext.WorldDungeons)
+        {
+            gameMasterData.AddDungeonToDungeonList(dungeon);
+        }
+    }
+
+    public void CreateInTxt()
+    {
+        SaverLoader.WorldContextToInTxt(new WorldContext(gameMasterData.PlayerCollection, gameMasterData.WorldCards, gameMasterData.Dungeons), "in.txt");
     }
 
     // public void RemoveCard(string name)

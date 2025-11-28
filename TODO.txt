@@ -1,14 +1,14 @@
 TODO:
 
 -JSON TO IN.TXT THANKS HAGYMA ILY SO MUCH / done in code
--Load jsons to GameMaster / talk with Peti
--Edit card/dungeon names
--dungeon deck
--When no more worldcards to get, can't get into Hard dungeons
+-Load jsons to GameMaster / WORKING
+-Edit card/dungeon names / I'LL talk about it
+-dungeon deck / PETI HELP ME OR I'M FINISHED
+-When no more worldcards to get, can't get into Hard dungeons / DONE
 -Fix animations on FightScene (Deck that spawns the cards)
 -Add Critical/Hit/NonPen based on Elements
 -Delete saves
--Edit saves
+-Edit saves / Should be good
 -XP functionality
 
 If all is done:

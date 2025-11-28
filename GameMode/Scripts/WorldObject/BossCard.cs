@@ -3,7 +3,7 @@ using System;
 
 public partial class BossCard : Card
 {
-    public Card BaseCard {get; private set;}
+    public Card BaseCard { get; set; }
     public BossDouble Doubled;
     public BossCard(){}
 

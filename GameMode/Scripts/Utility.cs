@@ -84,15 +84,16 @@ public static class Utility
 	}
 
 	public static void AddUiSimpleCardsUnderContainer(List<Card> cards, Control container, bool clearContainerChildren = true)
-    {
-		if (clearContainerChildren){
+	{
+		if (clearContainerChildren)
+		{
 			foreach (Node child in container.GetChildren())
-				{
-					child.QueueFree();
-				}    
-        }
-		
-		foreach(Card card in cards)
+			{
+				child.QueueFree();
+			}
+		}
+
+		foreach (Card card in cards)
 		{
 			if (card is BossCard) continue;
 
@@ -100,18 +101,19 @@ public static class Utility
 			newUiCard.EditAllCardInformation(card);
 			container.AddChild(newUiCard);
 		}
-    }
+	}
 
 	public static void AddUiBossCardsUnderContainer(List<Card> cards, Control container, bool clearContainerChildren = true)
-    {
-		if (clearContainerChildren){
+	{
+		if (clearContainerChildren)
+		{
 			foreach (Node child in container.GetChildren())
-				{
-					child.QueueFree();
-				}    
-        }
-		
-		foreach(Card card in cards)
+			{
+				child.QueueFree();
+			}
+		}
+
+		foreach (Card card in cards)
 		{
 			if (card is not BossCard) continue;
 
@@ -121,24 +123,25 @@ public static class Utility
 			newUiCard.EditAllCardInformation((BossCard)card);
 			container.AddChild(newUiCard);
 		}
-    }
+	}
 
 	public static void AddUiDungeonsUnderContainer(List<Dungeon> dungeons, Control container, bool clearContainerChildren = true)
-    {
-		if (clearContainerChildren){
+	{
+		if (clearContainerChildren)
+		{
 			foreach (Node child in container.GetChildren())
-				{
-					child.QueueFree();
-				}    
-        }
-		
-		foreach(Dungeon dungeon in dungeons)
+			{
+				child.QueueFree();
+			}
+		}
+
+		foreach (Dungeon dungeon in dungeons)
 		{
 			UIDungeon UIDungeon = Global.gameManager.uiPackedSceneReferences.UIDungeonScene.Instantiate<UIDungeon>();
 			UIDungeon.SetUpDungeon(dungeon);
 			container.AddChild(UIDungeon);
 		}
-    }
+	}
 
 
 	public static Texture2D LoadTextureFromPath(string path)
@@ -156,8 +159,8 @@ public static class Utility
 	}
 
 	public static string CardElementToString(CardElements cardElement)
-    {
-        return cardElement switch
+	{
+		return cardElement switch
 		{
 			CardElements.WATER => "viz",
 			CardElements.EARTH => "fold",
@@ -165,16 +168,31 @@ public static class Utility
 			CardElements.FIRE => "tuz",
 			_ => ""
 		};
-    }
+	}
 
-	public static string WorldObjectListToString<T>(List<T> objectList, char seperator) where T : IWorldObject
+	public static string WorldObjectListToString<T>(List<T> list, char separator)
 	{
-		string value = "";
+		if (list == null || list.Count == 0)
+			return string.Empty;
 
-		foreach (T currObj in objectList)
-			value = value + seperator + currObj.Name;
-		value = value.Substring(1, value.Length - 1);
-		
-		return value;
+		string result = "";
+
+		foreach (var obj in list)
+			result += obj.ToString() + separator;
+
+		return result.TrimEnd(separator);
+	}
+
+	public static bool IsMoreCardsToGet(List<Card> worldCard, List<Card> collection)
+	{
+		List<string> CollectionNames = WorldObjectListToNameList(collection);
+		foreach (Card card in worldCard)
+		{
+			if (card is BossCard)
+				continue;
+			if (!CollectionNames.Contains(card.Name))
+				return true;
+		}
+		return false;
 	}
 }

@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 
 public partial class WorldContext : Node
 {
@@ -17,6 +18,14 @@ public partial class WorldContext : Node
     // {
     //     Instance = this;
     // }
+
+    public WorldContext(List<Card> playerCollection, List<Card> worldCardsList, List<Dungeon> dungeonList)
+    {
+		player = new Player();
+        player.Collection = playerCollection;
+		WorldCards = worldCardsList;
+		WorldDungeons = dungeonList;
+    }
 
 
 	public WorldContext(string saveFileName, Player playerInstance, int difficulty, List<Card> worldCardsList, List<Dungeon> dungeonList)

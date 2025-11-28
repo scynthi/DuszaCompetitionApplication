@@ -4,6 +4,7 @@ using System;
 public partial class DungeonStartButton : Button
 {
     [Export] Label nameLabel;
+    [Export] UIDungeon uIDungeon;
 
     public async override void _Pressed()
     {
@@ -13,6 +14,7 @@ public partial class DungeonStartButton : Button
 
     public override void _PhysicsProcess(double delta)
     {
+        if (Global.gameManager.saverLoader.currSaveFile == null) return;
         if (Global.gameManager.saverLoader.currSaveFile.player.Deck.Count <= 0)
         {
             Disabled = true;
@@ -20,9 +22,11 @@ public partial class DungeonStartButton : Button
         else
         {
             Disabled = false;
-            
         }
+        if (uIDungeon.DungeonType == DungeonTypes.big && !Utility.IsMoreCardsToGet(Global.gameManager.saverLoader.currSaveFile.WorldCards, Global.gameManager.saverLoader.currSaveFile.player.Collection))
+        {
+            Disabled = true;
+        }
+        
     }
-
-
 }

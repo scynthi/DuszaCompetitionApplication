@@ -130,57 +130,68 @@ public partial class SaverLoader : Node
 	}
 
 	public static void WorldContextToInTxt(WorldContext worldContext, string fileName)
-    {
-        List<string> output = ConvertWorldContextToOutput(worldContext);
+	{
+		List<string> output = ConvertWorldContextToOutput(worldContext);
 		string fullPath = ProjectSettings.GlobalizePath(OUTPUT_PATH + fileName);
 		File.WriteAllLines(fullPath, output);
-    }
+	}
 
 	private static List<string> ConvertWorldContextToOutput(WorldContext worldContext)
-    {
+	{
 		List<string> output = new List<string>();
-        List<Card> worldCards = worldContext.WorldCards;
-        List<Dungeon> worldDungeons = worldContext.WorldDungeons;
+		List<Card> worldCards = worldContext.WorldCards;
+		List<Dungeon> worldDungeons = worldContext.WorldDungeons;
 		List<Card> bossCards = new List<Card>();
 		Player plr = worldContext.player;
 
 		foreach (Card card in worldCards)
-        {
+		{
 			if (card is BossCard)
 			{
 				bossCards.Add(card);
 				continue;
 			}
-            output.Add($"uj kartya;{card.Name};{card.BaseDamage};{card.Health};{Utility.CardElementToString(card.CardElement)}");
-        }
+			output.Add($"uj kartya;{card.Name};{card.BaseDamage};{card.Health};{Utility.CardElementToString(card.CardElement)}");
+		}
 
 		output.Add("");
 
 		foreach (BossCard card in bossCards)
-        {
-            output.Add($"uj vezer;{card.Name};{card.BaseCard.Name};{(card.Doubled == BossDouble.HEALTH ? "eletero" : "sebzes")};{Utility.CardElementToString(card.CardElement)}");
-        }
+		{
+			output.Add($"uj vezer;{card.Name};{card.BaseCard.Name};{(card.Doubled == BossDouble.HEALTH ? "eletero" : "sebzes")};{Utility.CardElementToString(card.CardElement)}");
+		}
 
 		output.Add("");
 
-		foreach(Dungeon dungeon in worldDungeons)
-        {
+		foreach (Dungeon dungeon in worldDungeons)
+		{
 			if (dungeon.DungeonType == DungeonTypes.big)
-	            output.Add($"uj kazamata;{dungeon.DungeonType};{dungeon.Name};{Utility.WorldObjectListToString<Card>(dungeon.DungeonDeck.GetRange(0, dungeon.DungeonDeck.Count - 1), ',')};{dungeon.DungeonDeck[dungeon.DungeonDeck.Count - 1].Name}");
+			{
+				int lastIndex = dungeon.DungeonDeck.Count - 1;
+				List<Card> deckExceptLast = lastIndex > 0 ? dungeon.DungeonDeck.GetRange(0, lastIndex) : new List<Card>();
+
+				string deckString = Utility.WorldObjectListToString<Card>(deckExceptLast, ',');
+				string lastCardName = lastIndex >= 0 ? dungeon.DungeonDeck[lastIndex].Name : "";
+
+				output.Add($"uj kazamata;{dungeon.DungeonType};{dungeon.Name};{deckString};{lastCardName}");
+			}
 			else
 				output.Add($"uj kazamata;{dungeon.DungeonType};{dungeon.Name};{Utility.WorldObjectListToString<Card>(dungeon.DungeonDeck, ',')};{(dungeon.DungeonReward == DungeonRewardTypes.health ? "eletero" : "sebzes")}");
-        }
+		}
+
+		output.Add("");
 
 		output.Add("uj jatekos");
+
 		output.Add("");
 
 		foreach (Card card in plr.Collection)
-        {
-            output.Add($"felvetel gyujtemenybe;{card.Name}");
-        }
+		{
+			output.Add($"felvetel gyujtemenybe;{card.Name}");
+		}
 
 		return output;
-    }
+	}
 
 	// public static LoadWorldObjects
 
@@ -190,6 +201,16 @@ public partial class SaverLoader : Node
 		return Directory.Exists(fullPath);
 	}
 
+	public static void DeleteSave(string name)
+    {
+        string fullPath = ProjectSettings.GlobalizePath($"{CONTINUE_PATH}{name}");
+		
+    }
+	public static void DeleteTemplate(string name)
+    {
+        string fullPath = ProjectSettings.GlobalizePath($"{SAVE_PATH}{name}");
+		
+    }
 	public static void Convert(WorldContext r, out PlayerSave pSave, out WorldSave wSave, out Settings settings)
 	{
 		pSave = new PlayerSave

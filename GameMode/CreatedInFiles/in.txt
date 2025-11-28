@@ -1,0 +1,11 @@
+uj kartya;Aple;7;6;fold
+
+uj vezer;Lord Aple;Aple;eletero;fold
+
+uj kazamata;simple;AAaaAA;;eletero
+uj kazamata;small;kicsi;;sebzes
+uj kazamata;big;byuh;;
+
+uj jatekos
+
+felvetel gyujtemenybe;Aple
