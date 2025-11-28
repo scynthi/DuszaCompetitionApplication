@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkxac5mrr13pu"]
+[gd_scene load_steps=7 format=3 uid="uid://bkxac5mrr13pu"]
 
 [ext_resource type="Script" uid="uid://crryffgn53yln" path="res://Assets/UI/Scenes/UIDungeon/UIDungeon.cs" id="1_a771a"]
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_uky3w"]
 [ext_resource type="Texture2D" uid="uid://bdmnd11s75frm" path="res://Assets/Images/Portal/portal_frame_egyszeru.png" id="2_3smau"]
 [ext_resource type="FontFile" uid="uid://bhu7r7x4jdi2e" path="res://Assets/Fonts/Alkhemikal.ttf" id="3_wh81g"]
 [ext_resource type="Script" uid="uid://rri2sofoubid" path="res://Assets/UI/Scenes/UIDungeon/DungeonStartButton.cs" id="4_m6imu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wh81g"]
+font_size = 36
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [node name="UIDungeon" type="Control" node_paths=PackedStringArray("nameRichText", "nameLabel", "iconTexture", "enterButton")]
 custom_minimum_size = Vector2(190, 230)
@@ -37,12 +42,12 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="Label" type="RichTextLabel" parent="VBox"]
+[node name="Label" type="Label" parent="VBox"]
 custom_minimum_size = Vector2(400, 40)
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 29
+theme_override_font_sizes/font_size = 36
 text = "12345678910111213141"
-scroll_active = false
+label_settings = SubResource("LabelSettings_wh81g")
 horizontal_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="VBox"]
@@ -70,7 +75,7 @@ custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "Kiválasztás"
 script = ExtResource("4_m6imu")
-nameLabel = NodePath("../../../Label")
+nameLabel = NodePath("")
 
 [node name="Dungeon" type="Control" parent="."]
 z_index = 1

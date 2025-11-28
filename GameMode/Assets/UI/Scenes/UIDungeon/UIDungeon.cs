@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public partial class UIDungeon : Control
 {
-    [Export] RichTextLabel nameRichText;
+    [Export] Label nameRichText;
     [Export] Label nameLabel;
     [Export] TextureRect iconTexture;
     [Export] Button enterButton;

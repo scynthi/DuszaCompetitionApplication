@@ -5,6 +5,8 @@
       "Health": 6,
       "BaseDamage": 7,
       "Damage": 7,
+      "DamageChanged": false,
+      "HealthChanged": false,
       "CardElement": 3,
       "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
       "buffHandler": {}
@@ -14,6 +16,8 @@
       "Health": 6,
       "BaseDamage": 7,
       "Damage": 14,
+      "DamageChanged": false,
+      "HealthChanged": false,
       "CardElement": 3,
       "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
       "buffHandler": {}
