@@ -191,6 +191,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Card" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/VBoxContainer" instance=ExtResource("1_nonii")]
+use_parent_material = false
 layout_mode = 2
 
 [node name="Properties" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor"]

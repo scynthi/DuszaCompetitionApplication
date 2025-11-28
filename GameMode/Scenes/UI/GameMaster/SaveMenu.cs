@@ -22,7 +22,7 @@ public partial class SaveMenu : HBoxContainer
 			saveName, 
 			editor.gameMasterData.WorldCards,
 			editor.gameMasterData.Dungeons,
-			new Player(0, 0)
+			new Player(0, 0, editor.gameMasterData.PlayerCollection)
 		);
 
 		GD.Print($"Save file ({saveName}) has been saved by InterPeter's hyper super backend of Saving files sponsored by Godot and God himself.");

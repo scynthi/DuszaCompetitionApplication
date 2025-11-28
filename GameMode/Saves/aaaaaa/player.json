@@ -2,7 +2,35 @@
   "player": {
     "Xp": 0,
     "Money": 0,
-    "Collection": [],
+    "Collection": [
+      {
+        "Name": "aaaaaaa",
+        "Health": 1,
+        "BaseDamage": 1,
+        "Damage": 1,
+        "CardElement": 3,
+        "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+        "buffHandler": {}
+      },
+      {
+        "Name": "ssss",
+        "Health": 1,
+        "BaseDamage": 1,
+        "Damage": 1,
+        "CardElement": 3,
+        "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+        "buffHandler": {}
+      },
+      {
+        "Name": "Please hold",
+        "Health": 1,
+        "BaseDamage": 1,
+        "Damage": 1,
+        "CardElement": 3,
+        "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+        "buffHandler": {}
+      }
+    ],
     "Deck": [],
     "ItemList": [
       {

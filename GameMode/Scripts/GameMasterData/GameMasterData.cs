@@ -24,14 +24,12 @@ public class GameMasterData
 
     public void AddCardToPlayerDeck(Card card)
     {
-        // if (!WorldCards.Contains(card)) WorldCards.Add(card);
         PlayerDeck.Add(card);
         CardDataChanged.Invoke();
     }
 
     public void AddCardToPlayerCollection(Card card)
     {
-        // if (!WorldCards.Contains(card)) WorldCards.Add(card);
         PlayerCollection.Add(card);
         CardDataChanged.Invoke();
     }

@@ -1,7 +1,6 @@
 using Godot;
-using System;
 using System.Linq;
-using System.Reflection.Metadata;
+using System.Numerics;
 
 public partial class CardEditor : HBoxContainer
 {
@@ -54,6 +53,7 @@ public partial class CardEditor : HBoxContainer
                 fileDialogInstance.CurrentDir = "C:/";
                 fileDialogInstance.AddFilter("*.png");
                 fileDialogInstance.Visible = true;
+                fileDialogInstance.Size = new Godot.Vector2I(1000, 570);
 
                 GetTree().CurrentScene.AddChild(fileDialogInstance);
                 break;
