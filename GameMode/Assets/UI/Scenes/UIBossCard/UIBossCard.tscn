@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsnbg78nbu0vo"]
+[gd_scene load_steps=14 format=3 uid="uid://dsnbg78nbu0vo"]
 
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_fm8t1"]
 [ext_resource type="Script" uid="uid://bi8556gvsdm8h" path="res://Assets/UI/Scenes/UIBossCard/UIBossCard.cs" id="2_j2uvf"]
+[ext_resource type="FontFile" uid="uid://bhu7r7x4jdi2e" path="res://Assets/Fonts/Alkhemikal.ttf" id="3_42nie"]
 [ext_resource type="Texture2D" uid="uid://boja6vh76fs8h" path="res://Assets/Images/Entities/Heroes/char_hunter.png" id="3_gxnqs"]
+[ext_resource type="Texture2D" uid="uid://22ju51isokfd" path="res://Assets/Images/Button/button_bgr_dark_tile_base.png" id="3_sv5a5"]
 [ext_resource type="Texture2D" uid="uid://dcbyhic481tbl" path="res://Assets/Images/Cards/cards_base.png" id="4_j3uay"]
 [ext_resource type="Texture2D" uid="uid://doww5jvob8iw2" path="res://Assets/Images/Elements/NewElementSprites/fire.png" id="5_yv6ta"]
 [ext_resource type="Texture2D" uid="uid://bpvqj2jyrl0rp" path="res://Assets/Images/Cards/cards_player_leader_effect.png" id="6_gxnqs"]
@@ -10,22 +12,26 @@
 [ext_resource type="Texture2D" uid="uid://ruoa1sjpbu7j" path="res://Assets/Images/Cards/cards_heart_buffed.png" id="8_3pg7d"]
 [ext_resource type="Texture2D" uid="uid://dnov8t4p650wk" path="res://Assets/Images/Cards/cards_axe_base.png" id="9_bpufm"]
 [ext_resource type="Texture2D" uid="uid://bmiley3dm5mth" path="res://Assets/Images/Cards/cards_axe_buffed.png" id="10_dhuuv"]
+[ext_resource type="Shader" uid="uid://ba0a4u1dqt8oa" path="res://Assets/Shaders/epicCard.gdshader" id="11_42nie"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sv5a5"]
+shader = ExtResource("11_42nie")
+shader_parameter/offset = Vector2(1.985, -58.04)
+shader_parameter/speed = 0.1770000084075
 
 [node name="Card" type="Control" node_paths=PackedStringArray("damageLabel", "healthLabel", "nameLabel", "cardBackground", "charcaterIcon", "effectTexture", "elementTexture")]
 custom_minimum_size = Vector2(168, 220)
 layout_mode = 3
 anchors_preset = 0
-offset_left = -41.0
-offset_top = -62.000008
-offset_right = 43.0
-offset_bottom = 47.999992
+offset_right = 168.0
+offset_bottom = 220.0
 scale = Vector2(1, 1.059)
 theme = ExtResource("1_fm8t1")
 script = ExtResource("2_j2uvf")
 damageLabel = NodePath("Panel/Control2/Axe/Damage")
 healthLabel = NodePath("Panel/Control2/Heart/Health")
 nameLabel = NodePath("Panel/Control/Name")
-cardBackground = NodePath("Panel/Control/Background")
+cardBackground = NodePath("")
 charcaterIcon = NodePath("Panel/Control2/Character")
 effectTexture = NodePath("Panel/Control2/Effect")
 elementTexture = NodePath("Panel/Control2/Element")
@@ -43,14 +49,17 @@ metadata/_edit_use_anchors_ = true
 [node name="Control" type="Control" parent="Panel"]
 layout_mode = 2
 
-[node name="Background" type="ColorRect" parent="Panel/Control"]
+[node name="TextureRect" type="TextureRect" parent="Panel/Control"]
+self_modulate = Color(0.78, 0.6708, 0.6708, 1)
+use_parent_material = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.56023794, 0.35918114, 0.20011234, 1)
+texture = ExtResource("3_sv5a5")
+expand_mode = 1
 
 [node name="Name" type="Label" parent="Panel/Control"]
 layout_mode = 0
@@ -59,8 +68,9 @@ offset_top = 5.6657295
 offset_right = 161.0
 offset_bottom = 58.545803
 theme_override_constants/line_spacing = -5
+theme_override_fonts/font = ExtResource("3_42nie")
 theme_override_font_sizes/font_size = 16
-text = "Lord Please Holder"
+text = "Lord Please Hold"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -189,5 +199,16 @@ grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
 flat = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.17254902)
+material = SubResource("ShaderMaterial_sv5a5")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="pressed" from="BossCard/InteractButton" to="." method="InteractButtonClicked"]

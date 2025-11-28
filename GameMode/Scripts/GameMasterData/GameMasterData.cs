@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Godot;
 
 public class GameMasterData
@@ -23,60 +24,27 @@ public class GameMasterData
 
     public void AddCardToPlayerDeck(Card card)
     {
-        // if (!WorldCards.Contains(card)) WorldCards.Add(card);
         PlayerDeck.Add(card);
         CardDataChanged.Invoke();
     }
 
     public void AddCardToPlayerCollection(Card card)
     {
-        // if (!WorldCards.Contains(card)) WorldCards.Add(card);
         PlayerCollection.Add(card);
         CardDataChanged.Invoke();
     }
 
     public void RemoveCardFromWorldCards(Card card)
     {
-
-        foreach (List<Card> currentCardList in new List<Card>[]{WorldCards, PlayerDeck, PlayerCollection})
-        {
-            try
-            {
-                foreach (Card cardInList in currentCardList)
-                {
-                    if (cardInList.Name != card.Name) continue;
-
-                    currentCardList.Remove(cardInList);
-                }
-            }
-            catch (System.Exception)
-            {
-                GD.Print($"WORLD DELETION: {card} can't be removed since it is not included in list.");
-            }
-        }
+        DeleteCard(card, WorldCards);
+        DeleteCard(card, PlayerCollection);
 
         CardDataChanged.Invoke();
     }
 
     public void RemoveCardFromPlayerCollection(Card card)
     {
-        foreach (List<Card> currentCardList in new List<Card>[]{PlayerDeck, PlayerCollection})
-        {
-            try
-            {
-                foreach (Card cardInList in currentCardList)
-                {
-                    if (cardInList.Name != card.Name) continue;
-                    
-                    currentCardList.Remove(cardInList);
-                    GD.Print($"{card.Name} has been deleted.");
-                }
-            }
-            catch (System.Exception)
-            {
-                GD.Print($"COLLECTION DELETION: {card} can't be removed since it is not included in list.");
-            }
-        }
+        DeleteCard(card, PlayerCollection);
 
         CardDataChanged.Invoke();
     }
@@ -124,5 +92,46 @@ public class GameMasterData
         }
         
         DungeonDataChanged.Invoke();
+    }
+
+    public bool TestCard(Card card, List<Card> collection)
+    {
+        var result = collection.Where(x => x.Name == card.Name);
+
+        if (result.Count() != 0)
+        {
+            GD.Print($"Card with name: {card.Name} already exists!");
+            return false;
+        }
+        return true;
+    }
+
+    public bool TestCard(Card card)
+    {
+        var result = WorldCards.Where(x => x.Name == card.Name);
+
+        if (result.Count() != 0)
+        {
+            GD.Print($"Card with name: {card.Name} already exists!");
+            return false;
+        }
+        return true;
+    }
+
+    private void DeleteCard(Card card, List<Card> collection)
+    {
+        for (int i = collection.Count - 1; i >= 0; i--)
+        {
+            var currentCard = collection[i];
+
+            if (currentCard is BossCard boss)
+            {
+                if (boss.BaseCard.Name == card.Name || boss.Name == card.Name)collection.RemoveAt(i);
+            }
+            else
+            {
+                if (currentCard.Name == card.Name) collection.RemoveAt(i);
+            }
+        }
     }
 }

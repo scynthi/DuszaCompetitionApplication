@@ -97,21 +97,21 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="Collection" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
-layout_mode = 2
-text = "Játékos kollekciója"
-
 [node name="CardEditor" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
 text = "Kártya készítő"
 
-[node name="BossEditor" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
-layout_mode = 2
-text = "Vezér kártyák"
-
 [node name="Cards" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
 text = "Kártyák"
+
+[node name="Collection" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
+layout_mode = 2
+text = "Játékos kollekciója"
+
+[node name="BossEditor" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
+layout_mode = 2
+text = "Vezér kártyák"
 
 [node name="DungeonEditor" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
@@ -156,6 +156,7 @@ CardViewer = NodePath("CardViewer")
 PlayerCollection = NodePath("PlayerCollection")
 
 [node name="PlayerCollection" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("cardHolder")]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 2
@@ -190,6 +191,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Card" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/VBoxContainer" instance=ExtResource("1_nonii")]
+use_parent_material = false
 layout_mode = 2
 
 [node name="Properties" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor"]
@@ -261,43 +263,28 @@ popup/item_4/id = 4
 layout_mode = 2
 text = "Mentés"
 
-[node name="BossEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("NormalCardHolder", "BossCardHolder")]
-visible = false
+[node name="BossEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("BossCardHolder")]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 2
 script = ExtResource("9_pahx4")
-NormalCardHolder = NodePath("MarginContainer/VBox/NormalCards/Cards")
-BossCardHolder = NodePath("MarginContainer/VBox/BossCards/Cards")
+BossCardHolder = NodePath("ScrollContainer/HBoxContainer/GridContainer")
 
-[node name="MarginContainer" type="MarginContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor"]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_right = 25
 
-[node name="VBox" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
 alignment = 1
 
-[node name="NormalCards" type="ScrollContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/MarginContainer/VBox"]
-custom_minimum_size = Vector2(220, 220)
+[node name="GridContainer" type="GridContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/ScrollContainer/HBoxContainer"]
 layout_mode = 2
-
-[node name="Cards" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/MarginContainer/VBox/NormalCards"]
-layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="BossCards" type="ScrollContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/MarginContainer/VBox"]
-custom_minimum_size = Vector2(220, 220)
-layout_mode = 2
-
-[node name="Cards" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/MarginContainer/VBox/BossCards"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+columns = 4
 
 [node name="CardViewer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("cardHolder")]
 visible = false
@@ -421,10 +408,10 @@ emoji_menu_enabled = false
 layout_mode = 2
 text = "Mentés"
 
-[connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/Collection" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["collection"]]
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/CardEditor" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["card"]]
-[connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/BossEditor" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["boss"]]
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/Cards" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["cards"]]
+[connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/Collection" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["collection"]]
+[connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/BossEditor" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["boss"]]
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/DungeonEditor" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["dungeon"]]
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/Dungeons" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["dungeons"]]
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/Save" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["save"]]

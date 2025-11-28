@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://t05qnqewfh32"]
+[gd_scene load_steps=15 format=3 uid="uid://uy3y5r8pusti"]
 
-[ext_resource type="Script" uid="uid://jtuoap7qxnl5" path="res://Assets/Shaders/quantization_shader.gd" id="1_anmlt"]
-[ext_resource type="PackedScene" uid="uid://ce7g0oth38mpg" path="res://Assets/Models/mainmenuTest.glb" id="2_rd0qj"]
-[ext_resource type="PackedScene" uid="uid://cpidsg2b56hne" path="res://Assets/StyledCamera.tscn" id="3_la1sx"]
-[ext_resource type="Shader" uid="uid://dfgpe5eshsaa8" path="res://Assets/Shaders/crt.gdshader" id="4_pyu8d"]
+[ext_resource type="Script" uid="uid://jtuoap7qxnl5" path="res://Assets/Shaders/quantization_shader.gd" id="1_a3bfk"]
+[ext_resource type="PackedScene" uid="uid://ce7g0oth38mpg" path="res://Assets/Models/mainmenuTest.glb" id="2_hsq34"]
+[ext_resource type="PackedScene" uid="uid://cpidsg2b56hne" path="res://Assets/StyledCamera.tscn" id="3_02x2x"]
 [ext_resource type="PackedScene" uid="uid://c6chsl4nd1iy5" path="res://Scenes/UI/GameMaster/GameMaster.tscn" id="5_anmlt"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ti60f"]
@@ -44,36 +43,114 @@ enabled = true
 effect_callback_type = 4
 needs_motion_vectors = false
 needs_normal_roughness = false
-script = ExtResource("1_anmlt")
+script = ExtResource("1_a3bfk")
 color_depth = 16.0
 metadata/_custom_type_script = "uid://jtuoap7qxnl5"
 
 [sub_resource type="Compositor" id="Compositor_0cuqo"]
 compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_x2c5x")])
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3mkyo"]
-shader = ExtResource("4_pyu8d")
-shader_parameter/overlay = true
-shader_parameter/scanlines_opacity = 0.0
-shader_parameter/scanlines_width = 0.2850000135375
-shader_parameter/grille_opacity = 0.0970000046075
-shader_parameter/resolution = Vector2(720, 360)
-shader_parameter/pixelate = false
-shader_parameter/roll = true
-shader_parameter/roll_speed = 0.73
-shader_parameter/roll_size = 18.1510008621725
-shader_parameter/roll_variation = 1.21800005459512
-shader_parameter/distort_intensity = 0.0790000037525
-shader_parameter/noise_opacity = 0.4
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.010000000475
-shader_parameter/aberration = 0.00900004792750008
-shader_parameter/brightness = 1.4
-shader_parameter/discolor = false
-shader_parameter/warp_amount = 0.010000000475
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.325
-shader_parameter/vignette_opacity = 0.4370000207575
+[sub_resource type="Animation" id="Animation_vhhms"]
+resource_name = "CameraSway"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(3.23, -0.25, 0, 0.25, 0, 3.23, -0.25, 0, 0.25, 0, 3.23, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 4.9673147, 10)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.193, -0.25, 0, 1.7333333, 0.0017449409, 0.20311716, -1.3333333, -8.675456e-05, 1.1999998, -0.0002168864, 0.193, -1.7666664, 0.0015497357, 0.25, 0),
+"times": PackedFloat32Array(0, 5.0333333, 10)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(3.433, -0.25, 0, 0.25, 0, 3.433, -0.25, 0, 0.25, 0, 3.433, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 4.9673147, 10)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.14486232, -0.25, 0, 0.93333334, 0.0002759844, 0.15743418, -1.6666666, -0.0015753955, 3.3000002, -0.0013832748, 0.14501603, -1.5999994, 0.00012227893, 0.25, 0),
+"times": PackedFloat32Array(0, 3.5666666, 8.533333)
+}
+
+[sub_resource type="Animation" id="Animation_ac2k7"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(3.23, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.193, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera3D:position:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(3.433, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera3D:rotation:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.14486232, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2cd5u"]
+_data = {
+&"CameraSway": SubResource("Animation_vhhms"),
+&"RESET": SubResource("Animation_ac2k7")
+}
 
 [node name="MainMenuWorld" type="Node3D"]
 
@@ -86,28 +163,15 @@ shadow_enabled = true
 environment = SubResource("Environment_ti60f")
 compositor = SubResource("Compositor_0cuqo")
 
-[node name="mainmenuTest" parent="." instance=ExtResource("2_rd0qj")]
+[node name="mainmenuTest" parent="." instance=ExtResource("2_hsq34")]
 
-[node name="Camera3D" parent="." instance=ExtResource("3_la1sx")]
-transform = Transform3D(0.62965024, 0.10246673, 0.7700916, 0.015542796, 0.9894037, -0.14435619, -0.7767232, 0.10286329, 0.6213857, 3.23, 0.193, 3.433)
+[node name="Camera3D" parent="." instance=ExtResource("3_02x2x")]
+transform = Transform3D(0.63865507, 0.10126157, 0.7628012, 0.015542795, 0.9894037, -0.14435619, -0.76933587, 0.1040499, 0.630314, 3.23, 0.193, 3.433)
 
-[node name="Control" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="ColorRect" type="ColorRect" parent="Control"]
-material = SubResource("ShaderMaterial_3mkyo")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2cd5u")
+}
+autoplay = "CameraSway"
 
 [node name="GameMaster" parent="." instance=ExtResource("5_anmlt")]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bkxac5mrr13pu"]
+[gd_scene load_steps=6 format=3 uid="uid://bkxac5mrr13pu"]
 
 [ext_resource type="Script" uid="uid://crryffgn53yln" path="res://Assets/UI/Scenes/UIDungeon/UIDungeon.cs" id="1_a771a"]
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_uky3w"]
 [ext_resource type="Texture2D" uid="uid://bdmnd11s75frm" path="res://Assets/Images/Portal/portal_frame_egyszeru.png" id="2_3smau"]
+[ext_resource type="FontFile" uid="uid://bhu7r7x4jdi2e" path="res://Assets/Fonts/Alkhemikal.ttf" id="3_wh81g"]
 [ext_resource type="Script" uid="uid://rri2sofoubid" path="res://Assets/UI/Scenes/UIDungeon/DungeonStartButton.cs" id="4_m6imu"]
 
 [node name="UIDungeon" type="Control" node_paths=PackedStringArray("nameRichText", "nameLabel", "iconTexture", "enterButton")]
@@ -53,14 +54,16 @@ layout_mode = 2
 
 [node name="UILabel" type="Label" parent="VBox/CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_wh81g")
 theme_override_font_sizes/font_size = 22
 text = "Teszt Kazamata"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBox/CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 texture = ExtResource("2_3smau")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="Button" type="Button" parent="VBox/CenterContainer/VBoxContainer" node_paths=PackedStringArray("nameLabel")]

@@ -31,6 +31,7 @@ public partial class UIDungeon : Control
             nameLabel.Visible = value;
             nameRichText.Visible = !value;
             enterButton.Visible = !value;
+            iconTexture.CustomMinimumSize = value ? new Vector2(200,200) : new Vector2(70,70);
         } 
         get {return _previewMode;}
     }

@@ -1,7 +1,6 @@
 using Godot;
-using System;
 using System.Linq;
-using System.Reflection.Metadata;
+using System.Numerics;
 
 public partial class CardEditor : HBoxContainer
 {
@@ -54,6 +53,7 @@ public partial class CardEditor : HBoxContainer
                 fileDialogInstance.CurrentDir = "C:/";
                 fileDialogInstance.AddFilter("*.png");
                 fileDialogInstance.Visible = true;
+                fileDialogInstance.Size = new Godot.Vector2I(1000, 570);
 
                 GetTree().CurrentScene.AddChild(fileDialogInstance);
                 break;
@@ -65,9 +65,10 @@ public partial class CardEditor : HBoxContainer
         card.EditIcon((string)receivedInfo);
     }
 
-    // TODO: Do more checks for name
     public void SaveCard()
     {
+        if (!Global.masterEditor.gameMasterData.TestCard(card.CreateCardInstance())) return;
+
         editor.gameMasterData.AddCardToWorldCards(card.CreateCardInstance());
     }
 
