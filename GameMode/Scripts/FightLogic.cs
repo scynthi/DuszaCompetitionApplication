@@ -127,12 +127,12 @@ public partial class FightLogic : Node
 	{
 		PackedScene damageLabel = GD.Load<PackedScene>("uid://bq8tgihxie003");
 		DamageLabel labelInstance = damageLabel.Instantiate<DamageLabel>();
-		labelInstance.Text = isPlayerAttacked ? PlayerDamage.ToString() : DungeonDamage.ToString();
+		labelInstance.Text = isPlayerAttacked ? DungeonDamage.ToString() : PlayerDamage.ToString();
 		labelInstance.ZIndex = 100;
 		if (isPlayerAttacked)
-			labelInstance.GlobalPosition = EnemyCardControl.GlobalPosition;
-		else
 			labelInstance.GlobalPosition = PlayerCardControl.GlobalPosition;
+		else
+			labelInstance.GlobalPosition = EnemyCardControl.GlobalPosition;
 		labelInstance.GlobalPosition += new Vector2(0, -200);
 		GetParent().GetNode<CanvasLayer>("CanvasLayer").AddChild(labelInstance);
 	}
