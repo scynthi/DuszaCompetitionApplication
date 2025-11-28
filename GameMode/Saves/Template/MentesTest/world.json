@@ -1,0 +1,166 @@
+{
+  "WorldCards": [
+    {
+      "Name": "123",
+      "Health": 1,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "1231",
+      "Health": 1,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "12311",
+      "Health": 1,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "123111",
+      "Health": 1,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "1231111",
+      "Health": 1,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "12311111",
+      "Health": 1,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "123111111",
+      "Health": 1,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "1231111111",
+      "Health": 1,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "12311111111",
+      "Health": 1,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "123111111111",
+      "Health": 1,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "1231111111111",
+      "Health": 1,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "12311111111111",
+      "Health": 1,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "123111111111111",
+      "Health": 1,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "1231111111111111",
+      "Health": 1,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    }
+  ],
+  "WorldDungeons": [
+    {
+      "Name": "Powerara",
+      "DungeonType": 1,
+      "DungeonReward": 1,
+      "DungeonDeck": []
+    }
+  ]
+}

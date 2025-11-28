@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://oihoapowoy2t"]
+[gd_scene load_steps=22 format=3 uid="uid://oihoapowoy2t"]
 
 [ext_resource type="Script" uid="uid://ctr2m1ncuyxwi" path="res://Scenes/DungeonMap/CameraController.cs" id="1_6u8ww"]
 [ext_resource type="PackedScene" uid="uid://dohu3ccoui2n5" path="res://Scenes/DungeonMap/MapBackgrounds/DungeonMapBackground.tscn" id="2_0enam"]
@@ -17,7 +17,15 @@
 [ext_resource type="Texture2D" uid="uid://dyg65wcabupfr" path="res://Assets/Images/player/xp.png" id="11_j447k"]
 [ext_resource type="Texture2D" uid="uid://b6kxxoiuifnem" path="res://Assets/Images/player/coin.png" id="12_vrsbj"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j447k"]
+bg_color = Color(0, 0, 0, 0.5137255)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
 [sub_resource type="LabelSettings" id="LabelSettings_uukdi"]
+font_size = 31
 outline_size = 6
 outline_color = Color(0.078814976, 0.07881499, 0.078814976, 1)
 
@@ -154,10 +162,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control"]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 30.0
+offset_right = -30.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -179,7 +190,7 @@ horizontal_scroll_mode = 0
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/PlayerCollection"]
 layout_mode = 2
 size_flags_horizontal = 6
-columns = 5
+columns = 3
 
 [node name="XPcontrol" type="Control" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control"]
 layout_mode = 1
@@ -188,6 +199,15 @@ offset_left = -1.0
 offset_top = -1.0
 offset_right = 82.0
 offset_bottom = 39.0
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/XPcontrol"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j447k")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/XPcontrol"]
 layout_mode = 1
@@ -229,6 +249,15 @@ offset_left = -83.0
 offset_bottom = 40.0
 grow_horizontal = 0
 
+[node name="Panel" type="Panel" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/XPcontrol2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_j447k")
+
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/XPcontrol2"]
 layout_mode = 1
 anchors_preset = 8
@@ -261,7 +290,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="WorldCardsSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign" node_paths=PackedStringArray("cardContainer")]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -287,16 +315,17 @@ expand_mode = 2
 stretch_mode = 5
 
 [node name="Control" type="Control" parent="CanvasLayer/Control/UpperSign/WorldCardsSubmenu"]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -396.0
+offset_left = -361.0
 offset_top = -269.0
-offset_right = 396.0
-offset_bottom = 205.0
+offset_right = 361.0
+offset_bottom = 185.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -312,7 +341,7 @@ horizontal_scroll_mode = 0
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/UpperSign/WorldCardsSubmenu/Control/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
-columns = 5
+columns = 4
 
 [node name="EmptyMenu" type="Control" parent="CanvasLayer/Control/UpperSign"]
 visible = false

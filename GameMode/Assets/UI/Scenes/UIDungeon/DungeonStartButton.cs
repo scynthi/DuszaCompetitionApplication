@@ -3,7 +3,7 @@ using System;
 
 public partial class DungeonStartButton : Button
 {
-    [Export] RichTextLabel nameLabel;
+    [Export] Label nameLabel;
 
     public async override void _Pressed()
     {

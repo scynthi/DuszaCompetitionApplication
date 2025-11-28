@@ -34,6 +34,7 @@ damageBuffedTexture = NodePath("Panel/Control2/Axe/AxeBuffedIcon")
 
 [node name="Panel" type="PanelContainer" parent="."]
 use_parent_material = true
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -107,6 +108,7 @@ texture = ExtResource("4_ndynx")
 stretch_mode = 4
 
 [node name="Effect" type="TextureRect" parent="Panel/Control2"]
+modulate = Color(0.32, 0.0192, 0.0192, 1)
 use_parent_material = true
 layout_mode = 1
 offset_right = 84.0

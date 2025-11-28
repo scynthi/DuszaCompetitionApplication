@@ -77,7 +77,7 @@ custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "Kiválasztás"
 script = ExtResource("4_m6imu")
-nameLabel = NodePath("")
+nameLabel = NodePath("../../../Label")
 
 [node name="Dungeon" type="Control" parent="."]
 z_index = 1
