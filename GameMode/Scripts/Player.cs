@@ -54,10 +54,8 @@ public class Player
 
     public Card ReturnCardFromCollection(string name)
     {
-        GD.Print(Collection.Count);
         foreach (Card card in Collection)
         {
-            GD.Print(card.Name);
             if (card.Name == name) return card;
         }
         return null;
