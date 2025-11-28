@@ -1,15 +1,27 @@
-[gd_scene load_steps=16 format=3 uid="uid://cd7wdb77hi6lr"]
+[gd_scene load_steps=18 format=3 uid="uid://cd7wdb77hi6lr"]
 
 [ext_resource type="Script" uid="uid://crrjwkdrkhon6" path="res://Scenes/UI/MainMenu/MainMenu.cs" id="1_cdkru"]
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_gwdte"]
 [ext_resource type="Texture2D" uid="uid://be04w1ls8fdoi" path="res://Assets/Images/Team logo/undefined_team_logo.png" id="2_c7oo3"]
-[ext_resource type="Texture2D" uid="uid://o2xic7w1kk7s" path="res://Assets/Images/Sign/hanging_sign.png" id="4_kpx3y"]
+[ext_resource type="Texture2D" uid="uid://dj8ajsp37xrws" path="res://Assets/Images/Sign/TitleSign.png" id="4_geava"]
 [ext_resource type="Texture2D" uid="uid://chnum6s8tk8ah" path="res://Assets/Images/Backgrounds/main_menu_border.png" id="5_7nukq"]
 [ext_resource type="Script" uid="uid://d4c08tqcq36iv" path="res://Scenes/UI/MainMenu/NewGameSubMenu.cs" id="6_tc2ed"]
 [ext_resource type="PackedScene" uid="uid://ba8fe80dhddy3" path="res://Scenes/UI/MainMenu/UISaveFileItem.tscn" id="7_67d64"]
 [ext_resource type="Texture2D" uid="uid://dnwmm73g8mqap" path="res://Assets/Images/Textures/SaveThumbnail.png" id="8_6swpd"]
 [ext_resource type="Script" uid="uid://b125uoygwaj34" path="res://Scenes/UI/MainMenu/ContinueGameSubMenu.cs" id="9_tbwd8"]
 [ext_resource type="PackedScene" uid="uid://cstap8p5kx2fk" path="res://Scenes/UI/MainMenu/UISaveFileContinueItem.tscn" id="10_geava"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vwuc7"]
+font_size = 96
+outline_size = 10
+outline_color = Color(0.42, 0.37079, 0.26459998, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nw82n"]
+font_size = 32
+stacked_outline_count = 2
+stacked_outline_0/size = 5
+stacked_outline_0/color = Color(0, 0.17733337, 0.28, 1)
+stacked_outline_1/size = 5
 
 [sub_resource type="Gradient" id="Gradient_u8hla"]
 interpolation_mode = 2
@@ -107,17 +119,24 @@ grow_vertical = 2
 size_flags_horizontal = 4
 
 [node name="MainMenu" type="Control" parent="MenuContainer"]
+visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MenuContainer/MainMenu"]
-custom_minimum_size = Vector2(0, 600)
-layout_mode = 0
-offset_left = -208.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.0
 offset_top = -360.0
-offset_right = 215.06122
-offset_bottom = 240.0
-texture = ExtResource("4_kpx3y")
-expand_mode = 3
+offset_right = 235.0
+offset_bottom = -139.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_geava")
+stretch_mode = 5
 
 [node name="Items" type="VBoxContainer" parent="MenuContainer/MainMenu"]
 layout_mode = 1
@@ -126,95 +145,111 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -160.0
-offset_top = -232.0
-offset_right = 168.0
-offset_bottom = 192.0
+offset_left = -171.0
+offset_top = -262.0
+offset_right = 171.0
+offset_bottom = 223.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 55
 
 [node name="Label" type="Label" parent="MenuContainer/MainMenu/Items"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "Charter"
+label_settings = SubResource("LabelSettings_vwuc7")
 horizontal_alignment = 1
 
 [node name="ButtonBox" type="VBoxContainer" parent="MenuContainer/MainMenu/Items"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="Continue" type="Button" parent="MenuContainer/MainMenu/Items/ButtonBox"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 28
 text = "Folytatás"
 
 [node name="NewGame" type="Button" parent="MenuContainer/MainMenu/Items/ButtonBox"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 28
 text = "Új játék"
 
 [node name="Master" type="Button" parent="MenuContainer/MainMenu/Items/ButtonBox"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 28
 text = "Játékmester menü"
 
 [node name="Settings" type="Button" parent="MenuContainer/MainMenu/Items/ButtonBox"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 28
 text = "Beállítások"
 
 [node name="Credits" type="Button" parent="MenuContainer/MainMenu/Items/ButtonBox"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 28
 text = "Rólunk"
 
 [node name="Quit" type="Button" parent="MenuContainer/MainMenu/Items/ButtonBox"]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 28
 text = "Kilépés"
 
 [node name="CreditsMenu" type="Control" parent="MenuContainer"]
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MenuContainer/CreditsMenu"]
-custom_minimum_size = Vector2(0, 600)
-layout_mode = 0
-offset_left = -208.0
-offset_top = -360.0
-offset_right = 215.06122
-offset_bottom = 240.0
-texture = ExtResource("4_kpx3y")
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -277.0
+offset_top = -359.0
+offset_right = 277.0
+offset_bottom = -119.0
+grow_horizontal = 2
+texture = ExtResource("4_geava")
 expand_mode = 3
 
-[node name="Items" type="VBoxContainer" parent="MenuContainer/CreditsMenu"]
-layout_mode = 0
-offset_left = -180.0
-offset_top = -232.0
-offset_right = 187.0
-offset_bottom = 48.0
-theme_override_constants/separation = 34
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MenuContainer/CreditsMenu/Items"]
-layout_mode = 2
-alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="MenuContainer/CreditsMenu/Items/HBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="MenuContainer/CreditsMenu"]
 custom_minimum_size = Vector2(350, 80)
-layout_mode = 2
+layout_mode = 0
+offset_left = -236.0
+offset_top = -240.0
+offset_right = 242.0
+offset_bottom = -160.0
 texture = ExtResource("2_c7oo3")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer/CreditsMenu/Items"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="MenuContainer/CreditsMenu/Items/VBoxContainer"]
-layout_mode = 2
+[node name="Label" type="Label" parent="MenuContainer/CreditsMenu"]
+layout_mode = 0
+offset_left = -331.0
+offset_top = -126.0
+offset_right = 331.0
+offset_bottom = 111.0
 text = "UI, UI Backend, Backend - Dani
 Assets, UI, UI Backend, Backend - Peti
 Backend - Máté
 
 Készült  a Godot 4.5.1.stable.mono [f62fdbde1]
 verziójában."
+label_settings = SubResource("LabelSettings_nw82n")
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="MenuContainer/CreditsMenu/Items/VBoxContainer"]
-layout_mode = 2
+[node name="Button" type="Button" parent="MenuContainer/CreditsMenu"]
+layout_mode = 0
+offset_left = -148.0
+offset_top = 127.0
+offset_right = 148.0
+offset_bottom = 189.0
+theme_override_font_sizes/font_size = 26
 text = "Főmenü"
 
 [node name="NewGameMenu" type="Control" parent="MenuContainer" node_paths=PackedStringArray("saveFileItemsHolder", "inspectorField", "displaySaveName", "displayCardElements", "displayCardAmount", "displayDungeonElements", "displayDungeonAmount")]
@@ -556,7 +591,7 @@ libraries = {
 [connection signal="pressed" from="MenuContainer/MainMenu/Items/ButtonBox/Settings" to="." method="ButtonPressed" binds= ["settings"]]
 [connection signal="pressed" from="MenuContainer/MainMenu/Items/ButtonBox/Credits" to="." method="ButtonPressed" binds= ["credits"]]
 [connection signal="pressed" from="MenuContainer/MainMenu/Items/ButtonBox/Quit" to="." method="ButtonPressed" binds= ["quit"]]
-[connection signal="pressed" from="MenuContainer/CreditsMenu/Items/VBoxContainer/Button" to="." method="ButtonPressed" binds= ["main"]]
+[connection signal="pressed" from="MenuContainer/CreditsMenu/Button" to="." method="ButtonPressed" binds= ["main"]]
 [connection signal="pressed" from="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/VBoxContainer/Button" to="." method="ButtonPressed" binds= ["main"]]
 [connection signal="value_changed" from="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/Control/SpinBox" to="MenuContainer/NewGameMenu" method="_OnDifficultyValueChanged"]
 [connection signal="pressed" from="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/Button" to="MenuContainer/NewGameMenu" method="_OnStartPressed"]
