@@ -9,7 +9,7 @@ public partial class UICard : Control
     [Export] private Label healthLabel;  
     [Export] private Label nameLabel;  
 
-    [Export] private ColorRect cardBackground;
+    // [Export] private ColorRect cardBackground;
     [Export] private TextureRect charcaterIcon;
     [Export] private TextureRect effectTexture;
     [Export] private TextureRect elementTexture;
@@ -90,7 +90,7 @@ public partial class UICard : Control
         EditHealth(hp);
         EditDamage(damage);
 
-        if (isEnemy) cardBackground.Color = Color.FromString("#5f0f5c", Colors.Purple);
+        // if (isEnemy) cardBackground.Color = Color.FromString("#5f0f5c", Colors.Purple);
         if (icon != null) EditIcon(icon);
     }
 

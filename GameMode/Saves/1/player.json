@@ -1,29 +1,29 @@
 {
   "player": {
-    "Xp": 0,
-    "Money": 0,
-    "Collection": [
-      {
-        "Name": "alma",
-        "Health": 24,
-        "BaseDamage": 10,
-        "Damage": 10,
-        "CardElement": 3,
-        "Icon": "res://Assets/Images/Entities/Heroes/man.png",
-        "buffHandler": {}
-      }
-    ],
-    "Deck": [
-      {
-        "Name": "alma",
-        "Health": 24,
-        "BaseDamage": 10,
-        "Damage": 10,
-        "CardElement": 3,
-        "Icon": "res://Assets/Images/Entities/Heroes/man.png",
-        "buffHandler": {}
-      }
-    ],
-    "ItemList": []
+	"Xp": 0,
+	"Money": 0,
+	"Collection": [
+	  {
+		"Name": "alma",
+		"Health": 24,
+		"BaseDamage": 10,
+		"Damage": 10,
+		"CardElement": 3,
+		"Icon": "res://Assets/Images/Entities/Heroes/man.png",
+		"buffHandler": {}
+	  }
+	],
+	"Deck": [
+	  {
+		"Name": "alma",
+		"Health": 24,
+		"BaseDamage": 10,
+		"Damage": 10,
+		"CardElement": 3,
+		"Icon": "res://Assets/Images/Entities/Heroes/man.png",
+		"buffHandler": {}
+	  }
+	],
+	"ItemList": []
   }
 }

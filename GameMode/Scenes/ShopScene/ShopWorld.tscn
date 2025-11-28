@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://6oiws6jda0wi"]
+[gd_scene load_steps=43 format=3 uid="uid://6oiws6jda0wi"]
 
 [ext_resource type="PackedScene" uid="uid://cpidsg2b56hne" path="res://Assets/StyledCamera.tscn" id="1_68qub"]
 [ext_resource type="PackedScene" uid="uid://bbpn6eshxwvxq" path="res://Assets/Models/shop.glb" id="1_emkcw"]
@@ -10,9 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://boryvw4xe8eie" path="res://Assets/Images/Sign/bg_shop.png" id="7_rqv8k"]
 [ext_resource type="Texture2D" uid="uid://chnum6s8tk8ah" path="res://Assets/Images/Backgrounds/main_menu_border.png" id="8_60d55"]
 [ext_resource type="PackedScene" uid="uid://dk32ss75ce3lw" path="res://Assets/UI/Scenes/UICard/UICard.tscn" id="8_r66ni"]
+[ext_resource type="Script" uid="uid://dwq6bh73fb1oj" path="res://Scenes/ShopScene/CardShopArea.cs" id="9_5anym"]
 [ext_resource type="Texture2D" uid="uid://c784rnnp8bpja" path="res://Assets/Images/Shop/reroll.png" id="9_42hqr"]
+[ext_resource type="Shader" uid="uid://d0ahun4nyomjn" path="res://Assets/Shaders/disolveCard.gdshader" id="10_jjw8j"]
 [ext_resource type="PackedScene" uid="uid://c67e3kgjql3x4" path="res://Scenes/Miscs/BackToMapBtn.tscn" id="11_dvv65"]
-[ext_resource type="Texture2D" uid="uid://chdfpuvasoth7" path="res://Assets/Images/Button/button_bg_light.png" id="12_rqv8k"]
+[ext_resource type="Texture2D" uid="uid://cq606clh2wrhq" path="res://Assets/Images/Button/button_bg_dark.png" id="11_jjw8j"]
+[ext_resource type="Texture2D" uid="uid://bvjhb1o33kk30" path="res://Assets/Images/Sign/bg_item.png" id="13_h37rh"]
 
 [sub_resource type="Environment" id="Environment_7glmu"]
 ambient_light_source = 2
@@ -55,20 +58,125 @@ corner_radius_top_right = 25
 corner_radius_bottom_left = 25
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60d55"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.01862038, 0.045158714, 0.064274326, 0.6)
-corner_radius_top_left = 15
-corner_radius_top_right = 15
-corner_radius_bottom_right = 15
-corner_radius_bottom_left = 15
-corner_detail = 5
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h37rh"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dvv65"]
-texture = ExtResource("12_rqv8k")
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vvhqr"]
+noise = SubResource("FastNoiseLite_h37rh")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mo107"]
+shader = ExtResource("10_jjw8j")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_vvhqr")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.10999999754128
+shader_parameter/burn_color = Color(1, 0.089999974, 0.089999974, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jjw8j"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h37rh"]
+noise = SubResource("FastNoiseLite_jjw8j")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vvhqr"]
+shader = ExtResource("10_jjw8j")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_h37rh")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.06999999843536
+shader_parameter/burn_color = Color(0.64, 0.1472, 0.1472, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vvhqr"]
+texture = ExtResource("11_jjw8j")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jjw8j"]
+load_path = "res://.godot/imported/button_bg_dark.png-bf04b20cd76c3d1ebec7550af4c013ca.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h37rh"]
+texture = SubResource("CompressedTexture2D_jjw8j")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h37rh"]
+load_path = "res://.godot/imported/button_bg_dark.png-bf04b20cd76c3d1ebec7550af4c013ca.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wqc5p"]
+texture = SubResource("CompressedTexture2D_h37rh")
+modulate_color = Color(0.55, 0.55, 0.55, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mdbkc"]
+load_path = "res://.godot/imported/button_bg_dark.png-bf04b20cd76c3d1ebec7550af4c013ca.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yisgm"]
+texture = SubResource("CompressedTexture2D_mdbkc")
+modulate_color = Color(0.47, 0.47, 0.47, 0.6784314)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mo107"]
+texture = ExtResource("13_h37rh")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wqc5p"]
+load_path = "res://.godot/imported/bg_item.png-210f4433b53cab33791418f4ba1f1935.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mdbkc"]
+texture = SubResource("CompressedTexture2D_wqc5p")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0a4i5"]
+load_path = "res://.godot/imported/bg_item.png-210f4433b53cab33791418f4ba1f1935.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oygug"]
+texture = SubResource("CompressedTexture2D_0a4i5")
+modulate_color = Color(0.64, 0.64, 0.64, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sdib0"]
+texture = ExtResource("13_h37rh")
+modulate_color = Color(1, 1, 1, 0.6784314)
+
+[sub_resource type="Animation" id="Animation_h37rh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/Control/Control:material:shader_parameter/dissolve_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_jjw8j"]
+resource_name = "Recard"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/Control/Control:material:shader_parameter/dissolve_value")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.16666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_SetNewCard"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vvhqr"]
+_data = {
+&"RESET": SubResource("Animation_h37rh"),
+&"Recard": SubResource("Animation_jjw8j")
+}
 
 [node name="ShopWorld" type="Node3D"]
 
@@ -221,31 +329,24 @@ offset_left = 471.0
 offset_right = 621.0
 itemType = 2
 
-[node name="Control" type="Control" parent="ShomMenu/MarginContainer/Control/Control3"]
-clip_contents = true
+[node name="Control" type="Control" parent="ShomMenu/MarginContainer/Control/Control3" node_paths=PackedStringArray("animationPlayer", "cardHolder", "reRollButton", "buyButton", "moneyLabel", "buyPriceLabel")]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -359.0
-offset_top = -189.0
+offset_top = -150.0
 offset_right = -63.0
 grow_horizontal = 0
 grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="ShomMenu/MarginContainer/Control/Control3/Control"]
-clip_contents = true
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -81.0
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_60d55")
+script = ExtResource("9_5anym")
+animationPlayer = NodePath("AnimationPlayer")
+cardHolder = NodePath("CenterContainer/Control/Control")
+reRollButton = NodePath("HBoxContainer/Button")
+buyButton = NodePath("HBoxContainer/Button2")
+moneyLabel = NodePath("../../Control/Label")
+buyPriceLabel = NodePath("HBoxContainer/Button2/Panel/RichTextLabel")
 
 [node name="CenterContainer" type="CenterContainer" parent="ShomMenu/MarginContainer/Control/Control3/Control"]
 layout_mode = 1
@@ -255,8 +356,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Card" parent="ShomMenu/MarginContainer/Control/Control3/Control/CenterContainer" instance=ExtResource("8_r66ni")]
+[node name="Control" type="Control" parent="ShomMenu/MarginContainer/Control/Control3/Control/CenterContainer"]
+material = SubResource("ShaderMaterial_mo107")
 layout_mode = 2
+
+[node name="Control" type="Control" parent="ShomMenu/MarginContainer/Control/Control3/Control/CenterContainer/Control"]
+material = SubResource("ShaderMaterial_vvhqr")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -133.0
+offset_right = 85.0
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(85, 110)
+
+[node name="Card" parent="ShomMenu/MarginContainer/Control/Control3/Control/CenterContainer/Control/Control" instance=ExtResource("8_r66ni")]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 169.0
+scale = Vector2(1, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ShomMenu/MarginContainer/Control/Control3/Control"]
 layout_mode = 1
@@ -270,17 +394,103 @@ grow_vertical = 0
 alignment = 1
 
 [node name="Button" type="Button" parent="ShomMenu/MarginContainer/Control/Control3/Control/HBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 30
-text = "Reroll"
-icon = ExtResource("9_42hqr")
+focus_mode = 0
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxTexture_vvhqr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_h37rh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wqc5p")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_yisgm")
+
+[node name="TextureRect" type="TextureRect" parent="ShomMenu/MarginContainer/Control/Control3/Control/HBoxContainer/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.432392
+offset_top = 10.0
+offset_right = -10.432392
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_42hqr")
+
+[node name="Panel" type="Panel" parent="ShomMenu/MarginContainer/Control/Control3/Control/HBoxContainer/Button"]
+modulate = Color(1, 0.90466666, 0.48000002, 1)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -23.0
+offset_right = 14.0
+offset_bottom = 23.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mo107")
+
+[node name="RichTextLabel" type="Label" parent="ShomMenu/MarginContainer/Control/Control3/Control/HBoxContainer/Button/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "$10"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Button2" type="Button" parent="ShomMenu/MarginContainer/Control/Control3/Control/HBoxContainer"]
+show_behind_parent = true
+custom_minimum_size = Vector2(118.66, 71.235)
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 30
-text = "Buy"
+focus_mode = 0
+theme_override_font_sizes/font_size = 31
+theme_override_styles/normal = SubResource("StyleBoxTexture_mdbkc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mdbkc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oygug")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_sdib0")
+text = "BUY"
+
+[node name="Panel" type="Panel" parent="ShomMenu/MarginContainer/Control/Control3/Control/HBoxContainer/Button2"]
+modulate = Color(1, 0.90466666, 0.48000002, 1)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -21.660034
+offset_top = -23.0
+offset_right = 42.339966
+offset_bottom = 23.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mo107")
+
+[node name="RichTextLabel" type="Label" parent="ShomMenu/MarginContainer/Control/Control3/Control/HBoxContainer/Button2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "$10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ShomMenu/MarginContainer/Control/Control3/Control"]
+libraries = {
+&"": SubResource("AnimationLibrary_vvhqr")
+}
 
 [node name="BottomThing" type="Control" parent="ShomMenu/MarginContainer/Control"]
 layout_mode = 1
@@ -297,16 +507,16 @@ grow_vertical = 0
 
 [node name="Button" parent="ShomMenu/MarginContainer/Control/BottomThing" instance=ExtResource("11_dvv65")]
 layout_mode = 1
-offset_top = -30.0
+offset_left = -152.0
+offset_top = -34.0
+offset_right = 152.0
 offset_bottom = 30.0
-theme_override_styles/normal = SubResource("StyleBoxTexture_dvv65")
 
 [node name="TextureRect" type="TextureRect" parent="ShomMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 58.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

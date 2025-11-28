@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c67e3kgjql3x4"]
+[gd_scene load_steps=7 format=3 uid="uid://c67e3kgjql3x4"]
 
 [ext_resource type="Texture2D" uid="uid://n442w1kx142n" path="res://Assets/Images/Button/button_bg_better.png" id="1_b2hro"]
 [ext_resource type="Script" uid="uid://bbbnbyfjkbg8e" path="res://Scripts/Buttons/BackButton.cs" id="2_4rff5"]
@@ -7,19 +7,29 @@
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vwu4e"]
 texture = ExtResource("1_b2hro")
 
-[node name="Button" type="Button"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_b2hro"]
+load_path = "res://.godot/imported/button_bg_better.png-c79ddfcb41c4427622edc4a287a603aa.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4rff5"]
+texture = SubResource("CompressedTexture2D_b2hro")
+modulate_color = Color(0.71, 0.71, 0.71, 1)
+
+[node name="BackToMap" type="Button"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -111.75
+offset_left = -133.0
 offset_top = -32.0
-offset_right = 111.75
+offset_right = 133.0
 offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 23
 theme_override_styles/normal = SubResource("StyleBoxTexture_vwu4e")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4rff5")
 text = "        Vissza a térképre"
 expand_icon = true
 script = ExtResource("2_4rff5")
@@ -28,9 +38,9 @@ script = ExtResource("2_4rff5")
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 11.749981
+offset_left = 6.916645
 offset_top = 10.0
-offset_right = 54.916645
+offset_right = 59.74998
 offset_bottom = -10.0
 grow_vertical = 2
 mouse_filter = 2
