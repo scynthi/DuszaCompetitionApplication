@@ -11,8 +11,8 @@ font_size = 36
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[node name="UIDungeon" type="Control" node_paths=PackedStringArray("nameRichText", "nameLabel", "iconTexture", "enterButton")]
-custom_minimum_size = Vector2(190, 230)
+[node name="UIDungeon" type="Control" node_paths=PackedStringArray("nameRichText", "nameLabel", "iconTexture", "enterButton", "ClickCatcher")]
+custom_minimum_size = Vector2(230, 230)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,6 +32,7 @@ nameRichText = NodePath("VBox/Label")
 nameLabel = NodePath("VBox/CenterContainer/VBoxContainer/UILabel")
 iconTexture = NodePath("VBox/CenterContainer/VBoxContainer/TextureRect")
 enterButton = NodePath("VBox/CenterContainer/VBoxContainer/Button")
+ClickCatcher = NodePath("Dungeon")
 
 [node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -68,7 +69,8 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(220, 220)
 layout_mode = 2
 texture = ExtResource("2_3smau")
-stretch_mode = 3
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Button" type="Button" parent="VBox/CenterContainer/VBoxContainer" node_paths=PackedStringArray("nameLabel")]
 custom_minimum_size = Vector2(0, 30)

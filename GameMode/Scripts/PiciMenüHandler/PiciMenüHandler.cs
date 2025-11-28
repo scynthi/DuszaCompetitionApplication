@@ -50,7 +50,6 @@ public static class PiciMenüHandler
 		UICard card = (UICard)piciMenüInstance.Item;
         UIBossCard bossCard;
 
-        if (!Global.masterEditor.gameMasterData.TestCard(card.CreateCardInstance())) return;
 		
         if (piciMenüInstance.option  == "hp")
         {
@@ -59,6 +58,7 @@ public static class PiciMenüHandler
         {
             bossCard = CreateBossCardInstance(card, BossDouble.ATTACK, piciMenüInstance.PrefixName.Text);
         }
+        if (!Global.masterEditor.gameMasterData.TestCard(bossCard.CreateBossCardInstance())) return;
 
 		Global.masterEditor.gameMasterData.AddCardToWorldCards(bossCard.CreateBossCardInstance());
     }

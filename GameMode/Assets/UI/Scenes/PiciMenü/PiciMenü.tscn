@@ -7,9 +7,10 @@
 [node name="PiciMenü" type="Control" node_paths=PackedStringArray("HPButton", "DMGButton", "CollectionButton", "PrefixName")]
 custom_minimum_size = Vector2(10, 0)
 layout_mode = 3
+anchors_preset = 0
 offset_left = -21.0
 offset_top = -86.0
-offset_right = 210.0
+offset_right = 235.0
 offset_bottom = 124.0
 theme = ExtResource("1_dgdr4")
 script = ExtResource("2_ybnvk")
@@ -71,7 +72,7 @@ text = "Származtatás sebzéssel"
 
 [node name="AddToCollection" type="Button" parent="MarginContainer/PiciMenüItems/VBoxContainer"]
 layout_mode = 2
-text = "Hozzáadás kollekcióhoz"
+text = "Hozzáadás gyűjteményhez"
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/PiciMenüItems/VBoxContainer"]
 custom_minimum_size = Vector2(0, 1)
