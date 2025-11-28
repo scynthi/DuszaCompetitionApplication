@@ -1,10 +1,11 @@
-[gd_scene load_steps=28 format=3 uid="uid://nq0gnkgglhi6"]
+[gd_scene load_steps=29 format=3 uid="uid://nq0gnkgglhi6"]
 
 [ext_resource type="Script" uid="uid://jtuoap7qxnl5" path="res://Assets/Shaders/quantization_shader.gd" id="1_0n0gq"]
 [ext_resource type="PackedScene" uid="uid://b5vuktdck1ewt" path="res://Assets/Models/dungeonBackgroundMid.glb" id="1_7d0qi"]
 [ext_resource type="Script" uid="uid://cqbvhjwb8smc1" path="res://Scripts/FightLogic.cs" id="1_ugqt7"]
 [ext_resource type="Script" uid="uid://bbbnbyfjkbg8e" path="res://Scripts/Buttons/BackButton.cs" id="4_7d0qi"]
 [ext_resource type="PackedScene" uid="uid://cpidsg2b56hne" path="res://Assets/StyledCamera.tscn" id="4_di4nr"]
+[ext_resource type="Texture2D" uid="uid://chnum6s8tk8ah" path="res://Assets/Images/Backgrounds/main_menu_border.png" id="5_08x25"]
 [ext_resource type="Shader" uid="uid://dhbjn1laemwls" path="res://Assets/Shaders/portal.gdshader" id="6_08x25"]
 
 [sub_resource type="Environment" id="Environment_sqp11"]
@@ -78,6 +79,18 @@ tracks/2/keys = {
 "method": &"DisplayAttack"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerCard:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.95, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 6.2831855, 0.0]
+}
 
 [sub_resource type="Animation" id="Animation_0n0gq"]
 length = 0.001
@@ -104,6 +117,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerCard:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_08x25"]
@@ -293,7 +318,7 @@ script = ExtResource("4_7d0qi")
 layout_mode = 0
 offset_left = 228.0
 offset_top = 292.0
-offset_right = 268.00012
+offset_right = 268.00018
 offset_bottom = 332.0003
 use_top_left = true
 
@@ -318,6 +343,18 @@ root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_7d0qi")
 }
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_08x25")
+expand_mode = 2
+stretch_mode = 4
 
 [node name="StyledCamera" parent="." instance=ExtResource("4_di4nr")]
 transform = Transform3D(0.10146612, 0.047417738, -0.9937083, 0.0006121206, 0.9988603, 0.047726084, 0.99483883, -0.00545085, 0.101321444, -14.3044615, 9.597276, 0.6964613)
