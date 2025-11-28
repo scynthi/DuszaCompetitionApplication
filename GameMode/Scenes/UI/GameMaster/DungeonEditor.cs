@@ -37,8 +37,6 @@ public partial class DungeonEditor : HBoxContainer
         dungeon.EditReward((DungeonRewardTypes)index);
     }
     
-    // TODO: rewrite it when backend arrives
-    // TODO: Do more checks for name
     public void SaveDungeon()
     {
         editor.gameMasterData.AddDungeonToDungeonList(dungeon.CreateDungeonInstance());

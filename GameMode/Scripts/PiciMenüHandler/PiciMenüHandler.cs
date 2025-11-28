@@ -22,10 +22,10 @@ public static class PiciMenüHandler
                 case "SimpleCard":
                     UICard card = (UICard)hoveredItem.GetParent().GetParent();
                     if (card == null) break;
-                    piciMenüInstance = CreatePiciMenü();
 
-                    piciMenüInstance.Clicked += HandlePolymorphism;
+                    piciMenüInstance = CreatePiciMenü();
                     piciMenüInstance.Item = card;
+                    piciMenüInstance.Clicked += HandlePolymorphism;
                     break;
                 case "BossCard":
                     UIBossCard asBossCard = (UIBossCard)hoveredItem.GetParent().GetParent();
@@ -52,16 +52,16 @@ public static class PiciMenüHandler
 		
         if (piciMenüInstance.option  == "hp")
         {
-            bossCard = CreateBossCardInstance(card, BossDouble.HEALTH);
+            bossCard = CreateBossCardInstance(card, BossDouble.HEALTH, piciMenüInstance.PrefixName.Text);
         } else
         {
-            bossCard = CreateBossCardInstance(card, BossDouble.ATTACK);
+            bossCard = CreateBossCardInstance(card, BossDouble.ATTACK, piciMenüInstance.PrefixName.Text);
         }
 
 		Global.masterEditor.gameMasterData.AddCardToWorldCards(bossCard.CreateBossCardInstance());
     }
 
-	private static UIBossCard CreateBossCardInstance(UICard uicard, BossDouble evolveType, string addedName = "Lord ")
+	private static UIBossCard CreateBossCardInstance(UICard uicard, BossDouble evolveType, string addedName)
     {
         UIBossCard newBossCard = Global.gameManager.uiPackedSceneReferences.UIBossCardScene.Instantiate<UIBossCard>();
 		newBossCard.EditAllCardInformation(uicard.CreateCardInstance(), evolveType, addedName);

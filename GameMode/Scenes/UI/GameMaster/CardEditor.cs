@@ -65,9 +65,10 @@ public partial class CardEditor : HBoxContainer
         card.EditIcon((string)receivedInfo);
     }
 
-    // TODO: Do more checks for name
     public void SaveCard()
     {
+        if (!Global.masterEditor.gameMasterData.TestCard(card.CreateCardInstance())) return;
+
         editor.gameMasterData.AddCardToWorldCards(card.CreateCardInstance());
     }
 

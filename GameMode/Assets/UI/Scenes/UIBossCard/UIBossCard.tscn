@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dsnbg78nbu0vo"]
+[gd_scene load_steps=12 format=3 uid="uid://dsnbg78nbu0vo"]
 
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_fm8t1"]
 [ext_resource type="Script" uid="uid://bi8556gvsdm8h" path="res://Assets/UI/Scenes/UIBossCard/UIBossCard.cs" id="2_j2uvf"]
+[ext_resource type="FontFile" uid="uid://bhu7r7x4jdi2e" path="res://Assets/Fonts/Alkhemikal.ttf" id="3_42nie"]
 [ext_resource type="Texture2D" uid="uid://boja6vh76fs8h" path="res://Assets/Images/Entities/Heroes/char_hunter.png" id="3_gxnqs"]
 [ext_resource type="Texture2D" uid="uid://dcbyhic481tbl" path="res://Assets/Images/Cards/cards_base.png" id="4_j3uay"]
 [ext_resource type="Texture2D" uid="uid://doww5jvob8iw2" path="res://Assets/Images/Elements/NewElementSprites/fire.png" id="5_yv6ta"]
@@ -59,8 +60,9 @@ offset_top = 5.6657295
 offset_right = 161.0
 offset_bottom = 58.545803
 theme_override_constants/line_spacing = -5
+theme_override_fonts/font = ExtResource("3_42nie")
 theme_override_font_sizes/font_size = 16
-text = "Lord Please Holder"
+text = "Lord Please Hold"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

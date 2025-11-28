@@ -14,6 +14,10 @@ public partial class UIBossCard : Control
     [Export] private TextureRect effectTexture;
     [Export] private TextureRect elementTexture;
 
+
+    const byte DEFAULT_FONTSIZE = 17; 
+    const byte DECREASED_FONTSIZE = 16; 
+
     public bool isEnemy;
 
     private BossCard _bossCard;
@@ -126,10 +130,10 @@ public partial class UIBossCard : Control
         nameLabel.Text = name;
         if (name.Length > 12)
         {
-            nameLabel.AddThemeFontSizeOverride("font_size", 12);
+            nameLabel.AddThemeFontSizeOverride("font_size", DEFAULT_FONTSIZE);
         } else
         {
-            nameLabel.AddThemeFontSizeOverride("font_size", 16);
+            nameLabel.AddThemeFontSizeOverride("font_size", DECREASED_FONTSIZE);
         }
     }
 
