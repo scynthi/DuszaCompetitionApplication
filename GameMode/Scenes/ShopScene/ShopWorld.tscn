@@ -206,32 +206,6 @@ tracks/1/keys = {
 "values": [Color(0.63, 0.056699984, 0.056699984, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_mo107"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Lights/OmniLight3D2:light_energy")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.487, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Lights/OmniLight3D2:light_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.63, 0.056699984, 0.056699984, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_wqc5p"]
 resource_name = "Glare"
 tracks/0/type = "value"
@@ -258,6 +232,32 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.22116666, 1)
 }
 
+[sub_resource type="Animation" id="Animation_mo107"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lights/OmniLight3D2:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.487, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Lights/OmniLight3D2:light_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.63, 0.056699984, 0.056699984, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mo107"]
 _data = {
 &"Flare": SubResource("Animation_vvhqr"),
@@ -278,7 +278,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.0
 transform = Transform3D(1, 0, 0, 0, 0.9983418, 0.057564024, 0, -0.057564024, 0.9983418, -0.09, 0.11, -0.17)
 size = 4.779
 
-[node name="ShomMenu" type="Control" parent="." node_paths=PackedStringArray("moneyLabel")]
+[node name="ShomMenu" type="Control" parent="." node_paths=PackedStringArray("moneyLabel", "animationPlayer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -288,6 +288,7 @@ grow_vertical = 2
 theme = ExtResource("4_dvv65")
 script = ExtResource("2_x4p3p")
 moneyLabel = NodePath("MarginContainer/Control/Control/Label")
+animationPlayer = NodePath("../AnimationPlayer")
 
 [node name="MarginContainer" type="MarginContainer" parent="ShomMenu"]
 layout_mode = 1
