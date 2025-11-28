@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public partial class CardShopArea : Control
 {
     [Export] AnimationPlayer animationPlayer;
+    [Export] AnimationPlayer animationWorldPlayer;
+
     [Export] Control cardHolder;
     [Export] Button reRollButton;
     [Export] Button buyButton;
@@ -54,7 +56,10 @@ public partial class CardShopArea : Control
         {
             Global.gameManager.saverLoader.currSaveFile.player.Money -= 10;
             animationPlayer.Play("Recard");
+            animationWorldPlayer.Play("Glare");
+            
         }
+        animationWorldPlayer.Play("Flare");
     }
 
     public void _CardBought()
@@ -65,8 +70,11 @@ public partial class CardShopArea : Control
             Global.gameManager.saverLoader.currSaveFile.player.Money -= _currPrice;
             Global.gameManager.saverLoader.currSaveFile.player.TryAddCardToCollection(currCard);
             animationPlayer.Play("Recard");
-            
+            animationWorldPlayer.Play("Glare");
+
         }
+        animationWorldPlayer.Play("Flare");
+
         
     }
 
