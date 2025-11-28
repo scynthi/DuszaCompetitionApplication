@@ -23,6 +23,16 @@ public class Player
         SetUpCollection();
     }
 
+    public Player(int xp, int money, List<Card> collection)
+    {
+        Xp = xp;
+        Money = money;
+        Collection = collection;
+        Deck = new List<Card>();
+        ItemList = new List<IItem>();
+        SetUpCollection();
+    }
+
     public void SetUpCollection()
     {
         foreach (ItemType itemType in Enum.GetValues(typeof(ItemType)))

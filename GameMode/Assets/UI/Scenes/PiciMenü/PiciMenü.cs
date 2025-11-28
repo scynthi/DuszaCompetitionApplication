@@ -6,6 +6,7 @@ public partial class PiciMenü : Control
     [Export] Button HPButton;
     [Export] Button DMGButton;
     [Export] Button CollectionButton;
+    [Export] public LineEdit PrefixName;
 
 	public delegate void ClickedEventHandler(PiciMenü option);
 	public event ClickedEventHandler Clicked;
@@ -20,6 +21,15 @@ public partial class PiciMenü : Control
         {
 			_item = value;
 			UpdateButtons();
+            
+            if (_item is not UICard) {
+                PrefixName.Editable = false;
+                return;
+            }
+
+            byte calculatedLength = (byte)(16 - ((UICard)_item).CardName.Length);
+            PrefixName.Editable = calculatedLength == 0 ? false : true;
+            PrefixName.MaxLength = calculatedLength;
         }
     }
 	public string option;
@@ -35,7 +45,6 @@ public partial class PiciMenü : Control
     public void AddToCollection()
     {
         QueueFree();
-        // Todo check for duplicate, if duplicate disable add to collection option
         if (Item is UICard)
         {
             editor.gameMasterData.AddCardToPlayerCollection(((UICard)Item).CreateCardInstance());   
@@ -77,19 +86,22 @@ public partial class PiciMenü : Control
     {
         if (Item is UICard)
         {
-            CollectionButton.Disabled = false;
+            CollectionButton.Disabled = !Global.masterEditor.gameMasterData.TestCard(((UICard)Item).CreateCardInstance(), Global.masterEditor.gameMasterData.PlayerCollection);
             HPButton.Disabled = false;
             DMGButton.Disabled = false;
+            PrefixName.Editable = true;
         } else if (Item is UIBossCard)
         {
             CollectionButton.Disabled = true;
             HPButton.Disabled = true;
             DMGButton.Disabled = true;
+            PrefixName.Editable = false;
         } else if (Item is UIDungeon)
         {
             CollectionButton.Disabled = true;
             HPButton.Disabled = true;
             DMGButton.Disabled = true;
+            PrefixName.Editable = false;
         }
     }
 

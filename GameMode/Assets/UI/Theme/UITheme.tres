@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://cucapuu4plldt"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://cucapuu4plldt"]
 
 [ext_resource type="FontFile" uid="uid://6obpbt445wnf" path="res://Assets/Fonts/alagard.ttf" id="1_34bqa"]
 [ext_resource type="FontFile" uid="uid://bhu7r7x4jdi2e" path="res://Assets/Fonts/Alkhemikal.ttf" id="2_6vowl"]
@@ -28,6 +28,10 @@ content_margin_right = 5.0
 content_margin_bottom = 5.0
 texture = ExtResource("2_vq6tu")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qy3k7"]
+texture = ExtResource("2_vq6tu")
+texture_margin_left = 8.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bcd4f"]
 bg_color = Color(0.6, 0.6, 0.6, 0.27058825)
 
@@ -45,7 +49,10 @@ FileDialog/constants/thumbnail_size = 16
 FileDialog/font_sizes/title_font_size = 12
 Label/font_sizes/font_size = 16
 Label/fonts/font = ExtResource("1_34bqa")
-LineEdit/font_sizes/font_size = 12
+LineEdit/constants/caret_width = 1
+LineEdit/font_sizes/font_size = 16
+LineEdit/fonts/font = ExtResource("2_6vowl")
+LineEdit/styles/normal = SubResource("StyleBoxTexture_qy3k7")
 OptionButton/font_sizes/font_size = 16
 PopupMenu/font_sizes/font_separator_size = 12
 PopupMenu/font_sizes/font_size = 12

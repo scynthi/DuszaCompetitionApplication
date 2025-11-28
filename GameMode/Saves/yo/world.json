@@ -1,0 +1,48 @@
+{
+  "WorldCards": [
+    {
+      "Name": "MSI Afterburner",
+      "Health": 1,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "CardElement": 0,
+      "Icon": "C:/MSI Afterburner/Graphics/MSIAfterburner.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": " MSI Afterburner",
+      "Health": 2,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "CardElement": 0,
+      "Icon": "C:/MSI Afterburner/Graphics/MSIAfterburner.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "L MSI Afterburner",
+      "Health": 1,
+      "BaseDamage": 1,
+      "Damage": 2,
+      "CardElement": 0,
+      "Icon": "C:/MSI Afterburner/Graphics/MSIAfterburner.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "MSI",
+      "Health": 10,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "CardElement": 1,
+      "Icon": "C:/MSI Afterburner/Graphics/MSIAfterburner.png",
+      "buffHandler": {}
+    }
+  ],
+  "WorldDungeons": [
+    {
+      "Name": "Razer",
+      "DungeonType": 0,
+      "DungeonReward": 0,
+      "DungeonDeck": null
+    }
+  ]
+}
