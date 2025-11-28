@@ -9,10 +9,11 @@ public partial class UICard : Control
     [Export] private Label healthLabel;  
     [Export] private Label nameLabel;  
 
-    // [Export] private ColorRect cardBackground;
     [Export] private TextureRect charcaterIcon;
     [Export] private TextureRect effectTexture;
     [Export] private TextureRect elementTexture;
+    [Export] private TextureRect heartBuffedTexture;
+    [Export] private TextureRect damageBuffedTexture;
 
     const byte DEFAULT_FONTSIZE = 19; 
     const byte DECREASED_FONTSIZE = 14; 
@@ -50,10 +51,12 @@ public partial class UICard : Control
         get {return nameLabel.Text;}
     }
     
-    // TODO: update later with mate
     public Card CreateCardInstance()
     {
-        return new Card(CardName, int.Parse(damageLabel.Text), int.Parse(healthLabel.Text), CardElement, CardIcon);
+        Card card = new(CardName, int.Parse(damageLabel.Text), int.Parse(healthLabel.Text), CardElement, CardIcon);
+        card.HealthChanged = heartBuffedTexture.Visible;
+        card.DamageChanged = damageBuffedTexture.Visible;
+        return card;
     }
 
     public Vector2 UIPosition
@@ -67,8 +70,8 @@ public partial class UICard : Control
         UpdateIconForCardInstace(card);
         EditElement(card.CardElement);
         EditName(card.Name);
-        EditHealth(card.Health);
-        EditDamage(card.Damage);
+        EditHealth(card);
+        EditDamage(card);
         EditIcon(card.Icon);
     }
 
@@ -90,7 +93,6 @@ public partial class UICard : Control
         EditHealth(hp);
         EditDamage(damage);
 
-        // if (isEnemy) cardBackground.Color = Color.FromString("#5f0f5c", Colors.Purple);
         if (icon != null) EditIcon(icon);
     }
 
@@ -100,10 +102,26 @@ public partial class UICard : Control
         damageLabel.Text =  Math.Clamp(damage, 1, 100).ToString();  
     }
 
+    public void EditDamage(Card card)
+    {
+        int damage = card.Damage;
+        if (damage == 0) damage = 1;
+        damageLabel.Text =  Math.Clamp(damage, 1, 100).ToString();
+        if (card.DamageChanged) damageBuffedTexture.Visible = true;
+    }
+
     public void EditHealth(int hp)
     {
         if (hp == 0) hp = 1;
-        healthLabel.Text = Math.Clamp(hp, 1, 100).ToString();  
+        healthLabel.Text = Math.Clamp(hp, 1, 100).ToString();
+    }    
+    
+    public void EditHealth(Card card)
+    {
+        int hp = card.Health;
+        if (hp == 0) hp = 1;
+        healthLabel.Text = Math.Clamp(hp, 1, 100).ToString();
+        if (card.HealthChanged) heartBuffedTexture.Visible = true;
     }
 
     public void EditName(string name)

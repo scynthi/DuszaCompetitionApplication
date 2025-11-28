@@ -49,6 +49,8 @@ public static class PiciMenüHandler
     {
 		UICard card = (UICard)piciMenüInstance.Item;
         UIBossCard bossCard;
+
+        if (!Global.masterEditor.gameMasterData.TestCard(card.CreateCardInstance())) return;
 		
         if (piciMenüInstance.option  == "hp")
         {

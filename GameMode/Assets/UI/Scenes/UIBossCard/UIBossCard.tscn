@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dsnbg78nbu0vo"]
+[gd_scene load_steps=15 format=3 uid="uid://dsnbg78nbu0vo"]
 
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_fm8t1"]
 [ext_resource type="Script" uid="uid://bi8556gvsdm8h" path="res://Assets/UI/Scenes/UIBossCard/UIBossCard.cs" id="2_j2uvf"]
@@ -19,7 +19,7 @@ shader = ExtResource("11_42nie")
 shader_parameter/offset = Vector2(1.985, -58.04)
 shader_parameter/speed = 0.1770000084075
 
-[node name="Card" type="Control" node_paths=PackedStringArray("damageLabel", "healthLabel", "nameLabel", "cardBackground", "charcaterIcon", "effectTexture", "elementTexture")]
+[node name="Card" type="Control" node_paths=PackedStringArray("damageLabel", "healthLabel", "nameLabel", "charcaterIcon", "effectTexture", "elementTexture")]
 custom_minimum_size = Vector2(168, 220)
 layout_mode = 3
 anchors_preset = 0
@@ -31,7 +31,6 @@ script = ExtResource("2_j2uvf")
 damageLabel = NodePath("Panel/Control2/Axe/Damage")
 healthLabel = NodePath("Panel/Control2/Heart/Health")
 nameLabel = NodePath("Panel/Control/Name")
-cardBackground = NodePath("")
 charcaterIcon = NodePath("Panel/Control2/Character")
 effectTexture = NodePath("Panel/Control2/Effect")
 elementTexture = NodePath("Panel/Control2/Element")
@@ -130,10 +129,10 @@ stretch_mode = 5
 [node name="HeartBuffedIcon" type="TextureRect" parent="Panel/Control2/Heart"]
 visible = false
 layout_mode = 0
-offset_left = -3.0
-offset_top = -12.0
-offset_right = 31.5
-offset_bottom = 17.0
+offset_left = -6.0
+offset_top = -16.052902
+offset_right = 63.0
+offset_bottom = 41.947098
 texture = ExtResource("8_3pg7d")
 stretch_mode = 5
 
@@ -164,10 +163,10 @@ texture = ExtResource("9_bpufm")
 [node name="AxeBuffedIcon" type="TextureRect" parent="Panel/Control2/Axe"]
 visible = false
 layout_mode = 0
-offset_left = -17.0
-offset_top = -31.0
-offset_right = 21.0
-offset_bottom = -2.0
+offset_left = -18.0
+offset_top = -21.718622
+offset_right = 58.0
+offset_bottom = 25.281378
 texture = ExtResource("10_dhuuv")
 stretch_mode = 5
 
