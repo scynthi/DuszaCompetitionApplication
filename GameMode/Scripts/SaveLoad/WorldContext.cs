@@ -19,12 +19,12 @@ public partial class WorldContext : Node
     // }
 
 
-	public WorldContext(string saveFileName, Player playerInstance, List<Card> worldCardsList, List<Dungeon> dungeonList)
+	public WorldContext(string saveFileName, Player playerInstance, int difficulty, List<Card> worldCardsList, List<Dungeon> dungeonList)
     {
         Name = saveFileName;
-		gameDifficulty = 0;
 		player = playerInstance;
 		AddSaveDeckToRealDeck(player);
+        gameDifficulty = difficulty;
 		WorldCards = worldCardsList;
 		WorldDungeons = dungeonList;
     }

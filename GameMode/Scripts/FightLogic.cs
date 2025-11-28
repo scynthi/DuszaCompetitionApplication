@@ -53,6 +53,7 @@ public partial class FightLogic : Node
 		LoadItemButtons(player.ItemList);
 		DungeonAnimPlayer.AnimationFinished += PlayerAttack;
 		PlayerAnimPlayer.AnimationFinished += LoadBattleItems;
+		GD.Print("BRUH: " + Global.gameManager.saverLoader.currSaveFile.gameDifficulty);
 	}
 
 	private void ReasignPlayerCard()
@@ -182,14 +183,12 @@ public partial class FightLogic : Node
 
 	public RoundState SimulateRound(Card DungeonCard, Card PlayerCard)
 	{
-
-
-		DungeonDamage = DungeonCard.Attack(PlayerCard, false);
+		DungeonDamage = DungeonCard.Attack(PlayerCard, true);
 		GD.Print(Round + " Dungeon Attack: " + DungeonDamage);
 
 		if (PlayerCard.Health == 0) return RoundState.PLAYERDEATH;
 
-		PlayerDamage = PlayerCard.Attack(DungeonCard, true);
+		PlayerDamage = PlayerCard.Attack(DungeonCard, false);
 		GD.Print(Round + " Player Attack: " + PlayerDamage);
 
 		if (DungeonCard.Health == 0) return RoundState.DUNGEONDEATH;

@@ -13,12 +13,12 @@ public partial class SaveLoadSystem : Node
 		Player newPlayer = new Player(0, 0);
 		newPlayer.SetCollection(playerCollection);
 
-		return new WorldContext(saveFileName, newPlayer, worldCardsList, dungeonList);
+		return new WorldContext(saveFileName, newPlayer, 0, worldCardsList, dungeonList);
     }
 
 	public static WorldContext CreateSaveFileFromData(string saveFileName, List<Card> worldCardsList, List<Dungeon> dungeonList, Player playerInstance)
     {
-		return new WorldContext(saveFileName, playerInstance, worldCardsList, dungeonList);
+		return new WorldContext(saveFileName, playerInstance, 0, worldCardsList, dungeonList);
     }
 
 

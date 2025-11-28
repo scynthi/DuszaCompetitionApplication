@@ -81,9 +81,16 @@ public partial class Card : IWorldObject
     }
     public int ApplyDamage(int value, bool PlayerAttacked)
     {
-        GD.Print(buffHandler.CalculateDamageTakenMultiplier());
+        Random rnd = new Random();
+
         int damage = Convert.ToInt32(Math.Round(value * buffHandler.CalculateDamageTakenMultiplier()));
-        Health -= damage; 
+        double difficultyModifier = PlayerAttacked ? 1 + rnd.NextDouble() * ((double)Global.gameManager.saverLoader.currSaveFile.gameDifficulty / 10) : 1 - rnd.NextDouble() * ((double)Global.gameManager.saverLoader.currSaveFile.gameDifficulty / 20);
+        GD.Print("Modifier: " + difficultyModifier);
+        GD.Print(damage);
+        damage = Convert.ToInt32(Math.Round(damage * difficultyModifier));
+        GD.Print(damage);
+
+        Health -= damage;
         Health = Math.Clamp(Health, 0, 100);
         return damage;
     }

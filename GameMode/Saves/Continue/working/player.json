@@ -1,21 +1,33 @@
 {
   "player": {
-    "Xp": 0,
-    "Money": 0,
+    "Xp": 5,
+    "Money": 5,
     "Collection": [
       {
         "Name": "apple",
-        "Health": 6,
+        "Health": 8,
         "BaseDamage": 7,
         "Damage": 7,
         "DamageChanged": false,
-        "HealthChanged": false,
+        "HealthChanged": true,
         "CardElement": 3,
         "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
         "buffHandler": {}
       }
     ],
-    "Deck": [],
+    "Deck": [
+      {
+        "Name": "apple",
+        "Health": 8,
+        "BaseDamage": 7,
+        "Damage": 7,
+        "DamageChanged": false,
+        "HealthChanged": true,
+        "CardElement": 3,
+        "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+        "buffHandler": {}
+      }
+    ],
     "ItemList": [
       {
         "$type": "health_potion",

@@ -1,0 +1,58 @@
+{
+  "WorldCards": [
+    {
+      "Name": "Aple",
+      "Health": 6,
+      "BaseDamage": 7,
+      "Damage": 7,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 0,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "$type": "boss",
+      "BaseCard": {
+        "Name": "Aple",
+        "Health": 6,
+        "BaseDamage": 7,
+        "Damage": 7,
+        "DamageChanged": false,
+        "HealthChanged": false,
+        "CardElement": 0,
+        "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+        "buffHandler": {}
+      },
+      "Name": "Lord Aple",
+      "Health": 12,
+      "BaseDamage": 7,
+      "Damage": 7,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 0,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    }
+  ],
+  "WorldDungeons": [
+    {
+      "Name": "AAaaAA",
+      "DungeonType": 0,
+      "DungeonReward": 0,
+      "DungeonDeck": []
+    },
+    {
+      "Name": "kicsi",
+      "DungeonType": 1,
+      "DungeonReward": 1,
+      "DungeonDeck": []
+    },
+    {
+      "Name": "byuh",
+      "DungeonType": 2,
+      "DungeonReward": 1,
+      "DungeonDeck": []
+    }
+  ]
+}
