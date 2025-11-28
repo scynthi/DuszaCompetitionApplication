@@ -73,13 +73,13 @@ public partial class Card : IWorldObject
     {
         Health = Math.Clamp(value, 0, 100); 
     }
-    public int Attack(Card card)
+    public int Attack(Card card, bool PlayerAttacked)
     {
         buffHandler.CalculateDamage();
         int calculatedDamage = ElementRules.CalculateDamage(Damage, CardElement, card.CardElement);
-        return card.ApplyDamage(calculatedDamage);
+        return card.ApplyDamage(calculatedDamage, PlayerAttacked);
     }
-    public int ApplyDamage(int value)
+    public int ApplyDamage(int value, bool PlayerAttacked)
     {
         GD.Print(buffHandler.CalculateDamageTakenMultiplier());
         int damage = Convert.ToInt32(Math.Round(value * buffHandler.CalculateDamageTakenMultiplier()));

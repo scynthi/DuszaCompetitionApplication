@@ -1,0 +1,34 @@
+{
+  "WorldCards": [
+    {
+      "Name": "apple",
+      "Health": 1,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 1,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "Lord apple",
+      "Health": 2,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 1,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    }
+  ],
+  "WorldDungeons": [
+    {
+      "Name": "A",
+      "DungeonType": 1,
+      "DungeonReward": 1,
+      "DungeonDeck": []
+    }
+  ]
+}

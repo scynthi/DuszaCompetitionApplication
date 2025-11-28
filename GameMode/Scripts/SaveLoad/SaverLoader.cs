@@ -8,12 +8,12 @@ using System.Text.Json.Serialization.Metadata;
 public class PlayerSave
 {
 	public Player player { get; set; }
-	
+
 }
 
 public class WorldSave
 {
-    public List<Card> WorldCards { get; set; }
+	public List<Card> WorldCards { get; set; }
 	public List<Dungeon> WorldDungeons { get; set; }
 }
 
@@ -29,10 +29,30 @@ public partial class SaverLoader : Node
 	public const string CONTINUE_PATH = "res://Saves/Continue/";
 	public WorldContext currSaveFile { get; set; }
 
-	private static JsonSerializerOptions options = new JsonSerializerOptions 
+	private static JsonSerializerOptions options = new JsonSerializerOptions
 	{
 		WriteIndented = true,
-		TypeInfoResolver = new DefaultJsonTypeInfoResolver()
+		TypeInfoResolver = new DefaultJsonTypeInfoResolver
+		{
+			Modifiers =
+			{
+				ti =>
+				{
+					if (ti.Type == typeof(Card))
+					{
+						ti.PolymorphismOptions = new JsonPolymorphismOptions
+						{
+							TypeDiscriminatorPropertyName = "$type",
+							IgnoreUnrecognizedTypeDiscriminators = true,
+							DerivedTypes =
+							{
+								new JsonDerivedType(typeof(BossCard), "boss")
+							}
+						};
+					}
+				}
+			}
+		}
 	};
 
 	public void SaveTo(WorldContext WorldContext)
@@ -82,7 +102,7 @@ public partial class SaverLoader : Node
 	}
 
 	public WorldContext Load(string saveName, string path)
-    {
+	{
 		string filePath = ProjectSettings.GlobalizePath($"{path}{saveName}/");
 		if (!Directory.Exists(filePath))
 			Directory.CreateDirectory(filePath);
@@ -95,7 +115,7 @@ public partial class SaverLoader : Node
 		Settings settings = JsonSerializer.Deserialize<Settings>(settingsJson, options);
 
 		return new WorldContext(playerData, worldData, settings);
-    }
+	}
 
 	public static Player LoadPlayer(string saveName)
 	{
@@ -117,8 +137,8 @@ public partial class SaverLoader : Node
 	}
 
 	public static void Convert(WorldContext r, out PlayerSave pSave, out WorldSave wSave, out Settings settings)
-    {
-        pSave = new PlayerSave
+	{
+		pSave = new PlayerSave
 		{
 			player = r.player
 		};
@@ -132,11 +152,11 @@ public partial class SaverLoader : Node
 			Name = r.Name,
 			gameDifficulty = r.gameDifficulty
 		};
-    }
+	}
 
 	public static void Convert(string saveName, List<Card> cardsList, List<Dungeon> dungeonList, Player player, out PlayerSave pSave, out WorldSave wSave, out Settings settings)
-    {
-        pSave = new PlayerSave
+	{
+		pSave = new PlayerSave
 		{
 			player = player
 		};
@@ -150,5 +170,5 @@ public partial class SaverLoader : Node
 			Name = saveName,
 			gameDifficulty = 0
 		};
-    }
+	}
 }

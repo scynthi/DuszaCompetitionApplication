@@ -184,12 +184,12 @@ public partial class FightLogic : Node
 	{
 
 
-		DungeonDamage = DungeonCard.Attack(PlayerCard);
+		DungeonDamage = DungeonCard.Attack(PlayerCard, false);
 		GD.Print(Round + " Dungeon Attack: " + DungeonDamage);
 
 		if (PlayerCard.Health == 0) return RoundState.PLAYERDEATH;
 
-		PlayerDamage = PlayerCard.Attack(DungeonCard);
+		PlayerDamage = PlayerCard.Attack(DungeonCard, true);
 		GD.Print(Round + " Player Attack: " + PlayerDamage);
 
 		if (DungeonCard.Health == 0) return RoundState.DUNGEONDEATH;
