@@ -129,7 +129,7 @@ _data = {
 &"RESET": SubResource("Animation_f6n1v")
 }
 
-[node name="FightScene" type="Node2D"]
+[node name="FightScene" type="Node3D"]
 
 [node name="BattleManager" type="Node" parent="." node_paths=PackedStringArray("RoundText", "IconContainer", "PlayerCardControl", "EnemyCardControl", "PlayerAnimPlayer", "DungeonAnimPlayer")]
 script = ExtResource("1_ugqt7")

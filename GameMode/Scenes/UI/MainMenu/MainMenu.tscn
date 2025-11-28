@@ -690,4 +690,5 @@ libraries = {
 [connection signal="pressed" from="MenuContainer/MainMenu/Items/ButtonBox/Quit" to="." method="ButtonPressed" binds= ["quit"]]
 [connection signal="pressed" from="MenuContainer/CreditsMenu/Button" to="." method="ButtonPressed" binds= ["main"]]
 [connection signal="pressed" from="MenuContainer/NewGameMenu/Control/HBoxContainer/SideBarMargin/VBox/BackButton" to="." method="ButtonPressed" binds= ["main"]]
+[connection signal="pressed" from="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/Button" to="MenuContainer/NewGameMenu" method="_OnStartPressed"]
 [connection signal="pressed" from="MenuContainer/ContinueGameMenu/Control/Button" to="." method="ButtonPressed" binds= ["main"]]

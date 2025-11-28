@@ -43,6 +43,12 @@ public partial class CardShopArea : Control
             return randomSelection[GD.RandRange(0,randomSelection.Count - 1)];
         }
 
+        foreach (Control node in cardHolder.GetChildren())
+        {
+            node.QueueFree();
+        }
+        currCard = null;
+        
         reRollButton.Disabled = true;
         buyButton.Disabled = true;
 

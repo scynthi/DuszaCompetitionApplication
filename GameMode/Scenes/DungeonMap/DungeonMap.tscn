@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://oihoapowoy2t"]
+[gd_scene load_steps=24 format=3 uid="uid://oihoapowoy2t"]
 
 [ext_resource type="Script" uid="uid://ctr2m1ncuyxwi" path="res://Scenes/DungeonMap/CameraController.cs" id="1_6u8ww"]
 [ext_resource type="PackedScene" uid="uid://dohu3ccoui2n5" path="res://Scenes/DungeonMap/MapBackgrounds/DungeonMapBackground.tscn" id="2_0enam"]
@@ -16,6 +16,8 @@
 [ext_resource type="Script" uid="uid://bg7xtl2rvon71" path="res://Scenes/DungeonMap/WorldCardsSubmenu.cs" id="9_yw7fq"]
 [ext_resource type="Texture2D" uid="uid://dyg65wcabupfr" path="res://Assets/Images/player/xp.png" id="11_j447k"]
 [ext_resource type="Texture2D" uid="uid://b6kxxoiuifnem" path="res://Assets/Images/player/coin.png" id="12_vrsbj"]
+[ext_resource type="PackedScene" uid="uid://dk32ss75ce3lw" path="res://Assets/UI/Scenes/UICard/UICard.tscn" id="15_uukdi"]
+[ext_resource type="PackedScene" uid="uid://dsnbg78nbu0vo" path="res://Assets/UI/Scenes/UIBossCard/UIBossCard.tscn" id="16_mo0dx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j447k"]
 bg_color = Color(0, 0, 0, 0.5137255)
@@ -342,6 +344,14 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 size_flags_horizontal = 6
 columns = 4
+
+[node name="Card" parent="CanvasLayer/Control/UpperSign/WorldCardsSubmenu/Control/ScrollContainer/GridContainer" instance=ExtResource("15_uukdi")]
+visible = false
+layout_mode = 2
+
+[node name="Card2" parent="CanvasLayer/Control/UpperSign/WorldCardsSubmenu/Control/ScrollContainer/GridContainer" instance=ExtResource("16_mo0dx")]
+visible = false
+layout_mode = 2
 
 [node name="EmptyMenu" type="Control" parent="CanvasLayer/Control/UpperSign"]
 visible = false

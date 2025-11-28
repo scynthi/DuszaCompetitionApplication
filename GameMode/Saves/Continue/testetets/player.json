@@ -1,20 +1,8 @@
 {
   "player": {
     "Xp": 0,
-    "Money": 0,
-    "Collection": [
-      {
-        "Name": "alma",
-        "Health": 6,
-        "BaseDamage": 7,
-        "Damage": 7,
-        "DamageChanged": false,
-        "HealthChanged": false,
-        "CardElement": 3,
-        "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
-        "buffHandler": {}
-      }
-    ],
+    "Money": 99964,
+    "Collection": [],
     "Deck": [],
     "ItemList": [
       {
@@ -23,7 +11,7 @@
         "Description": "Haszn\u00E1latakor megn\u00F6veli \n a jelenlegi k\u00E1rtya \u00E9leterej\u00E9t \n 5 ponttal",
         "Icon": "uid://b1y7hb6ugsa1s",
         "Price": 5,
-        "Amount": 0,
+        "Amount": 1,
         "Type": 0,
         "Buff": null
       },
@@ -33,7 +21,7 @@
         "Description": "Haszn\u00E1lata ut\u00E1n az \n elenf\u00E9l els\u0151 \u00FCt\u00E9se \n b\u00E1rmekkora is nem \u00E9rv\u00E9nyes",
         "Icon": "uid://duvi63fq53dex",
         "Price": 10,
-        "Amount": 0,
+        "Amount": 3,
         "Type": 1,
         "Buff": null
       },
