@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://oihoapowoy2t"]
+[gd_scene load_steps=21 format=3 uid="uid://oihoapowoy2t"]
 
 [ext_resource type="Script" uid="uid://ctr2m1ncuyxwi" path="res://Scenes/DungeonMap/CameraController.cs" id="1_6u8ww"]
 [ext_resource type="PackedScene" uid="uid://dohu3ccoui2n5" path="res://Scenes/DungeonMap/MapBackgrounds/DungeonMapBackground.tscn" id="2_0enam"]
@@ -14,6 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://btotl77m5yxnk" path="res://Assets/Images/Sign/HandingCardSign.png" id="8_phkkq"]
 [ext_resource type="Texture2D" uid="uid://ddx53uhdti82k" path="res://Assets/Images/Sign/HangingSignBetter.png" id="9_1kwds"]
 [ext_resource type="Script" uid="uid://bg7xtl2rvon71" path="res://Scenes/DungeonMap/WorldCardsSubmenu.cs" id="9_yw7fq"]
+[ext_resource type="Texture2D" uid="uid://dyg65wcabupfr" path="res://Assets/Images/player/xp.png" id="11_j447k"]
+[ext_resource type="Texture2D" uid="uid://b6kxxoiuifnem" path="res://Assets/Images/player/coin.png" id="12_vrsbj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uukdi"]
+outline_size = 6
+outline_color = Color(0.078814976, 0.07881499, 0.078814976, 1)
 
 [sub_resource type="Animation" id="Animation_yw7fq"]
 resource_name = "ChangeSubmenu"
@@ -106,7 +112,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="DeckSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign" node_paths=PackedStringArray("collectionContainer", "deckContainer")]
+[node name="DeckSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign" node_paths=PackedStringArray("collectionContainer", "deckContainer", "moneyLabel", "xpLabel")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -116,6 +122,8 @@ grow_vertical = 2
 script = ExtResource("8_fv8kk")
 collectionContainer = NodePath("Control/VBoxContainer/PlayerCollection/GridContainer")
 deckContainer = NodePath("Control/VBoxContainer/PlayerDeck/HboxContainer")
+moneyLabel = NodePath("Control/XPcontrol2/Label")
+xpLabel = NodePath("Control/XPcontrol/Label")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/UpperSign/DeckSubmenu"]
 modulate = Color(0.78, 0.78, 0.78, 1)
@@ -173,7 +181,87 @@ layout_mode = 2
 size_flags_horizontal = 6
 columns = 5
 
+[node name="XPcontrol" type="Control" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 82.0
+offset_bottom = 39.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/XPcontrol"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.5
+offset_top = -38.0
+offset_right = 59.5
+offset_bottom = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_j447k")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/XPcontrol"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.38431373, 1, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "123123213"
+label_settings = SubResource("LabelSettings_uukdi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="XPcontrol2" type="Control" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -83.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/XPcontrol2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -38.5
+offset_top = -22.0
+offset_right = 38.5
+offset_bottom = 22.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_vrsbj")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/XPcontrol2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.38431373, 1, 0, 1)
+theme_override_font_sizes/font_size = 21
+text = "123123213"
+label_settings = SubResource("LabelSettings_uukdi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="WorldCardsSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign" node_paths=PackedStringArray("cardContainer")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

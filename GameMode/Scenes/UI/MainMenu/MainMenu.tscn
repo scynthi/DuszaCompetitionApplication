@@ -169,7 +169,6 @@ layout_mode = 2
 text = "Kilépés"
 
 [node name="CreditsMenu" type="Control" parent="MenuContainer"]
-visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MenuContainer/CreditsMenu"]
@@ -206,11 +205,11 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MenuContainer/CreditsMenu/Items/VBoxContainer"]
 layout_mode = 2
-text = "UI, UI Backend - Dani
+text = "UI, UI Backend, Backend - Dani
 Assets, UI, UI Backend, Backend - Peti
 Backend - Máté
 
-Készült  a Godot 4.5.1-mono 
+Készült  a Godot 4.5.1.stable.mono [f62fdbde1]
 verziójában."
 horizontal_alignment = 1
 

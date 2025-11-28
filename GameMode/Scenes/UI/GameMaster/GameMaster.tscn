@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c6chsl4nd1iy5"]
+[gd_scene load_steps=17 format=3 uid="uid://c6chsl4nd1iy5"]
 
 [ext_resource type="Script" uid="uid://b6b68i6jcla5g" path="res://Scenes/UI/GameMaster/CardEditor.cs" id="1_4ikgl"]
 [ext_resource type="Texture2D" uid="uid://txhi2xptu3ib" path="res://Assets/Images/Sign/sign.png" id="1_bbocn"]
@@ -8,7 +8,10 @@
 [ext_resource type="Script" uid="uid://ds20bp7dht0gu" path="res://Scenes/UI/GameMaster/Editors.cs" id="1_rbxpr"]
 [ext_resource type="Script" uid="uid://cbn3r1swnuibn" path="res://Scenes/UI/GameMaster/DungeonEditor.cs" id="3_8slam"]
 [ext_resource type="PackedScene" uid="uid://bkxac5mrr13pu" path="res://Assets/UI/Scenes/UIDungeon/UIDungeon.tscn" id="3_j6eix"]
+[ext_resource type="Texture2D" uid="uid://bpvqj2jyrl0rp" path="res://Assets/Images/Cards/cards_player_leader_effect.png" id="4_4h88p"]
+[ext_resource type="Texture2D" uid="uid://drg81v8by0ak7" path="res://Assets/Images/Sign/simple_sign.png" id="4_ebj7d"]
 [ext_resource type="Script" uid="uid://diy1asnsgjskg" path="res://Scenes/UI/GameMaster/PlayerCollection.cs" id="5_vrmix"]
+[ext_resource type="FontFile" uid="uid://6obpbt445wnf" path="res://Assets/Fonts/alagard.ttf" id="6_ph8e0"]
 [ext_resource type="Script" uid="uid://dg7jqog8dii27" path="res://Scenes/UI/GameMaster/BossEditor.cs" id="9_pahx4"]
 [ext_resource type="Script" uid="uid://c3ngslqx8653y" path="res://Scenes/UI/GameMaster/CardViewer.cs" id="10_4h88p"]
 [ext_resource type="Script" uid="uid://dwjmh8lxmdcva" path="res://Scenes/UI/GameMaster/DungeonViewer.cs" id="11_mf5kw"]
@@ -82,7 +85,7 @@ alignment = 2
 [node name="Margin" type="MarginContainer" parent="Margin/HBox/GameMaster/MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 40
+theme_override_constants/margin_left = 25
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
@@ -94,7 +97,6 @@ alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons"]
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_constants/separation = 8
 
 [node name="CardEditor" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
@@ -107,7 +109,7 @@ text = "Kártyák"
 
 [node name="Collection" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
-text = "Játékos kollekciója"
+text = "Játékos gyűjteménye"
 
 [node name="BossEditor" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
@@ -120,6 +122,43 @@ text = "Kazamata készítő"
 [node name="Dungeons" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
 text = "Kazamaták"
+
+[node name="MessageContainer" type="PanelContainer" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="WoodBackground" type="TextureRect" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/MessageContainer"]
+layout_mode = 2
+texture = ExtResource("4_ebj7d")
+expand_mode = 1
+
+[node name="Border" type="TextureRect" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/MessageContainer"]
+layout_mode = 2
+texture = ExtResource("4_4h88p")
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/MessageContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/MessageContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("6_ph8e0")
+theme_override_font_sizes/normal_font_size = 14
+text = "
+
+
+
+
+
+"
+fit_content = true
+
+[node name="MessageAnimationPlayer" type="AnimationPlayer" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/MessageContainer"]
 
 [node name="Save" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons"]
 layout_mode = 2
@@ -141,7 +180,7 @@ theme_override_constants/margin_top = 25
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 25
 
-[node name="Editors" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer" node_paths=PackedStringArray("CardEditor", "DungeonEditor", "BossEditor", "DungeonViewer", "SaveMenu", "CardViewer", "PlayerCollection")]
+[node name="Editors" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer" node_paths=PackedStringArray("CardEditor", "DungeonEditor", "BossEditor", "DungeonViewer", "SaveMenu", "CardViewer", "PlayerCollection", "CurrentMenuMessage")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -154,6 +193,7 @@ DungeonViewer = NodePath("DungeonViewer")
 SaveMenu = NodePath("SaveMenu")
 CardViewer = NodePath("CardViewer")
 PlayerCollection = NodePath("PlayerCollection")
+CurrentMenuMessage = NodePath("../../../MainButtons/Margin/Buttons/MessageContainer/MarginContainer/RichTextLabel")
 
 [node name="PlayerCollection" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("cardHolder")]
 visible = false
@@ -264,6 +304,7 @@ layout_mode = 2
 text = "Mentés"
 
 [node name="BossEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("BossCardHolder")]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 2
@@ -385,18 +426,20 @@ size_flags_vertical = 3
 theme_override_constants/separation = 12
 
 [node name="SaveMenu" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("saveNameInput")]
-visible = false
 layout_mode = 2
 alignment = 1
 script = ExtResource("12_x6ral")
 saveNameInput = NodePath("VBoxContainer/SaveName")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="SaveName" type="LineEdit" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 placeholder_text = "Mentés neve"
 alignment = 1
 max_length = 30

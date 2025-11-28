@@ -40,6 +40,8 @@ content_margin_left = 5.0
 texture = ExtResource("4_bcd4f")
 
 [resource]
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 3
 Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("1_34bqa")
 Button/styles/hover = SubResource("StyleBoxTexture_bcd4f")
@@ -47,9 +49,13 @@ Button/styles/normal = SubResource("StyleBoxTexture_vq6tu")
 Button/styles/pressed = SubResource("StyleBoxTexture_qgjli")
 FileDialog/constants/thumbnail_size = 16
 FileDialog/font_sizes/title_font_size = 12
+Label/colors/font_outline_color = Color(0, 0, 0, 1)
+Label/constants/outline_size = 3
 Label/font_sizes/font_size = 16
 Label/fonts/font = ExtResource("1_34bqa")
+LineEdit/colors/font_outline_color = Color(0, 0, 0, 1)
 LineEdit/constants/caret_width = 1
+LineEdit/constants/outline_size = 3
 LineEdit/font_sizes/font_size = 16
 LineEdit/fonts/font = ExtResource("2_6vowl")
 LineEdit/styles/normal = SubResource("StyleBoxTexture_qy3k7")

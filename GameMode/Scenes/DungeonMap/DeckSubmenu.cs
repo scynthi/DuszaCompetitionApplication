@@ -8,9 +8,14 @@ public partial class DeckSubmenu : Control
     [Export] GridContainer collectionContainer;
     [Export] HBoxContainer deckContainer;
 
+    [Export] Label moneyLabel;
+    [Export] Label xpLabel;
+
+
 
     public void ReloadCards()
     {
+        ReloadXPAndMoneyLabel();
         List<Card> collectionLoadList = [];
         List<Card> deckLoadList = [];
 
@@ -81,5 +86,12 @@ public partial class DeckSubmenu : Control
         {
             player.TryRemoveFromDeck(cardName);
         }
+    }
+
+    public void ReloadXPAndMoneyLabel()
+    {
+        moneyLabel.Text = Convert.ToString(Global.gameManager.saverLoader.currSaveFile.player.Money);
+        xpLabel.Text = Convert.ToString(Global.gameManager.saverLoader.currSaveFile.player.Xp);
+        GD.Print("asasdasdasdasd");
     }
 }

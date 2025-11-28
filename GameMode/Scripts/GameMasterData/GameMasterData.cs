@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using Godot;
 
 public class GameMasterData
@@ -71,6 +72,7 @@ public class GameMasterData
     public void AddDungeonToDungeonList(Dungeon dungeon)
     {
         Dungeons.Add(dungeon);
+        Dungeons = Dungeons.OrderBy(x =>  x.DungeonType).ToList();
         DungeonDataChanged.Invoke();
     }
 
@@ -107,6 +109,18 @@ public class GameMasterData
     }
 
     public bool TestCard(Card card)
+    {
+        var result = WorldCards.Where(x => x.Name == card.Name);
+
+        if (result.Count() != 0)
+        {
+            GD.Print($"Card with name: {card.Name} already exists!");
+            return false;
+        }
+        return true;
+    }
+
+    public bool TesdtDungeon(Card card)
     {
         var result = WorldCards.Where(x => x.Name == card.Name);
 
