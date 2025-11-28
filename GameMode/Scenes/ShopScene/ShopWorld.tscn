@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://6oiws6jda0wi"]
+[gd_scene load_steps=49 format=3 uid="uid://6oiws6jda0wi"]
 
 [ext_resource type="PackedScene" uid="uid://cpidsg2b56hne" path="res://Assets/StyledCamera.tscn" id="1_68qub"]
 [ext_resource type="PackedScene" uid="uid://bbpn6eshxwvxq" path="res://Assets/Models/shop.glb" id="1_emkcw"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://c67e3kgjql3x4" path="res://Scenes/Miscs/BackToMapBtn.tscn" id="11_dvv65"]
 [ext_resource type="Texture2D" uid="uid://cq606clh2wrhq" path="res://Assets/Images/Button/button_bg_dark.png" id="11_jjw8j"]
 [ext_resource type="Texture2D" uid="uid://bvjhb1o33kk30" path="res://Assets/Images/Sign/bg_item.png" id="13_h37rh"]
+[ext_resource type="PackedScene" uid="uid://dq6exvy6qrnkp" path="res://Assets/Shaders/dust_particle_system.tscn" id="18_h37rh"]
 
 [sub_resource type="Environment" id="Environment_7glmu"]
 ambient_light_source = 2
@@ -179,6 +180,91 @@ _data = {
 &"Recard": SubResource("Animation_jjw8j")
 }
 
+[sub_resource type="Animation" id="Animation_vvhqr"]
+resource_name = "Flare"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lights/OmniLight3D2:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.487, -0.25, 0, 0.16666667, 1.7567768, 7.9124846, -0.06666666, -0.54858446, 0.20265503, -0.07836914, 0.487, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.2, 1)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Lights/OmniLight3D2:light_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.63, 0.056699984, 0.056699984, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mo107"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lights/OmniLight3D2:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.487, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Lights/OmniLight3D2:light_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.63, 0.056699984, 0.056699984, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wqc5p"]
+resource_name = "Glare"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lights/OmniLight3D2:light_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.46, 0.6, 0, 1)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Lights/OmniLight3D2:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(0.487, -0.25, 0, 0.13333334, 1.1036997, 6.897, -0.03686111, 0, 0.12980556, 0, 0.487, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.22116666, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mo107"]
+_data = {
+&"Flare": SubResource("Animation_vvhqr"),
+&"Glare": SubResource("Animation_wqc5p"),
+&"RESET": SubResource("Animation_mo107")
+}
+
 [node name="ShopWorld" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -331,7 +417,7 @@ offset_left = 471.0
 offset_right = 621.0
 itemType = 2
 
-[node name="Control" type="Control" parent="ShomMenu/MarginContainer/Control/Control3" node_paths=PackedStringArray("animationPlayer", "cardHolder", "reRollButton", "buyButton", "moneyLabel", "buyPriceLabel")]
+[node name="Control" type="Control" parent="ShomMenu/MarginContainer/Control/Control3" node_paths=PackedStringArray("animationPlayer", "animationWorldPlayer", "cardHolder", "reRollButton", "buyButton", "moneyLabel", "buyPriceLabel")]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -344,6 +430,7 @@ grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("9_5anym")
 animationPlayer = NodePath("AnimationPlayer")
+animationWorldPlayer = NodePath("../../../../../AnimationPlayer")
 cardHolder = NodePath("CenterContainer/Control/Control")
 reRollButton = NodePath("HBoxContainer/Button")
 buyButton = NodePath("HBoxContainer/Button2")
@@ -563,8 +650,17 @@ omni_range = 7.5774736
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lights"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.835, 0.6579428, -22.98)
 light_color = Color(0.63, 0.056699984, 0.056699984, 1)
+light_energy = 0.487
 shadow_enabled = true
 omni_range = 35.445
+
+[node name="DustParticleSystem" parent="." instance=ExtResource("18_h37rh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3959609, 0, -16.511408)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mo107")
+}
 
 [connection signal="Send_Item" from="ShomMenu/MarginContainer/Control/Control3/Control2/ItemButton" to="ShomMenu" method="GiveItemToPlayer"]
 [connection signal="Send_Item" from="ShomMenu/MarginContainer/Control/Control3/Control2/ItemButton2" to="ShomMenu" method="GiveItemToPlayer"]
