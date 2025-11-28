@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b8d3aqx88rk1q" path="res://Assets/Images/Cards/cards_border.png" id="5_ndynx"]
 [ext_resource type="Texture2D" uid="uid://bmiley3dm5mth" path="res://Assets/Images/Cards/cards_axe_buffed.png" id="6_4n0vk"]
 
-[node name="Card" type="Control" node_paths=PackedStringArray("damageLabel", "healthLabel", "nameLabel", "charcaterIcon", "effectTexture", "elementTexture")]
+[node name="Card" type="Control" node_paths=PackedStringArray("damageLabel", "healthLabel", "nameLabel", "charcaterIcon", "effectTexture", "elementTexture", "heartBuffedTexture", "damageBuffedTexture")]
 use_parent_material = true
 custom_minimum_size = Vector2(168, 220)
 layout_mode = 3
@@ -29,6 +29,8 @@ nameLabel = NodePath("Panel/Control/Name")
 charcaterIcon = NodePath("Panel/Control2/Character")
 effectTexture = NodePath("Panel/Control2/Effect")
 elementTexture = NodePath("Panel/Control2/Element")
+heartBuffedTexture = NodePath("Panel/Control2/Heart/HeartBuffedIcon")
+damageBuffedTexture = NodePath("Panel/Control2/Axe/AxeBuffedIcon")
 
 [node name="Panel" type="PanelContainer" parent="."]
 use_parent_material = true
@@ -133,10 +135,10 @@ stretch_mode = 5
 visible = false
 use_parent_material = true
 layout_mode = 0
-offset_left = -3.0
-offset_top = -12.0
-offset_right = 31.5
-offset_bottom = 17.0
+offset_left = -10.0
+offset_top = -12.275724
+offset_right = 59.0
+offset_bottom = 45.724274
 texture = ExtResource("4_40ahx")
 stretch_mode = 5
 
@@ -171,10 +173,10 @@ texture = ExtResource("4_vyadu")
 visible = false
 use_parent_material = true
 layout_mode = 0
-offset_left = -9.0
-offset_top = -14.16431
-offset_right = 29.0
-offset_bottom = 14.83569
+offset_left = -19.0
+offset_top = -21.718622
+offset_right = 57.0
+offset_bottom = 25.281378
 texture = ExtResource("6_4n0vk")
 stretch_mode = 5
 

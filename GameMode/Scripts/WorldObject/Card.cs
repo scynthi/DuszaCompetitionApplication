@@ -7,6 +7,8 @@ public partial class Card : IWorldObject
     public int Health { set; get; }
     public int BaseDamage { set; get; }
     public int Damage { set; get; }
+    public bool DamageChanged {set; get;}
+    public bool HealthChanged {set; get;}
     public CardElements CardElement { set; get; }
     public string Icon { set; get; }
     public BuffHandler buffHandler { set; get; }
@@ -51,11 +53,13 @@ public partial class Card : IWorldObject
 
     public void ModifyBaseDamage(int value)
     {
-        BaseDamage = Math.Clamp(BaseDamage + value, 0, 100); 
+        BaseDamage = Math.Clamp(BaseDamage + value, 0, 100);
+        DamageChanged = true;
     }
     public void ModifyHealth(int value)
     {
-        Health = Math.Clamp(Health + value, 0, 100); 
+        Health = Math.Clamp(Health + value, 0, 100);
+        HealthChanged = true; 
     }
     public void SetBaseDamage(int value)
     {

@@ -60,11 +60,10 @@ text = "Teszt Kazamata"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBox/CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(220, 220)
 layout_mode = 2
 texture = ExtResource("2_3smau")
-expand_mode = 1
-stretch_mode = 5
+stretch_mode = 3
 
 [node name="Button" type="Button" parent="VBox/CenterContainer/VBoxContainer" node_paths=PackedStringArray("nameLabel")]
 custom_minimum_size = Vector2(0, 30)
