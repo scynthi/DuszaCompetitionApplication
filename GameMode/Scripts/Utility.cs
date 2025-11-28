@@ -1,6 +1,8 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Reflection.Metadata.Ecma335;
 
 public static class Utility
 {
@@ -153,6 +155,26 @@ public static class Utility
 		}
 	}
 
+	public static string CardElementToString(CardElements cardElement)
+    {
+        return cardElement switch
+		{
+			CardElements.WATER => "viz",
+			CardElements.EARTH => "fold",
+			CardElements.WIND => "levego",
+			CardElements.FIRE => "tuz",
+			_ => ""
+		};
+    }
 
+	public static string WorldObjectListToString<T>(List<T> objectList, char seperator) where T : IWorldObject
+	{
+		string value = "";
 
+		foreach (T currObj in objectList)
+			value = value + seperator + currObj.Name;
+		value = value.Substring(1, value.Length - 1);
+		
+		return value;
+	}
 }

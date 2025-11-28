@@ -27,6 +27,7 @@ public partial class SaverLoader : Node
 {
 	public const string SAVE_PATH = "res://Saves/Template/";
 	public const string CONTINUE_PATH = "res://Saves/Continue/";
+	public const string OUTPUT_PATH = "res://CreatedInFiles/";
 	public WorldContext currSaveFile { get; set; }
 
 	private static JsonSerializerOptions options = new JsonSerializerOptions
@@ -128,6 +129,59 @@ public partial class SaverLoader : Node
 		return JsonSerializer.Deserialize<Player>(json);
 	}
 
+	public static void WorldContextToInTxt(WorldContext worldContext, string fileName)
+    {
+        List<string> output = ConvertWorldContextToOutput(worldContext);
+		string fullPath = ProjectSettings.GlobalizePath(OUTPUT_PATH + fileName);
+		File.WriteAllLines(fullPath, output);
+    }
+
+	private static List<string> ConvertWorldContextToOutput(WorldContext worldContext)
+    {
+		List<string> output = new List<string>();
+        List<Card> worldCards = worldContext.WorldCards;
+        List<Dungeon> worldDungeons = worldContext.WorldDungeons;
+		List<Card> bossCards = new List<Card>();
+		Player plr = worldContext.player;
+
+		foreach (Card card in worldCards)
+        {
+			if (card is BossCard)
+			{
+				bossCards.Add(card);
+				continue;
+			}
+            output.Add($"uj kartya;{card.Name};{card.BaseDamage};{card.Health};{Utility.CardElementToString(card.CardElement)}");
+        }
+
+		output.Add("");
+
+		foreach (BossCard card in bossCards)
+        {
+            output.Add($"uj vezer;{card.Name};{card.BaseCard.Name};{(card.Doubled == BossDouble.HEALTH ? "eletero" : "sebzes")};{Utility.CardElementToString(card.CardElement)}");
+        }
+
+		output.Add("");
+
+		foreach(Dungeon dungeon in worldDungeons)
+        {
+			if (dungeon.DungeonType == DungeonTypes.big)
+	            output.Add($"uj kazamata;{dungeon.DungeonType};{dungeon.Name};{Utility.WorldObjectListToString<Card>(dungeon.DungeonDeck.GetRange(0, dungeon.DungeonDeck.Count - 1), ',')};{dungeon.DungeonDeck[dungeon.DungeonDeck.Count - 1].Name}");
+			else
+				output.Add($"uj kazamata;{dungeon.DungeonType};{dungeon.Name};{Utility.WorldObjectListToString<Card>(dungeon.DungeonDeck, ',')};{(dungeon.DungeonReward == DungeonRewardTypes.health ? "eletero" : "sebzes")}");
+        }
+
+		output.Add("uj jatekos");
+		output.Add("");
+
+		foreach (Card card in plr.Collection)
+        {
+            output.Add($"felvetel gyujtemenybe;{card.Name}");
+        }
+
+		return output;
+    }
+
 	// public static LoadWorldObjects
 
 	public static bool SaveFolderExists(string saveName, string path)
@@ -171,4 +225,5 @@ public partial class SaverLoader : Node
 			gameDifficulty = 0
 		};
 	}
+
 }

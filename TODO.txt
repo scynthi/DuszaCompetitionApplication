@@ -1,7 +1,7 @@
 TODO:
 
--JSON TO IN.TXT THANKS HAGYMA ILY SO MUCH
--Load jsons to GameMaster
+-JSON TO IN.TXT THANKS HAGYMA ILY SO MUCH / done in code
+-Load jsons to GameMaster / talk with Peti
 -Edit card/dungeon names
 -dungeon deck
 -When no more worldcards to get, can't get into Hard dungeons
