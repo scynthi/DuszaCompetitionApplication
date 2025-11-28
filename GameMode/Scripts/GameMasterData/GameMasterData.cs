@@ -120,13 +120,13 @@ public class GameMasterData
         return true;
     }
 
-    public bool TesdtDungeon(Card card)
+    public bool TesdtDungeon(Dungeon dungeon)
     {
-        var result = WorldCards.Where(x => x.Name == card.Name);
+        var result = Dungeons.Where(x => x.Name == dungeon.Name);
 
         if (result.Count() != 0)
         {
-            GD.Print($"Card with name: {card.Name} already exists!");
+            GD.Print($"Dungeon with name: {dungeon.Name} already exists!");
             return false;
         }
         return true;

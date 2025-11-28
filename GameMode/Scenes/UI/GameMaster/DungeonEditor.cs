@@ -39,6 +39,8 @@ public partial class DungeonEditor : HBoxContainer
     
     public void SaveDungeon()
     {
-        editor.gameMasterData.AddDungeonToDungeonList(dungeon.CreateDungeonInstance());
+        Dungeon dungeonInstance = dungeon.CreateDungeonInstance();
+        if (!editor.gameMasterData.TesdtDungeon(dungeonInstance)) return;
+        editor.gameMasterData.AddDungeonToDungeonList(dungeonInstance);
     }
 }

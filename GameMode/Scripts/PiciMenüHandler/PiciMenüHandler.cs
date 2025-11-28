@@ -58,7 +58,10 @@ public static class PiciMenüHandler
         {
             bossCard = CreateBossCardInstance(card, BossDouble.ATTACK, piciMenüInstance.PrefixName.Text);
         }
+
+        if (bossCard.CardName.Length > 16) bossCard.EditName(bossCard.CardName.Substring(0, 16));
         if (!Global.masterEditor.gameMasterData.TestCard(bossCard.CreateBossCardInstance())) return;
+
 
 		Global.masterEditor.gameMasterData.AddCardToWorldCards(bossCard.CreateBossCardInstance());
     }

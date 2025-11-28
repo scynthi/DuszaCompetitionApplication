@@ -8,21 +8,22 @@ public partial class PiciMenü : Control
     [Export] Button CollectionButton;
     [Export] public LineEdit PrefixName;
 
-	public delegate void ClickedEventHandler(PiciMenü option);
-	public event ClickedEventHandler Clicked;
+    public delegate void ClickedEventHandler(PiciMenü option);
+    public event ClickedEventHandler Clicked;
 
     public Editors editor = Global.masterEditor;
 
-	private Control _item;
-	public Control Item
+    private Control _item;
+    public Control Item
     {
-        get {return _item;}
-		set
+        get { return _item; }
+        set
         {
-			_item = value;
-			UpdateButtons();
-            
-            if (_item is not UICard) {
+            _item = value;
+            UpdateButtons();
+
+            if (_item is not UICard)
+            {
                 PrefixName.Editable = false;
                 return;
             }
@@ -32,7 +33,7 @@ public partial class PiciMenü : Control
             PrefixName.MaxLength = calculatedLength;
         }
     }
-	public string option;
+    public string option;
 
     public override void _Process(double delta)
     {
@@ -47,14 +48,14 @@ public partial class PiciMenü : Control
         QueueFree();
         if (Item is UICard)
         {
-            editor.gameMasterData.AddCardToPlayerCollection(((UICard)Item).CreateCardInstance());   
+            editor.gameMasterData.AddCardToPlayerCollection(((UICard)Item).CreateCardInstance());
         }
     }
 
-	public void ButtonPressed(string option)
+    public void ButtonPressed(string option)
     {
         QueueFree();
-		this.option = option;
+        this.option = option;
         Clicked.Invoke(this);
     }
 
@@ -68,21 +69,23 @@ public partial class PiciMenü : Control
                 editor.gameMasterData.RemoveCardFromPlayerCollection(((UICard)Item).CreateCardInstance());
                 return;
             }
-            
+
             editor.gameMasterData.RemoveCardFromWorldCards(((UICard)Item).CreateCardInstance());
 
-        } else if (Item is UIDungeon)
+        }
+        else if (Item is UIDungeon)
         {
             editor.gameMasterData.RemoveDungeonFromDungeonList(((UIDungeon)Item).CreateDungeonInstance());
 
-        } else if (Item is UIBossCard)
+        }
+        else if (Item is UIBossCard)
         {
             editor.gameMasterData.RemoveCardFromWorldCards(((UIBossCard)Item).CreateBossCardInstance());
 
         }
     }
 
-	private void UpdateButtons()
+    private void UpdateButtons()
     {
         if (Item is UICard)
         {
@@ -90,13 +93,15 @@ public partial class PiciMenü : Control
             HPButton.Disabled = false;
             DMGButton.Disabled = false;
             PrefixName.Editable = true;
-        } else if (Item is UIBossCard)
+        }
+        else if (Item is UIBossCard)
         {
             CollectionButton.Disabled = true;
             HPButton.Disabled = true;
             DMGButton.Disabled = true;
             PrefixName.Editable = false;
-        } else if (Item is UIDungeon)
+        }
+        else if (Item is UIDungeon)
         {
             CollectionButton.Disabled = true;
             HPButton.Disabled = true;
