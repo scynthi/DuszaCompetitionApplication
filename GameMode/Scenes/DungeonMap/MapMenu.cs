@@ -58,7 +58,6 @@ public partial class MapMenu : Control
                 lastMenuName = name;
                 worldCardsMenu.ReloadWorldCards();
                 animationPlayer.Play("ChangeSubmenu");
-                GD.Print("as");
                 break;
             case "shop":
                 await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.ShopMenu);

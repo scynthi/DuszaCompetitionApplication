@@ -15,7 +15,6 @@ public partial class CameraController : Camera2D
 
     public override void _Ready()
     {
-        GD.Print(Global.gameManager.saverLoader.currSaveFile.WorldDungeons.Count);
         mapSize = new Vector2(GetViewportRect().Size.X * (int)Math.Ceiling((float)Global.gameManager.saverLoader.currSaveFile.WorldDungeons.Count / (float)6), mapSize.Y);
     }
 

@@ -46,7 +46,6 @@ public partial class FightLogic : Node
 		foreach (Card card in player.Deck) PlayerDeck.Add(new Card(card));
 		// foreach (Card card in Global.gameManager.saverLoader.currSaveFile.player.Deck) PlayerDeck.Add(new Card(card));
 		Dungeon dungeon = Utility.ReturnDungeonFromList(Global.gameManager.saverLoader.currSaveFile.WorldDungeons, Global.gameManager.saverLoader.currSaveFile.currDungeonName);
-		GD.Print(dungeon == null);
 		// DungeonDeck = dungeon.DungeonDeck;
 		Reward = dungeon.DungeonReward;
 		LoadItemButtons(player.ItemList);
@@ -247,11 +246,9 @@ public partial class FightLogic : Node
 		GD.Print(output + " " + Reward.ToString());
 		if (PlayerCard != null)
 		{
-			GD.Print("ALMA2");
 			Card card = player.ReturnCardFromCollection(PlayerCard.Name);
 			if (card != null)
 			{
-				GD.Print("ALMA");
 				ApplyReward(card);
 			}
 		}
@@ -282,7 +279,6 @@ public partial class FightLogic : Node
 
 	public void OnAddToItemListPressed(int item)
 	{
-		GD.Print("BRUH");
 		IItem createdItem = Items.CreateItemFromType((ItemType)item);
 		if (!Utility.ItemListToNameList(ItemList).Contains(createdItem.Name)) ItemList.Add(createdItem);
 	}

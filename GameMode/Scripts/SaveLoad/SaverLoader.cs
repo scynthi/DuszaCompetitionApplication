@@ -118,7 +118,6 @@ public partial class SaverLoader : Node
 
 	public static void Convert(WorldContext r, out PlayerSave pSave, out WorldSave wSave, out Settings settings)
     {
-		GD.Print(r);
         pSave = new PlayerSave
 		{
 			player = r.player
