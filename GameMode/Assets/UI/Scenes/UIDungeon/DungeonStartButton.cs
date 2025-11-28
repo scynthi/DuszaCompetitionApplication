@@ -11,4 +11,18 @@ public partial class DungeonStartButton : Button
         await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.FightMap);
     }
 
+    public override void _PhysicsProcess(double delta)
+    {
+        if (Global.gameManager.saverLoader.currSaveFile.player.Deck.Count <= 0)
+        {
+            Disabled = true;
+        }
+        else
+        {
+            Disabled = false;
+            
+        }
+    }
+
+
 }

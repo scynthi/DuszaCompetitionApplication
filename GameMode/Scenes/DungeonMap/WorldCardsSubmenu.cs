@@ -9,7 +9,9 @@ public partial class WorldCardsSubmenu : Control
     {
         if (Global.gameManager.saverLoader.currSaveFile.WorldCards.Count > 0)
         {
-            Utility.AddUiCardsUnderContainer(Global.gameManager.saverLoader.currSaveFile.WorldCards, cardContainer);        
+            Utility.AddUiSimpleCardsUnderContainer(Global.gameManager.saverLoader.currSaveFile.WorldCards, cardContainer);
+            Utility.AddUiBossCardsUnderContainer(Global.gameManager.saverLoader.currSaveFile.WorldCards, cardContainer, false);        
+
         }
     }
 }

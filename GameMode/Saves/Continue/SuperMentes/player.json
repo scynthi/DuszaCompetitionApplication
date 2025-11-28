@@ -4,14 +4,25 @@
     "Money": 0,
     "Collection": [
       {
-        "Name": "alma",
-        "Health": 6,
-        "BaseDamage": 7,
-        "Damage": 7,
+        "Name": "Gipsz Jakab2",
+        "Health": 5,
+        "BaseDamage": 100,
+        "Damage": 100,
         "DamageChanged": false,
         "HealthChanged": false,
-        "CardElement": 3,
-        "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+        "CardElement": 1,
+        "Icon": "res://Assets/Images/Entities/Enemies/char_gobellin.png",
+        "buffHandler": {}
+      },
+      {
+        "Name": "Gipsz Jakab",
+        "Health": 5,
+        "BaseDamage": 100,
+        "Damage": 100,
+        "DamageChanged": false,
+        "HealthChanged": false,
+        "CardElement": 1,
+        "Icon": "C:/Users/peter/Downloads/bigyo.png",
         "buffHandler": {}
       }
     ],

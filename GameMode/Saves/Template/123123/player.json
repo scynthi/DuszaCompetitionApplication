@@ -2,19 +2,7 @@
   "player": {
     "Xp": 0,
     "Money": 0,
-    "Collection": [
-      {
-        "Name": "alma",
-        "Health": 6,
-        "BaseDamage": 7,
-        "Damage": 7,
-        "DamageChanged": false,
-        "HealthChanged": false,
-        "CardElement": 3,
-        "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
-        "buffHandler": {}
-      }
-    ],
+    "Collection": [],
     "Deck": [],
     "ItemList": [
       {

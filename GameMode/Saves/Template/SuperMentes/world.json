@@ -1,0 +1,62 @@
+{
+  "WorldCards": [
+    {
+      "Name": "Gipsz Jakab",
+      "Health": 5,
+      "BaseDamage": 100,
+      "Damage": 100,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 1,
+      "Icon": "C:/Users/peter/Downloads/bigyo.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "Gipsz Jakab2",
+      "Health": 5,
+      "BaseDamage": 100,
+      "Damage": 100,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 1,
+      "Icon": "res://Assets/Images/Entities/Enemies/char_gobellin.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "Super Gipsz Jakab",
+      "Health": 10,
+      "BaseDamage": 100,
+      "Damage": 100,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 1,
+      "Icon": "C:/Users/peter/Downloads/bigyo.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "Gipsz Jakab sokk",
+      "Health": 5,
+      "BaseDamage": 100,
+      "Damage": 100,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 1,
+      "Icon": "res://Assets/Images/Entities/Enemies/char_wendigo.png",
+      "buffHandler": {}
+    }
+  ],
+  "WorldDungeons": [
+    {
+      "Name": "Mechwart",
+      "DungeonType": 0,
+      "DungeonReward": 1,
+      "DungeonDeck": []
+    },
+    {
+      "Name": "Mechwart",
+      "DungeonType": 2,
+      "DungeonReward": 1,
+      "DungeonDeck": []
+    }
+  ]
+}
