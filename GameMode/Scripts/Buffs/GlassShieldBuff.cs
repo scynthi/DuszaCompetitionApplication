@@ -13,6 +13,6 @@ public partial class GlassShieldBuff : IBuff
 
 	public GlassShieldBuff(int round)
     {
-        EndingRound = round + LastsFor;
+        EndingRound = round + LastsFor + 1;
     }
 }

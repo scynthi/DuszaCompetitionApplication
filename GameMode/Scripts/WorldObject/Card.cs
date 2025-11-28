@@ -77,12 +77,14 @@ public partial class Card : IWorldObject
     {
         buffHandler.CalculateDamage();
         int calculatedDamage = ElementRules.CalculateDamage(Damage, CardElement, card.CardElement);
-        card.ApplyDamage(calculatedDamage);
-        return calculatedDamage;
+        return card.ApplyDamage(calculatedDamage);
     }
-    public void ApplyDamage(int value)
+    public int ApplyDamage(int value)
     {
-        Health -= Convert.ToInt32(Math.Round(value * buffHandler.CalculateDamageTakenMultiplier())); 
+        GD.Print(buffHandler.CalculateDamageTakenMultiplier());
+        int damage = Convert.ToInt32(Math.Round(value * buffHandler.CalculateDamageTakenMultiplier()));
+        Health -= damage; 
         Health = Math.Clamp(Health, 0, 100);
+        return damage;
     }
 }

@@ -1,7 +1,7 @@
 {
   "player": {
     "Xp": 0,
-    "Money": 0,
+    "Money": 1000,
     "Collection": [
       {
         "Name": "alma",

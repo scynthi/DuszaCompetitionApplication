@@ -38,7 +38,6 @@ public partial class NewGameSubMenu : Control
             {
                 if (!fileName.Contains("."))
                 {
-                    GD.Print(fileName);
                     var saveFile = Global.gameManager.saverLoader.Load(fileName, SaverLoader.SAVE_PATH);
                     
                     if (saveFile != null)

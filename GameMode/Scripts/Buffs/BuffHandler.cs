@@ -19,7 +19,7 @@ public class BuffHandler
     {
         for (int i = 0; i < CurrentBuffs.Count; i++)
         {
-            if (CurrentBuffs[i].EndingRound >= round) CurrentBuffs.RemoveAt(i);
+            if (CurrentBuffs[i].EndingRound <= round) CurrentBuffs.RemoveAt(i);
         }
     }
 

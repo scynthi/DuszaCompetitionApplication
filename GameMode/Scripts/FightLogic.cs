@@ -33,7 +33,8 @@ public partial class FightLogic : Node
 	List<IItem> ItemList = new List<IItem>();
 	private int Round = 0;
 	Player player = Global.gameManager.saverLoader.currSaveFile.player;
-	DungeonRewardTypes Reward;
+	DungeonRewardTypes reward;
+	DungeonTypes type;
 	private int PlayerDamage = 0;
 	private int DungeonDamage = 0;
 	private bool PlayerDied;
@@ -47,7 +48,8 @@ public partial class FightLogic : Node
 		// foreach (Card card in Global.gameManager.saverLoader.currSaveFile.player.Deck) PlayerDeck.Add(new Card(card));
 		Dungeon dungeon = Utility.ReturnDungeonFromList(Global.gameManager.saverLoader.currSaveFile.WorldDungeons, Global.gameManager.saverLoader.currSaveFile.currDungeonName);
 		// DungeonDeck = dungeon.DungeonDeck;
-		Reward = dungeon.DungeonReward;
+		reward = dungeon.DungeonReward;
+		type = dungeon.DungeonType;
 		LoadItemButtons(player.ItemList);
 		DungeonAnimPlayer.AnimationFinished += PlayerAttack;
 		PlayerAnimPlayer.AnimationFinished += LoadBattleItems;
@@ -82,15 +84,18 @@ public partial class FightLogic : Node
 
 	public void LoadItemButtons(List<IItem> itemList)
 	{
-		PackedScene iconButtonScene = GD.Load<PackedScene>("uid://duqvkh3tdlkve");
+		foreach (ItemButton2VigyeElAMento child in IconContainer.GetChildren())
+		{
+			IconContainer.RemoveChild(child);
+		}
+		PackedScene iconButtonScene = GD.Load<PackedScene>("uid://cy0pttedf86kl");
 
 		foreach (IItem item in itemList)
 		{
-			ItemButton btn = iconButtonScene.Instantiate<ItemButton>();
+			ItemButton2VigyeElAMento btn = iconButtonScene.Instantiate<ItemButton2VigyeElAMento>();
 			btn.itemType = item.Type;
-			// btn.SetToggledOn();
-			btn.Send_Item_Added += OnAddToItemListPressed;
-			btn.Send_Item_Removed += OnRemoveFromItemListPressed;
+			if (player.ReturnItemAmount(item) == 0) btn.Disabled = true;
+			btn.Send_Item += OnAddToItemListPressed;
 			IconContainer.AddChild(btn);
 		}
 	}
@@ -99,28 +104,28 @@ public partial class FightLogic : Node
 	{
 		LoadDungeonCard();
 		LoadPlayerCard();
-		
+
 		if (DungeonCard == null || PlayerCard == null)
 			EndFight(PlayerCard != null ? $"Player Won {PlayerCard.Name}, {PlayerCard.Health}" : $"Enemy Won {DungeonCard.Name}, {DungeonCard.Health}");
 	}
 
 	private void LoadDungeonCard()
-    {
-        if (DungeonCard != null)
+	{
+		if (DungeonCard != null)
 		{
 			Utility.AddUiCardUnderContainer(DungeonCard, EnemyCardControl);
 			GD.Print(Round + " kazamata: " + DungeonCard.Name);
 		}
-    }
+	}
 
 	private void LoadPlayerCard()
-    {
-        if (PlayerCard != null)
+	{
+		if (PlayerCard != null)
 		{
 			Utility.AddUiCardUnderContainer(PlayerCard, PlayerCardControl);
 			GD.Print(Round + " jatekos: " + PlayerCard.Name);
 		}
-    }
+	}
 
 	public void DisplayAttack(bool isPlayerAttacked)
 	{
@@ -175,9 +180,9 @@ public partial class FightLogic : Node
 		LoadBattleItems("");
 	}
 
-	public RoundState SimulateRound(Card DungeonCard, Card PlayerCard, List<IItem> itemList)
+	public RoundState SimulateRound(Card DungeonCard, Card PlayerCard)
 	{
-		ApplyItems(itemList);
+
 
 		DungeonDamage = DungeonCard.Attack(PlayerCard);
 		GD.Print(Round + " Dungeon Attack: " + DungeonDamage);
@@ -202,12 +207,13 @@ public partial class FightLogic : Node
 		}
 		if (DungeonCard != null && PlayerCard != null)
 		{
+			ApplyItems(ItemList);
 			LoadBattleItems("");
 			Round++;
 			RoundText.Text = $"Round: {Round}";
 
 			ClearBuffs();
-			RoundState currRound = SimulateRound(DungeonCard, PlayerCard, ItemList);
+			RoundState currRound = SimulateRound(DungeonCard, PlayerCard);
 			PlayerDied = currRound == RoundState.PLAYERDEATH;
 			ItemList.Clear();
 
@@ -222,11 +228,16 @@ public partial class FightLogic : Node
 				ReasignDungeonCard();
 			}
 			PlayAttackSequence();
-        }
-        else if (!IsEnded)
-        {
-            EndFight(PlayerDeck != null ? $"Player Won {PlayerCard.Name}, {PlayerCard.Health}" : $"Enemy Won {DungeonCard.Name}, {DungeonCard.Health}");
-        }
+			
+			foreach (ItemButton2VigyeElAMento child in IconContainer.GetChildren())
+			{
+				if (player.ReturnItemAmount(Items.CreateItemFromType(child.itemType)) <= 0) child.Disabled = true;
+			}
+		}
+		else if (!IsEnded)
+		{
+			EndFight(PlayerDeck != null ? $"Player Won {PlayerCard.Name}, {PlayerCard.Health}" : $"Enemy Won {DungeonCard.Name}, {DungeonCard.Health}");
+		}
 	}
 
 	private void OnItemPressed()
@@ -243,7 +254,7 @@ public partial class FightLogic : Node
 		PlayerAnimPlayer.Stop();
 		DungeonAnimPlayer.Seek(0, true);
 		DungeonAnimPlayer.Stop();
-		GD.Print(output + " " + Reward.ToString());
+		GD.Print(output + " " + reward.ToString());
 		if (PlayerCard != null)
 		{
 			Card card = player.ReturnCardFromCollection(PlayerCard.Name);
@@ -256,11 +267,11 @@ public partial class FightLogic : Node
 
 	private void ApplyReward(Card card)
 	{
-		if (Reward == DungeonRewardTypes.health)
+		if (reward == DungeonRewardTypes.health)
 		{
 			card.ModifyHealth(2);
 		}
-		else if (Reward == DungeonRewardTypes.attack)
+		else if (reward == DungeonRewardTypes.attack)
 		{
 			card.ModifyBaseDamage(1);
 		}
@@ -275,10 +286,27 @@ public partial class FightLogic : Node
 				}
 			}
 		}
+
+		if (type == DungeonTypes.simple)
+		{
+			player.Xp += 5;
+			player.Money += 5;
+		}
+		else if (type == DungeonTypes.small)
+		{
+			player.Xp += 10;
+			player.Money += 10;
+		}
+		else
+		{
+			player.Xp += 20;
+			player.Money += 20;
+		}
 	}
 
 	public void OnAddToItemListPressed(int item)
 	{
+		GD.Print("BHRUH");
 		IItem createdItem = Items.CreateItemFromType((ItemType)item);
 		if (!Utility.ItemListToNameList(ItemList).Contains(createdItem.Name)) ItemList.Add(createdItem);
 	}
