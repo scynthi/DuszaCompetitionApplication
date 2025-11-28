@@ -1,0 +1,18 @@
+TODO:
+
+-JSON TO IN.TXT THANKS HAGYMA ILY SO MUCH
+-Load jsons to GameMaster
+-Edit card/dungeon names
+-dungeon deck
+-When no more worldcards to get, can't get into Hard dungeons
+-Fix animations on FightScene (Deck that spawns the cards)
+-Add Critical/Hit/NonPen based on Elements
+-Delete saves
+-Edit saves
+-XP functionality
+
+If all is done:
+
+-Drag and Drop feature on deck
+-Make the fight scene look alright
+-Try making actual animations
