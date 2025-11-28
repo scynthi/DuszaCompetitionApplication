@@ -1,8 +1,31 @@
 {
   "player": {
     "Xp": 0,
-    "Money": 1000000000,
-    "Collection": [],
+    "Money": 999999900,
+    "Collection": [
+      {
+        "Name": "alma",
+        "Health": 6,
+        "BaseDamage": 7,
+        "Damage": 7,
+        "DamageChanged": false,
+        "HealthChanged": false,
+        "CardElement": 1,
+        "Icon": "res://Assets/Images/Entities/Heroes/char_huntress.png",
+        "buffHandler": {}
+      },
+      {
+        "Name": "Lord  alma",
+        "Health": 12,
+        "BaseDamage": 7,
+        "Damage": 7,
+        "DamageChanged": false,
+        "HealthChanged": false,
+        "CardElement": 1,
+        "Icon": "res://Assets/Images/Entities/Heroes/char_huntress.png",
+        "buffHandler": {}
+      }
+    ],
     "Deck": [],
     "ItemList": [
       {

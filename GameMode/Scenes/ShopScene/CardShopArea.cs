@@ -48,15 +48,16 @@ public partial class CardShopArea : Control
             node.QueueFree();
         }
         currCard = null;
-        
+
         reRollButton.Disabled = true;
         buyButton.Disabled = true;
 
         return null;
     }
 
-    public void _ReRolled()
+    public async void _ReRolled()
     {
+        if (animationPlayer.IsPlaying()) return;
         ShakeControl();
         if (Global.gameManager.saverLoader.currSaveFile.player.Money >= 10.0f)
         {
@@ -68,8 +69,10 @@ public partial class CardShopArea : Control
         animationWorldPlayer.Play("Flare");
     }
 
-    public void _CardBought()
+    public async void _CardBought()
     {
+        if (animationPlayer.IsPlaying()) return;
+        
         ShakeControl();
         if (Global.gameManager.saverLoader.currSaveFile.player.Money >= _currPrice)
         {

@@ -1,7 +1,41 @@
-[gd_scene load_steps=9 format=3 uid="uid://nq0gnkgglhi6"]
+[gd_scene load_steps=28 format=3 uid="uid://nq0gnkgglhi6"]
 
+[ext_resource type="Script" uid="uid://jtuoap7qxnl5" path="res://Assets/Shaders/quantization_shader.gd" id="1_0n0gq"]
+[ext_resource type="PackedScene" uid="uid://b5vuktdck1ewt" path="res://Assets/Models/dungeonBackgroundMid.glb" id="1_7d0qi"]
 [ext_resource type="Script" uid="uid://cqbvhjwb8smc1" path="res://Scripts/FightLogic.cs" id="1_ugqt7"]
 [ext_resource type="Script" uid="uid://bbbnbyfjkbg8e" path="res://Scripts/Buttons/BackButton.cs" id="4_7d0qi"]
+[ext_resource type="PackedScene" uid="uid://cpidsg2b56hne" path="res://Assets/StyledCamera.tscn" id="4_di4nr"]
+[ext_resource type="Shader" uid="uid://dhbjn1laemwls" path="res://Assets/Shaders/portal.gdshader" id="6_08x25"]
+
+[sub_resource type="Environment" id="Environment_sqp11"]
+ambient_light_source = 2
+ambient_light_color = Color(0.45, 0.39885, 0.3105, 1)
+ambient_light_energy = 0.15
+tonemap_mode = 4
+ssao_enabled = true
+ssao_radius = 1.65
+ssao_intensity = 3.07
+glow_enabled = true
+fog_light_color = Color(0.69086254, 0.7289716, 0.8756145, 1)
+fog_light_energy = 8.04
+volumetric_fog_density = 0.0
+adjustment_enabled = true
+adjustment_contrast = 1.68
+adjustment_saturation = 1.09
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_x2c5x"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("1_0n0gq")
+color_depth = 16.0
+metadata/_custom_type_script = "uid://jtuoap7qxnl5"
+
+[sub_resource type="Compositor" id="Compositor_xwfv5"]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_x2c5x")])
 
 [sub_resource type="Animation" id="Animation_di4nr"]
 resource_name = "PlayerAttack"
@@ -129,7 +163,71 @@ _data = {
 &"RESET": SubResource("Animation_f6n1v")
 }
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1bvua"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ogosy"]
+noise = SubResource("FastNoiseLite_1bvua")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ql1th"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vngl3"]
+noise = SubResource("FastNoiseLite_ql1th")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3esqh"]
+render_priority = 0
+shader = ExtResource("6_08x25")
+shader_parameter/background_color = Color(0.48235294, 0, 1, 1)
+shader_parameter/primary_color = Color(0, 0.7999997, 1, 1)
+shader_parameter/secondary_color = Color(0, 0.6526667, 0.89, 1)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_ogosy")
+shader_parameter/primaryColorChange = SubResource("NoiseTexture2D_vngl3")
+shader_parameter/speed = 0.01600000076
+shader_parameter/cutoff = 0.514000024415
+shader_parameter/primary_cutoff = 0.65600003116
+shader_parameter/yRippleOffset = 4.262000202445
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_761tw"]
+material = SubResource("ShaderMaterial_3esqh")
+height = 3.604
+radial_segments = 24
+rings = 3
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_y0h0n"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_34uhm"]
+noise = SubResource("FastNoiseLite_y0h0n")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_r5frb"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_riy8b"]
+noise = SubResource("FastNoiseLite_r5frb")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dt0qt"]
+render_priority = 0
+shader = ExtResource("6_08x25")
+shader_parameter/background_color = Color(1, 0.01666665, 0, 1)
+shader_parameter/primary_color = Color(0.6, 0.2, 0.12, 1)
+shader_parameter/secondary_color = Color(0.49, 0.13066666, 0, 1)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_34uhm")
+shader_parameter/primaryColorChange = SubResource("NoiseTexture2D_riy8b")
+shader_parameter/speed = 0.01600000076
+shader_parameter/cutoff = 0.514000024415
+shader_parameter/primary_cutoff = 0.65600003116
+shader_parameter/yRippleOffset = 4.262000202445
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_usdkp"]
+material = SubResource("ShaderMaterial_dt0qt")
+height = 3.604
+radial_segments = 24
+rings = 3
+
 [node name="FightScene" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_sqp11")
+compositor = SubResource("Compositor_xwfv5")
+
+[node name="dungeonBackgroundMid" parent="." instance=ExtResource("1_7d0qi")]
 
 [node name="BattleManager" type="Node" parent="." node_paths=PackedStringArray("RoundText", "IconContainer", "PlayerCardControl", "EnemyCardControl", "PlayerAnimPlayer", "DungeonAnimPlayer")]
 script = ExtResource("1_ugqt7")
@@ -220,5 +318,39 @@ root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_7d0qi")
 }
+
+[node name="StyledCamera" parent="." instance=ExtResource("4_di4nr")]
+transform = Transform3D(0.10146612, 0.047417738, -0.9937083, 0.0006121206, 0.9988603, 0.047726084, 0.99483883, -0.00545085, 0.101321444, -14.3044615, 9.597276, 0.6964613)
+fov = 58.9
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8757963, 6.6179667, 0)
+light_color = Color(0.994, 0.94, 1, 1)
+light_energy = 9.762
+omni_range = 27.696
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.700728, 7.1236696, -9.920478)
+light_color = Color(0.27461565, 0.6787281, 0.93412876, 1)
+light_energy = 11.878
+shadow_enabled = true
+omni_range = 12.28912
+omni_attenuation = 0.735
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.955447, 7.0227823, 7.1769037)
+light_color = Color(1, 0.36, 0.36, 1)
+light_energy = 11.878
+shadow_enabled = true
+omni_range = 12.28912
+omni_attenuation = 0.735
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.768689, 0, 0, 0, 2.2270384, 0, 0, 0, 1, 3.1174812, 6.5852184, -11.101108)
+mesh = SubResource("CapsuleMesh_761tw")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(4.4144015, 0, 0.3782447, 0, 2.2270381, 0, -1.8037314, 0, 0.92570555, 7.08952, 5.307467, 8.555242)
+mesh = SubResource("CapsuleMesh_usdkp")
 
 [connection signal="pressed" from="CanvasLayer/Control/StepBattle" to="BattleManager" method="OnButtonPressed"]
