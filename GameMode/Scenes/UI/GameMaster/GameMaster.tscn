@@ -149,13 +149,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/normal_font = ExtResource("6_ph8e0")
 theme_override_font_sizes/normal_font_size = 14
-text = "
-
-
-
-
-
-"
+bbcode_enabled = true
 fit_content = true
 
 [node name="MessageAnimationPlayer" type="AnimationPlayer" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/MessageContainer"]

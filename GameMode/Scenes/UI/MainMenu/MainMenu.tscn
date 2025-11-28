@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cd7wdb77hi6lr"]
+[gd_scene load_steps=27 format=3 uid="uid://cd7wdb77hi6lr"]
 
 [ext_resource type="Script" uid="uid://crrjwkdrkhon6" path="res://Scenes/UI/MainMenu/MainMenu.cs" id="1_cdkru"]
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_gwdte"]
@@ -8,8 +8,17 @@
 [ext_resource type="Script" uid="uid://d4c08tqcq36iv" path="res://Scenes/UI/MainMenu/NewGameSubMenu.cs" id="6_tc2ed"]
 [ext_resource type="PackedScene" uid="uid://ba8fe80dhddy3" path="res://Scenes/UI/MainMenu/UISaveFileItem.tscn" id="7_67d64"]
 [ext_resource type="Texture2D" uid="uid://dnwmm73g8mqap" path="res://Assets/Images/Textures/SaveThumbnail.png" id="8_6swpd"]
+[ext_resource type="Texture2D" uid="uid://wu46dh6eumps" path="res://Assets/Images/Sign/continueBackground.png" id="8_pnb7d"]
 [ext_resource type="Script" uid="uid://b125uoygwaj34" path="res://Scenes/UI/MainMenu/ContinueGameSubMenu.cs" id="9_tbwd8"]
 [ext_resource type="PackedScene" uid="uid://cstap8p5kx2fk" path="res://Scenes/UI/MainMenu/UISaveFileContinueItem.tscn" id="10_geava"]
+[ext_resource type="Texture2D" uid="uid://doww5jvob8iw2" path="res://Assets/Images/Elements/NewElementSprites/fire.png" id="10_nw82n"]
+[ext_resource type="Texture2D" uid="uid://dfmsxlsr24dcu" path="res://Assets/Images/Elements/NewElementSprites/water.png" id="11_smnk6"]
+[ext_resource type="Texture2D" uid="uid://flp5hfrmldcm" path="res://Assets/Images/Elements/NewElementSprites/earth.png" id="12_smnk6"]
+[ext_resource type="Texture2D" uid="uid://ubulfv30qw2x" path="res://Assets/Images/Elements/NewElementSprites/wind.png" id="13_selod"]
+[ext_resource type="Texture2D" uid="uid://bdmnd11s75frm" path="res://Assets/Images/Portal/portal_frame_egyszeru.png" id="14_jd0v2"]
+[ext_resource type="Texture2D" uid="uid://su372m8nuxy7" path="res://Assets/Images/Portal/portal_frame_kis.png" id="15_rd75r"]
+[ext_resource type="Texture2D" uid="uid://cvhuwehtyd1af" path="res://Assets/Images/Portal/portal_frame_nagy.png" id="16_pnb7d"]
+[ext_resource type="Texture2D" uid="uid://c1em44wgod6mm" path="res://Assets/Images/Sign/horiz_stick.png" id="17_2jg2i"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vwuc7"]
 font_size = 96
@@ -202,6 +211,7 @@ theme_override_font_sizes/font_size = 28
 text = "Kilépés"
 
 [node name="CreditsMenu" type="Control" parent="MenuContainer"]
+visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MenuContainer/CreditsMenu"]
@@ -252,18 +262,17 @@ offset_bottom = 189.0
 theme_override_font_sizes/font_size = 26
 text = "Főmenü"
 
-[node name="NewGameMenu" type="Control" parent="MenuContainer" node_paths=PackedStringArray("saveFileItemsHolder", "inspectorField", "displaySaveName", "displayCardElements", "displayCardAmount", "displayDungeonElements", "displayDungeonAmount")]
-visible = false
+[node name="NewGameMenu" type="Control" parent="MenuContainer" node_paths=PackedStringArray("saveFileItemsHolder", "inspectorField", "displaySaveName", "displayCardAmount", "displayCardElements", "displayDungeonAmount", "displayDungeonIcons")]
 layout_mode = 2
 script = ExtResource("6_tc2ed")
 uiSaveFileItem = ExtResource("7_67d64")
-saveFileItemsHolder = NodePath("Control/HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer/VBoxContainer")
-inspectorField = NodePath("Control/HBoxContainer/VBoxContainer")
-displaySaveName = NodePath("Control/HBoxContainer/VBoxContainer/Thumbnail/Label")
-displayCardElements = NodePath("Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/HBoxContainer/VBoxContainer/RichTextLabel2")
-displayCardAmount = NodePath("Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/HBoxContainer/VBoxContainer/RichTextLabel3")
-displayDungeonElements = NodePath("Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/HBoxContainer/VBoxContainer3/RichTextLabel2")
-displayDungeonAmount = NodePath("Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/HBoxContainer/VBoxContainer3/RichTextLabel3")
+saveFileItemsHolder = NodePath("Control/HBoxContainer/SideBarMargin/VBox/ScrollContainer/SaveComntainer")
+inspectorField = NodePath("Control/HBoxContainer/MarginContainer/CurrentSaveDisplay")
+displaySaveName = NodePath("Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Thumbnail/Label")
+displayCardAmount = NodePath("Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/CardInformation/CardAmount")
+displayCardElements = [NodePath("Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/CardInformation/Elements/Grid/FireAmount"), NodePath("Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/CardInformation/Elements/Grid/WaterAmount"), NodePath("Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/CardInformation/Elements/Grid/EarthAmount"), NodePath("Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/CardInformation/Elements/Grid/WindAmount")]
+displayDungeonAmount = NodePath("Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/DungeonInformation/DungeonAmount")
+displayDungeonIcons = [NodePath("Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/DungeonInformation/VBoxContainer/Icons/Grid/SimpleAmount"), NodePath("Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/DungeonInformation/VBoxContainer/Icons/Grid/SmallAmount"), NodePath("Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/DungeonInformation/VBoxContainer/Icons/Grid/BigAmount")]
 
 [node name="Control" type="Control" parent="MenuContainer/NewGameMenu"]
 layout_mode = 1
@@ -272,99 +281,101 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -247.0
-offset_top = -148.0
-offset_right = 247.0
-offset_bottom = 148.0
+offset_left = -370.0
+offset_top = -266.0
+offset_right = 372.0
+offset_bottom = 254.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="MenuContainer/NewGameMenu/Control"]
+[node name="Background" type="TextureRect" parent="MenuContainer/NewGameMenu/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -178.0
+offset_top = -96.0
+offset_right = 147.0
+offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.6, 0.54, 0.54, 1)
-
-[node name="HSplitContainer" type="HSplitContainer" parent="MenuContainer/NewGameMenu/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 0
-theme_override_constants/minimum_grab_thickness = 0
-split_offset = 155
-dragging_enabled = false
-drag_area_highlight_in_editor = true
+texture = ExtResource("8_pnb7d")
+expand_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MenuContainer/NewGameMenu/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -36.0
+offset_right = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer"]
+[node name="SideBarMargin" type="MarginContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_constants/margin_left = 5
-theme_override_constants/margin_top = 2
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer"]
+[node name="VBox" type="VBoxContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/SideBarMargin"]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/SideBarMargin/VBox"]
 custom_minimum_size = Vector2(160.71, 0)
 layout_mode = 2
 size_flags_vertical = 3
 vertical_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="SaveComntainer" type="VBoxContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/SideBarMargin/VBox/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/VBoxContainer"]
+[node name="BackButton" type="Button" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/SideBarMargin/VBox"]
 custom_minimum_size = Vector2(0, 24.855)
 layout_mode = 2
 text = "Vissza a fömenüre"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 51
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="CurrentSaveDisplay" type="VBoxContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="Thumbnail" type="Control" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer"]
+[node name="Thumbnail" type="Control" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay"]
 clip_contents = true
 custom_minimum_size = Vector2(0, 110.185)
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Thumbnail"]
+[node name="TextureRect" type="TextureRect" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Thumbnail"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -163.5
-offset_top = -75.26854
-offset_right = 163.5
-offset_bottom = 75.26854
+offset_left = -215.5
+offset_top = -89.76982
+offset_right = 215.5
+offset_bottom = 108.6445
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_6swpd")
 expand_mode = 5
-stretch_mode = 3
 
-[node name="TextureRect2" type="TextureRect" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Thumbnail"]
+[node name="TextureRect2" type="TextureRect" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Thumbnail"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -373,69 +384,111 @@ grow_horizontal = 2
 texture = SubResource("GradientTexture2D_tbwd8")
 stretch_mode = 1
 
-[node name="Label" type="Label" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Thumbnail"]
+[node name="Label" type="Label" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Thumbnail"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -163.5
-offset_right = 163.5
-offset_bottom = 31.0
+offset_left = -215.0
+offset_top = 13.0
+offset_right = 216.0
+offset_bottom = 110.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 45
 text = "Test savefile"
 horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Control" type="Control" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer"]
+[node name="Information" type="Control" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="ColorRect" type="ColorRect" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Control"]
+[node name="Content" type="VBoxContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.19, 0.1064, 0.1064, 1)
+theme_override_constants/separation = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Control/VBoxContainer"]
+[node name="HBox" type="HBoxContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content"]
 layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/HBoxContainer"]
+[node name="CardInformation" type="VBoxContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 38.9)
+[node name="CardsTitle" type="RichTextLabel" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/CardInformation"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 26
+theme_override_font_sizes/normal_font_size = 42
 text = "Kártyák"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 38.9)
+[node name="Elements" type="HBoxContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/CardInformation"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 15
-bbcode_enabled = true
-text = "4x-[color=\"red\"]fire[color=\"white\"] 4x-[color=\"blue\"]water [color=\"white\"]       4x-[color=\"brown\"]earth[color=\"white\"] 4x-[color=\"cyan\"]wind "
-fit_content = true
-scroll_active = false
-horizontal_alignment = 1
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+alignment = 1
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 23.42)
+[node name="Grid" type="GridContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/CardInformation/Elements"]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="FireAmount" type="Label" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/CardInformation/Elements/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0x"
+
+[node name="TextureRect" type="TextureRect" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/CardInformation/Elements/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("10_nw82n")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WaterAmount" type="Label" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/CardInformation/Elements/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0x"
+
+[node name="TextureRect2" type="TextureRect" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/CardInformation/Elements/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("11_smnk6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="EarthAmount" type="Label" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/CardInformation/Elements/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0x"
+
+[node name="TextureRect3" type="TextureRect" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/CardInformation/Elements/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("12_smnk6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WindAmount" type="Label" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/CardInformation/Elements/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0x"
+
+[node name="TextureRect4" type="TextureRect" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/CardInformation/Elements/Grid"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("13_selod")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CardAmount" type="RichTextLabel" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/CardInformation"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
@@ -444,30 +497,70 @@ fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/HBoxContainer"]
+[node name="DungeonInformation" type="VBoxContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/HBoxContainer/VBoxContainer3"]
-custom_minimum_size = Vector2(0, 38.9)
+[node name="DungeonTitle" type="RichTextLabel" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/DungeonInformation"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 26
+theme_override_font_sizes/normal_font_size = 42
 text = "Kazamaták"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/HBoxContainer/VBoxContainer3"]
-custom_minimum_size = Vector2(0, 38.9)
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/DungeonInformation"]
 layout_mode = 2
-theme_override_font_sizes/normal_font_size = 15
-bbcode_enabled = true
-text = "4x-[color=\"gray\"]simple [color=\"white\"] 4x-[color=\"blue\"]small [color=\"white\"]12x-[color=\"red\"]big"
-fit_content = true
-scroll_active = false
-horizontal_alignment = 1
+size_flags_vertical = 3
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/HBoxContainer/VBoxContainer3"]
+[node name="Icons" type="HBoxContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/DungeonInformation/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Grid" type="GridContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/DungeonInformation/VBoxContainer/Icons"]
+layout_mode = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 2
+
+[node name="SimpleAmount" type="Label" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/DungeonInformation/VBoxContainer/Icons/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0x"
+
+[node name="TextureRect" type="TextureRect" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/DungeonInformation/VBoxContainer/Icons/Grid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("14_jd0v2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SmallAmount" type="Label" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/DungeonInformation/VBoxContainer/Icons/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0x"
+
+[node name="TextureRect2" type="TextureRect" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/DungeonInformation/VBoxContainer/Icons/Grid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("15_rd75r")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BigAmount" type="Label" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/DungeonInformation/VBoxContainer/Icons/Grid"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "0x"
+
+[node name="TextureRect3" type="TextureRect" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/DungeonInformation/VBoxContainer/Icons/Grid"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("16_pnb7d")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DungeonAmount" type="RichTextLabel" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/HBox/DungeonInformation"]
 custom_minimum_size = Vector2(0, 23.42)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 15
@@ -476,46 +569,50 @@ text = "1000 total"
 fit_content = true
 scroll_active = false
 horizontal_alignment = 1
+vertical_alignment = 2
 
-[node name="Control" type="Control" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Control/VBoxContainer"]
+[node name="Control" type="Control" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content"]
 custom_minimum_size = Vector2(0, 28.945)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/Control"]
 layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_left = 29.0
-offset_top = -1.0275002
-offset_right = 132.0
-offset_bottom = 1.0275002
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -12.5
+offset_bottom = 17.527496
+grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/Control/HBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 18
 text = "Nehézség :"
+horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SpinBox" type="SpinBox" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/Control"]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -186.00781
-offset_top = 1.9724998
-offset_right = -32.0
-offset_bottom = -1.9724998
-grow_horizontal = 0
-grow_vertical = 2
+[node name="SpinBox" type="SpinBox" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/Control/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
 max_value = 10.0
 rounded = true
 
-[node name="Button" type="Button" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, -0.04)
+[node name="Button" type="Button" parent="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 20
 text = "Világ indítása"
+
+[node name="TextureRect3" type="TextureRect" parent="MenuContainer/NewGameMenu/Control"]
+layout_mode = 0
+offset_top = 22.0
+offset_right = 722.0
+offset_bottom = 69.0
+texture = ExtResource("17_2jg2i")
 
 [node name="ContinueGameMenu" type="Control" parent="MenuContainer" node_paths=PackedStringArray("saveFileContinueItemsHolder")]
 visible = false
@@ -592,7 +689,4 @@ libraries = {
 [connection signal="pressed" from="MenuContainer/MainMenu/Items/ButtonBox/Credits" to="." method="ButtonPressed" binds= ["credits"]]
 [connection signal="pressed" from="MenuContainer/MainMenu/Items/ButtonBox/Quit" to="." method="ButtonPressed" binds= ["quit"]]
 [connection signal="pressed" from="MenuContainer/CreditsMenu/Button" to="." method="ButtonPressed" binds= ["main"]]
-[connection signal="pressed" from="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/VBoxContainer/Button" to="." method="ButtonPressed" binds= ["main"]]
-[connection signal="value_changed" from="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/Control/SpinBox" to="MenuContainer/NewGameMenu" method="_OnDifficultyValueChanged"]
-[connection signal="pressed" from="MenuContainer/NewGameMenu/Control/HBoxContainer/VBoxContainer/Control/VBoxContainer/Button" to="MenuContainer/NewGameMenu" method="_OnStartPressed"]
 [connection signal="pressed" from="MenuContainer/ContinueGameMenu/Control/Button" to="." method="ButtonPressed" binds= ["main"]]

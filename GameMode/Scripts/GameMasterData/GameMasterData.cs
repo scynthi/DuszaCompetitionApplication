@@ -9,7 +9,7 @@ public class GameMasterData
     public List<Card> PlayerDeck = new();
     public List<Card> PlayerCollection = new();
     public List<Dungeon> Dungeons = new();
-
+    public string SaveName;
 
     public delegate void CardDataChangedHandler();
     public delegate void DungeonDataChangedHandler();

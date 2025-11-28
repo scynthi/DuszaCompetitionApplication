@@ -8,12 +8,16 @@ public partial class SaveMenu : HBoxContainer
 	[Export] LineEdit saveNameInput;
 	Editors editor = Global.masterEditor;
 
+    public override void _Ready()
+    {
+		if (editor.gameMasterData.SaveName != null) saveNameInput.Text = editor.gameMasterData.SaveName;
+    }
+
 	public void CreateSave()
     {
         string saveName = saveNameInput.Text.ToString();
-
 		// TODO: make more check
-		if (saveName == "") {
+		if (saveName.Replace(" ", "") == "") {
 			GD.Print("Bad file name!");
 			return;
 		}

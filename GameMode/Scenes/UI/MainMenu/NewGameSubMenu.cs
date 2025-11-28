@@ -13,10 +13,11 @@ public partial class NewGameSubMenu : Control
     [ExportGroup("InspectorField")]
     [Export] Control inspectorField;
     [Export] Label displaySaveName;
-    [Export] RichTextLabel displayCardElements;
     [Export] RichTextLabel displayCardAmount;
-    [Export] RichTextLabel displayDungeonElements;
+    [Export] Godot.Collections.Array<Label> displayCardElements;
     [Export] RichTextLabel displayDungeonAmount;
+    [Export] Godot.Collections.Array<Label> displayDungeonIcons;
+
 
     private WorldContext currDisplayedSave; 
 
@@ -61,7 +62,7 @@ public partial class NewGameSubMenu : Control
         inspectorField.Visible = false;
     }
 
-    private void _SaveFileItemPressed(WorldContext bindedSaveFile)
+    private void _SaveFileItemPressed(WorldContext      bindedSaveFile)
     {
         inspectorField.Visible = true;
 
@@ -69,22 +70,27 @@ public partial class NewGameSubMenu : Control
 
         displaySaveName.Text = bindedSaveFile.Name;
 
-        int earthCount = bindedSaveFile.WorldCards.ToList<Card>().Count(c => c.CardElement == CardElements.EARTH);
-        int windCount = bindedSaveFile.WorldCards.ToList<Card>().Count(c => c.CardElement == CardElements.WIND);
-        int waterCount = bindedSaveFile.WorldCards.ToList<Card>().Count(c => c.CardElement == CardElements.WATER);
-        int fireCount = bindedSaveFile.WorldCards.ToList<Card>().Count(c => c.CardElement == CardElements.FIRE);
+        List<Card> worldCardList = bindedSaveFile.WorldCards.ToList();
+        List<Dungeon> dungeonList = bindedSaveFile.WorldDungeons.ToList();
 
-        string cardText = $"{fireCount}x-[color=red]Tűz[/color] {waterCount}x-[color=blue]Víz[/color] {earthCount}x-[color=green]Föld[/color] {windCount}x-[color=cyan]Szél[/color]";
-        displayCardElements.Text = cardText;
+        int fireCount = worldCardList.Count(c => c.CardElement == CardElements.FIRE);
+        int waterCount = worldCardList.Count(c => c.CardElement == CardElements.WATER);
+        int earthCount = worldCardList.Count(c => c.CardElement == CardElements.EARTH);
+        int windCount = worldCardList.Count(c => c.CardElement == CardElements.WIND);
+
+        displayCardElements[0].Text = $" {fireCount}x";
+        displayCardElements[1].Text = $" {waterCount}x";
+        displayCardElements[2].Text = $" {earthCount}x";
+        displayCardElements[3].Text = $" {windCount}x";
         displayCardAmount.Text = "Összesen: "+$"{bindedSaveFile.WorldCards.Count}";
 
+        int simpleCount = dungeonList.Count(c => c.DungeonType == DungeonTypes.simple);
+        int smallCount = dungeonList.Count(c => c.DungeonType == DungeonTypes.small);
+        int bigCount = dungeonList.Count(c => c.DungeonType == DungeonTypes.big);
 
-        int simpleCount = bindedSaveFile.WorldDungeons.ToList<Dungeon>().Count(c => c.DungeonType == DungeonTypes.simple);
-        int smallCount = bindedSaveFile.WorldDungeons.ToList<Dungeon>().Count(c => c.DungeonType == DungeonTypes.small);
-        int bigCount = bindedSaveFile.WorldDungeons.ToList<Dungeon>().Count(c => c.DungeonType == DungeonTypes.big);
-
-        string dungeonText = $"{simpleCount}x-[color=gray]Sima[/color] {smallCount}x-[color=blue]Kis[/color] {bigCount}x-[color=red]Nagy[/color]";
-        displayDungeonElements.Text = dungeonText;
+        displayDungeonIcons[0].Text = $" {simpleCount}x";
+        displayDungeonIcons[1].Text = $" {smallCount}x";
+        displayDungeonIcons[2].Text = $" {bigCount}x";
         displayDungeonAmount.Text = "Összesen: "+$"{bindedSaveFile.WorldDungeons.Count}";
     }
 
