@@ -17,7 +17,7 @@ public partial class FightLogic : Node
 	// List<Card> DungeonDeck = new List<Card>();
 	// List<IItem> ItemList = new List<IItem>();
 
-	[Export] RichTextLabel RoundText;
+	[Export] Label RoundText;
 	[Export] HBoxContainer IconContainer;
 	[Export] Control PlayerCardControl;
 	[Export] Control EnemyCardControl;
@@ -175,7 +175,7 @@ public partial class FightLogic : Node
 	private void SimulateRoundOne()
 	{
 		Round++;
-		RoundText.Text = $"Round: {Round}";
+		RoundText.Text = $"Kör: {Round}";
 		ReasignPlayerCard();
 		ReasignDungeonCard();
 		LoadBattleItems("");
@@ -305,7 +305,6 @@ public partial class FightLogic : Node
 
 	public void OnAddToItemListPressed(int item)
 	{
-		GD.Print("BHRUH");
 		IItem createdItem = Items.CreateItemFromType((ItemType)item);
 		if (!Utility.ItemListToNameList(ItemList).Contains(createdItem.Name)) ItemList.Add(createdItem);
 	}

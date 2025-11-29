@@ -123,6 +123,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="DeckSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign" node_paths=PackedStringArray("collectionContainer", "deckContainer", "moneyLabel", "xpLabel")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -130,8 +131,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_fv8kk")
-collectionContainer = NodePath("Control/VBoxContainer/PlayerCollection/GridContainer")
-deckContainer = NodePath("Control/VBoxContainer/PlayerDeck/HboxContainer")
+collectionContainer = NodePath("Control/VBoxContainer/Control2/PlayerCollection/GridContainer")
+deckContainer = NodePath("Control/VBoxContainer/Control/PlayerDeck/HboxContainer")
 moneyLabel = NodePath("Control/XPcontrol2/Label")
 xpLabel = NodePath("Control/XPcontrol/Label")
 
@@ -173,23 +174,68 @@ offset_left = 30.0
 offset_right = -30.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 30
 
-[node name="PlayerDeck" type="ScrollContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer"]
+[node name="Control" type="Control" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/Control"]
+modulate = Color(1, 1, 1, 0.2509804)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 171
+text = "Pakli"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerDeck" type="ScrollContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 vertical_scroll_mode = 0
 
-[node name="HboxContainer" type="HBoxContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/PlayerDeck"]
+[node name="HboxContainer" type="HBoxContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/Control/PlayerDeck"]
 layout_mode = 2
 size_flags_horizontal = 6
 
-[node name="PlayerCollection" type="ScrollContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer"]
-custom_minimum_size = Vector2(0, 164.165)
+[node name="Control2" type="Control" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/Control2"]
+modulate = Color(1, 1, 1, 0.2509804)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 116
+text = "Gyűjtemény"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerCollection" type="ScrollContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/Control2"]
+custom_minimum_size = Vector2(0, 164.165)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/PlayerCollection"]
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/Control2/PlayerCollection"]
 layout_mode = 2
 size_flags_horizontal = 6
 columns = 3
@@ -292,6 +338,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="WorldCardsSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign" node_paths=PackedStringArray("cardContainer")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -440,13 +487,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 258.0
+offset_left = 223.95996
 offset_top = -37.5
-offset_right = 362.95996
+offset_right = 397.0
 offset_bottom = 34.184998
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 39
 text = "Bolt"
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
