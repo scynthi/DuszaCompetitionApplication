@@ -130,7 +130,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 
 [node name="MainMenu" type="Control" parent="MenuContainer"]
-visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MenuContainer/MainMenu"]
@@ -266,6 +265,7 @@ theme_override_font_sizes/font_size = 26
 text = "Főmenü"
 
 [node name="NewGameMenu" type="Control" parent="MenuContainer" node_paths=PackedStringArray("saveFileItemsHolder", "inspectorField", "displaySaveName", "displayCardAmount", "displayCardElements", "displayDungeonAmount", "displayDungeonIcons")]
+visible = false
 layout_mode = 2
 script = ExtResource("6_tc2ed")
 uiSaveFileItem = ExtResource("7_67d64")

@@ -9,8 +9,8 @@ public partial class EndFightvisuals : Control
     [Export] Control loseScreen;
 
     [ExportGroup("Win Stuff")] 
-    [Export] Label goldLabel;
-    [Export] Label xpLabel;
+    [Export] RichTextLabel goldLabel;
+    [Export] RichTextLabel xpLabel;
     [Export] Control winNormal;
     [Export] Control winBig;
 
@@ -29,20 +29,19 @@ public partial class EndFightvisuals : Control
 
     public void _ShowFightEndVisuals()
     {
-        if (fightLogic.PlayerCard == null)
+        if (fightLogic.PlayerCard != null)
         {
             loseScreen.Visible = false;
             winScreen.Visible = true;
 
-            goldLabel.Text = Convert.ToString(fightLogic);
-
             if (fightLogic.type == DungeonTypes.simple)
-            {
-                fightLogic.player.Xp += 5;
-                fightLogic.player.Money += 5;
-                
+            { 
                 winNormal.Visible = true;
                 winBig.Visible = false;
+                
+                    
+                goldLabel.Text = Convert.ToString(5);
+                xpLabel.Text = Convert.ToString(5);
 
                 Card card = fightLogic.player.ReturnCardFromCollection(fightLogic.PlayerCard.Name);
                 Utility.AddUiCardUnderContainer(card, winNormalCardContainer);
@@ -61,11 +60,11 @@ public partial class EndFightvisuals : Control
             }
             else if (fightLogic.type == DungeonTypes.small)
             {
-                fightLogic.player.Xp += 10;
-                fightLogic.player.Money += 10;
-                
                 winNormal.Visible = true;
                 winBig.Visible = false;
+
+                goldLabel.Text = Convert.ToString(10);
+                xpLabel.Text = Convert.ToString(10);
 
                 Card card = fightLogic.player.ReturnCardFromCollection(fightLogic.PlayerCard.Name);
                 Utility.AddUiCardUnderContainer(card, winNormalCardContainer);
@@ -85,14 +84,14 @@ public partial class EndFightvisuals : Control
             
             else
             {
-                fightLogic.player.Xp += 20;
-                fightLogic.player.Money += 20;
-                
                 winNormal.Visible = false;
                 winBig.Visible = true;
 
-                Card card = fightLogic.player.ReturnCardFromCollection(fightLogic.PlayerCard.Name);
-                Utility.AddUiCardUnderContainer(card, winNormalCardContainer);
+                goldLabel.Text = Convert.ToString(20);
+                xpLabel.Text = Convert.ToString(20);
+
+                
+
             }
 
         }
@@ -104,7 +103,7 @@ public partial class EndFightvisuals : Control
             winScreen.Visible = false;
         }
 
-
+        endFightAnimationPlayer.Play("EndFight");
     }
 
 

@@ -1,16 +1,26 @@
-[gd_scene load_steps=37 format=3 uid="uid://nq0gnkgglhi6"]
+[gd_scene load_steps=52 format=3 uid="uid://nq0gnkgglhi6"]
 
 [ext_resource type="Script" uid="uid://jtuoap7qxnl5" path="res://Assets/Shaders/quantization_shader.gd" id="1_0n0gq"]
 [ext_resource type="PackedScene" uid="uid://b5vuktdck1ewt" path="res://Assets/Models/dungeonBackgroundMid.glb" id="1_7d0qi"]
 [ext_resource type="Script" uid="uid://cqbvhjwb8smc1" path="res://Scripts/FightLogic.cs" id="1_ugqt7"]
-[ext_resource type="Script" uid="uid://bbbnbyfjkbg8e" path="res://Scripts/Buttons/BackButton.cs" id="4_7d0qi"]
 [ext_resource type="PackedScene" uid="uid://cpidsg2b56hne" path="res://Assets/StyledCamera.tscn" id="4_di4nr"]
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="4_xwfv5"]
 [ext_resource type="Texture2D" uid="uid://chnum6s8tk8ah" path="res://Assets/Images/Backgrounds/main_menu_border.png" id="5_08x25"]
 [ext_resource type="Texture2D" uid="uid://0xqm5vwe7pb7" path="res://Assets/Images/Sign/SmallTextSign.png" id="6_1bvua"]
 [ext_resource type="Shader" uid="uid://dhbjn1laemwls" path="res://Assets/Shaders/portal.gdshader" id="6_08x25"]
 [ext_resource type="PackedScene" uid="uid://cy0pttedf86kl" path="res://Scenes/FightScene/ItemButtonPart2.tscn" id="7_1bvua"]
+[ext_resource type="Script" uid="uid://co0b8g42lscj7" path="res://Scenes/FightScene/EndFightvisuals.cs" id="8_usdkp"]
 [ext_resource type="Texture2D" uid="uid://m17tp1m7b0s3" path="res://Assets/Images/Sign/winLoseBg.png" id="9_ogosy"]
+[ext_resource type="Texture2D" uid="uid://b6kxxoiuifnem" path="res://Assets/Images/player/coin.png" id="10_agsmk"]
+[ext_resource type="Texture2D" uid="uid://dyg65wcabupfr" path="res://Assets/Images/player/xp.png" id="11_mxbtk"]
+[ext_resource type="PackedScene" uid="uid://dk32ss75ce3lw" path="res://Assets/UI/Scenes/UICard/UICard.tscn" id="12_cj4f3"]
+[ext_resource type="Texture2D" uid="uid://dym2sktlmv71t" path="res://Assets/Images/Sign/PlusIcon.png" id="13_cgjkw"]
+[ext_resource type="Texture2D" uid="uid://b3mo4atbtgp7w" path="res://Assets/Images/Cards/cards_heart_base.png" id="14_e0djh"]
+[ext_resource type="Texture2D" uid="uid://ruoa1sjpbu7j" path="res://Assets/Images/Cards/cards_heart_buffed.png" id="15_rbafp"]
+[ext_resource type="Texture2D" uid="uid://dnov8t4p650wk" path="res://Assets/Images/Cards/cards_axe_base.png" id="16_sfha7"]
+[ext_resource type="Texture2D" uid="uid://bmiley3dm5mth" path="res://Assets/Images/Cards/cards_axe_buffed.png" id="17_o3edh"]
+[ext_resource type="Texture2D" uid="uid://ddjir7c4i3gte" path="res://Assets/Images/Sign/failed.png" id="18_tuhis"]
+[ext_resource type="PackedScene" uid="uid://c67e3kgjql3x4" path="res://Scenes/Miscs/BackToMapBtn.tscn" id="19_4v7ds"]
 
 [sub_resource type="Environment" id="Environment_sqp11"]
 ambient_light_source = 2
@@ -299,6 +309,116 @@ _data = {
 &"RESET": SubResource("Animation_sqp11")
 }
 
+[sub_resource type="Animation" id="Animation_syxs8"]
+resource_name = "EndFight"
+length = 0.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../EndFightContainer:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(-753, 0, 0, 0.06666667, 856.36316, -101, -0.233, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../EndOverlay:color")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.45882353)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../EndOverlay:mouse_filter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 0]
+}
+
+[sub_resource type="Animation" id="Animation_ofo1t"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../EndFightContainer:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(197, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../EndFightContainer:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-800, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../EndOverlay:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../EndOverlay:mouse_filter")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hctl2"]
+_data = {
+&"EndFight": SubResource("Animation_syxs8"),
+&"RESET": SubResource("Animation_ofo1t")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_gm63t"]
+font_size = 86
+font_color = Color(1, 0.76400006, 0.41000003, 1)
+outline_size = 15
+outline_color = Color(0.32, 0.22933334, 0, 1)
+stacked_outline_count = 1
+stacked_outline_0/size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_pou14"]
+font_size = 86
+font_color = Color(0.84, 0.24360001, 0.24360001, 1)
+outline_size = 15
+outline_color = Color(0.19, 0.09689999, 0.09689999, 1)
+stacked_outline_count = 1
+stacked_outline_0/size = 20
+
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_1bvua"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ogosy"]
@@ -401,15 +521,6 @@ label_settings = SubResource("LabelSettings_ogosy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/Control"]
-visible = false
-layout_mode = 0
-offset_left = 21.0
-offset_top = 18.0
-offset_right = 100.0
-offset_bottom = 97.0
-script = ExtResource("4_7d0qi")
-
 [node name="Animations" type="Node" parent="CanvasLayer/Control"]
 
 [node name="Player" type="AnimationPlayer" parent="CanvasLayer/Control/Animations"]
@@ -428,6 +539,11 @@ libraries = {
 root_node = NodePath("../../../..")
 libraries = {
 &"": SubResource("AnimationLibrary_xwfv5")
+}
+
+[node name="EndFightAnimator" type="AnimationPlayer" parent="CanvasLayer/Control/Animations"]
+libraries = {
+&"": SubResource("AnimationLibrary_hctl2")
 }
 
 [node name="Control" type="Control" parent="CanvasLayer/Control"]
@@ -541,19 +657,41 @@ texture = ExtResource("5_08x25")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="WinScreen" type="Control" parent="CanvasLayer/Control"]
+[node name="EndOverlay" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="EndFightContainer" type="Control" parent="CanvasLayer/Control" node_paths=PackedStringArray("fightLogic", "endFightAnimationPlayer", "winScreen", "loseScreen", "goldLabel", "xpLabel", "winNormal", "winBig", "winNormalCardContainer", "winNormalHp", "winNormalDamage", "winBigCardContainer")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -443.0
-offset_top = -101.0
-offset_right = 443.0
-offset_bottom = 631.0
+offset_top = -800.0
+offset_right = 442.99963
+offset_bottom = -68.0
 grow_horizontal = 2
+script = ExtResource("8_usdkp")
+fightLogic = NodePath("../../../BattleManager")
+endFightAnimationPlayer = NodePath("../Animations/EndFightAnimator")
+winScreen = NodePath("Win")
+loseScreen = NodePath("Lose")
+goldLabel = NodePath("Win/Control/VBoxContainer/HBoxContainer/Control/RichTextLabel")
+xpLabel = NodePath("Win/Control/VBoxContainer/HBoxContainer/Control2/RichTextLabel")
+winNormal = NodePath("Win/Control/VBoxContainer/WinNormal")
+winBig = NodePath("Win/Control/VBoxContainer/WinBig")
+winNormalCardContainer = NodePath("Win/Control/VBoxContainer/WinNormal/CenterContainer")
+winNormalHp = NodePath("Win/Control/VBoxContainer/WinNormal/CenterContainer2/HealthBuff")
+winNormalDamage = NodePath("Win/Control/VBoxContainer/WinNormal/CenterContainer2/DamageBuff")
+winBigCardContainer = NodePath("Win/Control/VBoxContainer/WinBig/CenterContainer")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/WinScreen"]
-visible = false
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/EndFightContainer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -563,6 +701,327 @@ grow_vertical = 2
 texture = ExtResource("9_ogosy")
 expand_mode = 2
 stretch_mode = 6
+
+[node name="Win" type="Control" parent="CanvasLayer/Control/EndFightContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 105.0
+offset_top = 184.0
+offset_right = -94.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/EndFightContainer/Win"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 122.0
+grow_horizontal = 2
+text = "Nyertél"
+label_settings = SubResource("LabelSettings_gm63t")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/EndFightContainer/Win"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -362.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/EndFightContainer/Win/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 20.0
+offset_right = 88.0
+offset_bottom = -20.0
+grow_vertical = 2
+texture = ExtResource("10_agsmk")
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer/HBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 0.9468333, 0.71000004, 1)
+theme_override_font_sizes/normal_font_size = 66
+bbcode_enabled = true
+text = "123"
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="Control2" type="Control" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer/HBoxContainer/Control2"]
+modulate = Color(0.53, 1, 0.65533334, 1)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = 3.0
+offset_right = 105.0
+offset_bottom = -3.0
+grow_vertical = 2
+texture = ExtResource("11_mxbtk")
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer/HBoxContainer/Control2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 112.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.83566666, 1, 0.71000004, 1)
+theme_override_font_sizes/normal_font_size = 66
+bbcode_enabled = true
+text = "123"
+scroll_active = false
+autowrap_mode = 0
+vertical_alignment = 1
+
+[node name="WinNormal" type="Control" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.08
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer/WinNormal"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 35.0
+offset_top = -97.0
+offset_right = 175.0
+offset_bottom = 97.0
+grow_vertical = 2
+
+[node name="Card" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer" instance=ExtResource("12_cj4f3")]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer/WinNormal"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.375
+offset_top = -67.0
+offset_right = 75.375
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_cgjkw")
+stretch_mode = 5
+
+[node name="CenterContainer2" type="CenterContainer" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer/WinNormal"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -228.0
+offset_top = -110.0
+offset_right = -60.0
+offset_bottom = 110.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="HealthBuff" type="Control" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer2/HealthBuff"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = -68.59458
+offset_right = 56.0
+offset_bottom = 68.59458
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_e0djh")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer2/HealthBuff"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.00003
+offset_top = -109.0
+offset_right = 122.965485
+offset_bottom = 49.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_rbafp")
+
+[node name="DamageBuff" type="Control" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer2"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer2/DamageBuff"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -68.59458
+offset_right = 77.0
+offset_bottom = 68.59458
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_sfha7")
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer2/DamageBuff"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.00003
+offset_top = -128.0
+offset_right = 105.00003
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_o3edh")
+stretch_mode = 5
+
+[node name="WinBig" type="Control" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.08
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer/WinBig"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -110.0
+offset_right = 84.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer/WinBig/CenterContainer" instance=ExtResource("12_cj4f3")]
+layout_mode = 2
+
+[node name="Lose" type="Control" parent="CanvasLayer/Control/EndFightContainer"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 105.0
+offset_top = 184.0
+offset_right = -94.0
+offset_bottom = -35.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/EndFightContainer/Lose"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 122.0
+grow_horizontal = 2
+text = "Vesztettél"
+label_settings = SubResource("LabelSettings_pou14")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/EndFightContainer/Lose"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -362.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/EndFightContainer/Lose/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CanvasLayer/Control/EndFightContainer/Lose/Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.08
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/EndFightContainer/Lose/Control/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.5
+offset_top = -145.5
+offset_right = 145.5
+offset_bottom = 145.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_tuhis")
+
+[node name="BackToMap" parent="CanvasLayer/Control/EndFightContainer" instance=ExtResource("19_4v7ds")]
+layout_mode = 1
+anchors_preset = 7
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 2.0
+offset_bottom = 62.0
+grow_vertical = 0
 
 [node name="StyledCamera" parent="." instance=ExtResource("4_di4nr")]
 transform = Transform3D(0.101466104, 0.16231114, -0.98150885, 0.0006121213, 0.9865903, 0.16321474, 0.99483883, -0.01716157, 0.100006126, -14.596079, 7.3635592, 0.72757846)

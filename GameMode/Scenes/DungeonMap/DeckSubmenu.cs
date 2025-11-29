@@ -92,6 +92,5 @@ public partial class DeckSubmenu : Control
     {
         moneyLabel.Text = Convert.ToString(Global.gameManager.saverLoader.currSaveFile.player.Money);
         xpLabel.Text = Convert.ToString(Global.gameManager.saverLoader.currSaveFile.player.Xp);
-        GD.Print("asasdasdasdasd");
     }
 }

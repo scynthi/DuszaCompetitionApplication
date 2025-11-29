@@ -1,32 +1,44 @@
 {
   "player": {
-    "Xp": 0,
-    "Money": 999999900,
+    "Xp": 30,
+    "Money": 999999930,
     "Collection": [
       {
         "Name": "alma",
-        "Health": 6,
+        "Health": 8,
         "BaseDamage": 7,
         "Damage": 7,
         "DamageChanged": false,
-        "HealthChanged": false,
+        "HealthChanged": true,
         "CardElement": 1,
         "Icon": "res://Assets/Images/Entities/Heroes/char_huntress.png",
         "buffHandler": {}
       },
       {
         "Name": "Lord  alma",
-        "Health": 12,
+        "Health": 22,
         "BaseDamage": 7,
         "Damage": 7,
         "DamageChanged": false,
-        "HealthChanged": false,
+        "HealthChanged": true,
         "CardElement": 1,
         "Icon": "res://Assets/Images/Entities/Heroes/char_huntress.png",
         "buffHandler": {}
       }
     ],
-    "Deck": [],
+    "Deck": [
+      {
+        "Name": "Lord  alma",
+        "Health": 22,
+        "BaseDamage": 7,
+        "Damage": 7,
+        "DamageChanged": false,
+        "HealthChanged": true,
+        "CardElement": 1,
+        "Icon": "res://Assets/Images/Entities/Heroes/char_huntress.png",
+        "buffHandler": {}
+      }
+    ],
     "ItemList": [
       {
         "$type": "health_potion",
