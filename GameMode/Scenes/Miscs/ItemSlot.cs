@@ -3,37 +3,63 @@ using System;
 
 public partial class ItemSlot : PanelContainer
 {
-	[Export] public TextureRect card;
+	[Signal]
+	public delegate void NewCardAddedEventHandler();
+	[Signal]
+	public delegate void CardTakenOutEventHandler();
+	PackedScene UICard;
+	[Export] public Control uiCard;
+
+	public override void _Ready()
+	{
+		UICard = GD.Load<PackedScene>("uid://dk32ss75ce3lw");
+		// Make sure mouse events reach the ItemSlot, not the child
+		if (uiCard != null)
+		{
+			SetMouseFilterRecursive(uiCard);
+		}
+	}
+
+	void SetMouseFilterRecursive(Node node)
+	{
+		if (node is Control control)
+		{
+			control.MouseFilter = Control.MouseFilterEnum.Ignore;
+		}
+		
+		foreach (Node child in node.GetChildren())
+		{
+			SetMouseFilterRecursive(child);
+		}
+	}
 
 	public override Variant _GetDragData(Vector2 atPosition)
 	{
-		if (card == null)
+		if (uiCard == null)
 			return default;
 
-		// Create a preview of just the card, not the whole slot
-		var preview = new TextureRect();
-		preview.Texture = card.Texture;
-		preview.CustomMinimumSize = card.Size;
-		preview.ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize;
-		preview.StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered;
-		
+		// Create a preview and copy the card data
+		Control preview = Duplicate() as Control;
 		Control c = new Control();
 		c.AddChild(preview);
+
+		preview.Position = -uiCard.Size / 2;
+		preview.ZIndex = 100;
 		c.Modulate = new Color(1, 1, 1, 0.5f);
 		SetDragPreview(c);
 		
-		card.Hide();
-		return card; // Return the child card, not the slot
+		uiCard.Hide();
+		return uiCard; // Return the child uiCard, not the slot
 	}
 
 	public override bool _CanDropData(Vector2 atPosition, Variant data)
 	{
-		return data.As<TextureRect>() != null;
+		return data.As<Control>() != null;
 	}
 
 	public override void _DropData(Vector2 atPosition, Variant data)
 	{
-		TextureRect droppedCard = data.As<TextureRect>();
+		Control droppedCard = data.As<Control>();
 		if (droppedCard == null)
 			return;
 
@@ -42,29 +68,35 @@ public partial class ItemSlot : PanelContainer
 		if (oldSlot == null)
 			return;
 
-		// Swap cards between slots
-		if (card != null)
+		if (oldSlot == this)
 		{
-			GD.Print("BRUH2");
-			// This slot has a card - swap them
+			droppedCard.Show();
+			return;
+		}
+
+		// Swap cards between slots
+		if (uiCard != null)
+		{
+			// This slot has a uiCard - swap them
 			oldSlot.RemoveChild(oldSlot.GetChild(0));
-			card.Reparent(oldSlot);
-			oldSlot.card = card;
-			card.Show();
+			uiCard.Reparent(oldSlot);
+			oldSlot.uiCard = uiCard;
+			uiCard.Show();
 		}
 		else
 		{
-			GD.Print("BRUH");
 			// This slot is empty - just clear old slot
 			oldSlot.RemoveChild(oldSlot.GetChild(0));
-			oldSlot.card = null;
+			oldSlot.uiCard = null;
 		}
 
-		// Reparent the dropped card to this slot
+		// Reparent the dropped uiCard to this slot
 		droppedCard.Owner = null;
 		AddChild(droppedCard);
-		card = droppedCard;
+		uiCard = droppedCard;
 		
-		card.Show();
+		uiCard.Show();
+		oldSlot.EmitSignal(SignalName.CardTakenOut);
+		EmitSignal(SignalName.NewCardAdded);
 	}
 }

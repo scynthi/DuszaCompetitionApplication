@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c6chsl4nd1iy5"]
+[gd_scene load_steps=21 format=3 uid="uid://c6chsl4nd1iy5"]
 
 [ext_resource type="Script" uid="uid://b6b68i6jcla5g" path="res://Scenes/UI/GameMaster/CardEditor.cs" id="1_4ikgl"]
 [ext_resource type="Texture2D" uid="uid://txhi2xptu3ib" path="res://Assets/Images/Sign/sign.png" id="1_bbocn"]
@@ -17,6 +17,9 @@
 [ext_resource type="Script" uid="uid://dwjmh8lxmdcva" path="res://Scenes/UI/GameMaster/DungeonViewer.cs" id="11_mf5kw"]
 [ext_resource type="Script" uid="uid://c5r4jdrwjkpld" path="res://Scenes/UI/GameMaster/SaveMenu.cs" id="12_x6ral"]
 [ext_resource type="Texture2D" uid="uid://0xqm5vwe7pb7" path="res://Assets/Images/Sign/SmallTextSign.png" id="17_x4txn"]
+[ext_resource type="Script" uid="uid://cb1u2fml2s2q6" path="res://Scenes/Miscs/Inventory.cs" id="18_e5lfn"]
+[ext_resource type="PackedScene" uid="uid://bal0q4hlkho65" path="res://Scenes/Miscs/CardContainer.tscn" id="19_7gff6"]
+[ext_resource type="PackedScene" uid="uid://dsnbg78nbu0vo" path="res://Assets/UI/Scenes/UIBossCard/UIBossCard.tscn" id="20_7gff6"]
 
 [node name="GameMaster" type="Control"]
 clip_contents = true
@@ -512,6 +515,69 @@ theme_override_colors/font_color = Color(0.9467254, 0.8834504, 0.50965625, 1)
 theme_override_font_sizes/font_size = 28
 text = "Export to in.txt"
 
+[node name="PanelContainer" type="PanelContainer" parent="." node_paths=PackedStringArray("MainContainer")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = 130.0
+offset_right = -154.0
+offset_bottom = 130.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("18_e5lfn")
+ItemSlotScene = ExtResource("19_7gff6")
+UICard = ExtResource("1_nonii")
+UIBossCard = ExtResource("20_7gff6")
+MainContainer = NodePath("MarginContainer/GridContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 8
+
+[node name="PanelContainer2" type="PanelContainer" parent="." node_paths=PackedStringArray("MainContainer")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -207.0
+offset_right = -154.0
+offset_bottom = -207.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("18_e5lfn")
+ItemSlotScene = ExtResource("19_7gff6")
+UICard = ExtResource("1_nonii")
+UIBossCard = ExtResource("20_7gff6")
+MainContainer = NodePath("MarginContainer/GridContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer2"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="PanelContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 8
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1109.0
+offset_top = 483.0
+offset_right = 1203.0
+offset_bottom = 571.0
+
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/CardEditor" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["card"]]
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/Cards" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["cards"]]
 [connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/Collection" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["collection"]]
@@ -533,3 +599,4 @@ text = "Export to in.txt"
 [connection signal="pressed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu/VBoxContainer/Button" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu" method="CreateSave"]
 [connection signal="pressed" from="Control/Button" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="LoadSaveFile"]
 [connection signal="pressed" from="Control/Button2" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="CreateInTxt"]
+[connection signal="pressed" from="Button" to="PanelContainer" method="ReturnContents"]

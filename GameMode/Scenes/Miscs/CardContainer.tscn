@@ -1,11 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bal0q4hlkho65"]
+[gd_scene load_steps=2 format=3 uid="uid://bal0q4hlkho65"]
 
 [ext_resource type="Script" uid="uid://cwk1yiw0vrsq5" path="res://Scenes/Miscs/ItemSlot.cs" id="1_pav5f"]
-[ext_resource type="PackedScene" uid="uid://ylv0hrx2ofka" path="res://Scenes/Miscs/Test.tscn" id="2_pav5f"]
 
-[node name="CardContainer" type="PanelContainer" node_paths=PackedStringArray("card")]
+[node name="CardContainer" type="PanelContainer"]
 script = ExtResource("1_pav5f")
-card = NodePath("TextureRect")
-
-[node name="TextureRect" parent="." instance=ExtResource("2_pav5f")]
-layout_mode = 2

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Buffers;
 
 public partial class UICard : Control
 {   
@@ -14,11 +15,23 @@ public partial class UICard : Control
     [Export] private TextureRect elementTexture;
     [Export] private TextureRect heartBuffedTexture;
     [Export] private TextureRect damageBuffedTexture;
-
+    public Card OwnerCard { get; private set; }
     const byte DEFAULT_FONTSIZE = 19; 
     const byte DECREASED_FONTSIZE = 14; 
 
     public bool isEnemy;
+
+    public UICard() {}
+
+    public UICard(Card ownerCard)
+    {
+        OwnerCard = ownerCard;
+    }
+
+    public void SetOwnerCard(Card ownerCard)
+    {
+        OwnerCard = ownerCard;
+    }
 
     public int CardDamage {
         private set{} 

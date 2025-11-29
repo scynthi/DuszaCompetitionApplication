@@ -14,20 +14,29 @@ public partial class UIBossCard : Control
     [Export] private TextureRect elementTexture;
     [Export] private TextureRect heartBuffedTexture;
     [Export] private TextureRect damageBuffedTexture;
-
+    public BossCard OwnerCard { get; private set; }
 
     const byte DEFAULT_FONTSIZE = 17; 
     const byte DECREASED_FONTSIZE = 16; 
 
     public bool isEnemy;
 
+    public UIBossCard() {}
+
+    public UIBossCard(BossCard ownerCard)
+    {
+        OwnerCard = ownerCard;
+    }
+    public void SetOwnerCard(BossCard ownerCard)
+    {
+        OwnerCard = ownerCard;
+    }
     private BossCard _bossCard;
     public BossCard BossCard
     {
         private set {_bossCard = value;}
         get {return _bossCard;}
     }
-
     private CardElements _cardElement = CardElements.FIRE;
     public CardElements CardElement {
         private set {_cardElement = value;} 

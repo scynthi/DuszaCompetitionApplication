@@ -44,6 +44,12 @@ public class Player
         Collection.Clear();
         foreach (Card card in cardList) Collection.Add(new Card(card));
     }
+    public void SetDeck(List<Card> cardList)
+    {
+        Deck.Clear();
+        foreach (Card card in cardList)
+            TryAddToDeck(card.Name);
+    }
 
     public bool TryAddCardToCollection(Card card)
     {
@@ -63,7 +69,12 @@ public class Player
 
     public bool TryAddToDeck(string name)
     {
-        foreach (Card card in Collection) if (card.Name == name) { Deck.Add(card); return true; }
+        foreach (Card card in Collection)
+            if (card.Name == name)
+            {
+                Deck.Add(card);
+                return true;
+            }
         return false;
     }
 

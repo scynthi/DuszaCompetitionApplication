@@ -7,6 +7,19 @@ public partial class BossCard : Card
     public BossDouble Doubled;
     public BossCard(){}
 
+    public BossCard(string name, int baseDamage, int health, CardElements cardElements, string cardIcon)
+    {
+        
+        Name        = name;
+        Health      = health;
+        Icon        = cardIcon;
+        BaseDamage  = baseDamage;
+        Damage      = baseDamage;
+        CardElement = cardElements;
+        buffHandler = new BuffHandler();
+        buffHandler.BindCard(this);
+    }
+
     public BossCard(BossCard other)
     {
         Name          = other.Name;
