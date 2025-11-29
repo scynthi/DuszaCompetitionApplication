@@ -569,7 +569,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/h_separation = 5
 theme_override_constants/v_separation = 5
-columns = 8
+columns = 4
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
