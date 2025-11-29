@@ -47,6 +47,8 @@ public partial class ItemButton2VigyeElAMento : Control
 
 	public void _UsePressed()
     {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+
         EmitSignal(SignalName.Send_Item, (int)itemType);
         descriptionBox.UpdateDescription(item.Name, item.Description, Global.gameManager.saverLoader.currSaveFile.player.ReturnItemAmount(item));
     }

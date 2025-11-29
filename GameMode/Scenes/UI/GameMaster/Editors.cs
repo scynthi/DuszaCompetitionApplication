@@ -54,6 +54,7 @@ public partial class Editors : VBoxContainer
 
     public async void ChangeEditor(string name)
     {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
         switch (name)
         {
             case "card":
@@ -106,6 +107,8 @@ public partial class Editors : VBoxContainer
 
     public async void LoadSaveFile()
     {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+
         FileDialogHelper helper = new FileDialogHelper();
         AddChild(helper);
 
@@ -150,6 +153,8 @@ public partial class Editors : VBoxContainer
 
     public async void CreateInTxt()
     {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+
         FileDialogHelper helper = new FileDialogHelper();
         AddChild(helper);
 

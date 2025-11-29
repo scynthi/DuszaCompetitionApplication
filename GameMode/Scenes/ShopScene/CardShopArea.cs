@@ -58,6 +58,8 @@ public partial class CardShopArea : Control
 
     public void _ReRolled()
     {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+
         if (animationPlayer.IsPlaying()) return;
         ShakeControl();
         if (Global.gameManager.saverLoader.currSaveFile.player.Money >= 10.0f)
@@ -72,6 +74,8 @@ public partial class CardShopArea : Control
 
     public void _CardBought()
     {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+
         if (animationPlayer.IsPlaying()) return;
         
         ShakeControl();
@@ -95,7 +99,7 @@ public partial class CardShopArea : Control
         if (currCard == null) return;
         Utility.AddUiCardUnderContainer(currCard, cardHolder);
         
-        _currPrice = currCard is BossCard ? 10 : 15;
+        _currPrice = currCard is BossCard ? 25 : 15;
         buyPriceLabel.Text = "$"+Convert.ToString(_currPrice);
         
         

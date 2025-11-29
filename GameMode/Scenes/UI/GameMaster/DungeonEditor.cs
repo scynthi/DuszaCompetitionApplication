@@ -39,6 +39,8 @@ public partial class DungeonEditor : HBoxContainer
     
     public void SaveDungeon()
     {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+
         Dungeon dungeonInstance = dungeon.CreateDungeonInstance();
         if (!editor.gameMasterData.TesdtDungeon(dungeonInstance)) return;
         editor.gameMasterData.AddDungeonToDungeonList(dungeonInstance);

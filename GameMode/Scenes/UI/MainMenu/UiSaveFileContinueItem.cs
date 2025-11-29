@@ -26,10 +26,24 @@ public partial class UiSaveFileContinueItem : Control
     public void SetLabelText(string newText)
     {
         label.Text = newText;
+        if (bindedSaveFile.WorldDungeons.Count <= 0)
+        {
+            button.Disabled = true;
+        }
     }
 
     public void _Pressed()
     {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+
         EmitSignal(SignalName.SaveOpened, bindedSaveFile);
+    }
+
+    public void DeletButtonPressed()
+    {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+        
+        SaverLoader.DeleteSave(bindedSaveFile.Name);
+        this.QueueFree();
     }
 }

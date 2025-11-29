@@ -72,6 +72,8 @@ public partial class FightLogic : Node
 	{
 		if (PlayerDeck.Count > 0)
 		{
+			Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.hoverSounds.PickRandom());
+
 			PlayerCard = PlayerDeck[0];
 			TryReassignNextCard(PlayerDeck, NextPlayerCardControl);
 			PlayerDeck.RemoveAt(0);
@@ -84,6 +86,8 @@ public partial class FightLogic : Node
 	{
 		if (DungeonDeck.Count > 0)
 		{
+			Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.hoverSounds.PickRandom());
+
 			DungeonCard = DungeonDeck[0];
 			TryReassignNextCard(DungeonDeck, NextEnemyCardControl);
 			DungeonDeck.RemoveAt(0);
@@ -237,6 +241,8 @@ public partial class FightLogic : Node
 
 	private void OnButtonPressed()
 	{
+		Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+
 		if (IsFirstRound)
 		{
 			SimulateRoundOne();
@@ -300,6 +306,7 @@ public partial class FightLogic : Node
 
 	private void ApplyReward(Card card)
 	{
+		
 		if (reward == DungeonRewardTypes.health)
 		{
 			card.ModifyHealth(2);
@@ -354,4 +361,15 @@ public partial class FightLogic : Node
 				return;
 			}
 	}
+
+
+	public void _AnimationPlayAttackSFX()
+    {
+		Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.attackSounds.PickRandom());
+    }
+
+	public void _AnimationPlayDeathSFX()
+    {
+		Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.deathSounds.PickRandom());
+    }
 }

@@ -13,16 +13,18 @@ fractal_type = 2
 width = 122
 height = 427
 noise = SubResource("FastNoiseLite_ti60f")
+invert = true
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_xh8xf"]
-sky_top_color = Color(0.34760743, 0.4119307, 0.7588469, 1)
-sky_horizon_color = Color(0.7910541, 0.6053798, 0.7206972, 1)
+sky_top_color = Color(0.2968, 0.34066662, 0.56, 1)
+sky_horizon_color = Color(0.116053335, 0.11219999, 0.17, 1)
 sky_curve = 0.03882245
 sky_cover = SubResource("NoiseTexture2D_jepju")
 sky_cover_modulate = Color(0.88235295, 0.43137255, 1, 0.1882353)
-ground_horizon_color = Color(0.7921569, 0.6039216, 0.72156864, 1)
-ground_curve = 31.786844
-sun_curve = 0.06091898
+ground_bottom_color = Color(0.080539964, 0.11288158, 0.22351924, 1)
+ground_horizon_color = Color(0.20680001, 0.2495533, 0.44, 1)
+ground_curve = 0.59064496
+sun_curve = 0.21961313
 
 [sub_resource type="Sky" id="Sky_ktgbt"]
 sky_material = SubResource("ProceduralSkyMaterial_xh8xf")
@@ -30,7 +32,6 @@ sky_material = SubResource("ProceduralSkyMaterial_xh8xf")
 [sub_resource type="Environment" id="Environment_ti60f"]
 background_mode = 2
 sky = SubResource("Sky_ktgbt")
-ambient_light_source = 3
 ssao_enabled = true
 ssao_radius = 1.65
 ssao_intensity = 3.07
@@ -156,7 +157,7 @@ _data = {
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.7880108, 0.14685586, -0.59788996, 0, 0.9711343, 0.23853347, 0.61566144, 0.18796694, -0.7652643, 0, 0, 0)
-light_color = Color(1, 0.8901961, 0.6901961, 1)
+light_color = Color(0.69, 0.70033336, 1, 1)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -166,7 +167,7 @@ compositor = SubResource("Compositor_0cuqo")
 [node name="mainmenuTest" parent="." instance=ExtResource("2_hsq34")]
 
 [node name="Camera3D" parent="." instance=ExtResource("3_02x2x")]
-transform = Transform3D(0.63865507, 0.10126157, 0.7628012, 0.015542795, 0.9894037, -0.14435619, -0.76933587, 0.1040499, 0.630314, 3.23, 0.193, 3.433)
+transform = Transform3D(0.638655, 0.10126157, 0.7628012, 0.015542794, 0.9894037, -0.14435619, -0.7693358, 0.1040499, 0.630314, 3.23, 0.193, 3.433)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

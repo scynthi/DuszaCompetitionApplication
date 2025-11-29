@@ -140,6 +140,20 @@ tracks/6/keys = {
 "method": &"DisplayAttack"
 }]
 }
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../../BattleManager")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.33333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_AnimationPlayAttackSFX"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_0n0gq"]
 length = 0.001
@@ -225,11 +239,14 @@ tracks/0/path = NodePath("../../BattleManager")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.33333334),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.33333334, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [true],
 "method": &"DisplayAttack"
+}, {
+"args": [],
+"method": &"_AnimationPlayAttackSFX"
 }]
 }
 tracks/1/type = "bezier"
@@ -1375,12 +1392,13 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -20.000153
-offset_right = 39.999847
+offset_right = 39.999756
 offset_bottom = 20.000153
 grow_vertical = 2
 use_top_left = true
 
 [node name="Card" parent="CanvasLayer/Control/CurrentFight/PlayerCard" instance=ExtResource("12_cj4f3")]
+visible = false
 layout_mode = 2
 
 [node name="DungeonCard" type="CenterContainer" parent="CanvasLayer/Control/CurrentFight"]
@@ -1392,8 +1410,8 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -40.00049
 offset_top = -20.0
-offset_right = -0.00030517578
-offset_bottom = 19.99974
+offset_right = -0.00018310547
+offset_bottom = 19.999786
 grow_horizontal = 0
 grow_vertical = 2
 use_top_left = true
@@ -1605,21 +1623,21 @@ modulate = Color(0.53, 1, 0.65533334, 1)
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = -7.0
-offset_top = 3.0
-offset_right = 105.0
-offset_bottom = -3.0
+offset_left = 220.0
+offset_top = -5.0
+offset_right = 332.0
+offset_bottom = -11.0
 grow_vertical = 2
 texture = ExtResource("11_mxbtk")
 stretch_mode = 5
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer/HBoxContainer/Control2"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 112.0
-grow_horizontal = 2
+offset_top = 2.0
+offset_right = 209.0
+offset_bottom = 2.0
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.83566666, 1, 0.71000004, 1)
 theme_override_font_sizes/normal_font_size = 66
@@ -1627,6 +1645,7 @@ bbcode_enabled = true
 text = "123"
 scroll_active = false
 autowrap_mode = 0
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="WinNormal" type="Control" parent="CanvasLayer/Control/EndFightContainer/Win/Control/VBoxContainer"]

@@ -31,6 +31,9 @@ public partial class EndFightvisuals : Control
     {
         if (fightLogic.PlayerCard != null)
         {
+            Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.winSounds.PickRandom());
+
+
             loseScreen.Visible = false;
             winScreen.Visible = true;
 
@@ -99,6 +102,8 @@ public partial class EndFightvisuals : Control
         
         else
         {
+            Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.loseSounds.PickRandom());
+
             loseScreen.Visible = true;
             winScreen.Visible = false;
         }

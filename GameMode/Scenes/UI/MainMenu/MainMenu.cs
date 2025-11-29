@@ -35,17 +35,22 @@ public partial class MainMenu : Control
             control.Visible = false;
         }
 
+        _skipSound = true;
+
         ButtonPressed("main");
         sideAnimationPlayer.Play("BringInSideMenu");
+        
     }
 
+    private bool _skipSound = false;
     Control queuedMenu;
     public async void ButtonPressed(string option)
     {
-        if (Global.gameManager != null)
+        if (Global.gameManager != null && !_skipSound)
         {
             Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
         }
+        _skipSound = false;
 
         switch(option)
         {
