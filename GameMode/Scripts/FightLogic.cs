@@ -13,6 +13,10 @@ public enum RoundState
 }
 public partial class FightLogic : Node
 {
+	[Signal] 
+    public delegate void FightEndedEventHandler();
+
+
 	List<Card> PlayerDeck = new List<Card>();
 	// List<Card> DungeonDeck = new List<Card>();
 	// List<IItem> ItemList = new List<IItem>();
@@ -27,14 +31,14 @@ public partial class FightLogic : Node
 
 	// TEST
 	// List<Card> PlayerDeck = new List<Card> { new Card("Corky", 2, 4, CardElements.EARTH), new Card("alma", 2, 7, CardElements.WIND) };
-	Card PlayerCard;
-	Card DungeonCard;
+	public Card PlayerCard;
+	public Card DungeonCard;
 	List<Card> DungeonDeck = new List<Card> { new Card("Sadan", 2, 4, CardElements.WIND) };
 	List<IItem> ItemList = new List<IItem>();
 	private int Round = 0;
-	Player player = Global.gameManager.saverLoader.currSaveFile.player;
-	DungeonRewardTypes reward;
-	DungeonTypes type;
+	public Player player = Global.gameManager.saverLoader.currSaveFile.player;
+	public DungeonRewardTypes reward;
+	public DungeonTypes type;
 	private int PlayerDamage = 0;
 	private int DungeonDamage = 0;
 	private bool PlayerDied;
@@ -247,7 +251,7 @@ public partial class FightLogic : Node
 
 	private void EndFight(string output)
 	{
-		// StepBattleButton.Disabled = true;
+
 		IsEnded = true;
 		PlayerAnimPlayer.Seek(0, true);
 		PlayerAnimPlayer.Stop();
@@ -262,6 +266,8 @@ public partial class FightLogic : Node
 				ApplyReward(card);
 			}
 		}
+
+		EmitSignal(SignalName.FightEnded);
 	}
 
 	private void ApplyReward(Card card)
@@ -282,6 +288,7 @@ public partial class FightLogic : Node
 				if (!PlayerCollectionNames.Contains(worldCard.Name))
 				{
 					player.TryAddCardToCollection(worldCard);
+					break;
 				}
 			}
 		}
