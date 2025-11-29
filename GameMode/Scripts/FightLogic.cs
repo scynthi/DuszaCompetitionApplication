@@ -57,7 +57,6 @@ public partial class FightLogic : Node
 		LoadItemButtons(player.ItemList);
 		DungeonAnimPlayer.AnimationFinished += PlayerAttack;
 		PlayerAnimPlayer.AnimationFinished += LoadBattleItems;
-		GD.Print("BRUH: " + Global.gameManager.saverLoader.currSaveFile.gameDifficulty);
 	}
 
 	private void ReasignPlayerCard()

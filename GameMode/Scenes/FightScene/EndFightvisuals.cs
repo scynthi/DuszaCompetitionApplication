@@ -46,6 +46,10 @@ public partial class EndFightvisuals : Control
                 Card card = fightLogic.player.ReturnCardFromCollection(fightLogic.PlayerCard.Name);
                 Utility.AddUiCardUnderContainer(card, winNormalCardContainer);
 
+                GD.Print(card.BaseDamage);
+                GD.Print(card.Health);
+
+
                 if (fightLogic.reward == DungeonRewardTypes.health)
                 {
                     winNormalHp.Visible = true;
@@ -90,7 +94,7 @@ public partial class EndFightvisuals : Control
                 goldLabel.Text = Convert.ToString(20);
                 xpLabel.Text = Convert.ToString(20);
 
-                
+
 
             }
 

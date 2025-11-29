@@ -33,7 +33,6 @@ public partial class CardShopArea : Control
         {
             if (!Utility.WorldObjectListToNameList(Global.gameManager.saverLoader.currSaveFile.player.Collection).Contains(card.Name))
             {
-                GD.Print(card.Name);
                 randomSelection.Add(card);
             }
         }
