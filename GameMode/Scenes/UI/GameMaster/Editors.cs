@@ -104,24 +104,26 @@ public partial class Editors : VBoxContainer
         tween.Kill();
     }
 
-    public void LoadSaveFile()
+    public async void LoadSaveFile()
     {
-        string path = FileDialogHelper.ShowOpenFileDialog();
-        if (path != null)
+        FileDialogHelper helper = new FileDialogHelper();
+        AddChild(helper);
+
+        string path = await helper.WaitForFolderSelection();
+        
+        if (string.IsNullOrEmpty(path))
         {
-            GD.Print("User selected: " + path);
+            helper.QueueFree();
+            return;
         }
-        else
-        {
-            GD.Print("User cancelled");
-        }
-        string fileName = "pleaseWork";
+
+        string fileName = System.IO.Path.GetFileName(path.TrimEnd('/', '\\'));
+        helper.QueueFree();
 
         for (int i = gameMasterData.WorldCards.Count - 1; i >= 0; i--)
         {
             Card card = gameMasterData.WorldCards[i];
             if (card is BossCard) continue;
-
             gameMasterData.RemoveCardFromWorldCards(card);
         }
 
@@ -151,9 +153,23 @@ public partial class Editors : VBoxContainer
         }
     }
 
-    public void CreateInTxt()
+    public async void CreateInTxt()
     {
-        SaverLoader.WorldContextToInTxt(new WorldContext(gameMasterData.PlayerCollection, gameMasterData.WorldCards, gameMasterData.Dungeons), "in.txt");
+        FileDialogHelper helper = new FileDialogHelper();
+        AddChild(helper);
+
+        string path = await helper.WaitForFolderSelection();
+        
+        if (string.IsNullOrEmpty(path))
+        {
+            helper.QueueFree();
+            return;
+        }
+
+        string fileName = path;
+        helper.QueueFree();
+
+        SaverLoader.WorldContextToInTxt(new WorldContext(gameMasterData.PlayerCollection, gameMasterData.WorldCards, gameMasterData.Dungeons), fileName);
     }
 
     // public void RemoveCard(string name)

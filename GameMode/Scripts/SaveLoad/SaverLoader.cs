@@ -129,10 +129,10 @@ public partial class SaverLoader : Node
 		return JsonSerializer.Deserialize<Player>(json);
 	}
 
-	public static void WorldContextToInTxt(WorldContext worldContext, string fileName)
+	public static void WorldContextToInTxt(WorldContext worldContext, string path)
 	{
 		List<string> output = ConvertWorldContextToOutput(worldContext);
-		string fullPath = ProjectSettings.GlobalizePath(OUTPUT_PATH + fileName);
+		string fullPath = ProjectSettings.GlobalizePath(path + "/in.txt");
 		File.WriteAllLines(fullPath, output);
 	}
 
