@@ -14,8 +14,12 @@ public partial class BackgroundGenerator : Node2D
     [Export] public int dungeonsPerTile = 6;
     [Export] public PackedScene dungeonButton;
 
+    [Export] public Label tipLabel;
+
     public override void _Ready()
     {
+        tipLabel.Visible = false;
+
         for (int i = 0; i < Math.Ceiling((float)Global.gameManager.saverLoader.currSaveFile.WorldDungeons.Count / (float)dungeonsPerTile); i++)
         {
             Node2D newBackgroundTile = null;
@@ -26,6 +30,7 @@ public partial class BackgroundGenerator : Node2D
             }
             else
             {
+                tipLabel.Visible = true;
                 switch (Math.Round(GD.Randf()))
                 {
                     case 0:

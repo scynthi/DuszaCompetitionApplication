@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://oihoapowoy2t"]
+[gd_scene load_steps=26 format=3 uid="uid://oihoapowoy2t"]
 
 [ext_resource type="Script" uid="uid://ctr2m1ncuyxwi" path="res://Scenes/DungeonMap/CameraController.cs" id="1_6u8ww"]
 [ext_resource type="PackedScene" uid="uid://dohu3ccoui2n5" path="res://Scenes/DungeonMap/MapBackgrounds/DungeonMapBackground.tscn" id="2_0enam"]
@@ -31,6 +31,11 @@ corner_radius_bottom_left = 30
 font_size = 31
 outline_size = 6
 outline_color = Color(0.078814976, 0.07881499, 0.078814976, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mo0dx"]
+font_size = 30
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_yw7fq"]
 resource_name = "ChangeSubmenu"
@@ -84,13 +89,14 @@ _data = {
 
 [node name="MapContainer" type="Node2D" parent="."]
 
-[node name="BackgroundGenerator" type="Node2D" parent="MapContainer"]
+[node name="BackgroundGenerator" type="Node2D" parent="MapContainer" node_paths=PackedStringArray("tipLabel")]
 script = ExtResource("2_bg5ac")
 mapBackground = ExtResource("2_0enam")
 mapBackgroundV2 = ExtResource("3_38684")
 mapBackgroundFinal = ExtResource("4_02c5i")
 backgroundWidth = 1280
 dungeonButton = ExtResource("3_bg5ac")
+tipLabel = NodePath("../../CanvasLayer/Control/UpperSign/EmptyMenu/Label")
 
 [node name="Camera2D" type="Camera2D" parent="MapContainer"]
 script = ExtResource("1_6u8ww")
@@ -124,6 +130,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="DeckSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign" node_paths=PackedStringArray("collectionContainer", "deckContainer", "moneyLabel", "xpLabel")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -401,7 +408,6 @@ visible = false
 layout_mode = 2
 
 [node name="EmptyMenu" type="Control" parent="CanvasLayer/Control/UpperSign"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -409,6 +415,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/UpperSign/EmptyMenu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -167.5
+offset_top = 14.0
+offset_right = 167.5
+offset_bottom = 37.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 26
+text = "Tarsd lenyomva az egér görgőt a mozgáshoz "
+label_settings = SubResource("LabelSettings_mo0dx")
 
 [node name="BottomSign" type="Control" parent="CanvasLayer/Control"]
 layout_mode = 1
