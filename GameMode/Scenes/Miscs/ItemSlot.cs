@@ -45,19 +45,24 @@ public partial class ItemSlot : PanelContainer
 		// Swap cards between slots
 		if (card != null)
 		{
+			GD.Print("BRUH2");
 			// This slot has a card - swap them
+			oldSlot.RemoveChild(oldSlot.GetChild(0));
 			card.Reparent(oldSlot);
 			oldSlot.card = card;
 			card.Show();
 		}
 		else
 		{
+			GD.Print("BRUH");
 			// This slot is empty - just clear old slot
+			oldSlot.RemoveChild(oldSlot.GetChild(0));
 			oldSlot.card = null;
 		}
 
 		// Reparent the dropped card to this slot
-		droppedCard.Reparent(this);
+		droppedCard.Owner = null;
+		AddChild(droppedCard);
 		card = droppedCard;
 		
 		card.Show();

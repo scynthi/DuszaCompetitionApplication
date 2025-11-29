@@ -48,7 +48,7 @@ public partial class FightLogic : Node
 
 	public override void _Ready()
 	{
-		foreach (Card card in player.Deck) PlayerDeck.Add(new Card(card));
+		foreach (Card card in player.Deck) PlayerDeck.Add(card is BossCard ? new BossCard(card as BossCard) : new Card(card));
 		// foreach (Card card in Global.gameManager.saverLoader.currSaveFile.player.Deck) PlayerDeck.Add(new Card(card));
 		Dungeon dungeon = Utility.ReturnDungeonFromList(Global.gameManager.saverLoader.currSaveFile.WorldDungeons, Global.gameManager.saverLoader.currSaveFile.currDungeonName);
 		// DungeonDeck = dungeon.DungeonDeck;

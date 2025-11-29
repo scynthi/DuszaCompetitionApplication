@@ -18,8 +18,11 @@ public partial class Inventory : PanelContainer
 			var child = itemSlot.GetChild<Control>(0);
 			itemSlot.CustomMinimumSize = child.Size;
 			
-			if (i != 1)
+			if (i == 0 || i == 2)
+            {
 				itemSlot.RemoveChild(child);
+                itemSlot.card = null;
+            }
 			
 			MainContainer.AddChild(itemSlot);
 		}
