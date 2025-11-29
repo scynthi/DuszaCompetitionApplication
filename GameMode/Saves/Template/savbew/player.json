@@ -2,17 +2,7 @@
   "player": {
     "Xp": 0,
     "Money": 0,
-    "Collection": [
-      {
-        "Name": "alma",
-        "Health": 6,
-        "BaseDamage": 7,
-        "Damage": 7,
-        "CardElement": 3,
-        "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
-        "buffHandler": {}
-      }
-    ],
+    "Collection": [],
     "Deck": [],
     "ItemList": [
       {
@@ -20,7 +10,7 @@
         "Name": "\u00C9let ital",
         "Description": "Haszn\u00E1latakor megn\u00F6veli \n a jelenlegi k\u00E1rtya \u00E9leterej\u00E9t \n 5 ponttal",
         "Icon": "uid://b1y7hb6ugsa1s",
-        "Price": 5,
+        "Price": 8,
         "Amount": 0,
         "Type": 0,
         "Buff": null
@@ -40,7 +30,7 @@
         "Name": "Elem talizm\u00E1n",
         "Description": "Hasz\u00E1nlata ut\u00E1n a \n jelenlegi k\u00E1rtya /2 sebz\u00E9st kap \n \u00E9s *2 t\u00E1mad\u00E1st ad 1 k\u00F6rig",
         "Icon": "uid://cc17bg13ixypu",
-        "Price": 15,
+        "Price": 20,
         "Amount": 0,
         "Type": 2,
         "Buff": null

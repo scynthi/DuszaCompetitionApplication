@@ -23,10 +23,17 @@ public partial class UiSaveFileItem : Control
     public void SetButtonText(string newText)
     {
         button.Text = newText;
+
+        if (bindedSaveFile.WorldDungeons.Count <= 0)
+        {
+            button.Disabled = true;
+        }
     }
 
     public void _Pressed()
     {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+
         EmitSignal(SignalName.SaveOpened, bindedSaveFile);
     }
     

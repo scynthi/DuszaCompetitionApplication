@@ -45,6 +45,8 @@ public partial class PiciMenü : Control
 
     public void AddToCollection()
     {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+
         QueueFree();
         if (Item is UICard)
         {
@@ -54,6 +56,8 @@ public partial class PiciMenü : Control
 
     public void ButtonPressed(string option)
     {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+
         QueueFree();
         this.option = option;
         Clicked.Invoke(this);
@@ -61,6 +65,8 @@ public partial class PiciMenü : Control
 
     private void DeleteItem()
     {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+
         QueueFree();
         if (Item is UICard)
         {

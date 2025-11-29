@@ -29,6 +29,8 @@ public partial class MapMenu : Control
         {
             child.Visible = false;
         }
+
+        ChangeSubMenu("empty");
     }
 
 
@@ -37,13 +39,20 @@ public partial class MapMenu : Control
 
     public async void ChangeSubMenu(string name)
     {
-        if (lastMenuName == name)
+        if (name != "empty")
+        {
+            Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+        }
+        
+        
+        if (lastMenuName == name || name == "empty")
         {
             queuedMenu = emptyMenu;
             animationPlayer.Play("ChangeSubmenu");
             lastMenuName = null;
             return;
         }
+
 
         switch(name)
         {

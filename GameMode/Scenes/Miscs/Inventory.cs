@@ -7,8 +7,6 @@ public partial class Inventory : PanelContainer
 {
 
 	[Export] PackedScene ItemSlotScene;
-	[Export] PackedScene UICard;
-	[Export] PackedScene UIBossCard;
 	[Export] GridContainer MainContainer;
 	[Export] int AmountOfSlots = 4;
 
@@ -17,7 +15,7 @@ public partial class Inventory : PanelContainer
 	public override void _Ready()
 	{
 		base._Ready();
-		UICard uiCard = UICard.Instantiate<UICard>();
+		UICard uiCard =  Global.gameManager.uiPackedSceneReferences.UICardScene.Instantiate<UICard>();
 		uiCard.SetOwnerCard(new Card("Aple", 5, 5, CardElements.EARTH));
 
 		Godot.Vector2 size = uiCard.Size;
@@ -28,7 +26,7 @@ public partial class Inventory : PanelContainer
 			
 			if (i == 3 || i == 2)
             {
-				UIBossCard buiCard = UIBossCard.Instantiate<UIBossCard>();
+				UIBossCard buiCard = Global.gameManager.uiPackedSceneReferences.UIBossCardScene.Instantiate<UIBossCard>();
 				buiCard.SetOwnerCard(new BossCard("Aple" + i, 5, 5, CardElements.EARTH, "uid://m4uonlvhx0mu"));
 				itemSlot.AddChild(buiCard);
 				itemSlot.uiCard = buiCard;
@@ -37,7 +35,7 @@ public partial class Inventory : PanelContainer
             }
 			if (i == 1)
             {
-                UICard buiCard = UICard.Instantiate<UICard>();
+                UICard buiCard = Global.gameManager.uiPackedSceneReferences.UICardScene.Instantiate<UICard>();
 				buiCard.SetOwnerCard(new Card("Aple" + i, 5, 5, CardElements.EARTH, "uid://m4uonlvhx0mu"));
 				itemSlot.AddChild(buiCard);
 				itemSlot.uiCard = buiCard;

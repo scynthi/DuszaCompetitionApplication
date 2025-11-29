@@ -59,6 +59,8 @@ public partial class ItemButton : Control
 
 	public void _Pressed()
     {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+
         EmitSignal(SignalName.Send_Item, (int)itemType);
         descriptionBox.UpdateDescription(item.Name, item.Description, Global.gameManager.saverLoader.currSaveFile.player.ReturnItemAmount(item));
         ShakeControl();

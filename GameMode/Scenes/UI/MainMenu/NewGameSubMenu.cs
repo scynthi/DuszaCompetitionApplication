@@ -18,7 +18,6 @@ public partial class NewGameSubMenu : Control
     [Export] RichTextLabel displayDungeonAmount;
     [Export] Godot.Collections.Array<Label> displayDungeonIcons;
 
-
     private WorldContext currDisplayedSave; 
 
     public void ReloadSaves()
@@ -101,7 +100,17 @@ public partial class NewGameSubMenu : Control
 
     public async void _OnStartPressed()
     {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+
         Global.gameManager.saverLoader.currSaveFile = currDisplayedSave;
         await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.DungeonMap);
+    }
+
+    public void SaveDeleteBtnPressed()
+    {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+
+        SaverLoader.DeleteTemplate(currDisplayedSave.Name);
+        ReloadSaves();
     }
 }
