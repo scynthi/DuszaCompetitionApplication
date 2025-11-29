@@ -25,9 +25,14 @@ public partial class FightLogic : Node
 	[Export] HBoxContainer IconContainer;
 	[Export] Control PlayerCardControl;
 	[Export] Control EnemyCardControl;
+	[Export] Control NextPlayerCardControl;
+	[Export] Control NextEnemyCardControl;
+
 	[Export] AnimationPlayer PlayerAnimPlayer;
 	[Export] AnimationPlayer DungeonAnimPlayer;
 	[Export] AnimationPlayer WorldAnimPlayer;
+	[Export] AnimationPlayer NextCardsAnimPlayer;
+
 
 	[Export] Button StepBattleButton;
 
@@ -66,8 +71,9 @@ public partial class FightLogic : Node
 	private void ReasignPlayerCard()
 	{
 		if (PlayerDeck.Count > 0)
-	{
+		{
 			PlayerCard = PlayerDeck[0];
+			TryReassignNextCard(PlayerDeck, NextPlayerCardControl);
 			PlayerDeck.RemoveAt(0);
 			return;
 		}
@@ -79,11 +85,40 @@ public partial class FightLogic : Node
 		if (DungeonDeck.Count > 0)
 		{
 			DungeonCard = DungeonDeck[0];
+			TryReassignNextCard(DungeonDeck, NextEnemyCardControl);
 			DungeonDeck.RemoveAt(0);
 			return;
 		}
 		DungeonCard = null;
 	}
+
+	private void TryReassignNextCard(List<Card> from, Control onto)
+    {
+		foreach (Control child in onto.GetChildren())
+        {
+            child.QueueFree();
+        }
+		if (from.Count > 1)
+		{
+			Card nextCard = from[1];
+			Utility.AddUiCardUnderContainer(nextCard, onto);
+			NextCardsAnimPlayer.Play("NextCardsSpawn");
+			return;
+		}
+
+		TextureRect newTexRect = new TextureRect();
+		newTexRect.Texture = GD.Load<Texture2D>("uid://ddjir7c4i3gte");
+		newTexRect.ExpandMode = TextureRect.ExpandModeEnum.FitWidth;
+		newTexRect.StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered;
+		newTexRect.CustomMinimumSize = new Vector2(100.0f,100.0f);
+
+		onto.AddChild(newTexRect);
+
+		NextCardsAnimPlayer.Play("NextCardsSpawn");
+
+    }
+
+
 	private void ClearBuffs()
 	{
 		PlayerCard.buffHandler.ClearBuffs(Round);

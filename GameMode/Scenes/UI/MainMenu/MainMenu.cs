@@ -5,6 +5,8 @@ public partial class MainMenu : Control
 {
     [Export] Control MenuContainer;
     [Export] AnimationPlayer animationPlayer;
+    [Export] AnimationPlayer sideAnimationPlayer;
+
 
     [ExportGroup("Menus")]
     [Export] Control mainMenu;
@@ -33,13 +35,17 @@ public partial class MainMenu : Control
             control.Visible = false;
         }
 
-        CurrentMenu = mainMenu;
+        ButtonPressed("main");
+        sideAnimationPlayer.Play("BringInSideMenu");
     }
 
     Control queuedMenu;
     public async void ButtonPressed(string option)
     {
-        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+        if (Global.gameManager != null)
+        {
+            Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+        }
 
         switch(option)
         {

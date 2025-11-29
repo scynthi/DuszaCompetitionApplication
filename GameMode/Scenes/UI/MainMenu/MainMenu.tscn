@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cd7wdb77hi6lr"]
+[gd_scene load_steps=33 format=3 uid="uid://cd7wdb77hi6lr"]
 
 [ext_resource type="Script" uid="uid://crrjwkdrkhon6" path="res://Scenes/UI/MainMenu/MainMenu.cs" id="1_cdkru"]
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_gwdte"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://cvhuwehtyd1af" path="res://Assets/Images/Portal/portal_frame_nagy.png" id="16_pnb7d"]
 [ext_resource type="Texture2D" uid="uid://c1em44wgod6mm" path="res://Assets/Images/Sign/horiz_stick.png" id="17_2jg2i"]
 [ext_resource type="Texture2D" uid="uid://542t5jekr6vj" path="res://Assets/Images/Sign/actualContinueBG.png" id="20_8rr3h"]
+[ext_resource type="Texture2D" uid="uid://cdtjgld3v13k3" path="res://Assets/Images/Sign/EditorSign.png" id="21_icc81"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vwuc7"]
 font_size = 96
@@ -41,6 +42,12 @@ colors = PackedColorArray(0, 0, 0, 0.77254903, 1, 0.53, 0.53, 0)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_tbwd8"]
 gradient = SubResource("Gradient_u8hla")
 fill_to = Vector2(0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_aofk4"]
+font_size = 31
+font_color = Color(1, 0.7372549, 0.4392157, 1)
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Animation" id="Animation_6swpd"]
 resource_name = "ChangeSubMenu"
@@ -91,7 +98,64 @@ _data = {
 &"RESET": SubResource("Animation_u8hla")
 }
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("MenuContainer", "animationPlayer", "mainMenu", "creditsMenu", "newGameMenu", "continueGameMenu")]
+[sub_resource type="Animation" id="Animation_icc81"]
+resource_name = "BringInSideMenu"
+length = 0.75
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(-299, 0, 0, 0.06666667, 283.84332, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.46666667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(235, 0, 0, 0.125, 0, 235, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.46666667)
+}
+
+[sub_resource type="Animation" id="Animation_aofk4"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(235, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_phq1f"]
+_data = {
+&"BringInSideMenu": SubResource("Animation_icc81"),
+&"RESET": SubResource("Animation_aofk4")
+}
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("MenuContainer", "animationPlayer", "sideAnimationPlayer", "mainMenu", "creditsMenu", "newGameMenu", "continueGameMenu")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -103,6 +167,7 @@ theme = ExtResource("1_gwdte")
 script = ExtResource("1_cdkru")
 MenuContainer = NodePath("MenuContainer")
 animationPlayer = NodePath("AnimationPlayer")
+sideAnimationPlayer = NodePath("SideAnimator")
 mainMenu = NodePath("MenuContainer/MainMenu")
 creditsMenu = NodePath("MenuContainer/CreditsMenu")
 newGameMenu = NodePath("MenuContainer/NewGameMenu")
@@ -130,6 +195,7 @@ grow_vertical = 2
 size_flags_horizontal = 4
 
 [node name="MainMenu" type="Control" parent="MenuContainer"]
+visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MenuContainer/MainMenu"]
@@ -186,12 +252,6 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 28
 text = "Új játék"
-
-[node name="Master" type="Button" parent="MenuContainer/MainMenu/Items/ButtonBox"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 28
-text = "Játékmester menü"
 
 [node name="Settings" type="Button" parent="MenuContainer/MainMenu/Items/ButtonBox"]
 layout_mode = 2
@@ -255,7 +315,6 @@ label_settings = SubResource("LabelSettings_nw82n")
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="MenuContainer/CreditsMenu"]
-visible = false
 layout_mode = 0
 offset_left = -148.0
 offset_top = 127.0
@@ -751,14 +810,69 @@ offset_right = 692.1
 offset_bottom = 25.0
 texture = ExtResource("17_2jg2i")
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -125.0
+offset_right = 281.0
+offset_bottom = 125.0
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("21_icc81")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Master" type="Button" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.5
+offset_top = -29.0
+offset_right = 128.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 28
+text = "Belépés"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 53.0
+offset_bottom = 95.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 31
+text = "Játékmester mód"
+label_settings = SubResource("LabelSettings_aofk4")
+horizontal_alignment = 1
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_tbwd8")
 }
 
+[node name="SideAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_phq1f")
+}
+
 [connection signal="pressed" from="MenuContainer/MainMenu/Items/ButtonBox/Continue" to="." method="ButtonPressed" binds= ["continue"]]
 [connection signal="pressed" from="MenuContainer/MainMenu/Items/ButtonBox/NewGame" to="." method="ButtonPressed" binds= ["newgame"]]
-[connection signal="pressed" from="MenuContainer/MainMenu/Items/ButtonBox/Master" to="." method="ButtonPressed" binds= ["editor"]]
 [connection signal="pressed" from="MenuContainer/MainMenu/Items/ButtonBox/Settings" to="." method="ButtonPressed" binds= ["settings"]]
 [connection signal="pressed" from="MenuContainer/MainMenu/Items/ButtonBox/Credits" to="." method="ButtonPressed" binds= ["credits"]]
 [connection signal="pressed" from="MenuContainer/MainMenu/Items/ButtonBox/Quit" to="." method="ButtonPressed" binds= ["quit"]]
@@ -766,3 +880,4 @@ libraries = {
 [connection signal="pressed" from="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/Button" to="MenuContainer/NewGameMenu" method="_OnStartPressed"]
 [connection signal="pressed" from="MenuContainer/NewGameMenu/Control/BackButton" to="." method="ButtonPressed" binds= ["main"]]
 [connection signal="pressed" from="MenuContainer/ContinueGameMenu/Control/Button" to="." method="ButtonPressed" binds= ["main"]]
+[connection signal="pressed" from="Control/Master" to="." method="ButtonPressed" binds= ["editor"]]

@@ -1,38 +1,15 @@
 {
   "player": {
-	"Xp": 45,
-	"Money": 35,
+	"Xp": 5,
+	"Money": 5,
 	"Collection": [
 	  {
 		"Name": "Aple",
-		"Health": 12,
-		"BaseDamage": 9,
+		"Health": 8,
+		"BaseDamage": 7,
 		"Damage": 7,
-		"DamageChanged": true,
+		"DamageChanged": false,
 		"HealthChanged": true,
-		"CardElement": 0,
-		"Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
-		"buffHandler": {}
-	  },
-	  {
-		"$type": "boss",
-		"BaseCard": {
-		  "Name": "Aple",
-		  "Health": 6,
-		  "BaseDamage": 7,
-		  "Damage": 7,
-		  "DamageChanged": false,
-		  "HealthChanged": false,
-		  "CardElement": 0,
-		  "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
-		  "buffHandler": {}
-		},
-		"Name": "Lord Aple",
-		"Health": 12,
-		"BaseDamage": 8,
-		"Damage": 7,
-		"DamageChanged": true,
-		"HealthChanged": false,
 		"CardElement": 0,
 		"Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
 		"buffHandler": {}
@@ -40,24 +17,12 @@
 	],
 	"Deck": [
 	  {
-		"$type": "boss",
-		"BaseCard": {
-		  "Name": "Aple",
-		  "Health": 6,
-		  "BaseDamage": 7,
-		  "Damage": 7,
-		  "DamageChanged": false,
-		  "HealthChanged": false,
-		  "CardElement": 0,
-		  "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
-		  "buffHandler": {}
-		},
-		"Name": "Lord Aple",
-		"Health": 12,
-		"BaseDamage": 8,
+		"Name": "Aple",
+		"Health": 8,
+		"BaseDamage": 7,
 		"Damage": 7,
-		"DamageChanged": true,
-		"HealthChanged": false,
+		"DamageChanged": false,
+		"HealthChanged": true,
 		"CardElement": 0,
 		"Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
 		"buffHandler": {}

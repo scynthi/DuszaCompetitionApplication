@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://nq0gnkgglhi6"]
+[gd_scene load_steps=58 format=3 uid="uid://nq0gnkgglhi6"]
 
 [ext_resource type="Script" uid="uid://jtuoap7qxnl5" path="res://Assets/Shaders/quantization_shader.gd" id="1_0n0gq"]
 [ext_resource type="PackedScene" uid="uid://b5vuktdck1ewt" path="res://Assets/Models/dungeonBackgroundMid.glb" id="1_7d0qi"]
@@ -125,6 +125,20 @@ tracks/5/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(0, 0, 0, 0.16666667, 0, 0.171, -0.06554316, 0, 0.10112351, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0.2, 0.3667, 0.73333335)
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../../BattleManager")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.33333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"DisplayAttack"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_0n0gq"]
@@ -907,6 +921,239 @@ _data = {
 &"RESET": SubResource("Animation_ofo1t")
 }
 
+[sub_resource type="Animation" id="Animation_cj4f3"]
+resource_name = "NextCardsSpawn"
+length = 0.25
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../NextCard/NextPlayerCard:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(2, 0, 0, 0.06935954, -2.626162, 0, -0.14666215, 0.039760094, 0.125, 0),
+"times": PackedFloat32Array(0, 0.24935502)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../NextCard/NextPlayerCard:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(15, 0, 0, 0.06666667, 44.346947, 51, -0.11602168, -0.18366623, 0.125, 0),
+"times": PackedFloat32Array(0, 0.24935502)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../NextCard/NextPlayerCard:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(1e-05, 0, 0, 0.041666668, 0.12499833, 0.75, -0.125, 0, 0.125, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../NextCard/NextPlayerCard:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(1e-05, 0, 0, 0.041666668, 0.12499833, 0.75, -0.125, 0, 0.125, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../NextCard/NextPlayerCard:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(-1.600467, 0, 0, 0.13333334, 2.4353564, 0, -0.11666666, 0.027278349, 0.125, 0),
+"times": PackedFloat32Array(0, 0.25)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../NextCard/NextDungeonCard:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(729, 0, 0, 0.07062479, -110.60736, 620, -0.099999994, 2.9846802, 0.125, 0),
+"times": PackedFloat32Array(0, 0.23333333)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../NextCard/NextDungeonCard:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(32, 0, 0, 0.1, 23.08215, 51, -0.06666666, -0.2701416, 0.125, 0),
+"times": PackedFloat32Array(0, 0.23333333)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../NextCard/NextDungeonCard:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(1.0192723, 0, 0, 0.06969347, -1.2973045, 0, -0.096973196, -0.01771247, 0.125, 0),
+"times": PackedFloat32Array(0, 0.23333333)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../NextCard/NextDungeonCard:scale:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(1e-05, 0, 0, 0.03888889, 0.12499833, 0.75, -0.125, 0, 0.125, 0),
+"times": PackedFloat32Array(0, 0.23333333)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../NextCard/NextDungeonCard:scale:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(1e-05, 0, 0, 0.03888889, 0.12499833, 0.75, -0.125, 0, 0.125, 0),
+"times": PackedFloat32Array(0, 0.23333333)
+}
+
+[sub_resource type="Animation" id="Animation_cgjkw"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../NextCard/NextPlayerCard:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.125, 0, 0.125, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../NextCard/NextPlayerCard:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(51, -0.125, 0, 0.125, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../NextCard/NextPlayerCard:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.75, -0.125, 0, 0.125, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../NextCard/NextPlayerCard:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.75, -0.125, 0, 0.125, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../NextCard/NextPlayerCard:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.125, 0, 0.125, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../NextCard/NextDungeonCard:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(620, -0.125, 0, 0.125, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../NextCard/NextDungeonCard:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(51, -0.125, 0, 0.125, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../NextCard/NextDungeonCard:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.125, 0, 0.125, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../NextCard/NextDungeonCard:scale:x")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.75, -0.125, 0, 0.125, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../NextCard/NextDungeonCard:scale:y")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.75, -0.125, 0, 0.125, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e0djh"]
+_data = {
+&"NextCardsSpawn": SubResource("Animation_cj4f3"),
+&"RESET": SubResource("Animation_cgjkw")
+}
+
 [sub_resource type="LabelSettings" id="LabelSettings_gm63t"]
 font_size = 86
 font_color = Color(1, 0.76400006, 0.41000003, 1)
@@ -989,15 +1236,18 @@ compositor = SubResource("Compositor_xwfv5")
 
 [node name="dungeonBackgroundMid" parent="." instance=ExtResource("1_7d0qi")]
 
-[node name="BattleManager" type="Node" parent="." node_paths=PackedStringArray("RoundText", "IconContainer", "PlayerCardControl", "EnemyCardControl", "PlayerAnimPlayer", "DungeonAnimPlayer", "WorldAnimPlayer", "StepBattleButton")]
+[node name="BattleManager" type="Node" parent="." node_paths=PackedStringArray("RoundText", "IconContainer", "PlayerCardControl", "EnemyCardControl", "NextPlayerCardControl", "NextEnemyCardControl", "PlayerAnimPlayer", "DungeonAnimPlayer", "WorldAnimPlayer", "NextCardsAnimPlayer", "StepBattleButton")]
 script = ExtResource("1_ugqt7")
 RoundText = NodePath("../CanvasLayer/Control/Round display")
 IconContainer = NodePath("../CanvasLayer/Control/BottomContainer/ItemButtonContainer")
 PlayerCardControl = NodePath("../CanvasLayer/Control/CurrentFight/PlayerCard")
 EnemyCardControl = NodePath("../CanvasLayer/Control/CurrentFight/DungeonCard")
+NextPlayerCardControl = NodePath("../CanvasLayer/Control/NextCard/NextPlayerCard")
+NextEnemyCardControl = NodePath("../CanvasLayer/Control/NextCard/NextDungeonCard")
 PlayerAnimPlayer = NodePath("../CanvasLayer/Control/Animations/Player")
 DungeonAnimPlayer = NodePath("../CanvasLayer/Control/Animations/Enemy")
 WorldAnimPlayer = NodePath("../CanvasLayer/Control/Animations/WorldAnimator")
+NextCardsAnimPlayer = NodePath("../CanvasLayer/Control/Animations/NextCardAnimator")
 StepBattleButton = NodePath("../CanvasLayer/Control/BottomContainer/StepBattle")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -1051,19 +1301,58 @@ libraries = {
 &"": SubResource("AnimationLibrary_hctl2")
 }
 
+[node name="NextCardAnimator" type="AnimationPlayer" parent="CanvasLayer/Control/Animations"]
+libraries = {
+&"": SubResource("AnimationLibrary_e0djh")
+}
+
 [node name="NextCard" type="Control" parent="CanvasLayer/Control"]
+modulate = Color(0.43, 0.43, 0.43, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -505.0
-offset_top = -161.0
-offset_right = 505.0
-offset_bottom = 161.0
+offset_left = -394.0
+offset_top = -85.0
+offset_right = 394.0
+offset_bottom = 237.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="NextPlayerCard" type="CenterContainer" parent="CanvasLayer/Control/NextCard"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -110.0
+offset_right = 168.0
+offset_bottom = 110.00012
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+
+[node name="Card" parent="CanvasLayer/Control/NextCard/NextPlayerCard" instance=ExtResource("12_cj4f3")]
+visible = false
+layout_mode = 2
+
+[node name="NextDungeonCard" type="CenterContainer" parent="CanvasLayer/Control/NextCard"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -110.0
+offset_bottom = 110.00067
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+
+[node name="Card" parent="CanvasLayer/Control/NextCard/NextDungeonCard" instance=ExtResource("12_cj4f3")]
+visible = false
+layout_mode = 2
 
 [node name="CurrentFight" type="Control" parent="CanvasLayer/Control"]
 custom_minimum_size = Vector2(32.94, 0)
@@ -1086,13 +1375,12 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -20.000153
-offset_right = 39.999954
+offset_right = 39.999847
 offset_bottom = 20.000153
 grow_vertical = 2
 use_top_left = true
 
 [node name="Card" parent="CanvasLayer/Control/CurrentFight/PlayerCard" instance=ExtResource("12_cj4f3")]
-visible = false
 layout_mode = 2
 
 [node name="DungeonCard" type="CenterContainer" parent="CanvasLayer/Control/CurrentFight"]
@@ -1104,8 +1392,8 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -40.00049
 offset_top = -20.0
-offset_right = -0.00018310547
-offset_bottom = 19.999695
+offset_right = -0.00030517578
+offset_bottom = 19.99974
 grow_horizontal = 0
 grow_vertical = 2
 use_top_left = true

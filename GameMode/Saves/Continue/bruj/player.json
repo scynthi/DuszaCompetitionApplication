@@ -1,7 +1,7 @@
 {
   "player": {
-	"Xp": 30,
-	"Money": 999999930,
+	"Xp": 55,
+	"Money": 999999955,
 	"Collection": [
 	  {
 		"Name": "alma",
@@ -16,7 +16,7 @@
 	  },
 	  {
 		"Name": "Lord  alma",
-		"Health": 22,
+		"Health": 32,
 		"BaseDamage": 7,
 		"Damage": 7,
 		"DamageChanged": false,
@@ -29,7 +29,7 @@
 	"Deck": [
 	  {
 		"Name": "Lord  alma",
-		"Health": 22,
+		"Health": 32,
 		"BaseDamage": 7,
 		"Damage": 7,
 		"DamageChanged": false,
