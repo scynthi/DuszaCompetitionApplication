@@ -45,7 +45,6 @@ public partial class ItemSlot : PanelContainer
 		// Swap cards between slots
 		if (card != null)
 		{
-			GD.Print("BRUH2");
 			// This slot has a card - swap them
 			oldSlot.RemoveChild(oldSlot.GetChild(0));
 			card.Reparent(oldSlot);
@@ -54,7 +53,6 @@ public partial class ItemSlot : PanelContainer
 		}
 		else
 		{
-			GD.Print("BRUH");
 			// This slot is empty - just clear old slot
 			oldSlot.RemoveChild(oldSlot.GetChild(0));
 			oldSlot.card = null;

@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://c2dg2wfyc6tix" path="res://Scenes/ShopScene/ShomMenu.cs" id="2_x4p3p"]
 [ext_resource type="PackedScene" uid="uid://duqvkh3tdlkve" path="res://Scenes/FightScene/ItemButton.tscn" id="3_iliwk"]
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="4_dvv65"]
-[ext_resource type="Texture2D" uid="uid://bspjcso0u47w7" path="res://Assets/Images/Sign/upper_sign.png" id="5_ufa72"]
+[ext_resource type="Texture2D" uid="uid://0xqm5vwe7pb7" path="res://Assets/Images/Sign/SmallTextSign.png" id="6_h37rh"]
 [ext_resource type="Texture2D" uid="uid://b6kxxoiuifnem" path="res://Assets/Images/player/coin.png" id="7_7glmu"]
 [ext_resource type="Texture2D" uid="uid://boryvw4xe8eie" path="res://Assets/Images/Sign/bg_shop.png" id="7_rqv8k"]
 [ext_resource type="Texture2D" uid="uid://chnum6s8tk8ah" path="res://Assets/Images/Backgrounds/main_menu_border.png" id="8_60d55"]
@@ -74,6 +74,7 @@ shader_parameter/burn_size = 0.10999999754128
 shader_parameter/burn_color = Color(1, 0.089999974, 0.089999974, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_jjw8j"]
+fractal_octaves = 8
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h37rh"]
 noise = SubResource("FastNoiseLite_jjw8j")
@@ -83,7 +84,7 @@ seamless = true
 shader = ExtResource("10_jjw8j")
 shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_h37rh")
 shader_parameter/dissolve_value = 1.0
-shader_parameter/burn_size = 0.06999999843536
+shader_parameter/burn_size = 0.22999999485904
 shader_parameter/burn_color = Color(0.64, 0.1472, 0.1472, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vvhqr"]
@@ -316,13 +317,14 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -30.0
-offset_top = -18.0
-offset_right = 30.0
-offset_bottom = 18.0
+offset_top = -20.0
+offset_right = -27.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_ufa72")
+texture = ExtResource("6_h37rh")
 expand_mode = 1
+flip_v = true
 
 [node name="Panel" type="Panel" parent="ShomMenu/MarginContainer/Control/Control"]
 visible = false
@@ -339,7 +341,9 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_r66ni")
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
+offset_top = 7.5
 offset_right = 75.0
+offset_bottom = 7.5
 grow_vertical = 2
 texture = ExtResource("7_7glmu")
 expand_mode = 1
@@ -351,9 +355,9 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 78.0
-offset_top = -10.5
+offset_top = -3.0
 offset_right = 400.0
-offset_bottom = 10.5
+offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
@@ -467,7 +471,6 @@ grow_vertical = 2
 pivot_offset = Vector2(85, 110)
 
 [node name="Card" parent="ShomMenu/MarginContainer/Control/Control3/Control/CenterContainer/Control/Control" instance=ExtResource("8_r66ni")]
-visible = false
 layout_mode = 0
 offset_left = 1.0
 offset_right = 169.0
@@ -596,12 +599,26 @@ offset_right = 208.0
 grow_horizontal = 2
 grow_vertical = 0
 
+[node name="TextureRect" type="TextureRect" parent="ShomMenu/MarginContainer/Control/BottomThing"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = -10.0
+offset_right = -45.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_h37rh")
+expand_mode = 1
+
 [node name="Button" parent="ShomMenu/MarginContainer/Control/BottomThing" instance=ExtResource("11_dvv65")]
 layout_mode = 1
 offset_left = -152.0
-offset_top = -34.0
+offset_top = -39.0
 offset_right = 152.0
-offset_bottom = 30.0
+offset_bottom = 25.0
 
 [node name="TextureRect" type="TextureRect" parent="ShomMenu"]
 layout_mode = 1

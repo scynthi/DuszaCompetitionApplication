@@ -47,14 +47,12 @@ public static class Utility
 				UIBossCard newUiCard = Global.gameManager.uiPackedSceneReferences.UIBossCardScene.Instantiate<UIBossCard>();
 				newUiCard.EditAllCardInformation((BossCard)card);
 				container.AddChild(newUiCard);
-				GD.Print("boss");
 			}
 			else
 			{
 				UICard newUiCard = Global.gameManager.uiPackedSceneReferences.UICardScene.Instantiate<UICard>();
 				newUiCard.EditAllCardInformation(card);
 				container.AddChild(newUiCard);
-				GD.Print("simple");
 
 			}
 		}
@@ -116,8 +114,6 @@ public static class Utility
 		foreach (Card card in cards)
 		{
 			if (card is not BossCard) continue;
-
-			GD.Print("bossing");
 
 			UIBossCard newUiCard = Global.gameManager.uiPackedSceneReferences.UIBossCardScene.Instantiate<UIBossCard>();
 			newUiCard.EditAllCardInformation((BossCard)card);

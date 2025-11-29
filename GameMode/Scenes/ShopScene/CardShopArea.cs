@@ -51,6 +51,8 @@ public partial class CardShopArea : Control
         reRollButton.Disabled = true;
         buyButton.Disabled = true;
 
+        UpdateMoneyText();
+
         return null;
     }
 
@@ -89,13 +91,14 @@ public partial class CardShopArea : Control
     public void _SetNewCard()
     {
         currCard = GetNewCard();
+        UpdateMoneyText();
         if (currCard == null) return;
         Utility.AddUiCardUnderContainer(currCard, cardHolder);
         
         _currPrice = currCard is BossCard ? 10 : 15;
         buyPriceLabel.Text = "$"+Convert.ToString(_currPrice);
         
-        UpdateMoneyText();
+        
     }
 
 

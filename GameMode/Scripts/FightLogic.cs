@@ -118,7 +118,6 @@ public partial class FightLogic : Node
 		if (DungeonCard != null)
 		{
 			Utility.AddUiCardUnderContainer(DungeonCard, EnemyCardControl);
-			GD.Print(Round + " kazamata: " + DungeonCard.Name);
 		}
 	}
 
@@ -127,7 +126,6 @@ public partial class FightLogic : Node
 		if (PlayerCard != null)
 		{
 			Utility.AddUiCardUnderContainer(PlayerCard, PlayerCardControl);
-			GD.Print(Round + " jatekos: " + PlayerCard.Name);
 		}
 	}
 
@@ -187,12 +185,10 @@ public partial class FightLogic : Node
 	public RoundState SimulateRound(Card DungeonCard, Card PlayerCard)
 	{
 		DungeonDamage = DungeonCard.Attack(PlayerCard, true);
-		GD.Print(Round + " Dungeon Attack: " + DungeonDamage);
 
 		if (PlayerCard.Health == 0) return RoundState.PLAYERDEATH;
 
 		PlayerDamage = PlayerCard.Attack(DungeonCard, false);
-		GD.Print(Round + " Player Attack: " + PlayerDamage);
 
 		if (DungeonCard.Health == 0) return RoundState.DUNGEONDEATH;
 
@@ -221,12 +217,10 @@ public partial class FightLogic : Node
 
 			if (currRound == RoundState.PLAYERDEATH)
 			{
-				GD.Print($"{PlayerCard.Name} player card died");
 				ReasignPlayerCard();
 			}
 			else if (currRound == RoundState.DUNGEONDEATH)
 			{
-				GD.Print($"{DungeonCard.Name} enemy card died");
 				ReasignDungeonCard();
 			}
 			PlayAttackSequence();
@@ -242,12 +236,6 @@ public partial class FightLogic : Node
 		}
 	}
 
-	private void OnItemPressed()
-	{
-		GD.Print("BRUH");
-		GD.Print("pront");
-	}
-
 	private void EndFight(string output)
 	{
 
@@ -256,7 +244,7 @@ public partial class FightLogic : Node
 		PlayerAnimPlayer.Stop();
 		DungeonAnimPlayer.Seek(0, true);
 		DungeonAnimPlayer.Stop();
-		GD.Print(output + " " + reward.ToString());
+
 		if (PlayerCard != null)
 		{
 			Card card = player.ReturnCardFromCollection(PlayerCard.Name);
