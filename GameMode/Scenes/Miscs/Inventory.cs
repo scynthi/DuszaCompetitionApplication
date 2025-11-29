@@ -29,7 +29,7 @@ public partial class Inventory : PanelContainer
 			if (i == 3 || i == 2)
             {
 				UIBossCard buiCard = UIBossCard.Instantiate<UIBossCard>();
-				buiCard.SetOwnerCard(new BossCard("Aple" + i, 5, 5, CardElements.EARTH, "C:/Users/borok/OneDrive/Dokumentumok/GitHub/DuszaCompetitionApplication/GameMode/Assets/Images/Entities/Heroes/char_hunter.png"));
+				buiCard.SetOwnerCard(new BossCard("Aple" + i, 5, 5, CardElements.EARTH, "uid://m4uonlvhx0mu"));
 				itemSlot.AddChild(buiCard);
 				itemSlot.uiCard = buiCard;
 				buiCard.MouseFilter = Control.MouseFilterEnum.Ignore;
@@ -38,7 +38,7 @@ public partial class Inventory : PanelContainer
 			if (i == 1)
             {
                 UICard buiCard = UICard.Instantiate<UICard>();
-				buiCard.SetOwnerCard(new Card("Aple" + i, 5, 5, CardElements.EARTH, "C:/Users/borok/OneDrive/Dokumentumok/GitHub/DuszaCompetitionApplication/GameMode/Assets/Images/Entities/Heroes/char_hunter.png"));
+				buiCard.SetOwnerCard(new Card("Aple" + i, 5, 5, CardElements.EARTH, "uid://m4uonlvhx0mu"));
 				itemSlot.AddChild(buiCard);
 				itemSlot.uiCard = buiCard;
 				buiCard.MouseFilter = Control.MouseFilterEnum.Ignore;

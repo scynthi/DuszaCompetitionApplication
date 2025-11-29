@@ -27,6 +27,8 @@ public partial class FightLogic : Node
 	[Export] Control EnemyCardControl;
 	[Export] AnimationPlayer PlayerAnimPlayer;
 	[Export] AnimationPlayer DungeonAnimPlayer;
+	[Export] AnimationPlayer WorldAnimPlayer;
+
 	[Export] Button StepBattleButton;
 
 	// TEST
@@ -57,6 +59,8 @@ public partial class FightLogic : Node
 		LoadItemButtons(player.ItemList);
 		DungeonAnimPlayer.AnimationFinished += PlayerAttack;
 		PlayerAnimPlayer.AnimationFinished += LoadBattleItems;
+
+		WorldAnimPlayer.Play("EntryAnimation");
 	}
 
 	private void ReasignPlayerCard()
@@ -175,6 +179,7 @@ public partial class FightLogic : Node
 
 	private void SimulateRoundOne()
 	{
+		WorldAnimPlayer.Play("CardSpawnFirst");
 		Round++;
 		RoundText.Text = $"Kör: {Round}";
 		ReasignPlayerCard();
@@ -201,6 +206,7 @@ public partial class FightLogic : Node
 		{
 			SimulateRoundOne();
 			IsFirstRound = false;
+			
 			return;
 		}
 		if (DungeonCard != null && PlayerCard != null)
