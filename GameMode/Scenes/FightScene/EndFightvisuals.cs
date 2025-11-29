@@ -90,7 +90,7 @@ public partial class EndFightvisuals : Control
                 goldLabel.Text = Convert.ToString(20);
                 xpLabel.Text = Convert.ToString(20);
 
-                
+
 
             }
 

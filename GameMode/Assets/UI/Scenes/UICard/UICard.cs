@@ -117,7 +117,7 @@ public partial class UICard : Control
 
     public void EditDamage(Card card)
     {
-        int damage = card.Damage;
+        int damage = card.BaseDamage;
         if (damage == 0) damage = 1;
         damageLabel.Text =  Math.Clamp(damage, 1, 100).ToString();
         if (card.DamageChanged) damageBuffedTexture.Visible = true;

@@ -137,11 +137,6 @@ public partial class Editors : VBoxContainer
 
         foreach (Card card in worldContext.WorldCards)
         {
-            if (card is BossCard boss)
-            {
-                GD.Print(boss.Name);
-                GD.Print(boss.BaseCard);
-            }
             gameMasterData.AddCardToWorldCards(card);
             if (Utility.WorldObjectListToNameList(worldContext.player.Collection).Contains(card.Name))
                 gameMasterData.AddCardToPlayerCollection(card);

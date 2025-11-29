@@ -1,17 +1,20 @@
-[gd_scene load_steps=13 format=3 uid="uid://dk32ss75ce3lw"]
+[gd_scene load_steps=14 format=3 uid="uid://dk32ss75ce3lw"]
 
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_bqwth"]
 [ext_resource type="Script" uid="uid://cqcurt0gop2t4" path="res://Assets/UI/Scenes/UICard/UICard.cs" id="1_mkdqw"]
 [ext_resource type="Texture2D" uid="uid://dcbyhic481tbl" path="res://Assets/Images/Cards/cards_base.png" id="1_tj12e"]
 [ext_resource type="Texture2D" uid="uid://b3mo4atbtgp7w" path="res://Assets/Images/Cards/cards_heart_base.png" id="3_2ja5q"]
+[ext_resource type="Texture2D" uid="uid://dly0u07sms4ow" path="res://Assets/Images/Cards/card_test_bg.png" id="3_7tf3n"]
 [ext_resource type="Texture2D" uid="uid://boja6vh76fs8h" path="res://Assets/Images/Entities/Heroes/char_hunter.png" id="3_bqwth"]
-[ext_resource type="Texture2D" uid="uid://22ju51isokfd" path="res://Assets/Images/Button/button_bgr_dark_tile_base.png" id="3_oddr5"]
 [ext_resource type="FontFile" uid="uid://bhu7r7x4jdi2e" path="res://Assets/Fonts/Alkhemikal.ttf" id="4_7tf3n"]
 [ext_resource type="Texture2D" uid="uid://ruoa1sjpbu7j" path="res://Assets/Images/Cards/cards_heart_buffed.png" id="4_40ahx"]
 [ext_resource type="Texture2D" uid="uid://doww5jvob8iw2" path="res://Assets/Images/Elements/NewElementSprites/fire.png" id="4_ndynx"]
 [ext_resource type="Texture2D" uid="uid://dnov8t4p650wk" path="res://Assets/Images/Cards/cards_axe_base.png" id="4_vyadu"]
-[ext_resource type="Texture2D" uid="uid://b8d3aqx88rk1q" path="res://Assets/Images/Cards/cards_border.png" id="5_ndynx"]
 [ext_resource type="Texture2D" uid="uid://bmiley3dm5mth" path="res://Assets/Images/Cards/cards_axe_buffed.png" id="6_4n0vk"]
+[ext_resource type="Texture2D" uid="uid://cg6yle726waxl" path="res://Assets/Images/Cards/new_cards_border.png" id="8_6tkes"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lkcg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Card" type="Control" node_paths=PackedStringArray("damageLabel", "healthLabel", "nameLabel", "charcaterIcon", "effectTexture", "elementTexture", "heartBuffedTexture", "damageBuffedTexture")]
 use_parent_material = true
@@ -41,13 +44,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0lkcg")
 
 [node name="Control" type="Control" parent="Panel"]
 use_parent_material = true
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="Panel/Control"]
-self_modulate = Color(0.78, 0.6708, 0.6708, 1)
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 15
@@ -55,7 +58,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_oddr5")
+texture = ExtResource("3_7tf3n")
 expand_mode = 1
 
 [node name="Name" type="Label" parent="Panel/Control"]
@@ -108,12 +111,11 @@ texture = ExtResource("4_ndynx")
 stretch_mode = 4
 
 [node name="Effect" type="TextureRect" parent="Panel/Control2"]
-modulate = Color(0.32, 0.0192, 0.0192, 1)
 use_parent_material = true
 layout_mode = 1
 offset_right = 84.0
 offset_bottom = 110.04
-texture = ExtResource("5_ndynx")
+texture = ExtResource("8_6tkes")
 stretch_mode = 5
 
 [node name="Heart" type="Control" parent="Panel/Control2"]

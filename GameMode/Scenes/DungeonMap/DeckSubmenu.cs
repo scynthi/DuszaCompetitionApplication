@@ -43,7 +43,7 @@ public partial class DeckSubmenu : Control
             if (child is UICard card)
             {
                 card.CardClicked += _OnCardPressed;
-
+                
             } else if (child is UIBossCard bossCard)
             {
                 bossCard.CardClicked += _OnCardPressed;
