@@ -29,6 +29,7 @@ public partial class ItemButton : Control
 
     private bool _isHovering = false;
 
+
     public override void _Ready()
     {
         _originalPosition = Position;

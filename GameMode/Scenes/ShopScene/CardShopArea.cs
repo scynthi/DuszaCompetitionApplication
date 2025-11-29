@@ -55,7 +55,7 @@ public partial class CardShopArea : Control
         return null;
     }
 
-    public async void _ReRolled()
+    public void _ReRolled()
     {
         if (animationPlayer.IsPlaying()) return;
         ShakeControl();
@@ -69,7 +69,7 @@ public partial class CardShopArea : Control
         animationWorldPlayer.Play("Flare");
     }
 
-    public async void _CardBought()
+    public void _CardBought()
     {
         if (animationPlayer.IsPlaying()) return;
         

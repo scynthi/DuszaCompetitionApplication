@@ -95,7 +95,7 @@ public partial class FightLogic : Node
 		{
 			ItemButton2VigyeElAMento btn = iconButtonScene.Instantiate<ItemButton2VigyeElAMento>();
 			btn.itemType = item.Type;
-			if (player.ReturnItemAmount(item) == 0) btn.Disabled = true;
+			if (player.ReturnItemAmount(item) == 0) btn.Disable();
 			btn.Send_Item += OnAddToItemListPressed;
 			IconContainer.AddChild(btn);
 		}
@@ -230,7 +230,7 @@ public partial class FightLogic : Node
 			
 			foreach (ItemButton2VigyeElAMento child in IconContainer.GetChildren())
 			{
-				if (player.ReturnItemAmount(Items.CreateItemFromType(child.itemType)) <= 0) child.Disabled = true;
+				if (player.ReturnItemAmount(Items.CreateItemFromType(child.itemType)) <= 0) child.Disable();
 			}
 		}
 		else if (!IsEnded)

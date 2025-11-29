@@ -1,16 +1,83 @@
-[gd_scene load_steps=3 format=3 uid="uid://cy0pttedf86kl"]
+[gd_scene load_steps=9 format=3 uid="uid://cy0pttedf86kl"]
 
 [ext_resource type="Script" uid="uid://d3jj04xwlrl87" path="res://Scripts/Buttons/ItemButton2VigyeElAMento.cs" id="1_e5ixn"]
+[ext_resource type="Texture2D" uid="uid://bvjhb1o33kk30" path="res://Assets/Images/Sign/bg_item.png" id="2_60juv"]
 [ext_resource type="PackedScene" uid="uid://fpu5astyeknw" path="res://Scenes/Miscs/Description.tscn" id="2_tfgjn"]
 
-[node name="ItemButton" type="Button" node_paths=PackedStringArray("descriptionBox")]
-custom_minimum_size = Vector2(150, 150)
-offset_right = 150.0
-offset_bottom = 150.0
-icon_alignment = 1
-expand_icon = true
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hrqro"]
+texture = ExtResource("2_60juv")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ae48k"]
+load_path = "res://.godot/imported/bg_item.png-210f4433b53cab33791418f4ba1f1935.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qu1am"]
+texture = SubResource("CompressedTexture2D_ae48k")
+modulate_color = Color(0.48, 0.48, 0.48, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tfgjn"]
+load_path = "res://.godot/imported/bg_item.png-210f4433b53cab33791418f4ba1f1935.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_60juv"]
+texture = SubResource("CompressedTexture2D_tfgjn")
+modulate_color = Color(0.53, 0.53, 0.53, 0.5019608)
+
+[node name="ItemButtonV2" type="Control" node_paths=PackedStringArray("descriptionBox", "iconHolder", "useButton")]
+custom_minimum_size = Vector2(120, 157)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 120.0
+offset_bottom = 157.0
 script = ExtResource("1_e5ixn")
 descriptionBox = NodePath("DescriptionBox")
+iconHolder = NodePath("TextureRect2")
+useButton = NodePath("Button")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_60juv")
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(75, 74)
+mouse_filter = 2
+stretch_mode = 4
 
 [node name="DescriptionBox" parent="." instance=ExtResource("2_tfgjn")]
+visible = false
 layout_mode = 0
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 0.916, 0.82, 1)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -52.0
+offset_top = -36.199997
+offset_right = 52.0
+grow_horizontal = 2
+grow_vertical = 0
+focus_mode = 0
+theme_override_font_sizes/font_size = 17
+theme_override_styles/normal = SubResource("StyleBoxTexture_hrqro")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_hrqro")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qu1am")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_60juv")
+text = "HASZNÁL"
+
+[connection signal="pressed" from="Button" to="." method="_UsePressed"]

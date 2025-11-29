@@ -545,7 +545,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_mdbkc")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_mdbkc")
 theme_override_styles/hover = SubResource("StyleBoxTexture_oygug")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_sdib0")
-text = "BUY"
+text = "VESZ"
 
 [node name="Panel" type="Panel" parent="ShomMenu/MarginContainer/Control/Control3/Control/HBoxContainer/Button2"]
 modulate = Color(1, 0.90466666, 0.48000002, 1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://nq0gnkgglhi6"]
+[gd_scene load_steps=36 format=3 uid="uid://nq0gnkgglhi6"]
 
 [ext_resource type="Script" uid="uid://jtuoap7qxnl5" path="res://Assets/Shaders/quantization_shader.gd" id="1_0n0gq"]
 [ext_resource type="PackedScene" uid="uid://b5vuktdck1ewt" path="res://Assets/Models/dungeonBackgroundMid.glb" id="1_7d0qi"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://chnum6s8tk8ah" path="res://Assets/Images/Backgrounds/main_menu_border.png" id="5_08x25"]
 [ext_resource type="Texture2D" uid="uid://0xqm5vwe7pb7" path="res://Assets/Images/Sign/SmallTextSign.png" id="6_1bvua"]
 [ext_resource type="Shader" uid="uid://dhbjn1laemwls" path="res://Assets/Shaders/portal.gdshader" id="6_08x25"]
+[ext_resource type="PackedScene" uid="uid://cy0pttedf86kl" path="res://Scenes/FightScene/ItemButtonPart2.tscn" id="7_1bvua"]
 
 [sub_resource type="Environment" id="Environment_sqp11"]
 ambient_light_source = 2
@@ -51,48 +52,10 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerCard:position")
+tracks/0/path = NodePath("Control/PlayerCard:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.33333337, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(228, 292), Vector2(897.99994, 310), Vector2(228, 292)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PlayerCard:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.33333337, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
-}
-tracks/2/type = "method"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../BattleManager")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [false],
-"method": &"DisplayAttack"
-}]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerCard:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.95, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
@@ -104,34 +67,10 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerCard:position")
+tracks/0/path = NodePath("Control/PlayerCard:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(228, 292)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PlayerCard:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerCard:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
@@ -147,25 +86,13 @@ _data = {
 [sub_resource type="Animation" id="Animation_xjksd"]
 resource_name = "DungeonAttack"
 length = 2.0
-tracks/0/type = "value"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("DungeonCard:position")
+tracks/0/path = NodePath("../../BattleManager")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(1070, 320), Vector2(1007, 196), Vector2(1070, 320)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../../BattleManager")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -176,18 +103,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_f6n1v"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DungeonCard:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1070, 320)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7d0qi"]
 _data = {
@@ -453,8 +368,8 @@ compositor = SubResource("Compositor_xwfv5")
 script = ExtResource("1_ugqt7")
 RoundText = NodePath("../CanvasLayer/Control/Round display")
 IconContainer = NodePath("../CanvasLayer/Control/BottomContainer/ItemButtonContainer")
-PlayerCardControl = NodePath("../CanvasLayer/Control/PlayerCard")
-EnemyCardControl = NodePath("../CanvasLayer/Control/DungeonCard")
+PlayerCardControl = NodePath("../CanvasLayer/Control/Control/PlayerCard")
+EnemyCardControl = NodePath("../CanvasLayer/Control/Control/DungeonCard")
 PlayerAnimPlayer = NodePath("../CanvasLayer/Control/Animations/Player")
 DungeonAnimPlayer = NodePath("../CanvasLayer/Control/Animations/Enemy")
 StepBattleButton = NodePath("../CanvasLayer/Control/BottomContainer/StepBattle")
@@ -494,22 +409,6 @@ offset_right = 100.0
 offset_bottom = 97.0
 script = ExtResource("4_7d0qi")
 
-[node name="PlayerCard" type="CenterContainer" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = 228.0
-offset_top = 292.0
-offset_right = 268.00012
-offset_bottom = 332.0003
-use_top_left = true
-
-[node name="DungeonCard" type="CenterContainer" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = 1070.0
-offset_top = 320.0
-offset_right = 1110.0005
-offset_bottom = 360.0
-use_top_left = true
-
 [node name="Animations" type="Node" parent="CanvasLayer/Control"]
 
 [node name="Player" type="AnimationPlayer" parent="CanvasLayer/Control/Animations"]
@@ -529,6 +428,46 @@ root_node = NodePath("../../../..")
 libraries = {
 &"": SubResource("AnimationLibrary_xwfv5")
 }
+
+[node name="Control" type="Control" parent="CanvasLayer/Control"]
+custom_minimum_size = Vector2(32.94, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -292.99994
+offset_top = -201.0
+offset_right = 293.0
+offset_bottom = 201.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerCard" type="CenterContainer" parent="CanvasLayer/Control/Control"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.000153
+offset_right = 40.000122
+offset_bottom = 20.000153
+grow_vertical = 2
+use_top_left = true
+
+[node name="DungeonCard" type="CenterContainer" parent="CanvasLayer/Control/Control"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.00049
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+use_top_left = true
 
 [node name="BottomContainer" type="Control" parent="CanvasLayer/Control"]
 layout_mode = 1
@@ -554,18 +493,27 @@ texture = ExtResource("6_1bvua")
 
 [node name="ItemButtonContainer" type="HBoxContainer" parent="CanvasLayer/Control/BottomContainer"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 17.0
-offset_right = -20.0
-offset_bottom = -37.0
+anchor_bottom = 0.5
+offset_top = -74.0
+offset_bottom = 83.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 44
 alignment = 1
+
+[node name="ItemButtonV2" parent="CanvasLayer/Control/BottomContainer/ItemButtonContainer" instance=ExtResource("7_1bvua")]
+layout_mode = 2
+
+[node name="ItemButtonV3" parent="CanvasLayer/Control/BottomContainer/ItemButtonContainer" instance=ExtResource("7_1bvua")]
+layout_mode = 2
+
+[node name="ItemButtonV4" parent="CanvasLayer/Control/BottomContainer/ItemButtonContainer" instance=ExtResource("7_1bvua")]
+layout_mode = 2
 
 [node name="StepBattle" type="Button" parent="CanvasLayer/Control/BottomContainer"]
 layout_mode = 1
@@ -623,7 +571,7 @@ transform = Transform3D(4.768689, 0, 0, 0, 2.2270384, 0, 0, 0, 1, 3.1174812, 6.5
 mesh = SubResource("CapsuleMesh_761tw")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(4.4144015, 0, 0.3782447, 0, 2.2270381, 0, -1.8037312, 0, 0.92570555, 7.08952, 5.307467, 8.555242)
+transform = Transform3D(4.768688, 0, 0, 0, 2.2270381, 0, 0, 0, 0.99999994, 7.08952, 5.307467, 8.555242)
 mesh = SubResource("CapsuleMesh_usdkp")
 
 [connection signal="pressed" from="CanvasLayer/Control/BottomContainer/StepBattle" to="BattleManager" method="OnButtonPressed"]

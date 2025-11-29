@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://duqvkh3tdlkve"]
+[gd_scene load_steps=8 format=3 uid="uid://duqvkh3tdlkve"]
 
 [ext_resource type="Texture2D" uid="uid://bvjhb1o33kk30" path="res://Assets/Images/Sign/bg_item.png" id="1_ae48k"]
 [ext_resource type="Script" uid="uid://cb3b81rshu7rf" path="res://Scripts/Buttons/ItemButton.cs" id="1_u21i3"]
@@ -6,6 +6,13 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_imdrp"]
 texture = ExtResource("1_ae48k")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ae48k"]
+load_path = "res://.godot/imported/bg_item.png-210f4433b53cab33791418f4ba1f1935.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_phcs4"]
+texture = SubResource("CompressedTexture2D_ae48k")
+modulate_color = Color(0.48, 0.48, 0.48, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2vms8"]
 texture = ExtResource("1_ae48k")
@@ -23,7 +30,7 @@ iconHolder = NodePath("TextureRect2")
 buyButton = NodePath("Button")
 
 [node name="Button" type="Button" parent="."]
-modulate = Color(0.853, 1, 0.82, 1)
+modulate = Color(1, 0.916, 0.82, 1)
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -36,11 +43,11 @@ offset_bottom = -59.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
-theme_override_font_sizes/font_size = 31
+theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxTexture_imdrp")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_imdrp")
-theme_override_styles/hover = SubResource("StyleBoxTexture_imdrp")
-text = "BUY"
+theme_override_styles/hover = SubResource("StyleBoxTexture_phcs4")
+text = "VESZ"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -69,7 +76,6 @@ grow_vertical = 2
 pivot_offset = Vector2(75, 74)
 mouse_filter = 2
 stretch_mode = 4
-metadata/_edit_use_anchors_ = true
 
 [node name="DescriptionBox" parent="." instance=ExtResource("2_v1xfx")]
 visible = false
