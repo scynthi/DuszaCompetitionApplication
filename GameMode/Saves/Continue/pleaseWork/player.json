@@ -1,15 +1,26 @@
 {
   "player": {
-    "Xp": 0,
-    "Money": 0,
+    "Xp": 65,
+    "Money": 55,
     "Collection": [
       {
         "Name": "Aple",
-        "Health": 6,
-        "BaseDamage": 7,
+        "Health": 8,
+        "BaseDamage": 9,
         "Damage": 7,
-        "DamageChanged": false,
-        "HealthChanged": false,
+        "DamageChanged": true,
+        "HealthChanged": true,
+        "CardElement": 0,
+        "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+        "buffHandler": {}
+      },
+      {
+        "Name": "Lord Aple",
+        "Health": 16,
+        "BaseDamage": 10,
+        "Damage": 7,
+        "DamageChanged": true,
+        "HealthChanged": true,
         "CardElement": 0,
         "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
         "buffHandler": {}
@@ -17,12 +28,12 @@
     ],
     "Deck": [
       {
-        "Name": "Aple",
-        "Health": 6,
-        "BaseDamage": 7,
+        "Name": "Lord Aple",
+        "Health": 16,
+        "BaseDamage": 10,
         "Damage": 7,
-        "DamageChanged": false,
-        "HealthChanged": false,
+        "DamageChanged": true,
+        "HealthChanged": true,
         "CardElement": 0,
         "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
         "buffHandler": {}

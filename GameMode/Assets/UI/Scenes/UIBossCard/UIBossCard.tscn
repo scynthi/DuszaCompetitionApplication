@@ -19,7 +19,7 @@ shader = ExtResource("11_42nie")
 shader_parameter/offset = Vector2(1.985, -58.04)
 shader_parameter/speed = 0.1770000084075
 
-[node name="Card" type="Control" node_paths=PackedStringArray("damageLabel", "healthLabel", "nameLabel", "charcaterIcon", "effectTexture", "elementTexture")]
+[node name="Card" type="Control" node_paths=PackedStringArray("damageLabel", "healthLabel", "nameLabel", "charcaterIcon", "effectTexture", "elementTexture", "heartBuffedTexture", "damageBuffedTexture")]
 custom_minimum_size = Vector2(168, 220)
 layout_mode = 3
 anchors_preset = 0
@@ -34,6 +34,8 @@ nameLabel = NodePath("Panel/Control/Name")
 charcaterIcon = NodePath("Panel/Control2/Character")
 effectTexture = NodePath("Panel/Control2/Effect")
 elementTexture = NodePath("Panel/Control2/Element")
+heartBuffedTexture = NodePath("Panel/Control2/Heart/HeartBuffedIcon")
+damageBuffedTexture = NodePath("Panel/Control2/Axe/AxeBuffedIcon")
 
 [node name="Panel" type="PanelContainer" parent="."]
 layout_mode = 1

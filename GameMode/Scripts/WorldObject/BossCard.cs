@@ -9,15 +9,18 @@ public partial class BossCard : Card
 
     public BossCard(BossCard other)
     {
-        Name        = other.Name;
-        Health      = other.Health;
-        Icon        = other.Icon;
-        BaseDamage  = other.BaseDamage;
-        Damage      = other.BaseDamage;
-        CardElement = other.CardElement;
-        BaseCard    = other.BaseCard;
-        Doubled     = other.Doubled;
-        buffHandler = new BuffHandler();
+        Name          = other.Name;
+        Health        = other.Health;
+        Icon          = other.Icon;
+        BaseDamage    = other.BaseDamage;
+        Damage        = other.BaseDamage;
+        CardElement   = other.CardElement;
+        BaseCard      = other.BaseCard;
+        Doubled       = other.Doubled;
+        DamageChanged = other.DamageChanged;
+        HealthChanged = other.HealthChanged;
+        Icon          = other.Icon;
+        buffHandler   = new BuffHandler();
         buffHandler.BindCard(this);
     }
 

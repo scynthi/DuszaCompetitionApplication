@@ -48,7 +48,7 @@ public class Player
     public bool TryAddCardToCollection(Card card)
     {
         foreach (Card colCard in Collection) if (colCard.Name == card.Name) return false;
-        Collection.Add(new Card(card));
+        Collection.Add(card is BossCard ? new BossCard(card as BossCard) : new Card(card));
         return true;
     }
 

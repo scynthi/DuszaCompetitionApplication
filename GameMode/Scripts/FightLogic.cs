@@ -51,7 +51,7 @@ public partial class FightLogic : Node
 		foreach (Card card in player.Deck) PlayerDeck.Add(card is BossCard ? new BossCard(card as BossCard) : new Card(card));
 		// foreach (Card card in Global.gameManager.saverLoader.currSaveFile.player.Deck) PlayerDeck.Add(new Card(card));
 		Dungeon dungeon = Utility.ReturnDungeonFromList(Global.gameManager.saverLoader.currSaveFile.WorldDungeons, Global.gameManager.saverLoader.currSaveFile.currDungeonName);
-		// DungeonDeck = dungeon.DungeonDeck;
+		// foreach (Card card in dungeon.DungeonDeck) DungeonDeck.Add(card is BossCard ? new BossCard(card as BossCard) : new Card(card));
 		reward = dungeon.DungeonReward;
 		type = dungeon.DungeonType;
 		LoadItemButtons(player.ItemList);
@@ -63,7 +63,7 @@ public partial class FightLogic : Node
 	private void ReasignPlayerCard()
 	{
 		if (PlayerDeck.Count > 0)
-		{
+	{
 			PlayerCard = PlayerDeck[0];
 			PlayerDeck.RemoveAt(0);
 			return;
