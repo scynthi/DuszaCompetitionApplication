@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ylv0hrx2ofka"]
+
+[ext_resource type="Texture2D" uid="uid://b1y7hb6ugsa1s" path="res://Assets/Images/Items/Hola.png" id="1_va5d8"]
+
+[node name="TextureRect" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_va5d8")
+stretch_mode = 3

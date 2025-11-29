@@ -16,3 +16,8 @@ If all is done:
 -Drag and Drop feature on deck
 -Make the fight scene look alright
 -Try making actual animations
+
+
+-Drag and Drop
+-XP min menu
+-Test test test

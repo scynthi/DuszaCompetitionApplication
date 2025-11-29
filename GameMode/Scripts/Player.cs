@@ -47,7 +47,7 @@ public class Player
 
     public bool TryAddCardToCollection(Card card)
     {
-        if (Collection.Contains(card)) return false;
+        foreach (Card colCard in Collection) if (colCard.Name == card.Name) return false;
         Collection.Add(new Card(card));
         return true;
     }
