@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://nq0gnkgglhi6"]
+[gd_scene load_steps=37 format=3 uid="uid://nq0gnkgglhi6"]
 
 [ext_resource type="Script" uid="uid://jtuoap7qxnl5" path="res://Assets/Shaders/quantization_shader.gd" id="1_0n0gq"]
 [ext_resource type="PackedScene" uid="uid://b5vuktdck1ewt" path="res://Assets/Models/dungeonBackgroundMid.glb" id="1_7d0qi"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://0xqm5vwe7pb7" path="res://Assets/Images/Sign/SmallTextSign.png" id="6_1bvua"]
 [ext_resource type="Shader" uid="uid://dhbjn1laemwls" path="res://Assets/Shaders/portal.gdshader" id="6_08x25"]
 [ext_resource type="PackedScene" uid="uid://cy0pttedf86kl" path="res://Scenes/FightScene/ItemButtonPart2.tscn" id="7_1bvua"]
+[ext_resource type="Texture2D" uid="uid://m17tp1m7b0s3" path="res://Assets/Images/Sign/winLoseBg.png" id="9_ogosy"]
 
 [sub_resource type="Environment" id="Environment_sqp11"]
 ambient_light_source = 2
@@ -539,6 +540,29 @@ mouse_filter = 2
 texture = ExtResource("5_08x25")
 expand_mode = 2
 stretch_mode = 4
+
+[node name="WinScreen" type="Control" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -443.0
+offset_top = -101.0
+offset_right = 443.0
+offset_bottom = 631.0
+grow_horizontal = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/WinScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_ogosy")
+expand_mode = 2
+stretch_mode = 6
 
 [node name="StyledCamera" parent="." instance=ExtResource("4_di4nr")]
 transform = Transform3D(0.101466104, 0.16231114, -0.98150885, 0.0006121213, 0.9865903, 0.16321474, 0.99483883, -0.01716157, 0.100006126, -14.596079, 7.3635592, 0.72757846)
