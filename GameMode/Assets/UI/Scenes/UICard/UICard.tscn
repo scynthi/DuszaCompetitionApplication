@@ -18,12 +18,13 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Card" type="Control" node_paths=PackedStringArray("damageLabel", "healthLabel", "nameLabel", "charcaterIcon", "effectTexture", "elementTexture", "heartBuffedTexture", "damageBuffedTexture")]
 use_parent_material = true
-custom_minimum_size = Vector2(107.52, 140.8)
+custom_minimum_size = Vector2(101, 130)
 layout_mode = 3
-anchors_preset = 0
-offset_right = 168.0
-offset_bottom = 220.0
-scale = Vector2(0.64, 0.678)
+anchor_right = 0.11800001
+anchor_bottom = 0.29200003
+offset_right = 32.227997
+offset_bottom = 27.92308
+scale = Vector2(1, 1.059)
 theme = ExtResource("1_bqwth")
 script = ExtResource("1_mkdqw")
 damageLabel = NodePath("Panel/Control2/Axe/Damage")
@@ -42,8 +43,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 88.66667
+offset_bottom = 112.05539
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.6, 0.6)
 theme_override_styles/panel = SubResource("StyleBoxFlat_0lkcg")
 
 [node name="Control" type="Control" parent="Panel"]
@@ -64,10 +68,10 @@ expand_mode = 1
 [node name="Name" type="Label" parent="Panel/Control"]
 use_parent_material = true
 layout_mode = 0
-offset_left = 72.0
-offset_top = -1.8885741
-offset_right = 162.0
-offset_bottom = 52.665726
+offset_left = 103.33333
+offset_top = 11.016683
+offset_right = 193.33334
+offset_bottom = 65.570984
 theme_override_constants/line_spacing = 0
 theme_override_fonts/font = ExtResource("4_7tf3n")
 theme_override_font_sizes/font_size = 19
@@ -84,10 +88,10 @@ layout_mode = 2
 use_parent_material = true
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
-offset_left = 8.0
-offset_top = 67.98867
-offset_right = 158.0
-offset_bottom = 217.98868
+offset_left = 23.333332
+offset_top = 97.576324
+offset_right = 190.00002
+offset_bottom = 269.12183
 texture = ExtResource("3_bqwth")
 expand_mode = 1
 stretch_mode = 6
@@ -95,8 +99,8 @@ stretch_mode = 6
 [node name="Base" type="TextureRect" parent="Panel/Control2"]
 use_parent_material = true
 layout_mode = 0
-offset_right = 84.0
-offset_bottom = 110.0
+offset_right = 211.66667
+offset_bottom = 269.12183
 texture = ExtResource("1_tj12e")
 stretch_mode = 5
 
@@ -113,8 +117,8 @@ stretch_mode = 4
 [node name="Effect" type="TextureRect" parent="Panel/Control2"]
 use_parent_material = true
 layout_mode = 1
-offset_right = 84.0
-offset_bottom = 110.04
+offset_right = 211.66667
+offset_bottom = 280.1385
 texture = ExtResource("8_6tkes")
 stretch_mode = 5
 
@@ -122,10 +126,10 @@ stretch_mode = 5
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 0
-offset_left = 6.0
-offset_top = 171.86024
-offset_right = 6.0
-offset_bottom = 171.86024
+offset_left = 11.666666
+offset_top = 210.89076
+offset_right = 11.666666
+offset_bottom = 210.89076
 
 [node name="HeartIcon" type="TextureRect" parent="Panel/Control2/Heart"]
 use_parent_material = true
@@ -161,10 +165,10 @@ horizontal_alignment = 1
 use_parent_material = true
 layout_mode = 1
 anchors_preset = 0
-offset_left = 113.0
-offset_top = 165.25024
-offset_right = 113.0
-offset_bottom = 165.25024
+offset_left = 153.33333
+offset_top = 210.89076
+offset_right = 153.33333
+offset_bottom = 210.89076
 
 [node name="AxeIcon" type="TextureRect" parent="Panel/Control2/Axe"]
 use_parent_material = true
@@ -199,9 +203,10 @@ horizontal_alignment = 1
 z_index = 1
 use_parent_material = true
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 0.60700005
+anchor_bottom = 0.57900006
+offset_right = 0.023994446
+offset_bottom = 0.98205566
 grow_horizontal = 2
 grow_vertical = 2
 
