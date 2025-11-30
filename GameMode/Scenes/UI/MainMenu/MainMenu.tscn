@@ -139,7 +139,7 @@ length = 0.75
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control:position:x")
+tracks/0/path = NodePath("LeftBoard:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -167,7 +167,7 @@ length = 0.001
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control:position:x")
+tracks/0/path = NodePath("LeftBoard:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1047,18 +1047,18 @@ offset_right = 692.1
 offset_bottom = 25.0
 texture = ExtResource("17_2jg2i")
 
-[node name="Control" type="Control" parent="."]
+[node name="LeftBoard" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -90.0
-offset_right = 214.10257
+offset_right = 252.56412
 offset_bottom = 162.56412
 grow_vertical = 2
 scale = Vector2(0.78, 0.78)
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="TextureRect" type="TextureRect" parent="LeftBoard"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1069,7 +1069,7 @@ grow_vertical = 2
 texture = ExtResource("21_icc81")
 expand_mode = 1
 
-[node name="Master" type="Button" parent="Control"]
+[node name="Master" type="Button" parent="LeftBoard"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1086,7 +1086,7 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 20
 text = "Belépés"
 
-[node name="Label" type="Label" parent="Control"]
+[node name="Label" type="Label" parent="LeftBoard"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1126,4 +1126,4 @@ libraries = {
 [connection signal="pressed" from="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/Button" to="MenuContainer/NewGameMenu" method="_OnStartPressed"]
 [connection signal="pressed" from="MenuContainer/NewGameMenu/Control/BackButton" to="." method="ButtonPressed" binds= ["main"]]
 [connection signal="pressed" from="MenuContainer/ContinueGameMenu/Control/Button" to="." method="ButtonPressed" binds= ["main"]]
-[connection signal="pressed" from="Control/Master" to="." method="ButtonPressed" binds= ["editor"]]
+[connection signal="pressed" from="LeftBoard/Master" to="." method="ButtonPressed" binds= ["editor"]]

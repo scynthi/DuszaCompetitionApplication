@@ -21,7 +21,7 @@ shader_parameter/scroll_speed = Vector2(0.1, -0.1)
 shader_parameter/alpha = 1.0
 
 [node name="Card" type="Control" node_paths=PackedStringArray("damageLabel", "healthLabel", "nameLabel", "charcaterIcon", "effectTexture", "elementTexture", "heartBuffedTexture", "damageBuffedTexture")]
-custom_minimum_size = Vector2(134, 170)
+custom_minimum_size = Vector2(160, 203)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 133.0
@@ -40,11 +40,11 @@ damageBuffedTexture = NodePath("Panel/Control2/Axe/AxeBuffedIcon")
 
 [node name="Panel" type="PanelContainer" parent="."]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 34.197464
-offset_bottom = 44.314224
+offset_right = 41.03505
+offset_bottom = 60.04416
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.785, 0.785)
@@ -67,15 +67,14 @@ expand_mode = 1
 
 [node name="Name" type="Label" parent="Panel/Control"]
 layout_mode = 0
-offset_left = 73.0
-offset_top = 5.6657295
-offset_right = 161.0
-offset_bottom = 58.545803
+offset_left = 87.57962
+offset_top = 9.394435
+offset_right = 191.08281
+offset_bottom = 73.27658
 theme_override_constants/line_spacing = 1
 theme_override_font_sizes/font_size = 16
 text = "Lord Please Hold"
 horizontal_alignment = 1
-vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="Control2" type="Control" parent="Panel"]
@@ -86,16 +85,16 @@ custom_minimum_size = Vector2(150, 150)
 layout_mode = 0
 offset_left = 9.0
 offset_top = 67.04439
-offset_right = 159.0
-offset_bottom = 217.04439
+offset_right = 195.0637
+offset_bottom = 255.52861
 texture = ExtResource("3_gxnqs")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="Base" type="TextureRect" parent="Panel/Control2"]
 layout_mode = 0
-offset_right = 84.0
-offset_bottom = 110.0
+offset_right = 201.03505
+offset_bottom = 259.2864
 texture = ExtResource("4_j3uay")
 stretch_mode = 5
 
@@ -110,18 +109,18 @@ stretch_mode = 4
 
 [node name="Effect" type="TextureRect" parent="Panel/Control2"]
 layout_mode = 1
-offset_right = 168.0
-offset_bottom = 220.0
+offset_right = 201.03505
+offset_bottom = 261.16528
 texture = ExtResource("6_gxnqs")
 stretch_mode = 5
 
 [node name="Heart" type="Control" parent="Panel/Control2"]
 layout_mode = 1
 anchors_preset = 0
-offset_left = 12.0
-offset_top = 167.13882
-offset_right = 12.0
-offset_bottom = 167.13882
+offset_left = 13.933121
+offset_top = 204.79868
+offset_right = 13.933121
+offset_bottom = 204.79868
 
 [node name="HeartIcon" type="TextureRect" parent="Panel/Control2/Heart"]
 layout_mode = 0
@@ -153,10 +152,10 @@ horizontal_alignment = 1
 [node name="Axe" type="Control" parent="Panel/Control2"]
 layout_mode = 1
 anchors_preset = 0
-offset_left = 113.0
-offset_top = 164.30595
-offset_right = 113.0
-offset_bottom = 164.30595
+offset_left = 143.3121
+offset_top = 202.91978
+offset_right = 143.3121
+offset_bottom = 202.91978
 
 [node name="AxeIcon" type="TextureRect" parent="Panel/Control2/Axe"]
 layout_mode = 0
