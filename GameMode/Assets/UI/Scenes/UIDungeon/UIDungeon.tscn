@@ -31,7 +31,7 @@ nameRichText = NodePath("VBox/Label")
 nameLabel = NodePath("VBox/CenterContainer/VBoxContainer/UILabel")
 iconTexture = NodePath("VBox/CenterContainer/VBoxContainer/TextureRect")
 enterButton = NodePath("VBox/CenterContainer/VBoxContainer/Button")
-ClickCatcher = NodePath("Dungeon")
+ClickCatcher = NodePath("Dungeon/Button")
 
 [node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -90,6 +90,7 @@ anchor_bottom = 1.0
 offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Button" type="Button" parent="Dungeon"]
 use_parent_material = true
@@ -104,4 +105,5 @@ offset_bottom = -27.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
+mouse_filter = 2
 flat = true
