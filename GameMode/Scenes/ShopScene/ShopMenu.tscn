@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cuurdm1a62s0y"]
+[gd_scene load_steps=38 format=3 uid="uid://cuurdm1a62s0y"]
 
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_mfnun"]
 [ext_resource type="Script" uid="uid://c2dg2wfyc6tix" path="res://Scenes/ShopScene/ShomMenu.cs" id="2_knrar"]
@@ -15,17 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://bvjhb1o33kk30" path="res://Assets/Images/Sign/bg_item.png" id="12_1sr2e"]
 [ext_resource type="PackedScene" uid="uid://c67e3kgjql3x4" path="res://Scenes/Miscs/BackToMapBtn.tscn" id="13_dkgyj"]
 [ext_resource type="Texture2D" uid="uid://chnum6s8tk8ah" path="res://Assets/Images/Backgrounds/main_menu_border.png" id="14_8xb7w"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r66ni"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.36662653, 0.21088445, 1.92523e-07, 0.6)
-corner_radius_top_left = 25
-corner_radius_top_right = 25
-corner_radius_bottom_left = 25
-corner_detail = 5
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_h37rh"]
 
@@ -182,45 +171,33 @@ layout_mode = 2
 [node name="Control" type="Control" parent="MarginContainer/Control"]
 custom_minimum_size = Vector2(75, 75)
 layout_mode = 1
-anchors_preset = 0
-offset_left = 80.0
-offset_top = 18.0
-offset_right = 500.0
-offset_bottom = 93.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -393.0
+offset_right = -160.0
+offset_bottom = 75.0
+grow_horizontal = 2
 
 [node name="TextureRect2" type="TextureRect" parent="MarginContainer/Control/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -30.0
-offset_top = -20.0
-offset_right = -27.0
-offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_ba6a6")
-expand_mode = 1
+expand_mode = 2
 flip_v = true
-
-[node name="Panel" type="Panel" parent="MarginContainer/Control/Control"]
-visible = false
-clip_contents = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_r66ni")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/Control/Control"]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_top = 7.5
-offset_right = 75.0
-offset_bottom = 7.5
+offset_left = 20.0
+offset_top = 27.5
+offset_right = 55.0
+offset_bottom = -12.5
 grow_vertical = 2
 texture = ExtResource("4_b6s5s")
 expand_mode = 1
@@ -231,13 +208,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 78.0
-offset_top = -3.0
-offset_right = 400.0
-offset_bottom = 18.0
+offset_left = 70.0
+offset_top = 21.0
+offset_right = -9.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 text = "121213"
 vertical_alignment = 1
 clip_text = true
@@ -250,10 +227,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -550.0
-offset_top = 68.0
-offset_right = 550.0
-offset_bottom = 233.0
+offset_left = -339.0
+offset_top = 42.0
+offset_right = 339.0
+offset_bottom = 191.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -264,10 +241,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -651.0
-offset_top = -132.5
-offset_right = 651.0
-offset_bottom = 132.5
+offset_left = -434.81885
+offset_top = -88.5
+offset_right = 434.81885
+offset_bottom = 88.5
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -278,25 +255,33 @@ expand_mode = 1
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = 47.0
-offset_right = 709.0
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 478.0
+offset_bottom = -26.0
 grow_vertical = 2
 
 [node name="ItemButton" parent="MarginContainer/Control/Control3/Control2" instance=ExtResource("6_e1hsy")]
-layout_mode = 0
-offset_left = 28.0
-offset_right = 178.0
+layout_mode = 1
 
 [node name="ItemButton2" parent="MarginContainer/Control/Control3/Control2" instance=ExtResource("6_e1hsy")]
-layout_mode = 0
-offset_left = 251.0
-offset_right = 401.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -75.0
+offset_right = 75.0
+grow_horizontal = 2
 itemType = 1
 
 [node name="ItemButton3" parent="MarginContainer/Control/Control3/Control2" instance=ExtResource("6_e1hsy")]
-layout_mode = 0
-offset_left = 471.0
-offset_right = 621.0
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -150.0
+offset_right = 0.0
+grow_horizontal = 0
 itemType = 2
 
 [node name="Control" type="Control" parent="MarginContainer/Control/Control3" node_paths=PackedStringArray("animationPlayer", "cardHolder", "reRollButton", "buyButton", "moneyLabel", "buyPriceLabel")]
@@ -305,9 +290,10 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -359.0
-offset_top = -150.0
-offset_right = -63.0
+offset_left = -219.0
+offset_top = -95.0
+offset_right = 1.0
+offset_bottom = -7.0
 grow_horizontal = 0
 grow_vertical = 2
 script = ExtResource("7_d8b31")
@@ -358,13 +344,15 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -62.0
+offset_left = 6.0
+offset_top = -49.0
+offset_right = -6.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
 
 [node name="Button" type="Button" parent="MarginContainer/Control/Control3/Control/HBoxContainer"]
-custom_minimum_size = Vector2(75, 0)
+custom_minimum_size = Vector2(50.82, 0)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 23
@@ -378,9 +366,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 10.432392
+offset_left = 6.419979
 offset_top = 10.0
-offset_right = -10.432392
+offset_right = -6.419979
 offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -416,10 +404,10 @@ vertical_alignment = 1
 
 [node name="Button2" type="Button" parent="MarginContainer/Control/Control3/Control/HBoxContainer"]
 show_behind_parent = true
-custom_minimum_size = Vector2(118.66, 71.235)
+custom_minimum_size = Vector2(88.91, 27.37)
 layout_mode = 2
 focus_mode = 0
-theme_override_font_sizes/font_size = 31
+theme_override_font_sizes/font_size = 21
 theme_override_styles/normal = SubResource("StyleBoxTexture_mdbkc")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_mdbkc")
 theme_override_styles/hover = SubResource("StyleBoxTexture_oygug")
@@ -469,9 +457,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -208.0
-offset_top = -86.0
-offset_right = 208.0
+offset_left = -149.0
+offset_top = -51.0
+offset_right = 149.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -480,9 +469,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 45.0
-offset_top = -10.0
-offset_right = -45.0
+offset_left = 42.0
+offset_top = -2.0
+offset_right = -42.0
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -491,10 +480,12 @@ expand_mode = 1
 
 [node name="Button" parent="MarginContainer/Control/BottomThing" instance=ExtResource("13_dkgyj")]
 layout_mode = 1
-offset_left = -152.0
-offset_top = -39.0
-offset_right = 152.0
-offset_bottom = 25.0
+offset_left = -100.0
+offset_top = -23.0
+offset_right = 100.0
+offset_bottom = 19.0
+theme_override_font_sizes/font_size = 18
+text = "          Vissza a térképre"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
