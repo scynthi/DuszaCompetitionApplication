@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cd7wdb77hi6lr"]
+[gd_scene load_steps=42 format=3 uid="uid://cd7wdb77hi6lr"]
 
 [ext_resource type="Script" uid="uid://crrjwkdrkhon6" path="res://Scenes/UI/MainMenu/MainMenu.cs" id="1_cdkru"]
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_gwdte"]
@@ -25,7 +25,6 @@
 [ext_resource type="Texture2D" uid="uid://b31wx6rq4vo4x" path="res://Assets/Images/Button/bin.png" id="17_aofk4"]
 [ext_resource type="Texture2D" uid="uid://542t5jekr6vj" path="res://Assets/Images/Sign/actualContinueBG.png" id="20_8rr3h"]
 [ext_resource type="Texture2D" uid="uid://cdtjgld3v13k3" path="res://Assets/Images/Sign/EditorSign.png" id="21_icc81"]
-[ext_resource type="PackedScene" uid="uid://dk32ss75ce3lw" path="res://Assets/UI/Scenes/UICard/UICard.tscn" id="26_xqefr"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vwuc7"]
 font_size = 96
@@ -1111,13 +1110,6 @@ libraries = {
 libraries = {
 &"": SubResource("AnimationLibrary_phq1f")
 }
-
-[node name="Card" parent="." instance=ExtResource("26_xqefr")]
-layout_mode = 1
-offset_left = 662.5195
-offset_top = 196.56065
-offset_right = 827.5195
-offset_bottom = 401.56067
 
 [connection signal="pressed" from="MenuContainer/MainMenu/Items/ButtonBox/Continue" to="." method="ButtonPressed" binds= ["continue"]]
 [connection signal="pressed" from="MenuContainer/MainMenu/Items/ButtonBox/NewGame" to="." method="ButtonPressed" binds= ["newgame"]]

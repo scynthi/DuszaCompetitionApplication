@@ -227,7 +227,6 @@ CurrentMenuMessage = NodePath("../../../../../../MessageContainer/MarginContaine
 ExistErrorPopup = NodePath("../../../../../../ExistentialCrisisError")
 
 [node name="CardEditor" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("card")]
-visible = false
 layout_mode = 2
 alignment = 1
 script = ExtResource("1_4ikgl")
@@ -239,7 +238,6 @@ alignment = 1
 
 [node name="Card" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/VBoxContainer" instance=ExtResource("1_nonii")]
 use_parent_material = false
-custom_minimum_size = Vector2(133.165, 166.39)
 layout_mode = 2
 
 [node name="Properties" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor"]
@@ -384,6 +382,7 @@ size_flags_vertical = 3
 columns = 4
 
 [node name="DungeonEditor" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeon", "rewardType", "saveButton", "dungeonDeck", "worldCards")]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
