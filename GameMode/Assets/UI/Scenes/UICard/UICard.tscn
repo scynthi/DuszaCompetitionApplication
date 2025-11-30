@@ -17,7 +17,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Card" type="Control" node_paths=PackedStringArray("damageLabel", "healthLabel", "nameLabel", "charcaterIcon", "effectTexture", "elementTexture", "heartBuffedTexture", "damageBuffedTexture")]
 use_parent_material = true
-custom_minimum_size = Vector2(160, 203)
+custom_minimum_size = Vector2(165, 205)
 layout_mode = 3
 anchor_left = 0.001
 anchor_right = 0.001

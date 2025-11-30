@@ -21,12 +21,12 @@ shader_parameter/scroll_speed = Vector2(0.1, -0.1)
 shader_parameter/alpha = 1.0
 
 [node name="Card" type="Control" node_paths=PackedStringArray("damageLabel", "healthLabel", "nameLabel", "charcaterIcon", "effectTexture", "elementTexture", "heartBuffedTexture", "damageBuffedTexture")]
-custom_minimum_size = Vector2(160, 203)
+custom_minimum_size = Vector2(165, 205)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 133.0
 offset_bottom = 168.0
-scale = Vector2(0.64, 0.678)
+scale = Vector2(1, 1.059)
 theme = ExtResource("1_fm8t1")
 script = ExtResource("2_j2uvf")
 damageLabel = NodePath("Panel/Control2/Axe/Damage")
