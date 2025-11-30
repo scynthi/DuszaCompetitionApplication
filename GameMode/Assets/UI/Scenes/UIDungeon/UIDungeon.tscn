@@ -38,8 +38,13 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 44.0
+offset_right = 126.0
+offset_bottom = 102.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.61, 0.61)
 alignment = 1
 
 [node name="Label" type="Label" parent="VBox"]
@@ -62,7 +67,7 @@ layout_mode = 2
 [node name="UILabel" type="Label" parent="VBox/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_wh81g")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 40
 text = "Teszt Kazamata"
 horizontal_alignment = 1
 
@@ -87,7 +92,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = 7.0
+offset_left = 72.0
+offset_top = 85.0
+offset_right = -72.0
+offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -98,10 +106,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 26.0
-offset_top = 44.0
-offset_right = -25.0
-offset_bottom = -27.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_mode = 0
