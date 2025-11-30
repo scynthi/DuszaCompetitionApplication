@@ -234,6 +234,7 @@ size_flags_vertical = 3
 columns = 4
 
 [node name="CardEditor" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("card")]
+visible = false
 layout_mode = 2
 alignment = 1
 script = ExtResource("1_4ikgl")
@@ -365,7 +366,6 @@ size_flags_vertical = 3
 columns = 4
 
 [node name="DungeonEditor" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeon", "rewardType", "saveButton", "dungeonDeck", "worldCards")]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
@@ -374,7 +374,7 @@ dungeon = NodePath("VBoxContainer/HBoxContainer/UIDungeon")
 rewardType = NodePath("VBoxContainer/HBoxContainer/MarginContainer/Properties/RewardType")
 saveButton = NodePath("VBoxContainer/HBoxContainer/MarginContainer/Properties/Save")
 dungeonDeck = NodePath("VBoxContainer/HBoxContainer/DungeonContainer")
-worldCards = NodePath("VBoxContainer/WorldCardhOlder/ScrollContainer/WorldCards")
+worldCards = NodePath("VBoxContainer/WorldCardhOlder/HBoxContainer/ScrollContainer/WorldCards")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor"]
 layout_mode = 2
@@ -433,21 +433,26 @@ text = "Mentés"
 [node name="DungeonContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("ConnectedInventory") instance=ExtResource("15_e5lfn")]
 custom_minimum_size = Vector2(320, 200)
 layout_mode = 2
-ConnectedInventory = NodePath("../../WorldCardhOlder/ScrollContainer/WorldCards")
+ConnectedInventory = NodePath("../../WorldCardhOlder/HBoxContainer/ScrollContainer/WorldCards")
 AmountOfCols = 3
 ScaleDown = 2.0
 
 [node name="WorldCardhOlder" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer"]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/WorldCardhOlder"]
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/WorldCardhOlder"]
+layout_mode = 2
+alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/WorldCardhOlder/HBoxContainer"]
 custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="WorldCards" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/WorldCardhOlder/ScrollContainer" node_paths=PackedStringArray("ConnectedInventory") instance=ExtResource("15_e5lfn")]
+[node name="WorldCards" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/WorldCardhOlder/HBoxContainer/ScrollContainer" node_paths=PackedStringArray("ConnectedInventory") instance=ExtResource("15_e5lfn")]
 layout_mode = 2
-ConnectedInventory = NodePath("../../../HBoxContainer/DungeonContainer")
+ConnectedInventory = NodePath("../../../../HBoxContainer/DungeonContainer")
+AmountOfCols = 4
 
 [node name="DungeonViewer" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeonHolder")]
 visible = false
