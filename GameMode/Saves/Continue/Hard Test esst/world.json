@@ -1,7 +1,18 @@
 {
   "WorldCards": [
     {
-      "Name": "123",
+      "Name": "Mesterk 1",
+      "Health": 10,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "Mesterk 2",
       "Health": 1,
       "BaseDamage": 1,
       "Damage": 1,
@@ -12,7 +23,7 @@
       "buffHandler": {}
     },
     {
-      "Name": "1231",
+      "Name": "Mesterk 3",
       "Health": 1,
       "BaseDamage": 1,
       "Damage": 1,
@@ -23,7 +34,7 @@
       "buffHandler": {}
     },
     {
-      "Name": "12311",
+      "Name": "Mesterk 4",
       "Health": 1,
       "BaseDamage": 1,
       "Damage": 1,
@@ -34,7 +45,7 @@
       "buffHandler": {}
     },
     {
-      "Name": "123111",
+      "Name": "Mesterk 5",
       "Health": 1,
       "BaseDamage": 1,
       "Damage": 1,
@@ -45,7 +56,7 @@
       "buffHandler": {}
     },
     {
-      "Name": "1231111",
+      "Name": "Mesterk 6",
       "Health": 1,
       "BaseDamage": 1,
       "Damage": 1,
@@ -56,7 +67,7 @@
       "buffHandler": {}
     },
     {
-      "Name": "12311111",
+      "Name": "Mesterk 7",
       "Health": 1,
       "BaseDamage": 1,
       "Damage": 1,
@@ -67,7 +78,7 @@
       "buffHandler": {}
     },
     {
-      "Name": "123111111",
+      "Name": "Mesterk 8",
       "Health": 1,
       "BaseDamage": 1,
       "Damage": 1,
@@ -78,7 +89,7 @@
       "buffHandler": {}
     },
     {
-      "Name": "1231111111",
+      "Name": "Mesterk 9",
       "Health": 1,
       "BaseDamage": 1,
       "Damage": 1,
@@ -89,7 +100,7 @@
       "buffHandler": {}
     },
     {
-      "Name": "12311111111",
+      "Name": "Mesterk 10",
       "Health": 1,
       "BaseDamage": 1,
       "Damage": 1,
@@ -100,7 +111,7 @@
       "buffHandler": {}
     },
     {
-      "Name": "123111111111",
+      "Name": "Mesterk 11",
       "Health": 1,
       "BaseDamage": 1,
       "Damage": 1,
@@ -111,41 +122,20 @@
       "buffHandler": {}
     },
     {
-      "Name": "1231111111111",
-      "Health": 1,
-      "BaseDamage": 1,
-      "Damage": 1,
-      "DamageChanged": false,
-      "HealthChanged": false,
-      "CardElement": 3,
-      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
-      "buffHandler": {}
-    },
-    {
-      "Name": "12311111111111",
-      "Health": 1,
-      "BaseDamage": 1,
-      "Damage": 1,
-      "DamageChanged": false,
-      "HealthChanged": false,
-      "CardElement": 3,
-      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
-      "buffHandler": {}
-    },
-    {
-      "Name": "123111111111111",
-      "Health": 1,
-      "BaseDamage": 1,
-      "Damage": 1,
-      "DamageChanged": false,
-      "HealthChanged": false,
-      "CardElement": 3,
-      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
-      "buffHandler": {}
-    },
-    {
-      "Name": "1231111111111111",
-      "Health": 1,
+      "$type": "boss",
+      "BaseCard": {
+        "Name": "Mesterk 2",
+        "Health": 1,
+        "BaseDamage": 1,
+        "Damage": 1,
+        "DamageChanged": false,
+        "HealthChanged": false,
+        "CardElement": 3,
+        "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+        "buffHandler": {}
+      },
+      "Name": "Lord Mesterk 2",
+      "Health": 2,
       "BaseDamage": 1,
       "Damage": 1,
       "DamageChanged": false,
@@ -157,15 +147,9 @@
   ],
   "WorldDungeons": [
     {
-      "Name": "Szipi szupi dung",
-      "DungeonType": 0,
+      "Name": "Teszt Kazamata",
+      "DungeonType": 2,
       "DungeonReward": 0,
-      "DungeonDeck": []
-    },
-    {
-      "Name": "Powerara",
-      "DungeonType": 1,
-      "DungeonReward": 1,
       "DungeonDeck": []
     }
   ]

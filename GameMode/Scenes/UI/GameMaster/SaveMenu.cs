@@ -68,6 +68,8 @@ public partial class SaveMenu : HBoxContainer
 	public void CreatAbort()
     {
 		Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+		Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.DeleteSounds.PickRandom());
+
 
         warningMenu.Visible = false;
 		_CurrSaveName = "";

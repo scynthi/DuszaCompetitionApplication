@@ -35,7 +35,11 @@ public partial class GameManager : Node
 
     public async Task ChangeWorldScene(StringName newScenePath)
     {
+        audioController.PlaySFX(Global.gameManager.audioController.audioBank.transitionSounds[0]);
+
+
         transitionAnimator.Play("SceneTransition");
+        
 
         await ToSignal(transitionAnimator, AnimationPlayer.SignalName.AnimationFinished);
 
@@ -49,6 +53,7 @@ public partial class GameManager : Node
         currentWorldScene = newScene;
 
         transitionAnimator.Play("SceneTransitionOut");
+        audioController.PlaySFX(Global.gameManager.audioController.audioBank.transitionSounds[1]);
     }
 
 }

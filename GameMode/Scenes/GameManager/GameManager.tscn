@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://b7ju5ebcspygg"]
+[gd_scene load_steps=59 format=3 uid="uid://b7ju5ebcspygg"]
 
 [ext_resource type="Script" uid="uid://c6x1xajmkurav" path="res://Scenes/GameManager/GameManager.cs" id="1_jmpc8"]
 [ext_resource type="Texture2D" uid="uid://d4cj5qnd8tha3" path="res://Assets/Images/Textures/PaperTex.png" id="2_pbnlu"]
@@ -19,10 +19,12 @@
 [ext_resource type="AudioStream" uid="uid://ncxphfsj8kps" path="res://Assets/Audio/SoundEffects/hover/wood_hover (2).wav" id="15_5017c"]
 [ext_resource type="AudioStream" uid="uid://try28vhsv3kg" path="res://Assets/Audio/SoundEffects/hover/wood_hover (3).wav" id="16_bldnn"]
 [ext_resource type="AudioStream" uid="uid://cfcuefqv1kmop" path="res://Assets/Audio/SoundEffects/death/sound_death.wav" id="17_ghclm"]
-[ext_resource type="AudioStream" uid="uid://dk1oyxh8x44ku" path="res://Assets/Audio/SoundEffects/draw/sound_draw.wav" id="18_fuq8d"]
 [ext_resource type="AudioStream" uid="uid://sgca2wh8qtpf" path="res://Assets/Audio/SoundEffects/attack/attack (1).wav" id="19_dwqbh"]
+[ext_resource type="AudioStream" uid="uid://dgj7hugrea2ok" path="res://Assets/Audio/SoundEffects/card_draw/CardDraw3.wav" id="20_u1lok"]
 [ext_resource type="AudioStream" uid="uid://dvly5k4ku0v8y" path="res://Assets/Audio/SoundEffects/attack/attack (2).wav" id="20_yh7xr"]
 [ext_resource type="AudioStream" uid="uid://idcv7223d7jo" path="res://Assets/Audio/SoundEffects/levelup/sound_level_up.wav" id="21_qvjl3"]
+[ext_resource type="AudioStream" uid="uid://bs3fgbusrlyyq" path="res://Assets/Audio/SoundEffects/card_draw/CardDraw 2.wav" id="21_vqyv5"]
+[ext_resource type="AudioStream" uid="uid://dtoxcnqd50fpm" path="res://Assets/Audio/SoundEffects/card_draw/CardDraw.wav" id="22_r850y"]
 [ext_resource type="AudioStream" uid="uid://c3rr1xhve48tc" path="res://Assets/Audio/SoundEffects/fight/sound_win.wav" id="22_w8mb3"]
 [ext_resource type="AudioStream" uid="uid://oya486vh72rd" path="res://Assets/Audio/SoundEffects/fight/sound_lose.wav" id="23_154qo"]
 [ext_resource type="Script" uid="uid://cedlsepu42pqa" path="res://Scripts/SaveLoad/SaverLoader.cs" id="24_hvyv7"]
@@ -30,11 +32,22 @@
 [ext_resource type="PackedScene" uid="uid://dk32ss75ce3lw" path="res://Assets/UI/Scenes/UICard/UICard.tscn" id="26_gtxkj"]
 [ext_resource type="PackedScene" uid="uid://dsnbg78nbu0vo" path="res://Assets/UI/Scenes/UIBossCard/UIBossCard.tscn" id="27_ruywd"]
 [ext_resource type="PackedScene" uid="uid://bkxac5mrr13pu" path="res://Assets/UI/Scenes/UIDungeon/UIDungeon.tscn" id="28_gtxkj"]
+[ext_resource type="AudioStream" uid="uid://b7dwsjrhs77jm" path="res://Assets/Audio/SoundEffects/BuyFail.wav" id="28_uq4s1"]
+[ext_resource type="AudioStream" uid="uid://du5knxhgls7kk" path="res://Assets/Audio/SoundEffects/Chain.wav" id="29_0v17x"]
 [ext_resource type="PackedScene" uid="uid://cc3ylluj0f6w1" path="res://Assets/UI/Scenes/PiciMenü/PiciMenü.tscn" id="29_ruywd"]
 [ext_resource type="Texture2D" uid="uid://boja6vh76fs8h" path="res://Assets/Images/Entities/Heroes/char_hunter.png" id="30_5017c"]
+[ext_resource type="AudioStream" uid="uid://cx4ulciwugtei" path="res://Assets/Audio/SoundEffects/ElementalBuff.wav" id="30_ek8xi"]
+[ext_resource type="AudioStream" uid="uid://3hv0s4fav0hg" path="res://Assets/Audio/SoundEffects/Potion.wav" id="31_4u6hw"]
 [ext_resource type="Texture2D" uid="uid://bbad4vkh0vf6k" path="res://Assets/Images/Entities/Heroes/char_huntress.png" id="31_bldnn"]
 [ext_resource type="Texture2D" uid="uid://gmo8168rfg1s" path="res://Assets/Images/Entities/Enemies/char_gobellin.png" id="32_ghclm"]
+[ext_resource type="AudioStream" uid="uid://bst25tfubehtj" path="res://Assets/Audio/SoundEffects/Shield.wav" id="32_qbd7t"]
+[ext_resource type="AudioStream" uid="uid://musg206lm6bl" path="res://Assets/Audio/SoundEffects/Transition.wav" id="33_6jyfk"]
 [ext_resource type="Texture2D" uid="uid://m4uonlvhx0mu" path="res://Assets/Images/Entities/Enemies/char_wendigo.png" id="33_bldnn"]
+[ext_resource type="AudioStream" uid="uid://b46ua772deutn" path="res://Assets/Audio/SoundEffects/TransitionIn.wav" id="33_vqyv5"]
+[ext_resource type="AudioStream" uid="uid://bcjpqmsqc36y" path="res://Assets/Audio/SoundEffects/TransitionOut.wav" id="34_r850y"]
+[ext_resource type="AudioStream" uid="uid://wkkwlgnwwgt" path="res://Assets/Audio/SoundEffects/Trash.wav" id="34_v2olk"]
+[ext_resource type="AudioStream" uid="uid://cn08o1wmi0gad" path="res://Assets/Audio/SoundEffects/bush/Bush1.wav" id="35_3vs6r"]
+[ext_resource type="AudioStream" uid="uid://dwcfej7ayc7ed" path="res://Assets/Audio/SoundEffects/bush/Bush2.wav" id="36_sm2jp"]
 
 [sub_resource type="Shader" id="Shader_um3qg"]
 code = "shader_type canvas_item;
@@ -246,7 +259,7 @@ shader_parameter/pixelate = false
 shader_parameter/roll = true
 shader_parameter/roll_speed = 2.35
 shader_parameter/roll_size = 19.8710009438725
-shader_parameter/roll_variation = 1.1560000516501199
+shader_parameter/roll_variation = 1.15600005165012
 shader_parameter/distort_intensity = 0.0010000000475
 shader_parameter/noise_opacity = 0.03600000171
 shader_parameter/noise_speed = 5.0
@@ -332,11 +345,19 @@ script = ExtResource("6_r12i2")
 hoverSounds = Array[AudioStream]([ExtResource("14_wcdfp"), ExtResource("15_5017c"), ExtResource("16_bldnn")])
 clickSounds = Array[AudioStream]([ExtResource("7_edw2g"), ExtResource("8_om58u"), ExtResource("9_s86us"), ExtResource("10_hvyv7"), ExtResource("11_gtxkj"), ExtResource("12_ruywd"), ExtResource("13_b132q")])
 deathSounds = Array[AudioStream]([ExtResource("17_ghclm")])
-drawSounds = Array[AudioStream]([ExtResource("18_fuq8d")])
+drawSounds = Array[AudioStream]([ExtResource("20_u1lok"), ExtResource("21_vqyv5"), ExtResource("22_r850y")])
 attackSounds = Array[AudioStream]([ExtResource("19_dwqbh"), ExtResource("20_yh7xr")])
 levelupSounds = Array[AudioStream]([ExtResource("21_qvjl3")])
 winSounds = Array[AudioStream]([ExtResource("22_w8mb3")])
 loseSounds = Array[AudioStream]([ExtResource("23_154qo")])
+buyFailSounds = Array[AudioStream]([ExtResource("28_uq4s1")])
+chainSounds = Array[AudioStream]([ExtResource("29_0v17x")])
+elementalBuffSounds = Array[AudioStream]([ExtResource("30_ek8xi")])
+healthPotionSounds = Array[AudioStream]([ExtResource("31_4u6hw")])
+glassShieldSounds = Array[AudioStream]([ExtResource("32_qbd7t")])
+transitionSounds = Array[AudioStream]([ExtResource("33_vqyv5"), ExtResource("34_r850y"), ExtResource("33_6jyfk")])
+DeleteSounds = Array[AudioStream]([ExtResource("34_v2olk")])
+BushSounds = Array[AudioStream]([ExtResource("35_3vs6r"), ExtResource("36_sm2jp")])
 
 [node name="SaverLoader" type="Node" parent="."]
 script = ExtResource("24_hvyv7")
