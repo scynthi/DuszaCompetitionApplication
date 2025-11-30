@@ -996,24 +996,6 @@ theme_override_constants/h_separation = 14
 theme_override_constants/v_separation = 9
 columns = 3
 
-[node name="UIContinueSaveCard" parent="MenuContainer/ContinueGameMenu/Control/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("10_geava")]
-layout_mode = 2
-
-[node name="UIContinueSaveCard2" parent="MenuContainer/ContinueGameMenu/Control/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("10_geava")]
-layout_mode = 2
-
-[node name="UIContinueSaveCard3" parent="MenuContainer/ContinueGameMenu/Control/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("10_geava")]
-layout_mode = 2
-
-[node name="UIContinueSaveCard4" parent="MenuContainer/ContinueGameMenu/Control/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("10_geava")]
-layout_mode = 2
-
-[node name="UIContinueSaveCard5" parent="MenuContainer/ContinueGameMenu/Control/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("10_geava")]
-layout_mode = 2
-
-[node name="UIContinueSaveCard6" parent="MenuContainer/ContinueGameMenu/Control/MarginContainer/ScrollContainer/GridContainer" instance=ExtResource("10_geava")]
-layout_mode = 2
-
 [node name="Button" type="Button" parent="MenuContainer/ContinueGameMenu/Control"]
 layout_mode = 1
 anchors_preset = 7
