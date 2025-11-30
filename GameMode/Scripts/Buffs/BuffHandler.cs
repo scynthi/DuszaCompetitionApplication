@@ -39,6 +39,7 @@ public class BuffHandler
 			damageMultiplier += buff.DamageMultiplier;
         }
 		damage = Convert.ToInt32(Math.Floor((newBaseDamage + extraDamage) * damageMultiplier));
+        GD.Print("BRUH: " + damage);
         OwnerCard.SetDamage(damage);
     }
 

@@ -387,9 +387,10 @@ layout_mode = 2
 size_flags_stretch_ratio = 2.0
 alignment = 1
 
-[node name="UIDungeon" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer" instance=ExtResource("3_j6eix")]
+[node name="UIDungeon" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("ClickCatcher") instance=ExtResource("3_j6eix")]
 custom_minimum_size = Vector2(343.075, 230)
 layout_mode = 2
+ClickCatcher = NodePath("Dungeon")
 
 [node name="MarginContainer" type="MarginContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer"]
 layout_mode = 2
