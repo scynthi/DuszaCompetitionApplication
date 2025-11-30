@@ -190,10 +190,10 @@ public partial class SaverLoader : Node
 				string deckString = Utility.WorldObjectListToString<Card>(deckExceptLast, ',');
 				string lastCardName = lastIndex >= 0 ? dungeon.DungeonDeck[lastIndex].Name : "";
 
-				output.Add($"uj kazamata;{dungeon.DungeonType};{dungeon.Name};{deckString};{lastCardName}");
+				output.Add($"uj kazamata;{DungeonTypeToString(dungeon.DungeonType)};{dungeon.Name};{deckString};{lastCardName}");
 			}
 			else
-				output.Add($"uj kazamata;{dungeon.DungeonType};{dungeon.Name};{Utility.WorldObjectListToString<Card>(dungeon.DungeonDeck, ',')};{(dungeon.DungeonReward == DungeonRewardTypes.health ? "eletero" : "sebzes")}");
+				output.Add($"uj kazamata;{DungeonTypeToString(dungeon.DungeonType)};{dungeon.Name};{Utility.WorldObjectListToString<Card>(dungeon.DungeonDeck, ',')};{(dungeon.DungeonReward == DungeonRewardTypes.health ? "eletero" : "sebzes")}");
 		}
 
 		output.Add("");
@@ -209,6 +209,17 @@ public partial class SaverLoader : Node
 
 		return output;
 	}
+
+	private static string DungeonTypeToString(DungeonTypes type)
+    {
+        return type switch
+        {
+            DungeonTypes.simple => "egyszeru",
+			DungeonTypes.small => "kis",
+			DungeonTypes.big => "nagy",
+			_ => ""
+        };
+    }
 
 	// public static LoadWorldObjects
 

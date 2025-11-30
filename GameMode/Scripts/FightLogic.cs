@@ -37,6 +37,7 @@ public partial class FightLogic : Node
 	[Export] TextureRect healthPotionIcon;
 	[Export] TextureRect glassShieldIcon;
 	[Export] TextureRect elementalBuffIcon;
+	Card winningCard;
 
 	public Card PlayerCard;
 	public Card DungeonCard;
@@ -336,7 +337,7 @@ public partial class FightLogic : Node
 				GD.Print(worldCard);
 				if (!PlayerCollectionNames.Contains(worldCard.Name))
 				{
-					GD.Print("BUH");
+					winningCard = worldCard;
 					player.TryAddCardToCollection(worldCard);
 					break;
 				}
@@ -359,6 +360,11 @@ public partial class FightLogic : Node
 			player.Money += 20;
 		}
 	}
+
+	public Card GiveWinningCard()
+    {
+        return winningCard;
+    }
 
 	public void OnAddToItemListPressed(int item)
 	{
