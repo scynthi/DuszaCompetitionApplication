@@ -9,6 +9,9 @@ public partial class ShomMenu : Control
     public override void _Ready()
     {
         UpdateMoneyText();
+
+        Global.gameManager.audioController.PlayMusicAndEnvSounds(Global.gameManager.audioController.audioBank.ShopMusic,null);
+
     }
 
     public void GiveItemToPlayer(ItemType type)
@@ -16,9 +19,12 @@ public partial class ShomMenu : Control
         IItem item = Items.CreateItemFromType(type);
         if (Global.gameManager.saverLoader.currSaveFile.player.Money < item.Price)
         {
+            Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.buyFailSounds.PickRandom());
             animationPlayer.Play("Flare");
             return;
         }
+
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.MoneySounds.PickRandom());
 
         Global.gameManager.saverLoader.currSaveFile.player.Money -= item.Price;
         Global.gameManager.saverLoader.currSaveFile.player.AddToItemList(item);

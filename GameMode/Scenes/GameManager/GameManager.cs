@@ -31,6 +31,8 @@ public partial class GameManager : Node
         {
             currentWorldScene = World.GetChild(0);
         }
+
+        Global.gameManager.audioController.PlayMusicAndEnvSounds(Global.gameManager.audioController.audioBank.MainMenuMusic, Global.gameManager.audioController.audioBank.MainMenuAmbiance);
     }
 
     public async Task ChangeWorldScene(StringName newScenePath)

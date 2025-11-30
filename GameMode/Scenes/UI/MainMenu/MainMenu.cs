@@ -40,7 +40,6 @@ public partial class MainMenu : Control
 
         ButtonPressed("main");
         sideAnimationPlayer.Play("BringInSideMenu");
-        
     }
 
     private bool _skipSound = false;
@@ -87,5 +86,17 @@ public partial class MainMenu : Control
     private void ChangeMenu()
     {
         CurrentMenu = queuedMenu;
+    }
+
+    private void PlaySwooshSFX()
+    {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.hoverSounds.PickRandom());
+    }
+    
+    private void PlayChainSFX()
+    {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.hoverSounds.PickRandom());
+
+        // Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.chainSounds.PickRandom(), true, -.2f, -0.1f, 0.1f);
     }
 }

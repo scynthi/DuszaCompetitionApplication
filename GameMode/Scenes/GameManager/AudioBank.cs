@@ -20,11 +20,18 @@ public partial class AudioBank : Node
     [Export] public Array<AudioStream> glassShieldSounds;
     [Export] public Array<AudioStream> transitionSounds;
     [Export] public Array<AudioStream> DeleteSounds;
+    [Export] public Array<AudioStream> MoneySounds;
+
 
     [Export] public Array<AudioStream> BushSounds;
 
+    [ExportGroup("Music")]
+    [Export] public AudioStream ShopMusic;
+    [Export] public AudioStream MainMenuAmbiance;
+    [Export] public AudioStream FightMusic;
+    [Export] public AudioStream CaveAmbiance;
+    [Export] public AudioStream MapAmbiance;
+    [Export] public AudioStream MainMenuMusic;
 
-
-    
 
 }

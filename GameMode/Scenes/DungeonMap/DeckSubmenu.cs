@@ -18,6 +18,8 @@ public partial class DeckSubmenu : Control
     [Export] AnimationPlayer sideAnimator;
     [Export] AnimationPlayer transAnimator;
 
+    [Export] MapMenu mapMenu;
+
     public override void _Ready()
     {
         transAnimator.AnimationFinished += _onTransitionedIn;
@@ -26,8 +28,10 @@ public partial class DeckSubmenu : Control
 
     public void _onTransitionedIn(StringName _)
     {
-        sideAnimator.Play("PopItemBar");
-
+        if (mapMenu.CurrentMenu == this)
+        {
+            sideAnimator.Play("PopItemBar");        
+        }
     }
 
     public void ReloadCards()

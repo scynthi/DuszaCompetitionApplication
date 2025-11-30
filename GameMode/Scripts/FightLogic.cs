@@ -36,6 +36,11 @@ public partial class FightLogic : Node
 
 	[Export] Button StepBattleButton;
 
+	[Export] TextureRect healthPotionIcon;
+	[Export] TextureRect glassShieldIcon;
+	[Export] TextureRect elementalBuffIcon;
+
+
 	// TEST
 	// List<Card> PlayerDeck = new List<Card> { new Card("Corky", 2, 4, CardElements.EARTH), new Card("alma", 2, 7, CardElements.WIND) };
 	public Card PlayerCard;
@@ -65,6 +70,9 @@ public partial class FightLogic : Node
 		PlayerAnimPlayer.AnimationFinished += LoadBattleItems;
 
 		WorldAnimPlayer.Play("EntryAnimation");
+        Global.gameManager.audioController.PlayMusicAndEnvSounds(Global.gameManager.audioController.audioBank.FightMusic, Global.gameManager.audioController.audioBank.CaveAmbiance);
+
+
 	}
 
 	private void ReasignPlayerCard()
@@ -75,6 +83,7 @@ public partial class FightLogic : Node
 
 			PlayerCard = PlayerDeck[0];
 			TryReassignNextCard(PlayerDeck, NextPlayerCardControl);
+			_SetItemIconsInvisible();
 			PlayerDeck.RemoveAt(0);
 			return;
 		}
@@ -203,6 +212,7 @@ public partial class FightLogic : Node
 		DungeonAnimPlayer.Seek(0, true);
 		DungeonAnimPlayer.Stop();
 		DungeonAnimPlayer.Play("DungeonAttack");
+
 	}
 
 	private void ApplyItems(List<IItem> itemList)
@@ -263,6 +273,7 @@ public partial class FightLogic : Node
 
 			if (currRound == RoundState.PLAYERDEATH)
 			{
+				
 				ReasignPlayerCard();
 			}
 			else if (currRound == RoundState.DUNGEONDEATH)
@@ -351,6 +362,24 @@ public partial class FightLogic : Node
 	{
 		IItem createdItem = Items.CreateItemFromType((ItemType)item);
 		if (!Utility.ItemListToNameList(ItemList).Contains(createdItem.Name)) ItemList.Add(createdItem);
+
+		switch ((ItemType)item)
+        {
+            case ItemType.HealthPotion:
+        		Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.healthPotionSounds.PickRandom());
+				healthPotionIcon.Visible = true;
+			break;
+			
+            case ItemType.GlassShield:
+        		Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.glassShieldSounds.PickRandom());
+				glassShieldIcon.Visible = true;
+			break;
+			
+            case ItemType.ElementalBuff:
+        		Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.elementalBuffSounds.PickRandom());
+				elementalBuffIcon.Visible = true;
+			break;
+        }
 	}
 
 	public void OnRemoveFromItemListPressed(int item)
@@ -373,5 +402,12 @@ public partial class FightLogic : Node
 	public void _AnimationPlayDeathSFX()
     {
 		Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.deathSounds.PickRandom());
+    }
+
+	public void _SetItemIconsInvisible()
+    {
+        healthPotionIcon.Visible = false;
+        glassShieldIcon.Visible = false;
+        elementalBuffIcon.Visible = false;
     }
 }

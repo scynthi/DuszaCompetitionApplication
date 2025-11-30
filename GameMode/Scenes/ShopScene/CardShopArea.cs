@@ -59,17 +59,24 @@ public partial class CardShopArea : Control
     public void _ReRolled()
     {
         Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
-        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.transitionSounds[2]);
+        
         
 
         if (animationPlayer.IsPlaying()) return;
         ShakeControl();
         if (Global.gameManager.saverLoader.currSaveFile.player.Money >= 10.0f)
         {
+            Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.transitionSounds[2]);
+            Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.MoneySounds.PickRandom());
+
+
             Global.gameManager.saverLoader.currSaveFile.player.Money -= 10;
             animationPlayer.Play("Recard");
             animationWorldPlayer.Play("Glare");
             
+        } else
+        {
+            Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.buyFailSounds.PickRandom());
         }
         animationWorldPlayer.Play("Flare");
     }
@@ -83,11 +90,17 @@ public partial class CardShopArea : Control
         ShakeControl();
         if (Global.gameManager.saverLoader.currSaveFile.player.Money >= _currPrice)
         {
+            Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.MoneySounds.PickRandom());
+            Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.transitionSounds[2]);
+
             Global.gameManager.saverLoader.currSaveFile.player.Money -= _currPrice;
             Global.gameManager.saverLoader.currSaveFile.player.TryAddCardToCollection(currCard);
             animationPlayer.Play("Recard");
             animationWorldPlayer.Play("Glare");
 
+        } else
+        {
+            Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.buyFailSounds.PickRandom());
         }
         animationWorldPlayer.Play("Flare");
 

@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bal0q4hlkho65"]
+[gd_scene load_steps=4 format=3 uid="uid://bal0q4hlkho65"]
 
+[ext_resource type="Texture2D" uid="uid://chdkfc8k8qpbd" path="res://Assets/Images/Cards/card_bg.png" id="1_noow7"]
 [ext_resource type="Script" uid="uid://cwk1yiw0vrsq5" path="res://Scenes/Miscs/ItemSlot.cs" id="1_pav5f"]
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u0g6h"]
+texture = ExtResource("1_noow7")
+modulate_color = Color(0.52156866, 0.4509804, 0.42745098, 1)
+
 [node name="CardContainer" type="Panel"]
+theme_override_styles/panel = SubResource("StyleBoxTexture_u0g6h")
 script = ExtResource("1_pav5f")
