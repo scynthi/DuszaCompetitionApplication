@@ -166,7 +166,7 @@ public static class Utility
 		};
 	}
 
-	public static string WorldObjectListToString<T>(List<T> list, char separator)
+	public static string WorldObjectListToString<T>(List<T> list, char separator) where T : IWorldObject
 	{
 		if (list == null || list.Count == 0)
 			return string.Empty;
@@ -174,7 +174,7 @@ public static class Utility
 		string result = "";
 
 		foreach (var obj in list)
-			result += obj.ToString() + separator;
+			result += obj.Name + separator;
 
 		return result.TrimEnd(separator);
 	}

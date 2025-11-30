@@ -13,9 +13,11 @@ public partial class Inventory : PanelContainer
 
 	[Export] PackedScene ItemSlotScene;
 	[Export] GridContainer MainContainer;
-	[Export] int AmountOfCols = 6;
+	[Export] Inventory ConnectedInventory;
+	[Export] public int AmountOfCols = 6;
 	[Export] public float ScaleDown = 1; 
-	public bool IsDeck = false;
+	public bool IsDungeonDeck = false;
+	public bool IsPlayerDeck = false;
 
 	List<ItemSlot> ItemSlots = new List<ItemSlot>();
 
@@ -48,10 +50,12 @@ public partial class Inventory : PanelContainer
         }
 
 		Godot.Vector2 size = tempUICard.CustomMinimumSize;
+		List<string> otherInventoryCards = Utility.WorldObjectListToNameList(ConnectedInventory.ReturnContents());
 		for (int i = 0; i < amount; i++)
 		{
 			ItemSlot itemSlot = ItemSlotScene.Instantiate<ItemSlot>();
 			itemSlot.CustomMinimumSize = size / ScaleDown;
+			itemSlot.ParentInventory = this;
 
 			if (i == amount - 1 && IsBossCardNeeded)
             {
@@ -62,7 +66,9 @@ public partial class Inventory : PanelContainer
             {
                 Card card = Collection[i];
 
-				if (card is BossCard)
+				if (IsPlayerDeck && !otherInventoryCards.Contains(card.Name))
+                {
+                    if (card is BossCard)
                 {
 					UIBossCard bossUICard = Global.gameManager.uiPackedSceneReferences.UIBossCardScene.Instantiate<UIBossCard>();
 					bossUICard.SetOwnerCard(card as BossCard);
@@ -94,6 +100,7 @@ public partial class Inventory : PanelContainer
 					uiCard.MouseFilter = Control.MouseFilterEnum.Ignore;
 					uiCard.EditAllCardInformation(uiCard.OwnerCard);
                 }
+                }
             }
 
 			MainContainer.AddChild(itemSlot);
@@ -119,6 +126,37 @@ public partial class Inventory : PanelContainer
 		}
     }
 
+	public void ItemSlotClicked(ItemSlot itemSlot)
+    {
+        if (itemSlot.uiCard == null)
+			return;
+
+		int firstEmpty = ConnectedInventory.FindFirstEmptySpace();
+
+		if (firstEmpty == -1)
+			return;
+
+		ItemSlot otherSlot = ConnectedInventory.ItemSlots[firstEmpty];
+
+		if (otherSlot.IsBossCardSlot && itemSlot.uiCard is not UIBossCard)
+			return;
+
+		itemSlot.uiCard.Reparent(otherSlot);
+		otherSlot.uiCard = itemSlot.uiCard;
+		itemSlot.uiCard = null;
+		otherSlot.uiCard.GlobalPosition = otherSlot.GlobalPosition;
+
+		Vector2 slotSize = otherSlot.Size;
+		Vector2 cardSize = otherSlot.uiCard.Size;
+		float scaleX = slotSize.X / cardSize.X;
+		float scaleY = slotSize.Y / cardSize.Y;
+		float scale = Mathf.Min(scaleX, scaleY);
+		otherSlot.uiCard.Scale = new Vector2(scale, scale);
+
+		NewCardAdded();
+		ConnectedInventory.NewCardAdded();
+    }
+
 	private void NewCardAdded()
     {
         ShiftLeft();
@@ -131,11 +169,15 @@ public partial class Inventory : PanelContainer
         {
             EmitSignal(SignalName.DeckIsNotFull);
         }
+		if (IsPlayerDeck)
+        {
+            Global.gameManager.saverLoader.currSaveFile.player.SetDeck(ReturnContents());
+        }
     }
 
 	private void ShiftLeft()
     {
-        for (int i = 0; i < ItemSlots.Count - (IsDeck ? 1 : 0); i++)
+        for (int i = 0; i < ItemSlots.Count - (IsDungeonDeck ? 1 : 0); i++)
         {
             if (ItemSlots[i].uiCard == null)
             {
@@ -154,9 +196,21 @@ public partial class Inventory : PanelContainer
         }
     }
 
+	public int FindFirstEmptySpace()
+    {
+		for (int i = 0; i < ItemSlots.Count; i++)
+        {
+            if (ItemSlots[i].uiCard == null)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
 	private int FindNextNullCard(int startIndex)
     {
-        for (int i = startIndex; i < ItemSlots.Count - (IsDeck ? 1 : 0); i++)
+        for (int i = startIndex; i < ItemSlots.Count - (IsDungeonDeck ? 1 : 0); i++)
         {
             if (ItemSlots[i].uiCard != null)
             {
@@ -168,7 +222,6 @@ public partial class Inventory : PanelContainer
 
 	public List<Card> ReturnContents()
     {
-		GD.Print("apple");
 		List<Card> cards = new List<Card>();
 		foreach (ItemSlot itemSlot in ItemSlots)
         {
@@ -185,11 +238,6 @@ public partial class Inventory : PanelContainer
 				cards.Add(uICard.OwnerCard);
             }
         }
-		foreach (Card card in cards)
-			if (card is BossCard)
-				GD.Print(card.Name + "BossCard");
-			else
-				GD.Print(card.Name + "NOTBOSS");
 		return cards;
     }
 

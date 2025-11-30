@@ -416,9 +416,10 @@ popup/item_1/id = 1
 layout_mode = 2
 text = "Mentés"
 
-[node name="DungeonDeck" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer" instance=ExtResource("15_e5lfn")]
+[node name="DungeonDeck" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("ConnectedInventory") instance=ExtResource("15_e5lfn")]
 layout_mode = 2
 size_flags_vertical = 4
+ConnectedInventory = NodePath("../../VBoxContainer3/ScrollContainer/WorldCards")
 AmountOfCols = 3
 ScaleDown = 1.5
 
@@ -430,9 +431,10 @@ custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="WorldCards" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/VBoxContainer3/ScrollContainer" instance=ExtResource("15_e5lfn")]
+[node name="WorldCards" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/VBoxContainer3/ScrollContainer" node_paths=PackedStringArray("ConnectedInventory") instance=ExtResource("15_e5lfn")]
 layout_mode = 2
 size_flags_horizontal = 6
+ConnectedInventory = NodePath("../../../HBoxContainer/DungeonDeck")
 AmountOfCols = 5
 
 [node name="DungeonViewer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeonHolder")]

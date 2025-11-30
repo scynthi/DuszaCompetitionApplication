@@ -78,16 +78,10 @@ public partial class Card : IWorldObject
     }
     public int Attack(Card card, bool PlayerAttacked)
     {
-        buffHandler.CalculateDamage();
-        int calculatedDamage = ElementRules.CalculateDamage(Damage, CardElement, card.CardElement);
-        return card.ApplyDamage(calculatedDamage, PlayerAttacked);
-    }
-    public int ApplyDamage(int value, bool PlayerAttacked)
-    {
         Random rnd = new Random();
-
-        int damage = Convert.ToInt32(Math.Round(value * buffHandler.CalculateDamageTakenMultiplier()));
         double difficultyModifier;
+        int damage = BaseDamage;
+
         if (PlayerAttacked)
         {
             difficultyModifier = 1 + rnd.NextDouble() * ((double)Global.gameManager.saverLoader.currSaveFile.gameDifficulty / 10);
@@ -96,11 +90,15 @@ public partial class Card : IWorldObject
         {
             difficultyModifier = 1 - rnd.NextDouble() * ((double)Global.gameManager.saverLoader.currSaveFile.gameDifficulty / 20);
         }
-        GD.Print("Damage: " + damage);
-        GD.Print("modifier: " + difficultyModifier);
         damage = Convert.ToInt32(Math.Round(damage * difficultyModifier));
-        GD.Print("Damage2: " + damage);
-
+        int calculatedDamage = ElementRules.CalculateDamage(damage, CardElement, card.CardElement);
+        buffHandler.CalculateDamage(calculatedDamage);
+        return card.ApplyDamage();
+    }
+    public int ApplyDamage()
+    {
+        int damage = Convert.ToInt32(Math.Round(Damage * buffHandler.CalculateDamageTakenMultiplier()));
+        
         Health -= damage;
         Health = Math.Clamp(Health, 0, 100);
         return damage;

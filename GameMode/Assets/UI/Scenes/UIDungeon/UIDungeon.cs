@@ -98,6 +98,12 @@ public partial class UIDungeon : Control
         return new Dungeon(DungeonName, DungeonType, DungeonReward, DungeonCards);
     }
 
+    public Dungeon CreateDungeonInstance(List<Card> dungeonDeck)
+    {
+        List<Card> DungeonCards = dungeonDeck;
+        return new Dungeon(DungeonName, DungeonType, DungeonReward, DungeonCards);
+    }
+
     public void InteractButtonClicked()
     {
         EmitSignal(SignalName.DungeonClicked, this);

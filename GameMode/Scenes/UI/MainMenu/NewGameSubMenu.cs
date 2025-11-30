@@ -101,7 +101,7 @@ public partial class NewGameSubMenu : Control
     public async void _OnStartPressed()
     {
         Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
-
+        
         Global.gameManager.saverLoader.currSaveFile = currDisplayedSave;
         await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.DungeonMap);
     }

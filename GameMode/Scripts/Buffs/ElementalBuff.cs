@@ -13,6 +13,6 @@ public partial class ElementalBuff : IBuff
 
 	public ElementalBuff(int round)
     {
-        EndingRound = round + LastsFor;
+        EndingRound = round + LastsFor + 1;
     }
 }

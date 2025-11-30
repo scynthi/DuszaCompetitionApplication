@@ -5,8 +5,8 @@ using System.Linq;
 
 public class Player
 {
-    public int Xp { set; get; }
-    public int Money { set; get; }
+    public long Xp { set; get; }
+    public long Money { set; get; }
     public List<Card> Collection { set; get; }
     public List<Card> Deck { set; get; }
     public List<IItem> ItemList { set; get; }

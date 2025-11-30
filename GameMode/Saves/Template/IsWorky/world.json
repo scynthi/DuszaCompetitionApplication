@@ -1,0 +1,319 @@
+{
+  "WorldCards": [
+    {
+      "Name": "1",
+      "Health": 1,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "12",
+      "Health": 1,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "123",
+      "Health": 1,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "$type": "boss",
+      "BaseCard": {
+        "Name": "123",
+        "Health": 1,
+        "BaseDamage": 1,
+        "Damage": 1,
+        "DamageChanged": false,
+        "HealthChanged": false,
+        "CardElement": 3,
+        "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+        "buffHandler": {}
+      },
+      "Name": "Lord 123",
+      "Health": 2,
+      "BaseDamage": 1,
+      "Damage": 1,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "op cro",
+      "Health": 12,
+      "BaseDamage": 12,
+      "Damage": 12,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "op cro 2",
+      "Health": 15,
+      "BaseDamage": 16,
+      "Damage": 16,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "FEIN",
+      "Health": 30,
+      "BaseDamage": 100,
+      "Damage": 100,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 3,
+      "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+      "buffHandler": {}
+    },
+    {
+      "Name": "BUH",
+      "Health": 15,
+      "BaseDamage": 5,
+      "Damage": 5,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 2,
+      "Icon": "res://Assets/Images/Entities/Enemies/char_wendigo.png",
+      "buffHandler": {}
+    },
+    {
+      "$type": "boss",
+      "BaseCard": {
+        "Name": "BUH",
+        "Health": 15,
+        "BaseDamage": 5,
+        "Damage": 5,
+        "DamageChanged": false,
+        "HealthChanged": false,
+        "CardElement": 2,
+        "Icon": "res://Assets/Images/Entities/Enemies/char_wendigo.png",
+        "buffHandler": {}
+      },
+      "Name": "Lord BUH",
+      "Health": 30,
+      "BaseDamage": 5,
+      "Damage": 5,
+      "DamageChanged": false,
+      "HealthChanged": false,
+      "CardElement": 2,
+      "Icon": "res://Assets/Images/Entities/Enemies/char_wendigo.png",
+      "buffHandler": {}
+    }
+  ],
+  "WorldDungeons": [
+    {
+      "Name": "Teszt Kazamata",
+      "DungeonType": 0,
+      "DungeonReward": 0,
+      "DungeonDeck": [
+        {
+          "$type": "boss",
+          "BaseCard": {
+            "Name": "123",
+            "Health": 1,
+            "BaseDamage": 1,
+            "Damage": 1,
+            "DamageChanged": false,
+            "HealthChanged": false,
+            "CardElement": 3,
+            "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+            "buffHandler": {}
+          },
+          "Name": "Lord 123",
+          "Health": 2,
+          "BaseDamage": 1,
+          "Damage": 1,
+          "DamageChanged": false,
+          "HealthChanged": false,
+          "CardElement": 3,
+          "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+          "buffHandler": {}
+        }
+      ]
+    },
+    {
+      "Name": "Test",
+      "DungeonType": 1,
+      "DungeonReward": 0,
+      "DungeonDeck": [
+        {
+          "Name": "123",
+          "Health": 1,
+          "BaseDamage": 1,
+          "Damage": 1,
+          "DamageChanged": false,
+          "HealthChanged": false,
+          "CardElement": 3,
+          "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+          "buffHandler": {}
+        },
+        {
+          "Name": "1",
+          "Health": 1,
+          "BaseDamage": 1,
+          "Damage": 1,
+          "DamageChanged": false,
+          "HealthChanged": false,
+          "CardElement": 3,
+          "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+          "buffHandler": {}
+        },
+        {
+          "Name": "12",
+          "Health": 1,
+          "BaseDamage": 1,
+          "Damage": 1,
+          "DamageChanged": false,
+          "HealthChanged": false,
+          "CardElement": 3,
+          "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+          "buffHandler": {}
+        },
+        {
+          "$type": "boss",
+          "BaseCard": {
+            "Name": "123",
+            "Health": 1,
+            "BaseDamage": 1,
+            "Damage": 1,
+            "DamageChanged": false,
+            "HealthChanged": false,
+            "CardElement": 3,
+            "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+            "buffHandler": {}
+          },
+          "Name": "Lord 123",
+          "Health": 2,
+          "BaseDamage": 1,
+          "Damage": 1,
+          "DamageChanged": false,
+          "HealthChanged": false,
+          "CardElement": 3,
+          "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+          "buffHandler": {}
+        }
+      ]
+    },
+    {
+      "Name": "BIG",
+      "DungeonType": 2,
+      "DungeonReward": 2,
+      "DungeonDeck": [
+        {
+          "Name": "1",
+          "Health": 1,
+          "BaseDamage": 1,
+          "Damage": 1,
+          "DamageChanged": false,
+          "HealthChanged": false,
+          "CardElement": 3,
+          "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+          "buffHandler": {}
+        },
+        {
+          "Name": "12",
+          "Health": 1,
+          "BaseDamage": 1,
+          "Damage": 1,
+          "DamageChanged": false,
+          "HealthChanged": false,
+          "CardElement": 3,
+          "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+          "buffHandler": {}
+        },
+        {
+          "$type": "boss",
+          "BaseCard": {
+            "Name": "123",
+            "Health": 1,
+            "BaseDamage": 1,
+            "Damage": 1,
+            "DamageChanged": false,
+            "HealthChanged": false,
+            "CardElement": 3,
+            "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+            "buffHandler": {}
+          },
+          "Name": "Lord 123",
+          "Health": 2,
+          "BaseDamage": 1,
+          "Damage": 1,
+          "DamageChanged": false,
+          "HealthChanged": false,
+          "CardElement": 3,
+          "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+          "buffHandler": {}
+        },
+        {
+          "Name": "123",
+          "Health": 1,
+          "BaseDamage": 1,
+          "Damage": 1,
+          "DamageChanged": false,
+          "HealthChanged": false,
+          "CardElement": 3,
+          "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+          "buffHandler": {}
+        },
+        {
+          "Name": "op cro",
+          "Health": 12,
+          "BaseDamage": 12,
+          "Damage": 12,
+          "DamageChanged": false,
+          "HealthChanged": false,
+          "CardElement": 3,
+          "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+          "buffHandler": {}
+        },
+        {
+          "$type": "boss",
+          "BaseCard": {
+            "Name": "BUH",
+            "Health": 15,
+            "BaseDamage": 5,
+            "Damage": 5,
+            "DamageChanged": false,
+            "HealthChanged": false,
+            "CardElement": 2,
+            "Icon": "res://Assets/Images/Entities/Enemies/char_wendigo.png",
+            "buffHandler": {}
+          },
+          "Name": "Lord BUH",
+          "Health": 30,
+          "BaseDamage": 5,
+          "Damage": 5,
+          "DamageChanged": false,
+          "HealthChanged": false,
+          "CardElement": 2,
+          "Icon": "res://Assets/Images/Entities/Enemies/char_wendigo.png",
+          "buffHandler": {}
+        }
+      ]
+    }
+  ]
+}

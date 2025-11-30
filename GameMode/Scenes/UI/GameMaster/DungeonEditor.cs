@@ -15,13 +15,13 @@ public partial class DungeonEditor : HBoxContainer
     public override void _Ready()
     {
         base._Ready();
-        dungeonDeck.IsDeck = true;
+        dungeonDeck.IsDungeonDeck = true;
         dungeonDeck.RemakePanelItems(1);
         VisibilityChanged += OnVisibilityChanged;
         saveButton.Disabled = true;
         dungeonDeck.DeckIsFull += DeckIsFull;
         dungeonDeck.DeckIsNotFull += DeckIsNotFull;
-        GD.Print("ADADS");
+        editor.gameMasterData.CardDataChanged += OnVisibilityChanged;
     }
 
     public void OnVisibilityChanged()
@@ -55,11 +55,13 @@ public partial class DungeonEditor : HBoxContainer
             rewardType.AddItem("kártya", 2);
             rewardType.Selected = (int)DungeonRewardTypes.card;
             rewardType.Disabled = true;
+            ChangeReward(rewardType.Selected);
         } else if (rewardType.Disabled)
         {
             rewardType.RemoveItem(2);
             rewardType.Selected = 0;
             rewardType.Disabled = false;
+            ChangeReward(rewardType.Selected);
         }
 
         switch (type)
@@ -88,8 +90,7 @@ public partial class DungeonEditor : HBoxContainer
         Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
         Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.levelupSounds.PickRandom());
 
-
-        Dungeon dungeonInstance = dungeon.CreateDungeonInstance();
+        Dungeon dungeonInstance = dungeon.CreateDungeonInstance(dungeonDeck.ReturnContents());
         if (!editor.gameMasterData.TesdtDungeon(dungeonInstance)) return;
         editor.gameMasterData.AddDungeonToDungeonList(dungeonInstance);
     }

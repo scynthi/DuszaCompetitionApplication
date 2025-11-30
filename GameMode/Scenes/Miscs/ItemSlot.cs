@@ -10,6 +10,8 @@ public partial class ItemSlot : Panel
 	PackedScene UICard;
 	[Export] public Control uiCard;
 	public bool IsBossCardSlot = false;
+	private bool _dragStarted = false;
+	public Inventory ParentInventory { get; set; }
 
 	public override void _Ready()
 	{
@@ -43,8 +45,11 @@ public partial class ItemSlot : Panel
 
 	public override Variant _GetDragData(Vector2 atPosition)
 	{
+		_dragStarted = true;
+
 		if (uiCard == null)
 			return default;
+
 
 		// Create a preview and copy the card data
 		Control preview = Duplicate() as Control;
@@ -60,6 +65,21 @@ public partial class ItemSlot : Panel
 		
 		uiCard.Hide();
 		return uiCard; // Return the child uiCard, not the slot
+	}
+
+	public override void _GuiInput(InputEvent @event)
+	{
+		if (@event is InputEventMouseButton mouseButton)
+		{
+			if (mouseButton.ButtonIndex == MouseButton.Left && !mouseButton.Pressed)
+			{
+				if (!_dragStarted)
+				{
+					ParentInventory.ItemSlotClicked(this);
+				}
+				_dragStarted = false;
+			}
+		}
 	}
 
 	public override bool _CanDropData(Vector2 atPosition, Variant data)

@@ -1,11 +1,20 @@
-uj kartya;Aple;7;6;fold
+uj kartya;1;1;1;tuz
+uj kartya;12;1;1;tuz
+uj kartya;123;1;1;tuz
+uj kartya;op cro;12;12;tuz
+uj kartya;op cro 2;16;15;tuz
+uj kartya;FEIN;100;30;tuz
+uj kartya;BUH;5;15;viz
 
-uj vezer;Lord Aple;Aple;eletero;fold
+uj vezer;Lord 123;123;eletero;tuz
+uj vezer;Lord BUH;BUH;eletero;viz
 
-uj kazamata;simple;AAaaAA;;eletero
-uj kazamata;small;kicsi;;sebzes
-uj kazamata;big;byuh;;
+uj kazamata;simple;Teszt Kazamata;BossCard;eletero
+uj kazamata;small;Test;Card,Card,Card,BossCard;eletero
+uj kazamata;big;BIG;Card,Card,BossCard,Card,Card;Lord BUH
 
 uj jatekos
 
-felvetel gyujtemenybe;Aple
+felvetel gyujtemenybe;op cro
+felvetel gyujtemenybe;op cro 2
+felvetel gyujtemenybe;FEIN

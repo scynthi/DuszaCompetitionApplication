@@ -28,7 +28,7 @@ public class BuffHandler
         CurrentBuffs.Add(buff);
     }
 
-	public void CalculateDamage()
+	public void CalculateDamage(int newBaseDamage)
     {
 		int damage;
 		int extraDamage = 0;
@@ -38,7 +38,7 @@ public class BuffHandler
             extraDamage += buff.ExtraDamage;
 			damageMultiplier += buff.DamageMultiplier;
         }
-		damage = Convert.ToInt32(Math.Floor((OwnerCard.BaseDamage + extraDamage) * damageMultiplier));
+		damage = Convert.ToInt32(Math.Floor((newBaseDamage + extraDamage) * damageMultiplier));
         OwnerCard.SetDamage(damage);
     }
 

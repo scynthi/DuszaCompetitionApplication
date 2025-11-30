@@ -18,7 +18,7 @@ public partial class FightLogic : Node
 
 
 	List<Card> PlayerDeck = new List<Card>();
-	// List<Card> DungeonDeck = new List<Card>();
+	List<Card> DungeonDeck = new List<Card>();
 	// List<IItem> ItemList = new List<IItem>();
 
 	[Export] Label RoundText;
@@ -40,7 +40,6 @@ public partial class FightLogic : Node
 	// List<Card> PlayerDeck = new List<Card> { new Card("Corky", 2, 4, CardElements.EARTH), new Card("alma", 2, 7, CardElements.WIND) };
 	public Card PlayerCard;
 	public Card DungeonCard;
-	List<Card> DungeonDeck = new List<Card> { new Card("Sadan", 2, 4, CardElements.WIND) };
 	List<IItem> ItemList = new List<IItem>();
 	private int Round = 0;
 	public Player player = Global.gameManager.saverLoader.currSaveFile.player;
@@ -58,7 +57,7 @@ public partial class FightLogic : Node
 		foreach (Card card in player.Deck) PlayerDeck.Add(card is BossCard ? new BossCard(card as BossCard) : new Card(card));
 		// foreach (Card card in Global.gameManager.saverLoader.currSaveFile.player.Deck) PlayerDeck.Add(new Card(card));
 		Dungeon dungeon = Utility.ReturnDungeonFromList(Global.gameManager.saverLoader.currSaveFile.WorldDungeons, Global.gameManager.saverLoader.currSaveFile.currDungeonName);
-		// foreach (Card card in dungeon.DungeonDeck) DungeonDeck.Add(card is BossCard ? new BossCard(card as BossCard) : new Card(card));
+		foreach (Card card in dungeon.DungeonDeck) DungeonDeck.Add(card is BossCard ? new BossCard(card as BossCard) : new Card(card));
 		reward = dungeon.DungeonReward;
 		type = dungeon.DungeonType;
 		LoadItemButtons(player.ItemList);
@@ -306,7 +305,7 @@ public partial class FightLogic : Node
 
 	private void ApplyReward(Card card)
 	{
-		
+		GD.Print(reward.ToString());
 		if (reward == DungeonRewardTypes.health)
 		{
 			card.ModifyHealth(2);
@@ -317,11 +316,14 @@ public partial class FightLogic : Node
 		}
 		else
 		{
+			GD.Print("buh");
 			List<string> PlayerCollectionNames = Utility.WorldObjectListToNameList(player.Collection);
 			foreach (Card worldCard in Global.gameManager.saverLoader.currSaveFile.WorldCards)
 			{
+				GD.Print(worldCard);
 				if (!PlayerCollectionNames.Contains(worldCard.Name))
 				{
+					GD.Print("BUH");
 					player.TryAddCardToCollection(worldCard);
 					break;
 				}

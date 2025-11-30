@@ -1126,6 +1126,7 @@ libraries = {
 [connection signal="value_changed" from="MenuContainer/SettingsMenu/Control/VBoxContainer/Control/Control2/HSlider" to="MenuContainer/SettingsMenu" method="_MusicVolumeChanged"]
 [connection signal="toggled" from="MenuContainer/SettingsMenu/Control/VBoxContainer/Control2/Control/CheckButton" to="MenuContainer/SettingsMenu" method="_CrtToggeled"]
 [connection signal="pressed" from="MenuContainer/SettingsMenu/Button" to="." method="ButtonPressed" binds= ["main"]]
+[connection signal="value_changed" from="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/Control/HBoxContainer/SpinBox" to="MenuContainer/NewGameMenu" method="_OnDifficultyValueChanged"]
 [connection signal="pressed" from="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/Control/Button" to="MenuContainer/NewGameMenu" method="SaveDeleteBtnPressed"]
 [connection signal="pressed" from="MenuContainer/NewGameMenu/Control/HBoxContainer/MarginContainer/CurrentSaveDisplay/Information/Content/Button" to="MenuContainer/NewGameMenu" method="_OnStartPressed"]
 [connection signal="pressed" from="MenuContainer/NewGameMenu/Control/BackButton" to="." method="ButtonPressed" binds= ["main"]]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://oihoapowoy2t"]
+[gd_scene load_steps=34 format=3 uid="uid://oihoapowoy2t"]
 
 [ext_resource type="Script" uid="uid://ctr2m1ncuyxwi" path="res://Scenes/DungeonMap/CameraController.cs" id="1_6u8ww"]
 [ext_resource type="PackedScene" uid="uid://dohu3ccoui2n5" path="res://Scenes/DungeonMap/MapBackgrounds/DungeonMapBackground.tscn" id="2_0enam"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://b1y7hb6ugsa1s" path="res://Assets/Images/Items/Hola.png" id="14_1rou0"]
 [ext_resource type="Texture2D" uid="uid://duvi63fq53dex" path="res://Assets/Images/Items/GlassShield.png" id="15_6f2pe"]
 [ext_resource type="PackedScene" uid="uid://dk32ss75ce3lw" path="res://Assets/UI/Scenes/UICard/UICard.tscn" id="15_uukdi"]
+[ext_resource type="PackedScene" uid="uid://1un1fk0jjqav" path="res://Scenes/Miscs/DragAndDrop.tscn" id="15_yw8xx"]
 [ext_resource type="PackedScene" uid="uid://dsnbg78nbu0vo" path="res://Assets/UI/Scenes/UIBossCard/UIBossCard.tscn" id="16_mo0dx"]
 [ext_resource type="Texture2D" uid="uid://cc17bg13ixypu" path="res://Assets/Images/Items/ElementalBuff.png" id="16_yw8xx"]
 [ext_resource type="Texture2D" uid="uid://0xqm5vwe7pb7" path="res://Assets/Images/Sign/SmallTextSign.png" id="17_mo0dx"]
@@ -168,7 +169,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="DeckSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign" node_paths=PackedStringArray("collectionContainer", "deckContainer", "moneyLabel", "xpLabel", "HealthPotionAmount", "GlassShieldAmount", "ElementalBuffAmount", "sideAnimator", "transAnimator")]
+[node name="DeckSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign" node_paths=PackedStringArray("playerCollection", "playerDeck", "moneyLabel", "xpLabel", "HealthPotionAmount", "GlassShieldAmount", "ElementalBuffAmount", "sideAnimator", "transAnimator")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -176,8 +177,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_fv8kk")
-collectionContainer = NodePath("Control/VBoxContainer/Control2/PlayerCollection/GridContainer")
-deckContainer = NodePath("Control/VBoxContainer/Control/PlayerDeck/HboxContainer")
+playerCollection = NodePath("Control/VBoxContainer/Control2/PlayerCollection/PlayerCollection")
+playerDeck = NodePath("Control/VBoxContainer/Control/PlayerDeck/PlayerDeck")
 moneyLabel = NodePath("Control/XPcontrol2/Label")
 xpLabel = NodePath("Control/XPcontrol/Label")
 HealthPotionAmount = NodePath("SideStuff/Inside/HealthPotion/Label")
@@ -377,9 +378,9 @@ grow_vertical = 2
 size_flags_vertical = 3
 vertical_scroll_mode = 0
 
-[node name="HboxContainer" type="HBoxContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/Control/PlayerDeck"]
+[node name="PlayerDeck" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/Control/PlayerDeck" node_paths=PackedStringArray("ConnectedInventory") instance=ExtResource("15_yw8xx")]
 layout_mode = 2
-size_flags_horizontal = 6
+ConnectedInventory = NodePath("../../../Control2/PlayerCollection/PlayerCollection")
 
 [node name="Control2" type="Control" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer"]
 layout_mode = 2
@@ -409,10 +410,9 @@ grow_vertical = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/Control2/PlayerCollection"]
+[node name="PlayerCollection" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/Control2/PlayerCollection" node_paths=PackedStringArray("ConnectedInventory") instance=ExtResource("15_yw8xx")]
 layout_mode = 2
-size_flags_horizontal = 6
-columns = 3
+ConnectedInventory = NodePath("../../../Control/PlayerDeck/PlayerDeck")
 
 [node name="XPcontrol" type="Control" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control"]
 layout_mode = 1
