@@ -139,7 +139,7 @@ public partial class Editors : VBoxContainer
             gameMasterData.RemoveDungeonFromDungeonList(dungeon);
         }
 
-        WorldContext worldContext = Global.gameManager.saverLoader.Load(fileName, SaverLoader.SAVE_PATH);
+        WorldContext worldContext = Global.gameManager.saverLoader.Load(path);
 
         foreach (Card card in worldContext.WorldCards)
         {
@@ -171,7 +171,6 @@ public partial class Editors : VBoxContainer
 
         string fileName = path;
         helper.QueueFree();
-
         SaverLoader.WorldContextToInTxt(new WorldContext(gameMasterData.PlayerCollection, gameMasterData.WorldCards, gameMasterData.Dungeons), fileName);
     }
 
