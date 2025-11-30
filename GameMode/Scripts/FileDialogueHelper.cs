@@ -25,13 +25,13 @@ public partial class FileDialogHelper : Node
         fileDialog.FileMode = FileDialog.FileModeEnum.OpenFile;
         if (filters != null)
             fileDialog.Filters = filters;
-        fileDialog.PopupCentered(new Vector2I(800, 600));
+        fileDialog.PopupCentered(new Vector2I(600, 400));
     }
     
     public void ShowFolderDialog()
     {
         fileDialog.FileMode = FileDialog.FileModeEnum.OpenDir;
-        fileDialog.PopupCentered(new Vector2I(800, 600));
+        fileDialog.PopupCentered(new Vector2I(600, 400));
     }
     
     public System.Threading.Tasks.Task<string> WaitForFolderSelection()

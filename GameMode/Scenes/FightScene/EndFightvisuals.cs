@@ -21,6 +21,7 @@ public partial class EndFightvisuals : Control
 
     [ExportGroup("WinBig")]
     [Export] Control winBigCardContainer;
+    [Export] CenterContainer WinCardContainer;
 
     public override void _Ready()
     {
@@ -89,6 +90,18 @@ public partial class EndFightvisuals : Control
             {
                 winNormal.Visible = false;
                 winBig.Visible = true;
+
+                Card card = fightLogic.GiveWinningCard();
+
+                if (card is BossCard)
+                {
+                    Utility.AddUiCardUnderContainer(card as BossCard, WinCardContainer);
+                }
+                else
+                {
+                    Utility.AddUiCardUnderContainer(card, WinCardContainer);
+                }
+                
 
                 goldLabel.Text = Convert.ToString(20);
                 xpLabel.Text = Convert.ToString(20);
