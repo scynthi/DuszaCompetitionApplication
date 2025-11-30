@@ -9,8 +9,8 @@ public partial class Inventory : PanelContainer
 	[Export] PackedScene ItemSlotScene;
 	[Export] GridContainer MainContainer;
 	[Export] int AmountOfCols = 6;
-	public bool IsBossCardNeeded = false;
 	[Export] public float ScaleDown = 1; 
+	public bool IsDeck = false;
 
 	List<ItemSlot> ItemSlots = new List<ItemSlot>();
 
@@ -19,28 +19,30 @@ public partial class Inventory : PanelContainer
 		base._Ready();
 	}
 
-	public void RemakePanelItems(int amount, bool IsSmall = false, List<Card> Collection = null)
+	public void RemakePanelItems(int amount = 0, bool IsSmall = false, List<Card> Collection = null, bool IsBossCardNeeded = false)
     {
 		if (IsSmall)
 			MainContainer.Columns = 4;
 		else
 			MainContainer.Columns = AmountOfCols;
+
 		for (int i = MainContainer.GetChildCount() - 1; i >= 0; i--)
 		{
 			Node child = MainContainer.GetChild(i);
 			MainContainer.RemoveChild(child);
 			child.QueueFree();
+		
 		}
+		ItemSlots.Clear();
 
-        UICard uiCard =  Global.gameManager.uiPackedSceneReferences.UICardScene.Instantiate<UICard>();
-		uiCard.SetOwnerCard(new Card("Aple", 5, 5, CardElements.EARTH));
+        UICard tempUICard = Global.gameManager.uiPackedSceneReferences.UICardScene.Instantiate<UICard>();
 
 		if (Collection != null)
         {
             amount = Collection.Count;
         }
 
-		Godot.Vector2 size = uiCard.Size;
+		Godot.Vector2 size = tempUICard.CustomMinimumSize;
 		for (int i = 0; i < amount; i++)
 		{
 			ItemSlot itemSlot = ItemSlotScene.Instantiate<ItemSlot>();
@@ -51,24 +53,43 @@ public partial class Inventory : PanelContainer
                 itemSlot.IsBossCardSlot = true;
             }
 			
-			// if (i == 3 || i == 2)
-            // {
-			// 	UIBossCard buiCard = Global.gameManager.uiPackedSceneReferences.UIBossCardScene.Instantiate<UIBossCard>();
-			// 	buiCard.SetOwnerCard(new BossCard("Aple" + i, 5, 5, CardElements.EARTH, "uid://m4uonlvhx0mu"));
-			// 	itemSlot.AddChild(buiCard);
-			// 	itemSlot.uiCard = buiCard;
-			// 	buiCard.MouseFilter = Control.MouseFilterEnum.Ignore;
-			// 	buiCard.EditAllCardInformation(buiCard.OwnerCard);
-            // }
-			// if (i == 1)
-            // {
-            //     UICard buiCard = Global.gameManager.uiPackedSceneReferences.UICardScene.Instantiate<UICard>();
-			// 	buiCard.SetOwnerCard(new Card("Aple" + i, 5, 5, CardElements.EARTH, "uid://m4uonlvhx0mu"));
-			// 	itemSlot.AddChild(buiCard);
-			// 	itemSlot.uiCard = buiCard;
-			// 	buiCard.MouseFilter = Control.MouseFilterEnum.Ignore;
-			// 	buiCard.EditAllCardInformation(buiCard.OwnerCard);
-            // }
+			if (Collection != null)
+            {
+                Card card = Collection[i];
+
+				if (card is BossCard)
+                {
+					UIBossCard bossUICard = Global.gameManager.uiPackedSceneReferences.UIBossCardScene.Instantiate<UIBossCard>();
+					bossUICard.SetOwnerCard(card as BossCard);
+					itemSlot.AddChild(bossUICard);
+					// Vector2 slotSize = itemSlot.Size;
+					// Vector2 cardSize = bossUICard.Size;
+					// float scaleX = slotSize.X / cardSize.X;
+					// float scaleY = slotSize.Y / cardSize.Y;
+					// float scale = Mathf.Min(scaleX, scaleY);
+
+					// bossUICard.Scale = new Vector2(scale, scale);
+					itemSlot.uiCard = bossUICard;
+					bossUICard.MouseFilter = Control.MouseFilterEnum.Ignore;
+					bossUICard.EditAllCardInformation(bossUICard.OwnerCard);
+                }
+                else
+                {
+					UICard uiCard = Global.gameManager.uiPackedSceneReferences.UICardScene.Instantiate<UICard>();
+					uiCard.SetOwnerCard(card);
+					itemSlot.AddChild(uiCard);
+					// Vector2 slotSize = itemSlot.Size;
+					// Vector2 cardSize = uiCard.Size;
+					// float scaleX = slotSize.X / cardSize.X;
+					// float scaleY = slotSize.Y / cardSize.Y;
+					// float scale = Mathf.Min(scaleX, scaleY);
+
+					// uiCard.Scale = new Vector2(scale, scale);
+					itemSlot.uiCard = uiCard;
+					uiCard.MouseFilter = Control.MouseFilterEnum.Ignore;
+					uiCard.EditAllCardInformation(uiCard.OwnerCard);
+                }
+            }
 
 			MainContainer.AddChild(itemSlot);
 			ItemSlots.Add(itemSlot);
@@ -76,10 +97,21 @@ public partial class Inventory : PanelContainer
 			itemSlot.CardTakenOut += NewCardAdded;
 		}
 		ShiftLeft();
+    }
 
-		GD.Print($"MainContainer child count: {MainContainer.GetChildCount()}");
-		GD.Print($"MainContainer visible: {MainContainer.Visible}");
-		GD.Print($"MainContainer size: {MainContainer.Size}");
+	public void ClearCards()
+    {
+        for (int i = MainContainer.GetChildCount() - 1; i >= 0; i--)
+		{
+			Node Container = MainContainer.GetChild(i);
+			if (Container.GetChildCount() > 0)
+            {
+                Node Card = Container.GetChild(0);
+				Container.RemoveChild(Card);
+				Card.QueueFree();
+            }
+		}
+		ItemSlots.Clear();
     }
 
 	private void NewCardAdded()
@@ -90,7 +122,7 @@ public partial class Inventory : PanelContainer
 
 	private void ShiftLeft()
     {
-        for (int i = 0; i < ItemSlots.Count - 1; i++)
+        for (int i = 0; i < ItemSlots.Count - (IsDeck ? 1 : 0); i++)
         {
             if (ItemSlots[i].uiCard == null)
             {
@@ -111,7 +143,7 @@ public partial class Inventory : PanelContainer
 
 	private int FindNextNullCard(int startIndex)
     {
-        for (int i = startIndex; i < ItemSlots.Count; i++)
+        for (int i = startIndex; i < ItemSlots.Count - (IsDeck ? 1 : 0); i++)
         {
             if (ItemSlots[i].uiCard != null)
             {

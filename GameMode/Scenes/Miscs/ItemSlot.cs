@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class ItemSlot : PanelContainer
+public partial class ItemSlot : Panel
 {
 	[Signal]
 	public delegate void NewCardAddedEventHandler();
@@ -18,6 +18,13 @@ public partial class ItemSlot : PanelContainer
 		if (uiCard != null)
 		{
 			SetMouseFilterRecursive(uiCard);
+			Vector2 slotSize = Size;
+			Vector2 cardSize = uiCard.Size;
+			float scaleX = slotSize.X / cardSize.X;
+			float scaleY = slotSize.Y / cardSize.Y;
+			float scale = Mathf.Min(scaleX, scaleY);
+
+			uiCard.Scale = new Vector2(scale, scale);
 		}
 	}
 
@@ -65,7 +72,10 @@ public partial class ItemSlot : PanelContainer
 			return;
 
 		if (droppedCard is not UIBossCard && IsBossCardSlot)
+        {
+			droppedCard.Show();
 			return;
+        }
 
 		// Get the old parent slot
 		ItemSlot oldSlot = droppedCard.GetParent() as ItemSlot;
@@ -81,9 +91,22 @@ public partial class ItemSlot : PanelContainer
 		// Swap cards between slots
 		if (uiCard != null)
 		{
-			// This slot has a uiCard - swap them
+			if (uiCard is not UIBossCard && oldSlot.IsBossCardSlot)
+            {
+				droppedCard.Show();
+				return;
+            }
 			oldSlot.RemoveChild(oldSlot.GetChild(0));
+			uiCard.Owner = null;
 			uiCard.Reparent(oldSlot);
+			uiCard.GlobalPosition = oldSlot.GlobalPosition;
+			Vector2 slotSizeOld = oldSlot.Size;
+			Vector2 cardSizeOld = uiCard.Size;
+			float scaleXOld = slotSizeOld.X / cardSizeOld.X;
+			float scaleYOld = slotSizeOld.Y / cardSizeOld.Y;
+			float scaleOld = Mathf.Min(scaleXOld, scaleYOld);
+
+			uiCard.Scale = new Vector2(scaleOld, scaleOld);
 			oldSlot.uiCard = uiCard;
 			uiCard.Show();
 		}
@@ -98,7 +121,14 @@ public partial class ItemSlot : PanelContainer
 		droppedCard.Owner = null;
 		AddChild(droppedCard);
 		uiCard = droppedCard;
-		
+		uiCard.GlobalPosition = GlobalPosition;
+		Vector2 slotSize = Size;
+		Vector2 cardSize = uiCard.Size;
+		float scaleX = slotSize.X / cardSize.X;
+		float scaleY = slotSize.Y / cardSize.Y;
+		float scale = Mathf.Min(scaleX, scaleY);
+
+		uiCard.Scale = new Vector2(scale, scale);
 		uiCard.Show();
 		oldSlot.EmitSignal(SignalName.CardTakenOut);
 		EmitSignal(SignalName.NewCardAdded);

@@ -14,11 +14,17 @@ public partial class DungeonEditor : HBoxContainer
     public override void _Ready()
     {
         base._Ready();
+        dungeonDeck.IsDeck = true;
         dungeonDeck.RemakePanelItems(1);
-        dungeonDeck.IsBossCardNeeded = false;
-        worldCards.RemakePanelItems(20);
+        VisibilityChanged += OnVisibilityChanged;
+        
     }
 
+    public void OnVisibilityChanged()
+    {
+        worldCards.RemakePanelItems(Collection: editor.gameMasterData.WorldCards);
+        dungeonDeck.ClearCards();
+    }
 
     public void ChangeName(string text)
     {
@@ -46,15 +52,12 @@ public partial class DungeonEditor : HBoxContainer
         {
             case DungeonTypes.simple:
                 dungeonDeck.RemakePanelItems(1);
-                dungeonDeck.IsBossCardNeeded = false;
                 break;
             case DungeonTypes.small:
-                dungeonDeck.RemakePanelItems(4, true);
-                dungeonDeck.IsBossCardNeeded = true;
+                dungeonDeck.RemakePanelItems(4, true, IsBossCardNeeded: true);
                 break;
             case DungeonTypes.big:
-                dungeonDeck.RemakePanelItems(6);
-                dungeonDeck.IsBossCardNeeded = true;
+                dungeonDeck.RemakePanelItems(6, IsBossCardNeeded: true);
                 break;
         }
     }

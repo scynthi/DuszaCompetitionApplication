@@ -432,7 +432,6 @@ horizontal_scroll_mode = 0
 [node name="WorldCards" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/VBoxContainer3/ScrollContainer" instance=ExtResource("15_e5lfn")]
 layout_mode = 2
 size_flags_horizontal = 6
-AmountOfCols = 5
 
 [node name="DungeonViewer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeonHolder")]
 visible = false
