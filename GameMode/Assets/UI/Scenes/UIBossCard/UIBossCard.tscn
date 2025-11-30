@@ -22,11 +22,10 @@ shader_parameter/scroll_speed = Vector2(0.1, -0.1)
 shader_parameter/alpha = 1.0
 
 [node name="Card" type="Control" node_paths=PackedStringArray("damageLabel", "healthLabel", "nameLabel", "charcaterIcon", "effectTexture", "elementTexture", "heartBuffedTexture", "damageBuffedTexture")]
-custom_minimum_size = Vector2(107.52, 140.8)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 168.0
-offset_bottom = 220.0
+offset_right = 133.0
+offset_bottom = 168.0
 scale = Vector2(0.64, 0.678)
 theme = ExtResource("1_fm8t1")
 script = ExtResource("2_j2uvf")
@@ -44,8 +43,11 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 34.197464
+offset_bottom = 44.314224
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.785, 0.785)
 theme = ExtResource("1_fm8t1")
 
 [node name="Control" type="Control" parent="Panel"]
@@ -109,8 +111,8 @@ stretch_mode = 4
 
 [node name="Effect" type="TextureRect" parent="Panel/Control2"]
 layout_mode = 1
-offset_right = 84.0
-offset_bottom = 110.04
+offset_right = 168.0
+offset_bottom = 220.0
 texture = ExtResource("6_gxnqs")
 stretch_mode = 5
 
@@ -189,6 +191,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 4.5663757
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

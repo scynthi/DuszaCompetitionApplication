@@ -83,9 +83,9 @@ texture = ExtResource("4_4h88p")
 
 [node name="MarginContainer" type="MarginContainer" parent="MessageContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 20
+theme_override_constants/margin_left = 60
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 20
+theme_override_constants/margin_right = 60
 theme_override_constants/margin_bottom = 20
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MessageContainer/MarginContainer"]
@@ -214,29 +214,6 @@ PlayerCollection = NodePath("PlayerCollection")
 CurrentMenuMessage = NodePath("../../../../../../MessageContainer/MarginContainer/RichTextLabel")
 ExistErrorPopup = NodePath("../../../../../../ExistentialCrisisError")
 
-[node name="PlayerCollection" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("cardHolder")]
-layout_mode = 2
-size_flags_vertical = 3
-alignment = 2
-script = ExtResource("5_vrmix")
-cardHolder = NodePath("ScrollContainer/HBoxContainer/GridContainer")
-
-[node name="ScrollContainer" type="ScrollContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/PlayerCollection"]
-custom_minimum_size = Vector2(0, 200)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/PlayerCollection/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
-
-[node name="GridContainer" type="GridContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/PlayerCollection/ScrollContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-columns = 4
-
 [node name="CardEditor" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("card")]
 visible = false
 layout_mode = 2
@@ -250,6 +227,7 @@ alignment = 1
 
 [node name="Card" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/VBoxContainer" instance=ExtResource("1_nonii")]
 use_parent_material = false
+custom_minimum_size = Vector2(133.165, 166.39)
 layout_mode = 2
 
 [node name="Properties" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor"]
@@ -369,8 +347,31 @@ layout_mode = 2
 size_flags_vertical = 3
 columns = 4
 
-[node name="DungeonEditor" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeon", "rewardType", "saveButton", "dungeonDeck", "worldCards")]
+[node name="PlayerCollection" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("cardHolder")]
 visible = false
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 2
+script = ExtResource("5_vrmix")
+cardHolder = NodePath("ScrollContainer/HBoxContainer/GridContainer")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/PlayerCollection"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/PlayerCollection/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/PlayerCollection/ScrollContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 4
+
+[node name="DungeonEditor" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeon", "rewardType", "saveButton", "dungeonDeck", "worldCards")]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
@@ -383,7 +384,6 @@ worldCards = NodePath("VBoxContainer/WorldCardhOlder/HBoxContainer/ScrollContain
 
 [node name="VBoxContainer" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor"]
 layout_mode = 2
-size_flags_horizontal = 3
 theme_override_constants/separation = 0
 alignment = 1
 
