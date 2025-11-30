@@ -1,17 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkxac5mrr13pu"]
+[gd_scene load_steps=8 format=3 uid="uid://bkxac5mrr13pu"]
 
 [ext_resource type="Script" uid="uid://crryffgn53yln" path="res://Assets/UI/Scenes/UIDungeon/UIDungeon.cs" id="1_a771a"]
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_uky3w"]
 [ext_resource type="Texture2D" uid="uid://bdmnd11s75frm" path="res://Assets/Images/Portal/portal_frame_egyszeru.png" id="2_3smau"]
-[ext_resource type="FontFile" uid="uid://bhu7r7x4jdi2e" path="res://Assets/Fonts/Alkhemikal.ttf" id="3_wh81g"]
+[ext_resource type="FontFile" uid="uid://cbquigxe1ekbr" path="res://Assets/Fonts/vcr_osd_mono.ttf" id="3_orb3t"]
+[ext_resource type="Script" uid="uid://w2trlf6d64go" path="res://Assets/UI/Scenes/UIDungeon/DungeonClickerCatcher.cs" id="3_wh81g"]
 [ext_resource type="Script" uid="uid://rri2sofoubid" path="res://Assets/UI/Scenes/UIDungeon/DungeonStartButton.cs" id="4_m6imu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wh81g"]
+font = ExtResource("3_orb3t")
 font_size = 36
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
-[node name="UIDungeon" type="Control" node_paths=PackedStringArray("nameRichText", "nameLabel", "iconTexture", "enterButton", "ClickCatcher")]
+[node name="UIDungeon" type="Control" node_paths=PackedStringArray("nameRichText", "nameLabel", "iconTexture", "enterButton")]
 custom_minimum_size = Vector2(150, 150)
 layout_mode = 3
 anchors_preset = 8
@@ -28,10 +30,9 @@ grow_vertical = 2
 theme = ExtResource("1_uky3w")
 script = ExtResource("1_a771a")
 nameRichText = NodePath("VBox/Label")
-nameLabel = NodePath("VBox/CenterContainer/VBoxContainer/UILabel")
-iconTexture = NodePath("VBox/CenterContainer/VBoxContainer/TextureRect")
-enterButton = NodePath("VBox/CenterContainer/VBoxContainer/Button")
-ClickCatcher = NodePath("Dungeon/Button")
+nameLabel = NodePath("VBox/CenterContainer/Dungeon/UILabel")
+iconTexture = NodePath("VBox/CenterContainer/Dungeon/TextureRect")
+enterButton = NodePath("VBox/CenterContainer/Dungeon/Button")
 
 [node name="VBox" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -60,55 +61,31 @@ custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBox/CenterContainer"]
+[node name="Dungeon" type="VBoxContainer" parent="VBox/CenterContainer" node_paths=PackedStringArray("Parent")]
 custom_minimum_size = Vector2(140, 300)
 layout_mode = 2
+mouse_filter = 2
 alignment = 1
+script = ExtResource("3_wh81g")
+Parent = NodePath("../../..")
 
-[node name="UILabel" type="Label" parent="VBox/CenterContainer/VBoxContainer"]
+[node name="UILabel" type="Label" parent="VBox/CenterContainer/Dungeon"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("3_wh81g")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 30
 text = "Teszt Kazamata"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="VBox/CenterContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBox/CenterContainer/Dungeon"]
 custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 texture = ExtResource("2_3smau")
 expand_mode = 1
-stretch_mode = 4
+stretch_mode = 5
 
-[node name="Button" type="Button" parent="VBox/CenterContainer/VBoxContainer" node_paths=PackedStringArray("nameLabel", "uIDungeon")]
+[node name="Button" type="Button" parent="VBox/CenterContainer/Dungeon" node_paths=PackedStringArray("nameLabel", "uIDungeon")]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "Kiválasztás"
 script = ExtResource("4_m6imu")
 nameLabel = NodePath("../../../Label")
 uIDungeon = NodePath("../../../..")
-
-[node name="Dungeon" type="Control" parent="."]
-z_index = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 65.0
-offset_top = 68.0
-offset_right = -79.0
-offset_bottom = -29.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Button" type="Button" parent="Dungeon"]
-use_parent_material = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-mouse_filter = 2
-flat = true

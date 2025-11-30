@@ -35,7 +35,8 @@ public static class PiciMenüHandler
                     piciMenüInstance.Item = asBossCard;
                     break;
                 case "Dungeon":
-                    UIDungeon dungeon = (UIDungeon)hoveredItem.GetParent().GetParent();
+                    DungeonClickerCatcher shit = (DungeonClickerCatcher)hoveredItem.GetParent();
+                    UIDungeon dungeon = (UIDungeon)shit.Parent;
                     if (dungeon == null) break;
 
                     piciMenüInstance = CreatePiciMenü();

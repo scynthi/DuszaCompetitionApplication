@@ -1,5 +1,6 @@
-[gd_resource type="Theme" load_steps=23 format=3 uid="uid://cucapuu4plldt"]
+[gd_resource type="Theme" load_steps=24 format=3 uid="uid://cucapuu4plldt"]
 
+[ext_resource type="FontFile" uid="uid://b7kxaogkr3jd6" path="res://Assets/Fonts/Pixelmax-Regular.otf" id="1_d7hpb"]
 [ext_resource type="FontFile" uid="uid://cbquigxe1ekbr" path="res://Assets/Fonts/vcr_osd_mono.ttf" id="1_dn8wm"]
 [ext_resource type="Texture2D" uid="uid://cq606clh2wrhq" path="res://Assets/Images/Button/button_bg_dark.png" id="2_qgjli"]
 [ext_resource type="Texture2D" uid="uid://n442w1kx142n" path="res://Assets/Images/Button/button_bg_better.png" id="2_vq6tu"]
@@ -137,7 +138,7 @@ corner_radius_bottom_left = 5
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/constants/outline_size = 3
 Button/font_sizes/font_size = 20
-Button/fonts/font = ExtResource("1_dn8wm")
+Button/fonts/font = ExtResource("1_d7hpb")
 Button/styles/hover = SubResource("StyleBoxTexture_bcd4f")
 Button/styles/normal = SubResource("StyleBoxTexture_vq6tu")
 Button/styles/pressed = SubResource("StyleBoxTexture_qgjli")
@@ -154,18 +155,20 @@ HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_ynfd3")
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 3
 Label/font_sizes/font_size = 20
-Label/fonts/font = ExtResource("1_dn8wm")
+Label/fonts/font = ExtResource("1_d7hpb")
 LineEdit/colors/font_outline_color = Color(0, 0, 0, 1)
 LineEdit/constants/caret_width = 1
 LineEdit/constants/outline_size = 3
 LineEdit/font_sizes/font_size = 20
-LineEdit/fonts/font = ExtResource("1_dn8wm")
+LineEdit/fonts/font = ExtResource("1_d7hpb")
 LineEdit/styles/normal = SubResource("StyleBoxTexture_qy3k7")
 OptionButton/font_sizes/font_size = 20
+PopupMenu/colors/font_outline_color = Color(0, 0, 0, 1)
+PopupMenu/constants/outline_size = 3
 PopupMenu/font_sizes/font_separator_size = 12
 PopupMenu/font_sizes/font_size = 12
 PopupMenu/font_sizes/title_font_size = 12
-PopupMenu/fonts/font = ExtResource("1_dn8wm")
+PopupMenu/fonts/font = ExtResource("1_d7hpb")
 PopupMenu/styles/hover = SubResource("StyleBoxFlat_bcd4f")
 PopupMenu/styles/panel = SubResource("StyleBoxTexture_a2onn")
 RichTextLabel/colors/font_outline_color = Color(0, 0, 0, 1)

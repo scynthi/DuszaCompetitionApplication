@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bpvqj2jyrl0rp" path="res://Assets/Images/Cards/cards_player_leader_effect.png" id="4_4h88p"]
 [ext_resource type="Texture2D" uid="uid://drg81v8by0ak7" path="res://Assets/Images/Sign/simple_sign.png" id="4_ebj7d"]
 [ext_resource type="Script" uid="uid://diy1asnsgjskg" path="res://Scenes/UI/GameMaster/PlayerCollection.cs" id="5_vrmix"]
-[ext_resource type="FontFile" uid="uid://6obpbt445wnf" path="res://Assets/Fonts/alagard.ttf" id="6_ph8e0"]
+[ext_resource type="FontFile" uid="uid://b7kxaogkr3jd6" path="res://Assets/Fonts/Pixelmax-Regular.otf" id="6_gkqin"]
 [ext_resource type="Script" uid="uid://dg7jqog8dii27" path="res://Scenes/UI/GameMaster/BossEditor.cs" id="9_pahx4"]
 [ext_resource type="Script" uid="uid://c3ngslqx8653y" path="res://Scenes/UI/GameMaster/CardViewer.cs" id="10_4h88p"]
 [ext_resource type="Script" uid="uid://dwjmh8lxmdcva" path="res://Scenes/UI/GameMaster/DungeonViewer.cs" id="11_mf5kw"]
@@ -23,8 +23,7 @@
 [ext_resource type="Script" uid="uid://ckjimywocmbf0" path="res://Scenes/UI/GameMaster/ExistentialCrisisError.cs" id="20_7gff6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_e5lfn"]
-line_spacing = -8.485
-font_size = 26
+font_size = 20
 outline_size = 11
 outline_color = Color(0.24, 0.009600005, 0.009600005, 1)
 
@@ -65,9 +64,10 @@ expand_mode = 1
 [node name="MessageContainer" type="PanelContainer" parent="."]
 z_index = 1
 layout_mode = 0
-offset_top = 265.00003
-offset_right = 487.7551
-offset_bottom = 695.6123
+offset_left = 14.999999
+offset_top = 269.00003
+offset_right = 425.20407
+offset_bottom = 697.5714
 scale = Vector2(0.49, 0.49)
 size_flags_vertical = 3
 
@@ -82,19 +82,20 @@ texture = ExtResource("4_4h88p")
 
 [node name="MarginContainer" type="MarginContainer" parent="MessageContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 60
+theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 60
+theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 20
 
 [node name="RichTextLabel" type="RichTextLabel" parent="MessageContainer/MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
-theme_override_fonts/normal_font = ExtResource("6_ph8e0")
+theme_override_fonts/normal_font = ExtResource("6_gkqin")
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 fit_content = true
+autowrap_mode = 2
 
 [node name="BackgroundMargin" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -145,7 +146,7 @@ alignment = 2
 [node name="Margin" type="MarginContainer" parent="EditorContent/HBox/GameMaster/MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 30
+theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_bottom = 20
 
@@ -159,34 +160,42 @@ theme_override_constants/separation = 4
 
 [node name="CardEditor" type="Button" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
 text = "Kártya készítő"
 
 [node name="Cards" type="Button" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
 text = "Kártyák"
 
 [node name="Collection" type="Button" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
-text = "Játékos gyűjteménye"
+theme_override_font_sizes/font_size = 18
+text = "Gyűjtemény"
 
 [node name="BossEditor" type="Button" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
 text = "Vezér kártyák"
 
 [node name="DungeonEditor" type="Button" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
 text = "Kazamata készítő"
 
 [node name="Dungeons" type="Button" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
 text = "Kazamaták"
 
 [node name="Save" type="Button" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
 text = "Környezet mentése"
 
 [node name="Back" type="Button" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 18
 text = "Kilépés"
 
 [node name="EditorContainer" type="HBoxContainer" parent="EditorContent/HBox/GameMaster"]
@@ -383,21 +392,23 @@ dungeon = NodePath("VBoxContainer/HBoxContainer/UIDungeon")
 rewardType = NodePath("VBoxContainer/HBoxContainer/MarginContainer/Properties/RewardType")
 saveButton = NodePath("VBoxContainer/HBoxContainer/MarginContainer/Properties/Save")
 dungeonDeck = NodePath("VBoxContainer/HBoxContainer/DungeonContainer")
-worldCards = NodePath("VBoxContainer/WorldCardhOlder/HBoxContainer/ScrollContainer/WorldCards")
+worldCards = NodePath("VBoxContainer/WorldCardhOlder/HBoxContainer/MarginContainer/ScrollContainer/WorldCards")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 0
-alignment = 1
+alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 size_flags_stretch_ratio = 2.0
-alignment = 1
+alignment = 2
 
-[node name="UIDungeon" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("ClickCatcher") instance=ExtResource("3_j6eix")]
+[node name="UIDungeon" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer" instance=ExtResource("3_j6eix")]
+custom_minimum_size = Vector2(200, 150)
 layout_mode = 2
-ClickCatcher = NodePath("Dungeon")
 
 [node name="MarginContainer" type="MarginContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -441,25 +452,33 @@ text = "Mentés"
 [node name="DungeonContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("ConnectedInventory") instance=ExtResource("15_e5lfn")]
 custom_minimum_size = Vector2(320, 200)
 layout_mode = 2
-ConnectedInventory = NodePath("../../WorldCardhOlder/HBoxContainer/ScrollContainer/WorldCards")
+ConnectedInventory = NodePath("../../WorldCardhOlder/HBoxContainer/MarginContainer/ScrollContainer/WorldCards")
 AmountOfCols = 3
 ScaleDown = 1.3
 
 [node name="WorldCardhOlder" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer"]
 layout_mode = 2
+alignment = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/WorldCardhOlder"]
 layout_mode = 2
 alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/WorldCardhOlder/HBoxContainer"]
-custom_minimum_size = Vector2(200, 300)
+[node name="MarginContainer" type="MarginContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/WorldCardhOlder/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_right = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/WorldCardhOlder/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+size_flags_horizontal = 3
 horizontal_scroll_mode = 0
 
-[node name="WorldCards" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/WorldCardhOlder/HBoxContainer/ScrollContainer" node_paths=PackedStringArray("ConnectedInventory") instance=ExtResource("15_e5lfn")]
+[node name="WorldCards" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/WorldCardhOlder/HBoxContainer/MarginContainer/ScrollContainer" node_paths=PackedStringArray("ConnectedInventory") instance=ExtResource("15_e5lfn")]
 layout_mode = 2
-ConnectedInventory = NodePath("../../../../HBoxContainer/DungeonContainer")
+ConnectedInventory = NodePath("../../../../../HBoxContainer/DungeonContainer")
 AmountOfCols = 4
 ScaleDown = 1.3
 
@@ -690,7 +709,7 @@ offset_left = 79.0
 offset_top = 58.0
 offset_right = 458.0
 offset_bottom = 270.0
-theme_override_constants/separation = 16
+theme_override_constants/separation = 40
 
 [node name="Label" type="Label" parent="ExistentialCrisisError/VBoxContainer"]
 layout_mode = 2

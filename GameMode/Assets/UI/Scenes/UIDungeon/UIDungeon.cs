@@ -8,7 +8,6 @@ public partial class UIDungeon : Control
     [Export] Label nameLabel;
     [Export] TextureRect iconTexture;
     [Export] Button enterButton;
-    [Export] Button ClickCatcher;
 
     [Signal] public delegate void DungeonClickedEventHandler(UIDungeon uidungeon);
 
@@ -33,7 +32,6 @@ public partial class UIDungeon : Control
             nameRichText.Visible = !value;
             enterButton.Visible = !value;
             iconTexture.CustomMinimumSize = value ? new Vector2(250,250) : new Vector2(30,120);
-            ClickCatcher.MouseFilter = value ? MouseFilterEnum.Stop : MouseFilterEnum.Ignore;
         } 
         get {return _previewMode;}
     }

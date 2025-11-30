@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://hylehs5hcjtj"]
+[gd_scene load_steps=10 format=3 uid="uid://hylehs5hcjtj"]
 
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_varar"]
 [ext_resource type="Texture2D" uid="uid://be04w1ls8fdoi" path="res://Assets/Images/Team logo/undefined_team_logo.png" id="2_2au4r"]
 [ext_resource type="Script" uid="uid://bl7bvwit8pici" path="res://Scenes/SplashScreen/StartSplashScreen.cs" id="2_rnypn"]
 [ext_resource type="Texture2D" uid="uid://5b5clx7uopyh" path="res://Assets/Images/Icons/icon.png" id="3_var4r"]
+[ext_resource type="FontFile" uid="uid://cbquigxe1ekbr" path="res://Assets/Fonts/vcr_osd_mono.ttf" id="5_bp3ej"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m6muk"]
+font = ExtResource("5_bp3ej")
 font_size = 156
 outline_size = 25
 outline_color = Color(0.42, 0.37079, 0.26459998, 1)
@@ -143,6 +145,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Label2" type="Label" parent="Charter"]
+show_behind_parent = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -150,9 +153,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -453.0
-offset_top = -302.0
+offset_top = -254.0
 offset_right = 474.0
-offset_bottom = -103.0
+offset_bottom = -55.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 270

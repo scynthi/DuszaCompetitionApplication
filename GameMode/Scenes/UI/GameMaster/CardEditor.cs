@@ -53,7 +53,7 @@ public partial class CardEditor : HBoxContainer
                 fileDialogInstance.CurrentDir = "C:/";
                 fileDialogInstance.AddFilter("*.png");
                 fileDialogInstance.Visible = true;
-                fileDialogInstance.Size = new Godot.Vector2I(1000, 570);
+                // fileDialogInstance.Size = new Godot.Vector2I(1000, 570);
 
                 GetTree().CurrentScene.AddChild(fileDialogInstance);
                 break;

@@ -70,7 +70,7 @@ public partial class Editors : VBoxContainer
                 break;
             case "boss":
                 CurrentMenu = BossEditor;
-                EditMessage($"[font_size={TITLETEXTSIZE}]Vezér kártyák[/font_size]\n\nItt láthatja a játékkörnyezetben lévő vezér kártyákat. Bal kattintással meg tudja nyitni a 'Pici menüt', amely segítségével törölheti.");
+                EditMessage($"[font_size={TITLETEXTSIZE}]Vezér kártyák[/font_size]\n\nItt láthatja a vezér kártyákat. Bal kattintással meg tudja nyitni a 'Pici menüt', amely segítségével törölheti.");
                 break;
             case "dungeons":
                 CurrentMenu = DungeonViewer;
@@ -82,7 +82,7 @@ public partial class Editors : VBoxContainer
                 break;
             case "cards":
                 CurrentMenu = CardViewer;
-                EditMessage($"[font_size={TITLETEXTSIZE}]Világkártyák[/font_size]\n\nItt láthatja a játékkörnyezetben lévő kártyákat. Bal kattintással meg tudja nyitni a 'Pici menüt', amely segítségével törölheti, hozzáadhatja a játékos gyűjteményéhez a kártyát vagy létrehozhat vezér kártyákat.");
+                EditMessage($"[font_size={TITLETEXTSIZE}]Világkártyák[/font_size]\n\nItt láthatja a kártyákat. Bal kattintással meg tudja nyitni a 'Pici menüt', amivel törölheti, hozzáadhatja a gyűjteményéhez a kártyát vagy létrehozhat új vezér kártyákat.");
                 break;
             case "collection":
                 CurrentMenu = PlayerCollection;
