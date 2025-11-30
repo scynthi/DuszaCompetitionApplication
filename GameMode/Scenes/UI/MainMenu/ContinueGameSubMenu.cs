@@ -49,6 +49,8 @@ public partial class ContinueGameSubMenu : Control
 
     private async void _SaveFileContinueItemPressed(WorldContext bindedSaveFile)
     {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+
         Global.gameManager.saverLoader.currSaveFile = bindedSaveFile;
         await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.DungeonMap);
     }

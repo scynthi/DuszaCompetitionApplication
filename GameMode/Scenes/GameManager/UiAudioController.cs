@@ -9,44 +9,32 @@ public partial class UiAudioController : Node
 
     [Export] public AudioStreamPlayer musicAudioPlayer;
 
-
-
-    public void PlaySFX(AudioStream stream, bool randomizePitch = true)
+    public void PlaySFX(AudioStream stream, bool randomizePitch = true, float setPtich = 0.0f, float rndPtichRangeMin = -0.2f, float rndPtichRangeMax = 0.2f)
     {
-        float randomPitchScale = randomizePitch ? (float)GD.RandRange(-0.2f, 0.2f) : 0f;
-        sfxAudioPlayer.PitchScale = 1.0f + randomPitchScale;
+        float randomPitchScale = randomizePitch ? (float)GD.RandRange(rndPtichRangeMin, rndPtichRangeMax) : 0.0f;
         
-        sfxAudioPlayer.Stream = stream;
-        sfxAudioPlayer.Play();
+        AudioStreamPlayer player = new AudioStreamPlayer();
+        player.Stream = stream;
+        player.PitchScale = 1.0f + randomPitchScale + setPtich;
+        player.Bus = sfxAudioPlayer.Bus;
+        player.VolumeDb = sfxAudioPlayer.VolumeDb;
+        
+        AddChild(player);
+        player.Play();
+        player.Finished += () => {
+            player.QueueFree();
+        };
     }
 
-    public void StartMainMenuMusicLoop()
+    public void PlayMusicAndEnvSounds(AudioStream music, AudioStream ambient)
     {
-        
-    }
+        musicAudioPlayer.Stop();
+        envAudioPlayer.Stop();
 
-    public void StartShopMusicLoop()
-    {
-        
-    }
+        musicAudioPlayer.Stream = music;
+        envAudioPlayer.Stream = ambient;
 
-    public void PlayMusic()
-    {
-        
-    }
-
-    public void StartRandomEnvAudioMainMenu()
-    {
-        
-    }
-
-    public void StartRandomEnvAudioMap()
-    {
-        
-    }
-    
-    public void StartRandomEnvAudioCave()
-    {
-        
+        musicAudioPlayer.Play();
+        envAudioPlayer.Play();
     }
 }

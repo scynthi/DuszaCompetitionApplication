@@ -1,7 +1,7 @@
 {
   "player": {
-	"Xp": 60,
-	"Money": 999999960,
+	"Xp": 85,
+	"Money": 999999685,
 	"Collection": [
 	  {
 		"Name": "alma",
@@ -16,7 +16,7 @@
 	  },
 	  {
 		"Name": "Lord  alma",
-		"Health": 34,
+		"Health": 44,
 		"BaseDamage": 7,
 		"Damage": 7,
 		"DamageChanged": false,
@@ -29,7 +29,7 @@
 	"Deck": [
 	  {
 		"Name": "Lord  alma",
-		"Health": 34,
+		"Health": 44,
 		"BaseDamage": 7,
 		"Damage": 7,
 		"DamageChanged": false,
@@ -46,7 +46,7 @@
 		"Description": "Haszn\u00E1latakor megn\u00F6veli \n a jelenlegi k\u00E1rtya \u00E9leterej\u00E9t \n 5 ponttal",
 		"Icon": "uid://b1y7hb6ugsa1s",
 		"Price": 8,
-		"Amount": 0,
+		"Amount": 2,
 		"Type": 0,
 		"Buff": null
 	  },
@@ -56,7 +56,7 @@
 		"Description": "Haszn\u00E1lata ut\u00E1n az \n elenf\u00E9l els\u0151 \u00FCt\u00E9se \n b\u00E1rmekkora is nem \u00E9rv\u00E9nyes",
 		"Icon": "uid://duvi63fq53dex",
 		"Price": 10,
-		"Amount": 0,
+		"Amount": 7,
 		"Type": 1,
 		"Buff": null
 	  },
@@ -66,7 +66,7 @@
 		"Description": "Hasz\u00E1nlata ut\u00E1n a \n jelenlegi k\u00E1rtya /2 sebz\u00E9st kap \n \u00E9s *2 t\u00E1mad\u00E1st ad 1 k\u00F6rig",
 		"Icon": "uid://cc17bg13ixypu",
 		"Price": 20,
-		"Amount": 0,
+		"Amount": 5,
 		"Type": 2,
 		"Buff": null
 	  }

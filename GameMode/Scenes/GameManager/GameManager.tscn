@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://b7ju5ebcspygg"]
+[gd_scene load_steps=65 format=3 uid="uid://b7ju5ebcspygg"]
 
 [ext_resource type="Script" uid="uid://c6x1xajmkurav" path="res://Scenes/GameManager/GameManager.cs" id="1_jmpc8"]
 [ext_resource type="Texture2D" uid="uid://d4cj5qnd8tha3" path="res://Assets/Images/Textures/PaperTex.png" id="2_pbnlu"]
@@ -48,6 +48,13 @@
 [ext_resource type="AudioStream" uid="uid://wkkwlgnwwgt" path="res://Assets/Audio/SoundEffects/Trash.wav" id="34_v2olk"]
 [ext_resource type="AudioStream" uid="uid://cn08o1wmi0gad" path="res://Assets/Audio/SoundEffects/bush/Bush1.wav" id="35_3vs6r"]
 [ext_resource type="AudioStream" uid="uid://dwcfej7ayc7ed" path="res://Assets/Audio/SoundEffects/bush/Bush2.wav" id="36_sm2jp"]
+[ext_resource type="AudioStream" uid="uid://cege6to25qeyh" path="res://Assets/Audio/SoundEffects/money/Money2.wav" id="37_ek8xi"]
+[ext_resource type="AudioStream" uid="uid://bwt7ejox65d6k" path="res://Assets/Audio/SoundEffects/money/Money3.wav" id="38_4u6hw"]
+[ext_resource type="AudioStream" uid="uid://dihhxsk2aeb02" path="res://Assets/Audio/SoundEffects/money/Money.wav" id="39_qbd7t"]
+[ext_resource type="AudioStream" uid="uid://b7je1jeunosne" path="res://Assets/Audio/Music/ACozyShop.wav" id="42_v2olk"]
+[ext_resource type="AudioStream" uid="uid://cqvgaewnca4np" path="res://Assets/Audio/Music/fight_ambiance_loop.wav" id="43_3vs6r"]
+[ext_resource type="AudioStream" uid="uid://ngf4uhai6q1t" path="res://Assets/Audio/Music/cave_loop_ambient.wav" id="44_sm2jp"]
+[ext_resource type="AudioStream" uid="uid://dsu7be48w4lbu" path="res://Assets/Audio/Music/heart_fall_lullaby.wav" id="45_oxy6m"]
 
 [sub_resource type="Shader" id="Shader_um3qg"]
 code = "shader_type canvas_item;
@@ -272,11 +279,6 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.3710000176225
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yh7xr"]
-streams_count = 2
-stream_0/stream = ExtResource("6_fuq8d")
-stream_1/stream = ExtResource("7_dwqbh")
-
 [node name="GameManager" type="Node" node_paths=PackedStringArray("World", "transitionAnimator", "saverLoader", "audioController", "uiPackedSceneReferences", "ctrShaderRect")]
 script = ExtResource("1_jmpc8")
 World = NodePath("GameLayer/World")
@@ -336,7 +338,6 @@ musicAudioPlayer = NodePath("MusicAudioPlayer")
 max_polyphony = 16
 
 [node name="EnvAudioPlayer" type="AudioStreamPlayer" parent="UIAudioController"]
-stream = SubResource("AudioStreamRandomizer_yh7xr")
 
 [node name="MusicAudioPlayer" type="AudioStreamPlayer" parent="UIAudioController"]
 
@@ -357,7 +358,14 @@ healthPotionSounds = Array[AudioStream]([ExtResource("31_4u6hw")])
 glassShieldSounds = Array[AudioStream]([ExtResource("32_qbd7t")])
 transitionSounds = Array[AudioStream]([ExtResource("33_vqyv5"), ExtResource("34_r850y"), ExtResource("33_6jyfk")])
 DeleteSounds = Array[AudioStream]([ExtResource("34_v2olk")])
+MoneySounds = Array[AudioStream]([ExtResource("37_ek8xi"), ExtResource("38_4u6hw"), ExtResource("39_qbd7t")])
 BushSounds = Array[AudioStream]([ExtResource("35_3vs6r"), ExtResource("36_sm2jp")])
+ShopMusic = ExtResource("42_v2olk")
+MainMenuAmbiance = ExtResource("6_fuq8d")
+FightMusic = ExtResource("43_3vs6r")
+CaveAmbiance = ExtResource("44_sm2jp")
+MapAmbiance = ExtResource("7_dwqbh")
+MainMenuMusic = ExtResource("45_oxy6m")
 
 [node name="SaverLoader" type="Node" parent="."]
 script = ExtResource("24_hvyv7")

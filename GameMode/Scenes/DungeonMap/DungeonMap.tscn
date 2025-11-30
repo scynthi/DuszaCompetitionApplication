@@ -1,4 +1,5 @@
-[gd_scene load_steps=34 format=3 uid="uid://oihoapowoy2t"]
+[gd_scene load_steps=35 format=3 uid="uid://oihoapowoy2t"]
+
 
 [ext_resource type="Script" uid="uid://ctr2m1ncuyxwi" path="res://Scenes/DungeonMap/CameraController.cs" id="1_6u8ww"]
 [ext_resource type="PackedScene" uid="uid://dohu3ccoui2n5" path="res://Scenes/DungeonMap/MapBackgrounds/DungeonMapBackground.tscn" id="2_0enam"]
@@ -24,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://cc17bg13ixypu" path="res://Assets/Images/Items/ElementalBuff.png" id="16_yw8xx"]
 [ext_resource type="Texture2D" uid="uid://0xqm5vwe7pb7" path="res://Assets/Images/Sign/SmallTextSign.png" id="17_mo0dx"]
 [ext_resource type="Texture2D" uid="uid://biyuoa8nhmgf4" path="res://Assets/Images/Sign/ArrowSign.png" id="18_tdyy1"]
+[ext_resource type="Texture2D" uid="uid://w4xh5seeavhv" path="res://Assets/Images/UITex/MidMouse.png" id="21_6f2pe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j447k"]
 bg_color = Color(0, 0, 0, 0.5137255)
@@ -41,6 +43,13 @@ outline_color = Color(0.078814976, 0.07881499, 0.078814976, 1)
 font_size = 30
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yw8xx"]
+bg_color = Color(0, 0, 0, 0.25490198)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [sub_resource type="Animation" id="Animation_yw7fq"]
 resource_name = "ChangeSubmenu"
@@ -62,9 +71,12 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.36666667),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"PlaySwooshSFX"
+}, {
 "args": [],
 "method": &"ChangeMenu"
 }]
@@ -103,6 +115,20 @@ tracks/0/keys = {
 "handle_modes": PackedInt32Array(2, 2),
 "points": PackedFloat32Array(927, 0, 0, 0.1, 106.524536, 1042, -0.4271919, 1.6802979, 0, 0),
 "times": PackedFloat32Array(0, 0.75)
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PlaySwooshSFX"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_6f2pe"]
@@ -169,7 +195,8 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="DeckSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign" node_paths=PackedStringArray("playerCollection", "playerDeck", "moneyLabel", "xpLabel", "HealthPotionAmount", "GlassShieldAmount", "ElementalBuffAmount", "sideAnimator", "transAnimator")]
+[node name="DeckSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign" node_paths=PackedStringArray("collectionContainer", "deckContainer", "moneyLabel", "xpLabel", "HealthPotionAmount", "GlassShieldAmount", "ElementalBuffAmount", "sideAnimator", "transAnimator", "mapMenu")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -186,6 +213,7 @@ GlassShieldAmount = NodePath("SideStuff/Inside/GlassShield/Label")
 ElementalBuffAmount = NodePath("SideStuff/Inside/ElementalBuff/Label")
 sideAnimator = NodePath("../../ItemExpandAnimator")
 transAnimator = NodePath("../../AnimationPlayer")
+mapMenu = NodePath("../..")
 
 [node name="SideStuff" type="Control" parent="CanvasLayer/Control/UpperSign/DeckSubmenu"]
 layout_mode = 1
@@ -585,6 +613,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/UpperSign/EmptyMenu"]
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -597,6 +626,32 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 26
 text = "Tarsd lenyomva az egér görgőt a mozgáshoz "
 label_settings = SubResource("LabelSettings_mo0dx")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/UpperSign/EmptyMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_top = 21.0
+offset_right = 30.0
+offset_bottom = 81.0
+grow_horizontal = 2
+texture = ExtResource("21_6f2pe")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Control/UpperSign/EmptyMenu/TextureRect"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -35.0
+offset_top = -4.0
+offset_right = 35.0
+offset_bottom = 66.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yw8xx")
 
 [node name="BottomSign" type="Control" parent="CanvasLayer/Control"]
 layout_mode = 1

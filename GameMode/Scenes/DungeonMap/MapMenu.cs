@@ -11,7 +11,7 @@ public partial class MapMenu : Control
     [Export] AnimationPlayer animationPlayer;
     
     private Control _currentMenu;
-    private Control CurrentMenu
+    public Control CurrentMenu
     {
         get {return _currentMenu;}
         set
@@ -31,6 +31,8 @@ public partial class MapMenu : Control
         }
 
         ChangeSubMenu("empty");
+
+        Global.gameManager.audioController.PlayMusicAndEnvSounds(null, Global.gameManager.audioController.audioBank.MapAmbiance);
     }
 
 
@@ -38,13 +40,7 @@ public partial class MapMenu : Control
     string lastMenuName;
 
     public async void ChangeSubMenu(string name)
-    {
-        if (name != "empty")
-        {
-            Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
-        }
-        
-        
+    {   
         if (lastMenuName == name || name == "empty")
         {
             queuedMenu = emptyMenu;
@@ -53,6 +49,7 @@ public partial class MapMenu : Control
             return;
         }
 
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
 
         switch(name)
         {
@@ -83,4 +80,8 @@ public partial class MapMenu : Control
         CurrentMenu = queuedMenu;
     }
 
+    private void PlaySwooshSFX()
+    {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.hoverSounds.PickRandom());
+    }
 }

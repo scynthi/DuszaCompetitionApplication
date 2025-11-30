@@ -109,6 +109,7 @@ public partial class NewGameSubMenu : Control
     public void SaveDeleteBtnPressed()
     {
         Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+		Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.DeleteSounds.PickRandom());
 
         SaverLoader.DeleteSave(currDisplayedSave.Name, SaverLoader.SAVE_PATH);
         ReloadSaves();

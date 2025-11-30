@@ -74,7 +74,7 @@ texture = SubResource("CompressedTexture2D_phq1f")
 modulate_color = Color(0.8509804, 0.5019608, 0.5019608, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_aofk4"]
-font_size = 31
+font_size = 21
 font_color = Color(1, 0.7372549, 0.4392157, 1)
 outline_size = 20
 outline_color = Color(0, 0, 0, 1)
@@ -100,9 +100,12 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.033333335, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"PlayChainSFX"
+}, {
 "args": [],
 "method": &"ChangeMenu"
 }]
@@ -142,16 +145,19 @@ tracks/0/keys = {
 "points": PackedFloat32Array(-299, 0, 0, 0.06666667, 283.84332, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.46666667)
 }
-tracks/1/type = "bezier"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Control:position:y")
+tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(2, 0),
-"points": PackedFloat32Array(235, 0, 0, 0.125, 0, 235, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.46666667)
+"times": PackedFloat32Array(0.03333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PlaySwooshSFX"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_aofk4"]
@@ -165,17 +171,6 @@ tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(235, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 
@@ -1061,7 +1056,7 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -125.0
-offset_right = 281.0
+offset_right = 234.0
 offset_bottom = 125.0
 grow_vertical = 2
 
@@ -1070,12 +1065,11 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 10.0
+offset_right = -15.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("21_icc81")
 expand_mode = 1
-stretch_mode = 6
 
 [node name="Master" type="Button" parent="Control"]
 layout_mode = 1
@@ -1084,27 +1078,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -128.5
-offset_top = -29.0
-offset_right = 128.5
-offset_bottom = 21.0
+offset_left = -96.5
+offset_top = -25.0
+offset_right = 80.5
+offset_bottom = 17.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 20
 text = "Belépés"
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_top = 53.0
-offset_bottom = 95.0
+offset_left = -8.0
+offset_top = 60.0
+offset_right = -8.0
+offset_bottom = 102.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 31
 text = "Játékmester mód"
 label_settings = SubResource("LabelSettings_aofk4")
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
