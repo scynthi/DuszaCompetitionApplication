@@ -51,7 +51,9 @@ public partial class ItemSlot : Panel
 		Control c = new Control();
 		c.AddChild(preview);
 
-		preview.Position = -uiCard.Size / 2;
+		// preview.Position = -uiCard.Size / 2;
+		Vector2 scaledSize = uiCard.Size * uiCard.Scale;
+		preview.Position = -scaledSize / 2;
 		preview.ZIndex = 100;
 		c.Modulate = new Color(1, 1, 1, 0.5f);
 		SetDragPreview(c);
@@ -62,6 +64,7 @@ public partial class ItemSlot : Panel
 
 	public override bool _CanDropData(Vector2 atPosition, Variant data)
 	{
+		DisplayServer.CursorSetShape(DisplayServer.CursorShape.CanDrop);
 		return data.As<Control>() != null;
 	}
 

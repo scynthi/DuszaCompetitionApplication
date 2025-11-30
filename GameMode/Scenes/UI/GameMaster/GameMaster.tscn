@@ -355,13 +355,14 @@ layout_mode = 2
 size_flags_vertical = 3
 columns = 4
 
-[node name="DungeonEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeon", "rewardType", "dungeonDeck", "worldCards")]
+[node name="DungeonEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeon", "rewardType", "saveButton", "dungeonDeck", "worldCards")]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 script = ExtResource("3_8slam")
 dungeon = NodePath("VBoxContainer/HBoxContainer/UIDungeon")
 rewardType = NodePath("VBoxContainer/HBoxContainer/Properties/RewardType")
+saveButton = NodePath("VBoxContainer/HBoxContainer/Properties/Save")
 dungeonDeck = NodePath("VBoxContainer/HBoxContainer/DungeonDeck")
 worldCards = NodePath("VBoxContainer/VBoxContainer3/ScrollContainer/WorldCards")
 
@@ -418,6 +419,7 @@ text = "Mentés"
 [node name="DungeonDeck" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer" instance=ExtResource("15_e5lfn")]
 layout_mode = 2
 size_flags_vertical = 4
+AmountOfCols = 3
 ScaleDown = 1.5
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer"]
@@ -431,6 +433,7 @@ horizontal_scroll_mode = 0
 [node name="WorldCards" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/VBoxContainer3/ScrollContainer" instance=ExtResource("15_e5lfn")]
 layout_mode = 2
 size_flags_horizontal = 6
+AmountOfCols = 5
 
 [node name="DungeonViewer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeonHolder")]
 visible = false
