@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=22 format=3 uid="uid://cucapuu4plldt"]
+[gd_resource type="Theme" load_steps=24 format=3 uid="uid://cucapuu4plldt"]
 
 [ext_resource type="FontFile" uid="uid://6obpbt445wnf" path="res://Assets/Fonts/alagard.ttf" id="1_34bqa"]
 [ext_resource type="FontFile" uid="uid://bhu7r7x4jdi2e" path="res://Assets/Fonts/Alkhemikal.ttf" id="2_6vowl"]
@@ -70,6 +70,20 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3sh44"]
+bg_color = Color(0.27450982, 0.18431373, 0.11764706, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynfd3"]
+bg_color = Color(0.27450982, 0.18431373, 0.11764706, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qy3k7"]
 texture = ExtResource("2_vq6tu")
 texture_margin_left = 8.0
@@ -136,6 +150,8 @@ HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_a8pu4")
 HSlider/icons/grabber = ExtResource("7_qy3k7")
 HSlider/icons/grabber_highlight = ExtResource("6_d7hpb")
 HSlider/icons/tick = ExtResource("8_d7hpb")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_3sh44")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_ynfd3")
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/constants/outline_size = 3
 Label/font_sizes/font_size = 16
