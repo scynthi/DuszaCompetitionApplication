@@ -25,9 +25,9 @@ public class Settings
 
 public partial class SaverLoader : Node
 {
-	public const string SAVE_PATH = "res://Saves/Template/";
-	public const string CONTINUE_PATH = "res://Saves/Continue/";
-	public const string OUTPUT_PATH = "res://CreatedInFiles/";
+	public const string SAVE_PATH = "user://Saves/Template/";
+	public const string CONTINUE_PATH = "user://Saves/Continue/";
+	public const string OUTPUT_PATH = "user://CreatedInFiles/";
 	public WorldContext currSaveFile { get; set; }
 
 	private static JsonSerializerOptions options = new JsonSerializerOptions
@@ -118,6 +118,21 @@ public partial class SaverLoader : Node
 		return new WorldContext(playerData, worldData, settings);
 	}
 
+	public WorldContext Load(string path)
+	{
+		if (!Directory.Exists(path))
+			Directory.CreateDirectory(path);
+
+		string playerJson = File.ReadAllText(Path.Combine(path, "player.json"));
+		string worldJson = File.ReadAllText(Path.Combine(path, "world.json"));
+		string settingsJson = File.ReadAllText(Path.Combine(path, "settings.json"));
+		PlayerSave playerData = JsonSerializer.Deserialize<PlayerSave>(playerJson, options);
+		WorldSave worldData = JsonSerializer.Deserialize<WorldSave>(worldJson, options);
+		Settings settings = JsonSerializer.Deserialize<Settings>(settingsJson, options);
+
+		return new WorldContext(playerData, worldData, settings);
+	}
+
 	public static Player LoadPlayer(string saveName)
 	{
 		string filePath = ProjectSettings.GlobalizePath($"user://Saves/{saveName}/player.json");
@@ -133,6 +148,8 @@ public partial class SaverLoader : Node
 	{
 		List<string> output = ConvertWorldContextToOutput(worldContext);
 		string fullPath = ProjectSettings.GlobalizePath(path + "/in.txt");
+		GD.Print("PATH" + path);
+		GD.Print("FULLPATH" + fullPath);
 		File.WriteAllLines(fullPath, output);
 	}
 

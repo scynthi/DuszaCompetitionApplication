@@ -19,7 +19,6 @@ public partial class FightLogic : Node
 
 	List<Card> PlayerDeck = new List<Card>();
 	List<Card> DungeonDeck = new List<Card>();
-	// List<IItem> ItemList = new List<IItem>();
 
 	[Export] Label RoundText;
 	[Export] HBoxContainer IconContainer;
@@ -33,16 +32,12 @@ public partial class FightLogic : Node
 	[Export] AnimationPlayer WorldAnimPlayer;
 	[Export] AnimationPlayer NextCardsAnimPlayer;
 
-
 	[Export] Button StepBattleButton;
 
 	[Export] TextureRect healthPotionIcon;
 	[Export] TextureRect glassShieldIcon;
 	[Export] TextureRect elementalBuffIcon;
 
-
-	// TEST
-	// List<Card> PlayerDeck = new List<Card> { new Card("Corky", 2, 4, CardElements.EARTH), new Card("alma", 2, 7, CardElements.WIND) };
 	public Card PlayerCard;
 	public Card DungeonCard;
 	List<IItem> ItemList = new List<IItem>();
@@ -237,7 +232,7 @@ public partial class FightLogic : Node
 		foreach (Node child in IconContainer.GetChildren())
         {
 			ItemButton2VigyeElAMento btn = child as ItemButton2VigyeElAMento;
-            btn.useButton.Disabled = true;
+            btn.useButton.Disabled = false;
         }
 		
 	}

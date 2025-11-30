@@ -92,13 +92,13 @@ public partial class Card : IWorldObject
         }
         damage = Convert.ToInt32(Math.Round(damage * difficultyModifier));
         int calculatedDamage = ElementRules.CalculateDamage(damage, CardElement, card.CardElement);
-        buffHandler.CalculateDamage(calculatedDamage);
-        return card.ApplyDamage();
-    }
-    public int ApplyDamage()
-    {
-        int damage = Convert.ToInt32(Math.Round(Damage * buffHandler.CalculateDamageTakenMultiplier()));
         
+        buffHandler.CalculateDamage(calculatedDamage);
+        return card.ApplyDamage(Damage);
+    }
+    public int ApplyDamage(int applyDamage)
+    {
+        int damage = Convert.ToInt32(Math.Round(applyDamage * buffHandler.CalculateDamageTakenMultiplier()));
         Health -= damage;
         Health = Math.Clamp(Health, 0, 100);
         return damage;
