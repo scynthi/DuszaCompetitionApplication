@@ -68,6 +68,8 @@ public partial class CardEditor : HBoxContainer
     public void SaveCard()
     {
         Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.levelupSounds.PickRandom());
+
 
         if (!Global.masterEditor.gameMasterData.TestCard(card.CreateCardInstance())) return;
 

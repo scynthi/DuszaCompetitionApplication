@@ -18,15 +18,21 @@ public partial class SettingsMenu : Control
     {
         Global.gameManager.audioController.sfxAudioPlayer.VolumeDb = value;
         Global.gameManager.audioController.envAudioPlayer.VolumeDb = value;
+
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
     }
 
     public void _MusicVolumeChanged(float value)
     {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+
         Global.gameManager.audioController.musicAudioPlayer.VolumeDb = value;
     }
 
     public void _CrtToggeled(bool status)
     {
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+
         Global.gameManager.ctrShaderRect.Visible = status;
     }
 }

@@ -59,6 +59,8 @@ public partial class CardShopArea : Control
     public void _ReRolled()
     {
         Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.transitionSounds[2]);
+        
 
         if (animationPlayer.IsPlaying()) return;
         ShakeControl();
