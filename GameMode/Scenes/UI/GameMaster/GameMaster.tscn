@@ -452,7 +452,11 @@ horizontal_scroll_mode = 0
 
 [node name="WorldCards" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/WorldCardhOlder/HBoxContainer/ScrollContainer" node_paths=PackedStringArray("ConnectedInventory") instance=ExtResource("15_e5lfn")]
 layout_mode = 2
+<<<<<<< Updated upstream
 ConnectedInventory = NodePath("../../../../HBoxContainer/DungeonContainer")
+=======
+ConnectedInventory = NodePath("../../../HBoxContainer/DungeonContainer")
+>>>>>>> Stashed changes
 AmountOfCols = 4
 
 [node name="DungeonViewer" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeonHolder")]
