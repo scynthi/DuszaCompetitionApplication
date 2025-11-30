@@ -2,9 +2,14 @@ using Godot;
 using GodotPlugins.Game;
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
 public partial class Inventory : PanelContainer
 {
+	[Signal]
+	public delegate void DeckIsFullEventHandler();
+	[Signal]
+	public delegate void DeckIsNotFullEventHandler();
 
 	[Export] PackedScene ItemSlotScene;
 	[Export] GridContainer MainContainer;
@@ -103,21 +108,29 @@ public partial class Inventory : PanelContainer
     {
         for (int i = MainContainer.GetChildCount() - 1; i >= 0; i--)
 		{
-			Node Container = MainContainer.GetChild(i);
+			ItemSlot Container = MainContainer.GetChild(i) as ItemSlot;
 			if (Container.GetChildCount() > 0)
             {
                 Node Card = Container.GetChild(0);
 				Container.RemoveChild(Card);
+				Container.uiCard = null;
 				Card.QueueFree();
             }
 		}
-		ItemSlots.Clear();
     }
 
 	private void NewCardAdded()
     {
         ShiftLeft();
 		// Global.gameManager.saverLoader.currSaveFile.player.SetDeck(ReturnContents());
+		if (ReturnContents().Count == ItemSlots.Count)
+        {
+            EmitSignal(SignalName.DeckIsFull);
+        }
+        else
+        {
+            EmitSignal(SignalName.DeckIsNotFull);
+        }
     }
 
 	private void ShiftLeft()
@@ -153,12 +166,12 @@ public partial class Inventory : PanelContainer
 		return -1;
     }
 
-	public void ReturnContents()
+	public List<Card> ReturnContents()
     {
+		GD.Print("apple");
 		List<Card> cards = new List<Card>();
 		foreach (ItemSlot itemSlot in ItemSlots)
         {
-			
             if (itemSlot.uiCard == null)
 				break;
 			if (itemSlot.uiCard is UICard)
@@ -171,15 +184,13 @@ public partial class Inventory : PanelContainer
 				UIBossCard uICard = itemSlot.uiCard as UIBossCard;
 				cards.Add(uICard.OwnerCard);
             }
-			// return new List<Card>();
-			
         }
 		foreach (Card card in cards)
 			if (card is BossCard)
 				GD.Print(card.Name + "BossCard");
 			else
 				GD.Print(card.Name + "NOTBOSS");
-		// return cards;
+		return cards;
     }
 
 	public override void _Process(double delta)

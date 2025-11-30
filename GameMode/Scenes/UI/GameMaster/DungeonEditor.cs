@@ -6,6 +6,7 @@ public partial class DungeonEditor : HBoxContainer
 {
     [Export] UIDungeon dungeon;
     [Export] OptionButton rewardType;
+    [Export] Button saveButton;
     [Export] Inventory dungeonDeck;
     [Export] Inventory worldCards;
 
@@ -17,13 +18,26 @@ public partial class DungeonEditor : HBoxContainer
         dungeonDeck.IsDeck = true;
         dungeonDeck.RemakePanelItems(1);
         VisibilityChanged += OnVisibilityChanged;
-        
+        saveButton.Disabled = true;
+        dungeonDeck.DeckIsFull += DeckIsFull;
+        dungeonDeck.DeckIsNotFull += DeckIsNotFull;
+        GD.Print("ADADS");
     }
 
     public void OnVisibilityChanged()
     {
         worldCards.RemakePanelItems(Collection: editor.gameMasterData.WorldCards);
         dungeonDeck.ClearCards();
+    }
+
+    public void DeckIsFull()
+    {
+        saveButton.Disabled = false;
+    }
+
+    public void DeckIsNotFull()
+    {
+        saveButton.Disabled = true;
     }
 
     public void ChangeName(string text)
@@ -60,6 +74,8 @@ public partial class DungeonEditor : HBoxContainer
                 dungeonDeck.RemakePanelItems(6, IsBossCardNeeded: true);
                 break;
         }
+        OnVisibilityChanged();
+        saveButton.Disabled = true;
     }
 
     public void ChangeReward(int index)
