@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cuurdm1a62s0y"]
+[gd_scene load_steps=37 format=3 uid="uid://cuurdm1a62s0y"]
 
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_mfnun"]
 [ext_resource type="Script" uid="uid://c2dg2wfyc6tix" path="res://Scenes/ShopScene/ShomMenu.cs" id="2_knrar"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://duqvkh3tdlkve" path="res://Scenes/FightScene/ItemButton.tscn" id="6_e1hsy"]
 [ext_resource type="Script" uid="uid://dwq6bh73fb1oj" path="res://Scenes/ShopScene/CardShopArea.cs" id="7_d8b31"]
 [ext_resource type="Shader" uid="uid://d0ahun4nyomjn" path="res://Assets/Shaders/disolveCard.gdshader" id="8_paiv7"]
-[ext_resource type="PackedScene" uid="uid://dk32ss75ce3lw" path="res://Assets/UI/Scenes/UICard/UICard.tscn" id="9_l75cb"]
 [ext_resource type="Texture2D" uid="uid://cq606clh2wrhq" path="res://Assets/Images/Button/button_bg_dark.png" id="10_qqcm4"]
 [ext_resource type="Texture2D" uid="uid://c784rnnp8bpja" path="res://Assets/Images/Shop/reroll.png" id="11_i7iaq"]
 [ext_resource type="Texture2D" uid="uid://bvjhb1o33kk30" path="res://Assets/Images/Sign/bg_item.png" id="12_1sr2e"]
@@ -214,7 +213,7 @@ offset_right = -9.0
 offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 25
 text = "121213"
 vertical_alignment = 1
 clip_text = true
@@ -326,22 +325,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.500015
-offset_top = -84.99999
-offset_right = 64.500015
-offset_bottom = 97.00001
+offset_left = -71.000015
+offset_top = -109.99999
+offset_right = 58.000015
+offset_bottom = 72.00001
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(64.5, 91)
-
-[node name="Card" parent="MarginContainer/Control/Control3/Control/CenterContainer/Control/Control" instance=ExtResource("9_l75cb")]
-visible = false
-layout_mode = 1
-anchors_preset = 0
-offset_right = 134.09001
-offset_bottom = 170.0
-grow_horizontal = 1
-grow_vertical = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/Control3/Control"]
 layout_mode = 1
@@ -385,9 +375,9 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
+offset_left = -57.0
 offset_top = -23.0
-offset_right = 14.0
+offset_right = 7.0
 offset_bottom = 23.0
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_mo107")
@@ -427,9 +417,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -21.660034
+offset_left = -3.9100342
 offset_top = -23.0
-offset_right = 42.339966
+offset_right = 60.089966
 offset_bottom = 23.0
 grow_horizontal = 0
 grow_vertical = 2
@@ -490,7 +480,7 @@ offset_top = -22.0
 offset_right = 116.0
 offset_bottom = 20.0
 theme_override_font_sizes/font_size = 16
-text = "      Vissza a térképre"
+text = "                Vissza a térképre"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
