@@ -235,6 +235,7 @@ scale = Vector2(0.7, 0.7)
 size_flags_horizontal = 4
 
 [node name="MainMenu" type="Control" parent="MenuContainer"]
+visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MenuContainer/MainMenu"]
@@ -312,7 +313,6 @@ theme_override_font_sizes/font_size = 28
 text = "Kilépés"
 
 [node name="CreditsMenu" type="Control" parent="MenuContainer"]
-visible = false
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MenuContainer/CreditsMenu"]

@@ -33,16 +33,16 @@ public partial class CardEditor : HBoxContainer
         switch(index)
         {
             case 0:
-                card.EditIcon(Global.gameManager.uiPackedSceneReferences.ManTexture);
+                card.EditIcon(Global.gameManager.uiPackedSceneReferences.ManTexture.ResourcePath);
                 break;
             case 1:
-                card.EditIcon(Global.gameManager.uiPackedSceneReferences.WomanTexture);
+                card.EditIcon(Global.gameManager.uiPackedSceneReferences.WomanTexture.ResourcePath);
                 break;
             case 2:
-                card.EditIcon(Global.gameManager.uiPackedSceneReferences.GoblinTexture);
+                card.EditIcon(Global.gameManager.uiPackedSceneReferences.GoblinTexture.ResourcePath);
                 break;
             case 3:
-                card.EditIcon(Global.gameManager.uiPackedSceneReferences.WendigoTexture);
+                card.EditIcon(Global.gameManager.uiPackedSceneReferences.WendigoTexture.ResourcePath);
                 break;
             case 4:
                 FileDialog fileDialogInstance = new();
