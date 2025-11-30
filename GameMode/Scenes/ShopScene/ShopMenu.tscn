@@ -311,6 +311,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(110, 118.5)
 
 [node name="Control" type="Control" parent="MarginContainer/Control/Control3/Control/CenterContainer"]
 material = SubResource("ShaderMaterial_mo107")
