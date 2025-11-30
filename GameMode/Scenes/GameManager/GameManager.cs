@@ -17,10 +17,10 @@ public partial class GameManager : Node
     public static class ScenePaths
     {
         public const string MainMenu = "res://Scenes/UI/MainMenu/MainMenu.tscn";
-        public const string EditorMenu = "res://Scenes/UI/GameMaster/GameMasterWorld.tscn";
+        public const string EditorMenu = "res://Scenes/UI/GameMaster/GameMaster.tscn";
         public const string DungeonMap = "res://Scenes/DungeonMap/DungeonMap.tscn";
         public const string FightMap = "res://Scenes/FightScene/FightScene.tscn";
-        public const string ShopMenu = "res://Scenes/ShopScene/ShopWorld.tscn";
+        public const string ShopMenu = "res://Scenes/ShopScene/ShopMenu.tscn";
     }
 
     public override void _Ready()

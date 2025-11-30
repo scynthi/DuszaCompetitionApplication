@@ -1,0 +1,513 @@
+[gd_scene load_steps=39 format=3 uid="uid://cuurdm1a62s0y"]
+
+[ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_mfnun"]
+[ext_resource type="Script" uid="uid://c2dg2wfyc6tix" path="res://Scenes/ShopScene/ShomMenu.cs" id="2_knrar"]
+[ext_resource type="Texture2D" uid="uid://0xqm5vwe7pb7" path="res://Assets/Images/Sign/SmallTextSign.png" id="3_ba6a6"]
+[ext_resource type="Texture2D" uid="uid://27uc3cijl1x0" path="res://Assets/Images/Backgrounds/shopNEW.png" id="3_knrar"]
+[ext_resource type="Texture2D" uid="uid://b6kxxoiuifnem" path="res://Assets/Images/player/coin.png" id="4_b6s5s"]
+[ext_resource type="Texture2D" uid="uid://boryvw4xe8eie" path="res://Assets/Images/Sign/bg_shop.png" id="5_g1n7y"]
+[ext_resource type="PackedScene" uid="uid://duqvkh3tdlkve" path="res://Scenes/FightScene/ItemButton.tscn" id="6_e1hsy"]
+[ext_resource type="Script" uid="uid://dwq6bh73fb1oj" path="res://Scenes/ShopScene/CardShopArea.cs" id="7_d8b31"]
+[ext_resource type="Shader" uid="uid://d0ahun4nyomjn" path="res://Assets/Shaders/disolveCard.gdshader" id="8_paiv7"]
+[ext_resource type="PackedScene" uid="uid://dk32ss75ce3lw" path="res://Assets/UI/Scenes/UICard/UICard.tscn" id="9_l75cb"]
+[ext_resource type="Texture2D" uid="uid://cq606clh2wrhq" path="res://Assets/Images/Button/button_bg_dark.png" id="10_qqcm4"]
+[ext_resource type="Texture2D" uid="uid://c784rnnp8bpja" path="res://Assets/Images/Shop/reroll.png" id="11_i7iaq"]
+[ext_resource type="Texture2D" uid="uid://bvjhb1o33kk30" path="res://Assets/Images/Sign/bg_item.png" id="12_1sr2e"]
+[ext_resource type="PackedScene" uid="uid://c67e3kgjql3x4" path="res://Scenes/Miscs/BackToMapBtn.tscn" id="13_dkgyj"]
+[ext_resource type="Texture2D" uid="uid://chnum6s8tk8ah" path="res://Assets/Images/Backgrounds/main_menu_border.png" id="14_8xb7w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r66ni"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.36662653, 0.21088445, 1.92523e-07, 0.6)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 5
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_h37rh"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vvhqr"]
+noise = SubResource("FastNoiseLite_h37rh")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mo107"]
+shader = ExtResource("8_paiv7")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_vvhqr")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.10999999754128
+shader_parameter/burn_color = Color(1, 0.089999974, 0.089999974, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jjw8j"]
+fractal_octaves = 8
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h37rh"]
+noise = SubResource("FastNoiseLite_jjw8j")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vvhqr"]
+shader = ExtResource("8_paiv7")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_h37rh")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/burn_size = 0.22999999485904
+shader_parameter/burn_color = Color(0.64, 0.1472, 0.1472, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vvhqr"]
+texture = ExtResource("10_qqcm4")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jjw8j"]
+load_path = "res://.godot/imported/button_bg_dark.png-bf04b20cd76c3d1ebec7550af4c013ca.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h37rh"]
+texture = SubResource("CompressedTexture2D_jjw8j")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h37rh"]
+load_path = "res://.godot/imported/button_bg_dark.png-bf04b20cd76c3d1ebec7550af4c013ca.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wqc5p"]
+texture = SubResource("CompressedTexture2D_h37rh")
+modulate_color = Color(0.55, 0.55, 0.55, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mdbkc"]
+load_path = "res://.godot/imported/button_bg_dark.png-bf04b20cd76c3d1ebec7550af4c013ca.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yisgm"]
+texture = SubResource("CompressedTexture2D_mdbkc")
+modulate_color = Color(0.47, 0.47, 0.47, 0.6784314)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mo107"]
+texture = ExtResource("12_1sr2e")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wqc5p"]
+load_path = "res://.godot/imported/bg_item.png-210f4433b53cab33791418f4ba1f1935.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mdbkc"]
+texture = SubResource("CompressedTexture2D_wqc5p")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0a4i5"]
+load_path = "res://.godot/imported/bg_item.png-210f4433b53cab33791418f4ba1f1935.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oygug"]
+texture = SubResource("CompressedTexture2D_0a4i5")
+modulate_color = Color(0.64, 0.64, 0.64, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sdib0"]
+texture = ExtResource("12_1sr2e")
+modulate_color = Color(1, 1, 1, 0.6784314)
+
+[sub_resource type="Animation" id="Animation_h37rh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/Control/Control:material:shader_parameter/dissolve_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_jjw8j"]
+resource_name = "Recard"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/Control/Control:material:shader_parameter/dissolve_value")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 0.0, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.16666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_SetNewCard"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vvhqr"]
+_data = {
+&"RESET": SubResource("Animation_h37rh"),
+&"Recard": SubResource("Animation_jjw8j")
+}
+
+[node name="ShomMenu" type="Control" node_paths=PackedStringArray("moneyLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_mfnun")
+script = ExtResource("2_knrar")
+moneyLabel = NodePath("MarginContainer/Control/Control/Label")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_knrar")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/Control"]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 1
+anchors_preset = 0
+offset_left = 80.0
+offset_top = 18.0
+offset_right = 500.0
+offset_bottom = 93.0
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = -20.0
+offset_right = -27.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ba6a6")
+expand_mode = 1
+flip_v = true
+
+[node name="Panel" type="Panel" parent="MarginContainer/Control/Control"]
+visible = false
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r66ni")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Control/Control"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_top = 7.5
+offset_right = 75.0
+offset_bottom = 7.5
+grow_vertical = 2
+texture = ExtResource("4_b6s5s")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MarginContainer/Control/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 78.0
+offset_top = -3.0
+offset_right = 400.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "121213"
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 1
+
+[node name="Control3" type="Control" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -550.0
+offset_top = 68.0
+offset_right = 550.0
+offset_bottom = 233.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Control/Control3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -651.0
+offset_top = -132.5
+offset_right = 651.0
+offset_bottom = 132.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("5_g1n7y")
+expand_mode = 1
+
+[node name="Control2" type="Control" parent="MarginContainer/Control/Control3"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 47.0
+offset_right = 709.0
+grow_vertical = 2
+
+[node name="ItemButton" parent="MarginContainer/Control/Control3/Control2" instance=ExtResource("6_e1hsy")]
+layout_mode = 0
+offset_left = 28.0
+offset_right = 178.0
+
+[node name="ItemButton2" parent="MarginContainer/Control/Control3/Control2" instance=ExtResource("6_e1hsy")]
+layout_mode = 0
+offset_left = 251.0
+offset_right = 401.0
+itemType = 1
+
+[node name="ItemButton3" parent="MarginContainer/Control/Control3/Control2" instance=ExtResource("6_e1hsy")]
+layout_mode = 0
+offset_left = 471.0
+offset_right = 621.0
+itemType = 2
+
+[node name="Control" type="Control" parent="MarginContainer/Control/Control3" node_paths=PackedStringArray("animationPlayer", "cardHolder", "reRollButton", "buyButton", "moneyLabel", "buyPriceLabel")]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -359.0
+offset_top = -150.0
+offset_right = -63.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("7_d8b31")
+animationPlayer = NodePath("AnimationPlayer")
+cardHolder = NodePath("CenterContainer/Control/Control")
+reRollButton = NodePath("HBoxContainer/Button")
+buyButton = NodePath("HBoxContainer/Button2")
+moneyLabel = NodePath("../../Control/Label")
+buyPriceLabel = NodePath("HBoxContainer/Button2/Panel/RichTextLabel")
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/Control/Control3/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="MarginContainer/Control/Control3/Control/CenterContainer"]
+material = SubResource("ShaderMaterial_mo107")
+layout_mode = 2
+
+[node name="Control" type="Control" parent="MarginContainer/Control/Control3/Control/CenterContainer/Control"]
+material = SubResource("ShaderMaterial_vvhqr")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -133.0
+offset_right = 85.0
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(85, 110)
+
+[node name="Card" parent="MarginContainer/Control/Control3/Control/CenterContainer/Control/Control" instance=ExtResource("9_l75cb")]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 169.0
+scale = Vector2(1, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/Control3/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -62.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/Control/Control3/Control/HBoxContainer"]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxTexture_vvhqr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_h37rh")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wqc5p")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_yisgm")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Control/Control3/Control/HBoxContainer/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.432392
+offset_top = 10.0
+offset_right = -10.432392
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_i7iaq")
+
+[node name="Panel" type="Panel" parent="MarginContainer/Control/Control3/Control/HBoxContainer/Button"]
+modulate = Color(1, 0.90466666, 0.48000002, 1)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -23.0
+offset_right = 14.0
+offset_bottom = 23.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mo107")
+
+[node name="RichTextLabel" type="Label" parent="MarginContainer/Control/Control3/Control/HBoxContainer/Button/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "$10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="MarginContainer/Control/Control3/Control/HBoxContainer"]
+show_behind_parent = true
+custom_minimum_size = Vector2(118.66, 71.235)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 31
+theme_override_styles/normal = SubResource("StyleBoxTexture_mdbkc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_mdbkc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_oygug")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_sdib0")
+text = "VESZ"
+
+[node name="Panel" type="Panel" parent="MarginContainer/Control/Control3/Control/HBoxContainer/Button2"]
+modulate = Color(1, 0.90466666, 0.48000002, 1)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -21.660034
+offset_top = -23.0
+offset_right = 42.339966
+offset_bottom = 23.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mo107")
+
+[node name="RichTextLabel" type="Label" parent="MarginContainer/Control/Control3/Control/HBoxContainer/Button2/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "$10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MarginContainer/Control/Control3/Control"]
+libraries = {
+&"": SubResource("AnimationLibrary_vvhqr")
+}
+
+[node name="BottomThing" type="Control" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -208.0
+offset_top = -86.0
+offset_right = 208.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Control/BottomThing"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = -10.0
+offset_right = -45.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ba6a6")
+expand_mode = 1
+
+[node name="Button" parent="MarginContainer/Control/BottomThing" instance=ExtResource("13_dkgyj")]
+layout_mode = 1
+offset_left = -152.0
+offset_top = -39.0
+offset_right = 152.0
+offset_bottom = 25.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("14_8xb7w")
+expand_mode = 2
+stretch_mode = 4
+
+[connection signal="Send_Item" from="MarginContainer/Control/Control3/Control2/ItemButton" to="." method="GiveItemToPlayer"]
+[connection signal="Send_Item" from="MarginContainer/Control/Control3/Control2/ItemButton2" to="." method="GiveItemToPlayer"]
+[connection signal="Send_Item" from="MarginContainer/Control/Control3/Control2/ItemButton3" to="." method="GiveItemToPlayer"]

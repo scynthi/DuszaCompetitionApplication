@@ -1,27 +1,27 @@
-[gd_scene load_steps=44 format=3 uid="uid://nq0gnkgglhi6"]
+[gd_scene load_steps=44 format=3 uid="uid://cenjb2k52si8w"]
 
-[ext_resource type="Script" uid="uid://cqbvhjwb8smc1" path="res://Scripts/FightLogic.cs" id="1_ugqt7"]
-[ext_resource type="Texture2D" uid="uid://ydyt7qgp7s4o" path="res://Assets/Images/Backgrounds/fightsceneNEW.png" id="3_agsmk"]
-[ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="4_xwfv5"]
-[ext_resource type="Texture2D" uid="uid://chnum6s8tk8ah" path="res://Assets/Images/Backgrounds/main_menu_border.png" id="5_08x25"]
-[ext_resource type="Texture2D" uid="uid://0xqm5vwe7pb7" path="res://Assets/Images/Sign/SmallTextSign.png" id="6_1bvua"]
-[ext_resource type="PackedScene" uid="uid://dsnbg78nbu0vo" path="res://Assets/UI/Scenes/UIBossCard/UIBossCard.tscn" id="6_agsmk"]
-[ext_resource type="PackedScene" uid="uid://cy0pttedf86kl" path="res://Scenes/FightScene/ItemButtonPart2.tscn" id="7_1bvua"]
-[ext_resource type="Texture2D" uid="uid://b1y7hb6ugsa1s" path="res://Assets/Images/Items/Hola.png" id="7_cgjkw"]
-[ext_resource type="Texture2D" uid="uid://duvi63fq53dex" path="res://Assets/Images/Items/GlassShield.png" id="8_e0djh"]
-[ext_resource type="Script" uid="uid://co0b8g42lscj7" path="res://Scenes/FightScene/EndFightvisuals.cs" id="8_usdkp"]
-[ext_resource type="Texture2D" uid="uid://m17tp1m7b0s3" path="res://Assets/Images/Sign/winLoseBg.png" id="9_ogosy"]
-[ext_resource type="Texture2D" uid="uid://cc17bg13ixypu" path="res://Assets/Images/Items/ElementalBuff.png" id="9_rbafp"]
-[ext_resource type="Texture2D" uid="uid://b6kxxoiuifnem" path="res://Assets/Images/player/coin.png" id="10_agsmk"]
-[ext_resource type="Texture2D" uid="uid://dyg65wcabupfr" path="res://Assets/Images/player/xp.png" id="11_mxbtk"]
-[ext_resource type="PackedScene" uid="uid://dk32ss75ce3lw" path="res://Assets/UI/Scenes/UICard/UICard.tscn" id="12_cj4f3"]
-[ext_resource type="Texture2D" uid="uid://dym2sktlmv71t" path="res://Assets/Images/Sign/PlusIcon.png" id="13_cgjkw"]
-[ext_resource type="Texture2D" uid="uid://b3mo4atbtgp7w" path="res://Assets/Images/Cards/cards_heart_base.png" id="14_e0djh"]
-[ext_resource type="Texture2D" uid="uid://ruoa1sjpbu7j" path="res://Assets/Images/Cards/cards_heart_buffed.png" id="15_rbafp"]
-[ext_resource type="Texture2D" uid="uid://dnov8t4p650wk" path="res://Assets/Images/Cards/cards_axe_base.png" id="16_sfha7"]
-[ext_resource type="Texture2D" uid="uid://bmiley3dm5mth" path="res://Assets/Images/Cards/cards_axe_buffed.png" id="17_o3edh"]
-[ext_resource type="Texture2D" uid="uid://ddjir7c4i3gte" path="res://Assets/Images/Sign/failed.png" id="18_tuhis"]
-[ext_resource type="PackedScene" uid="uid://c67e3kgjql3x4" path="res://Scenes/Miscs/BackToMapBtn.tscn" id="19_4v7ds"]
+[ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_shn0f"]
+[ext_resource type="PackedScene" uid="uid://dk32ss75ce3lw" path="res://Assets/UI/Scenes/UICard/UICard.tscn" id="2_0g7fe"]
+[ext_resource type="Texture2D" uid="uid://ydyt7qgp7s4o" path="res://Assets/Images/Backgrounds/fightsceneNEW.png" id="2_4q7f2"]
+[ext_resource type="PackedScene" uid="uid://dsnbg78nbu0vo" path="res://Assets/UI/Scenes/UIBossCard/UIBossCard.tscn" id="3_4q7f2"]
+[ext_resource type="Texture2D" uid="uid://b1y7hb6ugsa1s" path="res://Assets/Images/Items/Hola.png" id="4_fb26i"]
+[ext_resource type="Texture2D" uid="uid://duvi63fq53dex" path="res://Assets/Images/Items/GlassShield.png" id="5_ukeav"]
+[ext_resource type="Texture2D" uid="uid://cc17bg13ixypu" path="res://Assets/Images/Items/ElementalBuff.png" id="6_4wwmb"]
+[ext_resource type="Texture2D" uid="uid://0xqm5vwe7pb7" path="res://Assets/Images/Sign/SmallTextSign.png" id="7_wwbic"]
+[ext_resource type="PackedScene" uid="uid://cy0pttedf86kl" path="res://Scenes/FightScene/ItemButtonPart2.tscn" id="8_0tq25"]
+[ext_resource type="Texture2D" uid="uid://chnum6s8tk8ah" path="res://Assets/Images/Backgrounds/main_menu_border.png" id="9_a854c"]
+[ext_resource type="Script" uid="uid://co0b8g42lscj7" path="res://Scenes/FightScene/EndFightvisuals.cs" id="10_3ppd5"]
+[ext_resource type="Texture2D" uid="uid://m17tp1m7b0s3" path="res://Assets/Images/Sign/winLoseBg.png" id="11_lydlq"]
+[ext_resource type="Texture2D" uid="uid://b6kxxoiuifnem" path="res://Assets/Images/player/coin.png" id="12_57215"]
+[ext_resource type="Texture2D" uid="uid://dyg65wcabupfr" path="res://Assets/Images/player/xp.png" id="13_0nq7y"]
+[ext_resource type="Texture2D" uid="uid://dym2sktlmv71t" path="res://Assets/Images/Sign/PlusIcon.png" id="14_bblj3"]
+[ext_resource type="Texture2D" uid="uid://b3mo4atbtgp7w" path="res://Assets/Images/Cards/cards_heart_base.png" id="15_2et26"]
+[ext_resource type="Texture2D" uid="uid://ruoa1sjpbu7j" path="res://Assets/Images/Cards/cards_heart_buffed.png" id="16_8y6ac"]
+[ext_resource type="Texture2D" uid="uid://dnov8t4p650wk" path="res://Assets/Images/Cards/cards_axe_base.png" id="17_rtch6"]
+[ext_resource type="Texture2D" uid="uid://bmiley3dm5mth" path="res://Assets/Images/Cards/cards_axe_buffed.png" id="18_ecvvk"]
+[ext_resource type="Texture2D" uid="uid://ddjir7c4i3gte" path="res://Assets/Images/Sign/failed.png" id="19_ug47r"]
+[ext_resource type="PackedScene" uid="uid://c67e3kgjql3x4" path="res://Scenes/Miscs/BackToMapBtn.tscn" id="20_1pdyh"]
+[ext_resource type="Script" uid="uid://cqbvhjwb8smc1" path="res://Scripts/FightLogic.cs" id="22_4q7f2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ogosy"]
 font_size = 51
@@ -99,16 +99,27 @@ tracks/5/keys = {
 tracks/6/type = "method"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("../BattleManager")
+tracks/6/path = NodePath("../../BattleManager")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.53333336, 0.6666667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0.33333334),
+"transitions": PackedFloat32Array(1),
 "values": [{
 "args": [false],
 "method": &"DisplayAttack"
-}, {
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../../BattleManager")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.33333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
 "args": [],
 "method": &"_AnimationPlayAttackSFX"
 }]
@@ -175,7 +186,7 @@ tracks/4/keys = {
 tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../BattleManager")
+tracks/5/path = NodePath("../../BattleManager")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -287,77 +298,77 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_xjksd"]
 resource_name = "DungeonAttack"
-tracks/0/type = "bezier"
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CurrentFight/DungeonCard:position:x")
+tracks/0/path = NodePath("../../BattleManager")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
-"points": PackedFloat32Array(439.99945, -0.25, 0, 0.25, 0, 430.9999, -0.050000004, 0, 0.20000002, 0, 167.99994, -0.052222233, -0.6408766, 0.06999999, 0.85904706, 155.99994, -0.0027777753, -1.3333298, 0.09166667, 43.999924, 439.99945, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.23333329, 0.39999998, 0.41666663, 0.96666664)
+"times": PackedFloat32Array(0.33333334, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [true],
+"method": &"DisplayAttack"
+}, {
+"args": [],
+"method": &"_AnimationPlayAttackSFX"
+}]
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CurrentFight/DungeonCard:position:y")
+tracks/1/path = NodePath("CurrentFight/DungeonCard:position:x")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
-"points": PackedFloat32Array(181, -0.25, 0, 0.25, 0, 127, -0.050000004, 0, 0.20000002, 0, 164.00002, -0.052222233, -3.8454552, 0.06999999, 5.154545, 168, -0.0027777753, -0.08333319, 0.09166667, 2.7499976, 181, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(439.99945, -0.25, 0, 0.25, 0, 430.9999, -0.050000004, 0, 0.20000002, 0, 167.99994, -0.052222233, -0.6408766, 0.06999999, 0.85904706, 155.99994, -0.0027777753, -1.3333298, 0.09166667, 43.999924, 439.99945, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.23333329, 0.39999998, 0.41666663, 0.96666664)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CurrentFight/DungeonCard:rotation")
+tracks/2/path = NodePath("CurrentFight/DungeonCard:position:y")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.14486232, -0.12666667, 0, 0.123333335, 0, -0.27925268, -0.031666666, 0.0061990633, 0.09166667, -0.017944656, 0, -0.25, 0, 0, 0),
-"times": PackedFloat32Array(0, 0.22666663, 0.41666663, 0.96666664)
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0),
+"points": PackedFloat32Array(181, -0.25, 0, 0.25, 0, 127, -0.050000004, 0, 0.20000002, 0, 164.00002, -0.052222233, -3.8454552, 0.06999999, 5.154545, 168, -0.0027777753, -0.08333319, 0.09166667, 2.7499976, 181, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.23333329, 0.39999998, 0.41666663, 0.96666664)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CurrentFight/PlayerCard:position:x")
+tracks/3/path = NodePath("CurrentFight/DungeonCard:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -5.000061, -0.075, 0, 0.09408334, 0, 0, -0.16908334, 0, 0, 0),
-"times": PackedFloat32Array(0.3, 0.45, 0.8666667)
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.14486232, -0.12666667, 0, 0.123333335, 0, -0.27925268, -0.031666666, 0.0061990633, 0.09166667, -0.017944656, 0, -0.25, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.22666663, 0.41666663, 0.96666664)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CurrentFight/PlayerCard:position:y")
+tracks/4/path = NodePath("CurrentFight/PlayerCard:position:x")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(180.99985, -0.25, 0, 0.25, 0, 204.00002, -0.075, 0, 0.09408334, 0, 180.99985, -0.16908334, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -5.000061, -0.075, 0, 0.09408334, 0, 0, -0.16908334, 0, 0, 0),
 "times": PackedFloat32Array(0.3, 0.45, 0.8666667)
 }
-tracks/5/type = "method"
+tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../BattleManager")
+tracks/5/path = NodePath("CurrentFight/PlayerCard:position:y")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.33333334, 0.3666668),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"_AnimationPlayAttackSFX"
-}, {
-"args": [false],
-"method": &"DisplayAttack"
-}]
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(180.99985, -0.25, 0, 0.25, 0, 204.00002, -0.075, 0, 0.09408334, 0, 180.99985, -0.16908334, 0, 0, 0),
+"times": PackedFloat32Array(0.3, 0.45, 0.8666667)
 }
 
 [sub_resource type="Animation" id="Animation_agsmk"]
@@ -421,11 +432,11 @@ tracks/4/keys = {
 tracks/5/type = "method"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("../BattleManager")
+tracks/5/path = NodePath("../../BattleManager")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.03333333),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -523,93 +534,29 @@ _data = {
 [sub_resource type="Animation" id="Animation_mxbtk"]
 resource_name = "CardSpawnFirst"
 length = 0.5
-tracks/0/type = "bezier"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/CurrentFight/PlayerCard:position:x")
+tracks/0/path = NodePath("@SubViewport@10523/Control/CurrentFight/PlayerCard:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(2, 0),
-"points": PackedFloat32Array(-76.00006, 0, 0, 0.083333336, 12.666677, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.4)
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 180.99985), Vector2(0, 180.99985)]
 }
-tracks/1/type = "bezier"
+tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Control/CurrentFight/PlayerCard:position:y")
+tracks/1/path = NodePath("@SubViewport@10523/Control/CurrentFight/PlayerCard:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(2, 0),
-"points": PackedFloat32Array(196, 0, 0, 0.083333336, -2.5000255, 180.99985, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.4)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Control/CurrentFight/PlayerCard:scale:x")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(2, 0),
-"points": PackedFloat32Array(1e-05, 0, 0, 0.083333336, 0.166665, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.4)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Control/CurrentFight/PlayerCard:scale:y")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(2, 0),
-"points": PackedFloat32Array(1e-05, 0, 0, 0.083333336, 0.166665, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.4)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Control/CurrentFight/DungeonCard:position:x")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(583.99994, 0, 0, 0.083333336, -24.000082, 439.99945, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.1, 0.5)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Control/CurrentFight/DungeonCard:position:y")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(203, 0, 0, 0.083333336, -3.6666667, 181, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.1, 0.5)
-}
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Control/CurrentFight/DungeonCard:scale:x")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1e-05, 0, 0, 0.083333336, 0.166665, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.1, 0.5)
-}
-tracks/7/type = "bezier"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Control/CurrentFight/DungeonCard:scale:y")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1e-05, 0, 0, 0.083333336, 0.166665, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.1, 0.5)
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_08x25"]
@@ -618,11 +565,11 @@ length = 1.9825
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/BottomContainer/StepBattle:disabled")
+tracks/0/path = NodePath("@SubViewport@10523/Control/BottomContainer/StepBattle:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.79999995, 1.8),
+"times": PackedFloat32Array(0.06666667, 0.26666665),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -633,102 +580,38 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Control/BottomContainer/StepBattle:disabled")
+tracks/0/path = NodePath("@SubViewport@10523/Control/BottomContainer/StepBattle:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
-tracks/1/type = "bezier"
+tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Control/CurrentFight/PlayerCard:position:x")
+tracks/1/path = NodePath("@SubViewport@10523/Control/CurrentFight/PlayerCard:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 180.99985)]
 }
-tracks/2/type = "bezier"
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Control/CurrentFight/PlayerCard:position:y")
+tracks/2/path = NodePath("@SubViewport@10523/Control/CurrentFight/PlayerCard:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(180.99985, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Control/CurrentFight/PlayerCard:scale:x")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Control/CurrentFight/PlayerCard:scale:y")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Control/CurrentFight/DungeonCard:position:x")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(439.99945, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/6/type = "bezier"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Control/CurrentFight/DungeonCard:position:y")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(181, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/7/type = "bezier"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Control/CurrentFight/DungeonCard:scale:x")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/8/type = "bezier"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Control/CurrentFight/DungeonCard:scale:y")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xwfv5"]
@@ -1081,50 +964,25 @@ outline_color = Color(0.19, 0.09689999, 0.09689999, 1)
 stacked_outline_count = 1
 stacked_outline_0/size = 20
 
-[node name="FightScene" type="Control"]
+[node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_shn0f")
 
-[node name="BattleManager" type="Node" parent="." node_paths=PackedStringArray("RoundText", "IconContainer", "PlayerCardControl", "EnemyCardControl", "NextPlayerCardControl", "NextEnemyCardControl", "PlayerAnimPlayer", "DungeonAnimPlayer", "WorldAnimPlayer", "NextCardsAnimPlayer", "StepBattleButton", "healthPotionIcon", "glassShieldIcon", "elementalBuffIcon")]
-script = ExtResource("1_ugqt7")
-RoundText = NodePath("../Control/Round display")
-IconContainer = NodePath("../Control/BottomContainer/ItemButtonContainer")
-PlayerCardControl = NodePath("../Control/CurrentFight/PlayerCard")
-EnemyCardControl = NodePath("../Control/CurrentFight/DungeonCard")
-NextPlayerCardControl = NodePath("../Control/NextCard/NextPlayerCard")
-NextEnemyCardControl = NodePath("../Control/NextCard/NextDungeonCard")
-PlayerAnimPlayer = NodePath("../Control/Animations/Player")
-DungeonAnimPlayer = NodePath("../Control/Animations/Enemy")
-WorldAnimPlayer = NodePath("../Control/Animations/WorldAnimator")
-NextCardsAnimPlayer = NodePath("../Control/Animations/NextCardAnimator")
-StepBattleButton = NodePath("../Control/BottomContainer/StepBattle")
-healthPotionIcon = NodePath("../Control/CurrentFight/TextureRect")
-glassShieldIcon = NodePath("../Control/CurrentFight/TextureRect2")
-elementalBuffIcon = NodePath("../Control/CurrentFight/TextureRect3")
-
-[node name="Control" type="Control" parent="."]
+[node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("4_xwfv5")
+texture = ExtResource("2_4q7f2")
 
-[node name="TextureRect2" type="TextureRect" parent="Control"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_agsmk")
-
-[node name="Round display" type="Label" parent="Control"]
+[node name="Round display" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -1139,37 +997,37 @@ label_settings = SubResource("LabelSettings_ogosy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Animations" type="Node" parent="Control"]
+[node name="Animations" type="Node" parent="."]
 
-[node name="Player" type="AnimationPlayer" parent="Control/Animations"]
+[node name="Player" type="AnimationPlayer" parent="Animations"]
 root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_08x25")
 }
 
-[node name="Enemy" type="AnimationPlayer" parent="Control/Animations"]
+[node name="Enemy" type="AnimationPlayer" parent="Animations"]
 root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_7d0qi")
 }
 
-[node name="WorldAnimator" type="AnimationPlayer" parent="Control/Animations"]
-root_node = NodePath("../../..")
+[node name="WorldAnimator" type="AnimationPlayer" parent="Animations"]
+root_node = NodePath("../../../..")
 libraries = {
 &"": SubResource("AnimationLibrary_xwfv5")
 }
 
-[node name="EndFightAnimator" type="AnimationPlayer" parent="Control/Animations"]
+[node name="EndFightAnimator" type="AnimationPlayer" parent="Animations"]
 libraries = {
 &"": SubResource("AnimationLibrary_hctl2")
 }
 
-[node name="NextCardAnimator" type="AnimationPlayer" parent="Control/Animations"]
+[node name="NextCardAnimator" type="AnimationPlayer" parent="Animations"]
 libraries = {
 &"": SubResource("AnimationLibrary_e0djh")
 }
 
-[node name="NextCard" type="Control" parent="Control"]
+[node name="NextCard" type="Control" parent="."]
 modulate = Color(0.43, 0.43, 0.43, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -1184,7 +1042,7 @@ offset_bottom = 237.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="NextPlayerCard" type="CenterContainer" parent="Control/NextCard"]
+[node name="NextPlayerCard" type="CenterContainer" parent="NextCard"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1195,11 +1053,11 @@ offset_bottom = 110.00015
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 
-[node name="Card" parent="Control/NextCard/NextPlayerCard" instance=ExtResource("12_cj4f3")]
+[node name="Card" parent="NextCard/NextPlayerCard" instance=ExtResource("2_0g7fe")]
 visible = false
 layout_mode = 2
 
-[node name="NextDungeonCard" type="CenterContainer" parent="Control/NextCard"]
+[node name="NextDungeonCard" type="CenterContainer" parent="NextCard"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -1213,11 +1071,11 @@ grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 
-[node name="Card" parent="Control/NextCard/NextDungeonCard" instance=ExtResource("12_cj4f3")]
+[node name="Card" parent="NextCard/NextDungeonCard" instance=ExtResource("2_0g7fe")]
 visible = false
 layout_mode = 2
 
-[node name="CurrentFight" type="Control" parent="Control"]
+[node name="CurrentFight" type="Control" parent="."]
 custom_minimum_size = Vector2(32.94, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -1232,7 +1090,7 @@ offset_bottom = 201.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PlayerCard" type="CenterContainer" parent="Control/CurrentFight"]
+[node name="PlayerCard" type="CenterContainer" parent="CurrentFight"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1241,13 +1099,13 @@ offset_top = -20.000153
 offset_right = 39.999756
 offset_bottom = 20.000336
 grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
 use_top_left = true
 
-[node name="Card" parent="Control/CurrentFight/PlayerCard" instance=ExtResource("12_cj4f3")]
-visible = false
+[node name="Card" parent="CurrentFight/PlayerCard" instance=ExtResource("2_0g7fe")]
 layout_mode = 2
 
-[node name="DungeonCard" type="CenterContainer" parent="Control/CurrentFight"]
+[node name="DungeonCard" type="CenterContainer" parent="CurrentFight"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -1262,44 +1120,43 @@ grow_horizontal = 0
 grow_vertical = 2
 use_top_left = true
 
-[node name="Card" parent="Control/CurrentFight/DungeonCard" instance=ExtResource("6_agsmk")]
-visible = false
+[node name="Card" parent="CurrentFight/DungeonCard" instance=ExtResource("3_4q7f2")]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/CurrentFight"]
+[node name="TextureRect" type="TextureRect" parent="CurrentFight"]
 visible = false
 layout_mode = 0
 offset_left = -82.00006
 offset_top = 23.0
 offset_right = -42.00006
 offset_bottom = 63.0
-texture = ExtResource("7_cgjkw")
+texture = ExtResource("4_fb26i")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="TextureRect2" type="TextureRect" parent="Control/CurrentFight"]
+[node name="TextureRect2" type="TextureRect" parent="CurrentFight"]
 visible = false
 layout_mode = 0
 offset_left = -20.000061
 offset_top = 23.0
 offset_right = 19.999939
 offset_bottom = 63.0
-texture = ExtResource("8_e0djh")
+texture = ExtResource("5_ukeav")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="TextureRect3" type="TextureRect" parent="Control/CurrentFight"]
+[node name="TextureRect3" type="TextureRect" parent="CurrentFight"]
 visible = false
 layout_mode = 0
 offset_left = 40.99994
 offset_top = 23.0
 offset_right = 80.99994
 offset_bottom = 63.0
-texture = ExtResource("9_rbafp")
+texture = ExtResource("6_4wwmb")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="BottomContainer" type="Control" parent="Control"]
+[node name="BottomContainer" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1312,16 +1169,16 @@ offset_right = 326.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="TextureRect" type="TextureRect" parent="Control/BottomContainer"]
+[node name="TextureRect" type="TextureRect" parent="BottomContainer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_1bvua")
+texture = ExtResource("7_wwbic")
 
-[node name="ItemButtonContainer" type="HBoxContainer" parent="Control/BottomContainer"]
+[node name="ItemButtonContainer" type="HBoxContainer" parent="BottomContainer"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -1336,16 +1193,16 @@ size_flags_vertical = 3
 theme_override_constants/separation = 44
 alignment = 1
 
-[node name="ItemButtonV2" parent="Control/BottomContainer/ItemButtonContainer" instance=ExtResource("7_1bvua")]
+[node name="ItemButtonV2" parent="BottomContainer/ItemButtonContainer" instance=ExtResource("8_0tq25")]
 layout_mode = 2
 
-[node name="ItemButtonV3" parent="Control/BottomContainer/ItemButtonContainer" instance=ExtResource("7_1bvua")]
+[node name="ItemButtonV3" parent="BottomContainer/ItemButtonContainer" instance=ExtResource("8_0tq25")]
 layout_mode = 2
 
-[node name="ItemButtonV4" parent="Control/BottomContainer/ItemButtonContainer" instance=ExtResource("7_1bvua")]
+[node name="ItemButtonV4" parent="BottomContainer/ItemButtonContainer" instance=ExtResource("8_0tq25")]
 layout_mode = 2
 
-[node name="StepBattle" type="Button" parent="Control/BottomContainer"]
+[node name="StepBattle" type="Button" parent="BottomContainer"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -1356,10 +1213,9 @@ offset_right = 185.26315
 offset_bottom = 18.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
-disabled = true
 text = "Következő kör inítása"
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1367,11 +1223,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("5_08x25")
+texture = ExtResource("9_a854c")
 expand_mode = 2
 stretch_mode = 4
 
-[node name="EndOverlay" type="ColorRect" parent="Control"]
+[node name="EndOverlay" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1381,7 +1237,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="EndFightContainer" type="Control" parent="Control" node_paths=PackedStringArray("fightLogic", "endFightAnimationPlayer", "winScreen", "loseScreen", "goldLabel", "xpLabel", "winNormal", "winBig", "winNormalCardContainer", "winNormalHp", "winNormalDamage", "winBigCardContainer")]
+[node name="EndFightContainer" type="Control" parent="." node_paths=PackedStringArray("endFightAnimationPlayer", "winScreen", "loseScreen", "goldLabel", "xpLabel", "winNormal", "winBig", "winNormalCardContainer", "winNormalHp", "winNormalDamage", "winBigCardContainer")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -1391,8 +1247,7 @@ offset_top = -818.95
 offset_right = 442.99963
 offset_bottom = -86.95001
 grow_horizontal = 2
-script = ExtResource("8_usdkp")
-fightLogic = NodePath("../../BattleManager")
+script = ExtResource("10_3ppd5")
 endFightAnimationPlayer = NodePath("../Animations/EndFightAnimator")
 winScreen = NodePath("Win")
 loseScreen = NodePath("Lose")
@@ -1405,18 +1260,18 @@ winNormalHp = NodePath("Win/Control/VBoxContainer/WinNormal/CenterContainer2/Hea
 winNormalDamage = NodePath("Win/Control/VBoxContainer/WinNormal/CenterContainer2/DamageBuff")
 winBigCardContainer = NodePath("Win/Control/VBoxContainer/WinBig/CenterContainer")
 
-[node name="TextureRect" type="TextureRect" parent="Control/EndFightContainer"]
+[node name="TextureRect" type="TextureRect" parent="EndFightContainer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("9_ogosy")
+texture = ExtResource("11_lydlq")
 expand_mode = 2
 stretch_mode = 6
 
-[node name="Win" type="Control" parent="Control/EndFightContainer"]
+[node name="Win" type="Control" parent="EndFightContainer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1428,7 +1283,7 @@ offset_bottom = -35.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Control/EndFightContainer/Win"]
+[node name="Label" type="Label" parent="EndFightContainer/Win"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1439,7 +1294,7 @@ label_settings = SubResource("LabelSettings_gm63t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="Control/EndFightContainer/Win"]
+[node name="Control" type="Control" parent="EndFightContainer/Win"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1449,7 +1304,7 @@ offset_top = -362.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/EndFightContainer/Win/Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="EndFightContainer/Win/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1457,15 +1312,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/EndFightContainer/Win/Control/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="EndFightContainer/Win/Control/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="Control/EndFightContainer/Win/Control/VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="EndFightContainer/Win/Control/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="Control/EndFightContainer/Win/Control/VBoxContainer/HBoxContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="EndFightContainer/Win/Control/VBoxContainer/HBoxContainer/Control"]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -1474,10 +1329,10 @@ offset_top = 20.0
 offset_right = 88.0
 offset_bottom = -20.0
 grow_vertical = 2
-texture = ExtResource("10_agsmk")
+texture = ExtResource("12_57215")
 stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/EndFightContainer/Win/Control/VBoxContainer/HBoxContainer/Control"]
+[node name="RichTextLabel" type="RichTextLabel" parent="EndFightContainer/Win/Control/VBoxContainer/HBoxContainer/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1493,11 +1348,11 @@ scroll_active = false
 autowrap_mode = 0
 vertical_alignment = 1
 
-[node name="Control2" type="Control" parent="Control/EndFightContainer/Win/Control/VBoxContainer/HBoxContainer"]
+[node name="Control2" type="Control" parent="EndFightContainer/Win/Control/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TextureRect" type="TextureRect" parent="Control/EndFightContainer/Win/Control/VBoxContainer/HBoxContainer/Control2"]
+[node name="TextureRect" type="TextureRect" parent="EndFightContainer/Win/Control/VBoxContainer/HBoxContainer/Control2"]
 modulate = Color(0.53, 1, 0.65533334, 1)
 layout_mode = 1
 anchors_preset = 9
@@ -1507,10 +1362,10 @@ offset_top = -5.0
 offset_right = 332.0
 offset_bottom = -11.0
 grow_vertical = 2
-texture = ExtResource("11_mxbtk")
+texture = ExtResource("13_0nq7y")
 stretch_mode = 5
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/EndFightContainer/Win/Control/VBoxContainer/HBoxContainer/Control2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="EndFightContainer/Win/Control/VBoxContainer/HBoxContainer/Control2"]
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
@@ -1527,12 +1382,12 @@ autowrap_mode = 0
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="WinNormal" type="Control" parent="Control/EndFightContainer/Win/Control/VBoxContainer"]
+[node name="WinNormal" type="Control" parent="EndFightContainer/Win/Control/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.08
 
-[node name="CenterContainer" type="CenterContainer" parent="Control/EndFightContainer/Win/Control/VBoxContainer/WinNormal"]
+[node name="CenterContainer" type="CenterContainer" parent="EndFightContainer/Win/Control/VBoxContainer/WinNormal"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -1543,10 +1398,10 @@ offset_right = 175.0
 offset_bottom = 97.0
 grow_vertical = 2
 
-[node name="Card" parent="Control/EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer" instance=ExtResource("12_cj4f3")]
+[node name="Card" parent="EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer" instance=ExtResource("2_0g7fe")]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/EndFightContainer/Win/Control/VBoxContainer/WinNormal"]
+[node name="TextureRect" type="TextureRect" parent="EndFightContainer/Win/Control/VBoxContainer/WinNormal"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1559,10 +1414,10 @@ offset_right = 75.375
 offset_bottom = 67.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("13_cgjkw")
+texture = ExtResource("14_bblj3")
 stretch_mode = 5
 
-[node name="CenterContainer2" type="CenterContainer" parent="Control/EndFightContainer/Win/Control/VBoxContainer/WinNormal"]
+[node name="CenterContainer2" type="CenterContainer" parent="EndFightContainer/Win/Control/VBoxContainer/WinNormal"]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -1576,10 +1431,10 @@ offset_bottom = 110.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="HealthBuff" type="Control" parent="Control/EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer2"]
+[node name="HealthBuff" type="Control" parent="EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer2"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer2/HealthBuff"]
+[node name="TextureRect" type="TextureRect" parent="EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer2/HealthBuff"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1592,9 +1447,9 @@ offset_right = 56.0
 offset_bottom = 68.59458
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("14_e0djh")
+texture = ExtResource("15_2et26")
 
-[node name="TextureRect2" type="TextureRect" parent="Control/EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer2/HealthBuff"]
+[node name="TextureRect2" type="TextureRect" parent="EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer2/HealthBuff"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1607,12 +1462,12 @@ offset_right = 122.965485
 offset_bottom = 49.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("15_rbafp")
+texture = ExtResource("16_8y6ac")
 
-[node name="DamageBuff" type="Control" parent="Control/EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer2"]
+[node name="DamageBuff" type="Control" parent="EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer2"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="Control/EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer2/DamageBuff"]
+[node name="TextureRect" type="TextureRect" parent="EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer2/DamageBuff"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1625,10 +1480,10 @@ offset_right = 77.0
 offset_bottom = 68.59458
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("16_sfha7")
+texture = ExtResource("17_rtch6")
 stretch_mode = 5
 
-[node name="TextureRect2" type="TextureRect" parent="Control/EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer2/DamageBuff"]
+[node name="TextureRect2" type="TextureRect" parent="EndFightContainer/Win/Control/VBoxContainer/WinNormal/CenterContainer2/DamageBuff"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1641,16 +1496,16 @@ offset_right = 105.00003
 offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("17_o3edh")
+texture = ExtResource("18_ecvvk")
 stretch_mode = 5
 
-[node name="WinBig" type="Control" parent="Control/EndFightContainer/Win/Control/VBoxContainer"]
+[node name="WinBig" type="Control" parent="EndFightContainer/Win/Control/VBoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.08
 
-[node name="CenterContainer" type="CenterContainer" parent="Control/EndFightContainer/Win/Control/VBoxContainer/WinBig"]
+[node name="CenterContainer" type="CenterContainer" parent="EndFightContainer/Win/Control/VBoxContainer/WinBig"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1664,10 +1519,10 @@ offset_bottom = 110.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Card" parent="Control/EndFightContainer/Win/Control/VBoxContainer/WinBig/CenterContainer" instance=ExtResource("12_cj4f3")]
+[node name="Card" parent="EndFightContainer/Win/Control/VBoxContainer/WinBig/CenterContainer" instance=ExtResource("2_0g7fe")]
 layout_mode = 2
 
-[node name="Lose" type="Control" parent="Control/EndFightContainer"]
+[node name="Lose" type="Control" parent="EndFightContainer"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1680,7 +1535,7 @@ offset_bottom = -35.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Control/EndFightContainer/Lose"]
+[node name="Label" type="Label" parent="EndFightContainer/Lose"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -1691,7 +1546,7 @@ label_settings = SubResource("LabelSettings_pou14")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Control" type="Control" parent="Control/EndFightContainer/Lose"]
+[node name="Control" type="Control" parent="EndFightContainer/Lose"]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1701,7 +1556,7 @@ offset_top = -362.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/EndFightContainer/Lose/Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="EndFightContainer/Lose/Control"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1709,12 +1564,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Control" type="Control" parent="Control/EndFightContainer/Lose/Control/VBoxContainer"]
+[node name="Control" type="Control" parent="EndFightContainer/Lose/Control/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.08
 
-[node name="TextureRect" type="TextureRect" parent="Control/EndFightContainer/Lose/Control/VBoxContainer/Control"]
+[node name="TextureRect" type="TextureRect" parent="EndFightContainer/Lose/Control/VBoxContainer/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1727,9 +1582,9 @@ offset_right = 145.5
 offset_bottom = 145.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("18_tuhis")
+texture = ExtResource("19_ug47r")
 
-[node name="BackToMap" parent="Control/EndFightContainer" instance=ExtResource("19_4v7ds")]
+[node name="BackToMap" parent="EndFightContainer" instance=ExtResource("20_1pdyh")]
 layout_mode = 1
 anchors_preset = 7
 anchor_top = 1.0
@@ -1738,6 +1593,5 @@ offset_top = 2.0
 offset_bottom = 62.0
 grow_vertical = 0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[connection signal="pressed" from="Control/BottomContainer/StepBattle" to="BattleManager" method="OnButtonPressed"]
+[node name="BattleManager" type="Node" parent="."]
+script = ExtResource("22_4q7f2")
