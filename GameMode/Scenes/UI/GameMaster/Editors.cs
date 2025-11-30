@@ -20,7 +20,7 @@ public partial class Editors : VBoxContainer
 
     public GameMasterData gameMasterData = new();
 
-    const int TITLETEXTSIZE = 18;
+    const int TITLETEXTSIZE = 40;
 
 
     private Control _currentMenu;

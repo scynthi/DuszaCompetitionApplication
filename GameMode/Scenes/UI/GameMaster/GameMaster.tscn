@@ -62,6 +62,41 @@ layout_mode = 2
 texture = ExtResource("1_bbocn")
 expand_mode = 1
 
+[node name="MessageContainer" type="PanelContainer" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 239.0
+offset_top = 5.0
+offset_right = 1487.9795
+offset_bottom = 225.0
+scale = Vector2(0.49, 0.49)
+size_flags_vertical = 3
+
+[node name="WoodBackground" type="TextureRect" parent="MessageContainer"]
+layout_mode = 2
+texture = ExtResource("4_ebj7d")
+expand_mode = 1
+
+[node name="Border" type="TextureRect" parent="MessageContainer"]
+layout_mode = 2
+texture = ExtResource("4_4h88p")
+
+[node name="MarginContainer" type="MarginContainer" parent="MessageContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MessageContainer/MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("6_ph8e0")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+fit_content = true
+
 [node name="BackgroundMargin" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -114,11 +149,10 @@ theme_override_constants/margin_bottom = 20
 [node name="Buttons" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/MainButtons/Margin"]
 layout_mode = 2
 theme_override_constants/separation = 14
-alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons"]
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 4
 
 [node name="CardEditor" type="Button" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
@@ -143,35 +177,6 @@ text = "Kazamata készítő"
 [node name="Dungeons" type="Button" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
 text = "Kazamaták"
-
-[node name="MessageContainer" type="PanelContainer" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="WoodBackground" type="TextureRect" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/MessageContainer"]
-layout_mode = 2
-texture = ExtResource("4_ebj7d")
-expand_mode = 1
-
-[node name="Border" type="TextureRect" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/MessageContainer"]
-layout_mode = 2
-texture = ExtResource("4_4h88p")
-
-[node name="MarginContainer" type="MarginContainer" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/MessageContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 20
-
-[node name="RichTextLabel" type="RichTextLabel" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/MessageContainer/MarginContainer"]
-layout_mode = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 3
-theme_override_fonts/normal_font = ExtResource("6_ph8e0")
-theme_override_font_sizes/normal_font_size = 14
-bbcode_enabled = true
-fit_content = true
 
 [node name="Save" type="Button" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons"]
 layout_mode = 2
@@ -206,11 +211,10 @@ DungeonViewer = NodePath("DungeonViewer")
 SaveMenu = NodePath("SaveMenu")
 CardViewer = NodePath("CardViewer")
 PlayerCollection = NodePath("PlayerCollection")
-CurrentMenuMessage = NodePath("../../../MainButtons/Margin/Buttons/MessageContainer/MarginContainer/RichTextLabel")
+CurrentMenuMessage = NodePath("../../../../../../MessageContainer/MarginContainer/RichTextLabel")
 ExistErrorPopup = NodePath("../../../../../../ExistentialCrisisError")
 
 [node name="PlayerCollection" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("cardHolder")]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 2
@@ -366,6 +370,7 @@ size_flags_vertical = 3
 columns = 4
 
 [node name="DungeonEditor" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeon", "rewardType", "saveButton", "dungeonDeck", "worldCards")]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
@@ -523,10 +528,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -377.0
-offset_top = -161.0
+offset_left = -248.99994
+offset_top = -105.0
+offset_right = 70.00006
+offset_bottom = 25.0
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(0.77, 0.77)
 
 [node name="TextureRect" type="TextureRect" parent="ImportButtons"]
 layout_mode = 1

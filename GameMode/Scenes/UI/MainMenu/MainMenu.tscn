@@ -935,7 +935,6 @@ theme_override_font_sizes/font_size = 22
 text = "Vissza a főmenüre"
 
 [node name="ContinueGameMenu" type="Control" parent="MenuContainer" node_paths=PackedStringArray("saveFileContinueItemsHolder")]
-visible = false
 layout_mode = 2
 script = ExtResource("9_tbwd8")
 uiSaveFileContinueItem = ExtResource("10_geava")
@@ -1050,9 +1049,9 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -91.0
-offset_right = 234.0
-offset_bottom = 159.0
+offset_top = -90.0
+offset_right = 214.10257
+offset_bottom = 162.56412
 grow_vertical = 2
 scale = Vector2(0.78, 0.78)
 

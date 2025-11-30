@@ -18,12 +18,12 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Card" type="Control" node_paths=PackedStringArray("damageLabel", "healthLabel", "nameLabel", "charcaterIcon", "effectTexture", "elementTexture", "heartBuffedTexture", "damageBuffedTexture")]
 use_parent_material = true
-custom_minimum_size = Vector2(168, 220)
+custom_minimum_size = Vector2(107.52, 140.8)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 168.0
 offset_bottom = 220.0
-scale = Vector2(1, 1.059)
+scale = Vector2(0.64, 0.678)
 theme = ExtResource("1_bqwth")
 script = ExtResource("1_mkdqw")
 damageLabel = NodePath("Panel/Control2/Axe/Damage")
