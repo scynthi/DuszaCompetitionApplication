@@ -309,6 +309,7 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(110, 118.5)
@@ -320,24 +321,16 @@ layout_mode = 2
 [node name="Control" type="Control" parent="MarginContainer/Control/Control3/Control/CenterContainer/Control"]
 material = SubResource("ShaderMaterial_vvhqr")
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -85.0
-offset_top = -133.0
-offset_right = 85.0
-offset_bottom = 87.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(85, 110)
 
 [node name="Card" parent="MarginContainer/Control/Control3/Control/CenterContainer/Control/Control" instance=ExtResource("9_l75cb")]
-layout_mode = 0
-offset_left = 1.0
-offset_right = 169.0
-scale = Vector2(1, 1)
+visible = false
+layout_mode = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/Control3/Control"]
 layout_mode = 1
@@ -481,12 +474,12 @@ expand_mode = 1
 
 [node name="Button" parent="MarginContainer/Control/BottomThing" instance=ExtResource("13_dkgyj")]
 layout_mode = 1
-offset_left = -100.0
-offset_top = -23.0
-offset_right = 100.0
-offset_bottom = 19.0
-theme_override_font_sizes/font_size = 18
-text = "          Vissza a térképre"
+offset_left = -116.0
+offset_top = -22.0
+offset_right = 116.0
+offset_bottom = 20.0
+theme_override_font_sizes/font_size = 16
+text = "      Vissza a térképre"
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
