@@ -1377,15 +1377,17 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
-[node name="EndFightContainer" type="Control" parent="Control" node_paths=PackedStringArray("fightLogic", "endFightAnimationPlayer", "winScreen", "loseScreen", "goldLabel", "xpLabel", "winNormal", "winBig", "winNormalCardContainer", "winNormalHp", "winNormalDamage", "winBigCardContainer")]
+[node name="EndFightContainer" type="Control" parent="Control" node_paths=PackedStringArray("fightLogic", "endFightAnimationPlayer", "winScreen", "loseScreen", "goldLabel", "xpLabel", "winNormal", "winBig", "winNormalCardContainer", "winNormalHp", "winNormalDamage", "winBigCardContainer", "WinCardContainer")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -443.0
-offset_top = -700.0
-offset_right = 442.99963
-offset_bottom = 32.0
+
+offset_left = -230.0
+offset_top = -818.95
+offset_right = 655.99963
+offset_bottom = -86.95001
+
 grow_horizontal = 2
 scale = Vector2(0.66, 0.66)
 pivot_offset = Vector2(443, 366)
@@ -1402,6 +1404,7 @@ winNormalCardContainer = NodePath("Win/Control/VBoxContainer/WinNormal/CenterCon
 winNormalHp = NodePath("Win/Control/VBoxContainer/WinNormal/CenterContainer2/HealthBuff")
 winNormalDamage = NodePath("Win/Control/VBoxContainer/WinNormal/CenterContainer2/DamageBuff")
 winBigCardContainer = NodePath("Win/Control/VBoxContainer/WinBig/CenterContainer")
+WinCardContainer = NodePath("Win/Control/VBoxContainer/WinBig/CenterContainer")
 
 [node name="TextureRect" type="TextureRect" parent="Control/EndFightContainer"]
 layout_mode = 1
@@ -1661,9 +1664,6 @@ offset_right = 84.0
 offset_bottom = 110.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Card" parent="Control/EndFightContainer/Win/Control/VBoxContainer/WinBig/CenterContainer" instance=ExtResource("12_cj4f3")]
-layout_mode = 2
 
 [node name="Lose" type="Control" parent="Control/EndFightContainer"]
 visible = false

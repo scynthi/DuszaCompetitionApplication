@@ -9,9 +9,9 @@ uj kartya;BUH;5;15;viz
 uj vezer;Lord 123;123;eletero;tuz
 uj vezer;Lord BUH;BUH;eletero;viz
 
-uj kazamata;simple;Teszt Kazamata;BossCard;eletero
-uj kazamata;small;Test;Card,Card,Card,BossCard;eletero
-uj kazamata;big;BIG;Card,Card,BossCard,Card,Card;Lord BUH
+uj kazamata;egyszeru;Teszt Kazamata;Lord 123;eletero
+uj kazamata;kis;Test;123,1,12,Lord 123;eletero
+uj kazamata;nagy;BIG;1,12,Lord 123,123,op cro;Lord BUH
 
 uj jatekos
 
