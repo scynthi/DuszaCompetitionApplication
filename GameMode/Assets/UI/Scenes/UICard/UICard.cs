@@ -17,7 +17,7 @@ public partial class UICard : Control
     [Export] private TextureRect damageBuffedTexture;
     public Card OwnerCard { get; private set; }
     const byte DEFAULT_FONTSIZE = 19; 
-    const byte DECREASED_FONTSIZE = 14; 
+    const byte DECREASED_FONTSIZE = 17; 
 
     public bool isEnemy;
 

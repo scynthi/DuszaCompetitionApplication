@@ -612,6 +612,7 @@ columns = 4
 
 [node name="Card" parent="CanvasLayer/Control/UpperSign/WorldCardsSubmenu/Control/ScrollContainer/GridContainer" instance=ExtResource("15_uukdi")]
 visible = false
+custom_minimum_size = Vector2(168, 220)
 layout_mode = 2
 
 [node name="Card2" parent="CanvasLayer/Control/UpperSign/WorldCardsSubmenu/Control/ScrollContainer/GridContainer" instance=ExtResource("16_mo0dx")]

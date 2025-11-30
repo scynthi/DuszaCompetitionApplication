@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://5b5clx7uopyh" path="res://Assets/Images/Icons/icon.png" id="3_var4r"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_m6muk"]
-font_size = 226
+font_size = 156
 outline_size = 25
 outline_color = Color(0.42, 0.37079, 0.26459998, 1)
 stacked_outline_count = 1
@@ -149,13 +149,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -405.0
+offset_left = -453.0
 offset_top = -302.0
-offset_right = 400.0
-offset_bottom = -89.0
+offset_right = 474.0
+offset_bottom = -103.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 270
 text = "Charter"
 label_settings = SubResource("LabelSettings_m6muk")
 horizontal_alignment = 1

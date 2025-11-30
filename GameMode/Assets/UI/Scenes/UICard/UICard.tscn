@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dk32ss75ce3lw"]
+[gd_scene load_steps=13 format=3 uid="uid://dk32ss75ce3lw"]
 
 [ext_resource type="Theme" uid="uid://cucapuu4plldt" path="res://Assets/UI/Theme/UITheme.tres" id="1_bqwth"]
 [ext_resource type="Script" uid="uid://cqcurt0gop2t4" path="res://Assets/UI/Scenes/UICard/UICard.cs" id="1_mkdqw"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://b3mo4atbtgp7w" path="res://Assets/Images/Cards/cards_heart_base.png" id="3_2ja5q"]
 [ext_resource type="Texture2D" uid="uid://dly0u07sms4ow" path="res://Assets/Images/Cards/card_test_bg.png" id="3_7tf3n"]
 [ext_resource type="Texture2D" uid="uid://boja6vh76fs8h" path="res://Assets/Images/Entities/Heroes/char_hunter.png" id="3_bqwth"]
-[ext_resource type="FontFile" uid="uid://bhu7r7x4jdi2e" path="res://Assets/Fonts/Alkhemikal.ttf" id="4_7tf3n"]
 [ext_resource type="Texture2D" uid="uid://ruoa1sjpbu7j" path="res://Assets/Images/Cards/cards_heart_buffed.png" id="4_40ahx"]
 [ext_resource type="Texture2D" uid="uid://doww5jvob8iw2" path="res://Assets/Images/Elements/NewElementSprites/fire.png" id="4_ndynx"]
 [ext_resource type="Texture2D" uid="uid://dnov8t4p650wk" path="res://Assets/Images/Cards/cards_axe_base.png" id="4_vyadu"]
@@ -18,12 +17,18 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Card" type="Control" node_paths=PackedStringArray("damageLabel", "healthLabel", "nameLabel", "charcaterIcon", "effectTexture", "elementTexture", "heartBuffedTexture", "damageBuffedTexture")]
 use_parent_material = true
-custom_minimum_size = Vector2(101, 130)
+custom_minimum_size = Vector2(134.09, 170)
 layout_mode = 3
-anchor_right = 0.11800001
-anchor_bottom = 0.29200003
-offset_right = 32.227997
-offset_bottom = 27.92308
+anchor_left = 0.078
+anchor_top = 0.185
+anchor_right = 0.078
+anchor_bottom = 0.185
+offset_left = -66.612
+offset_top = -88.8
+offset_right = 66.388
+offset_bottom = 79.2831
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(1, 1.059)
 theme = ExtResource("1_bqwth")
 script = ExtResource("1_mkdqw")
@@ -40,10 +45,10 @@ damageBuffedTexture = NodePath("Panel/Control2/Axe/AxeBuffedIcon")
 use_parent_material = true
 clip_contents = true
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_right = 0.94900006
 anchor_bottom = 1.0
-offset_right = 88.66667
+offset_right = 85.44966
 offset_bottom = 112.05539
 grow_horizontal = 2
 grow_vertical = 2
@@ -68,12 +73,10 @@ expand_mode = 1
 [node name="Name" type="Label" parent="Panel/Control"]
 use_parent_material = true
 layout_mode = 0
-offset_left = 103.33333
-offset_top = 11.016683
-offset_right = 193.33334
+offset_left = 90.0
+offset_right = 201.66666
 offset_bottom = 65.570984
 theme_override_constants/line_spacing = 0
-theme_override_fonts/font = ExtResource("4_7tf3n")
 theme_override_font_sizes/font_size = 19
 text = "Please hold"
 horizontal_alignment = 1
@@ -109,8 +112,8 @@ use_parent_material = true
 layout_mode = 0
 offset_left = 12.0
 offset_top = 10.387163
-offset_right = 44.0
-offset_bottom = 42.38716
+offset_right = 56.666668
+offset_bottom = 53.509598
 texture = ExtResource("4_ndynx")
 stretch_mode = 4
 
@@ -205,8 +208,8 @@ use_parent_material = true
 layout_mode = 1
 anchor_right = 0.60700005
 anchor_bottom = 0.57900006
-offset_right = 0.023994446
-offset_bottom = 0.98205566
+offset_right = 46.26899
+offset_bottom = 70.76298
 grow_horizontal = 2
 grow_vertical = 2
 
