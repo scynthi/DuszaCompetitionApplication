@@ -201,15 +201,25 @@ public partial class SaverLoader : Node
 		return Directory.Exists(fullPath);
 	}
 
-	public static void DeleteSave(string name)
+	public static bool SaveFolderExists(string fullPath)
+	{
+		return Directory.Exists(fullPath);
+	}
+
+	public static void DeleteSave(string name, string path)
     {
-        string fullPath = ProjectSettings.GlobalizePath($"{CONTINUE_PATH}{name}");
-		
+        string fullPath = ProjectSettings.GlobalizePath($"{path}{name}");
+		if (!SaveFolderExists(fullPath))
+			return;
+		Directory.Delete(fullPath, true);
     }
-	public static void DeleteTemplate(string name)
+
+	public static void DeleteFullPath(string name)
     {
         string fullPath = ProjectSettings.GlobalizePath($"{SAVE_PATH}{name}");
-		
+		if (!SaveFolderExists(fullPath))
+			return;
+		Directory.Delete(fullPath, true);
     }
 	public static void Convert(WorldContext r, out PlayerSave pSave, out WorldSave wSave, out Settings settings)
 	{
