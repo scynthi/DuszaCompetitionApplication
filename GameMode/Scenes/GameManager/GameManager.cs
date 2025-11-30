@@ -10,6 +10,7 @@ public partial class GameManager : Node
     [Export] public SaverLoader saverLoader;
     [Export] public UiAudioController audioController;
     [Export] public UiPackedSceneReferences uiPackedSceneReferences;
+    [Export] public ColorRect ctrShaderRect;
 
     public Node currentWorldScene { private set; get; }
 

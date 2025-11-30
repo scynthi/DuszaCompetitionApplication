@@ -4,7 +4,12 @@ using System;
 public partial class UiAudioController : Node
 {
     [Export] public AudioBank audioBank;
-    [Export] AudioStreamPlayer sfxAudioPlayer;
+    [Export] public AudioStreamPlayer sfxAudioPlayer;
+    [Export] public AudioStreamPlayer envAudioPlayer;
+
+    [Export] public AudioStreamPlayer musicAudioPlayer;
+
+
 
     public void PlaySFX(AudioStream stream, bool randomizePitch = true)
     {

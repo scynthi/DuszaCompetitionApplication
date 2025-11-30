@@ -13,6 +13,7 @@ public partial class MainMenu : Control
     [Export] Control creditsMenu;
     [Export] NewGameSubMenu newGameMenu;
     [Export] ContinueGameSubMenu continueGameMenu;
+    [Export] SettingsMenu settingsMenu;
 
 
     private Control _currentMenu;
@@ -66,6 +67,8 @@ public partial class MainMenu : Control
                 newGameMenu.ReloadSaves();
                 break;
             case "settings":
+                queuedMenu = settingsMenu;
+                settingsMenu.ReloadSliders();
                 break;
             case "credits":
                 queuedMenu = creditsMenu;

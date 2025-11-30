@@ -257,13 +257,14 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.325
 shader_parameter/vignette_opacity = 0.4370000207575
 
-[node name="GameManager" type="Node" node_paths=PackedStringArray("World", "transitionAnimator", "saverLoader", "audioController", "uiPackedSceneReferences")]
+[node name="GameManager" type="Node" node_paths=PackedStringArray("World", "transitionAnimator", "saverLoader", "audioController", "uiPackedSceneReferences", "ctrShaderRect")]
 script = ExtResource("1_jmpc8")
 World = NodePath("GameLayer/World")
 transitionAnimator = NodePath("TransitionLayer/AnimationPlayer")
 saverLoader = NodePath("SaverLoader")
 audioController = NodePath("UIAudioController")
 uiPackedSceneReferences = NodePath("UIPackedSceneReferences")
+ctrShaderRect = NodePath("ShaderLayer/ColorRect")
 
 [node name="GameLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
@@ -304,10 +305,12 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="UIAudioController" type="Node" parent="." node_paths=PackedStringArray("audioBank", "sfxAudioPlayer")]
+[node name="UIAudioController" type="Node" parent="." node_paths=PackedStringArray("audioBank", "sfxAudioPlayer", "envAudioPlayer", "musicAudioPlayer")]
 script = ExtResource("5_wwsdi")
 audioBank = NodePath("AudioBank")
 sfxAudioPlayer = NodePath("SFXAudioPlayer")
+envAudioPlayer = NodePath("EnvAudioPlayer")
+musicAudioPlayer = NodePath("MusicAudioPlayer")
 
 [node name="SFXAudioPlayer" type="AudioStreamPlayer" parent="UIAudioController"]
 max_polyphony = 16
