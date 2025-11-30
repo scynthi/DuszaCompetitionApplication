@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://oihoapowoy2t"]
+[gd_scene load_steps=37 format=3 uid="uid://oihoapowoy2t"]
 
 [ext_resource type="Script" uid="uid://ctr2m1ncuyxwi" path="res://Scenes/DungeonMap/CameraController.cs" id="1_6u8ww"]
 [ext_resource type="PackedScene" uid="uid://dohu3ccoui2n5" path="res://Scenes/DungeonMap/MapBackgrounds/DungeonMapBackground.tscn" id="2_0enam"]
@@ -35,6 +35,11 @@ corner_radius_bottom_left = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_uukdi"]
 font_size = 31
+outline_size = 6
+outline_color = Color(0.078814976, 0.07881499, 0.078814976, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yw8xx"]
+font_size = 21
 outline_size = 6
 outline_color = Color(0.078814976, 0.07881499, 0.078814976, 1)
 
@@ -112,7 +117,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(2, 2),
-"points": PackedFloat32Array(927, 0, 0, 0.1, 106.524536, 1042, -0.4271919, 1.6802979, 0, 0),
+"points": PackedFloat32Array(574, -0.25, 0, 0.25, 0, 657, -0.125, -13.833333, 0, 0),
 "times": PackedFloat32Array(0, 0.75)
 }
 tracks/1/type = "method"
@@ -159,7 +164,7 @@ script = ExtResource("2_bg5ac")
 mapBackground = ExtResource("2_0enam")
 mapBackgroundV2 = ExtResource("3_38684")
 mapBackgroundFinal = ExtResource("4_02c5i")
-backgroundWidth = 1280
+backgroundWidth = 854
 dungeonButton = ExtResource("3_bg5ac")
 tipLabel = NodePath("../../CanvasLayer/Control/UpperSign/EmptyMenu/Label")
 
@@ -195,7 +200,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="DeckSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign" node_paths=PackedStringArray("playerCollection", "playerDeck", "moneyLabel", "xpLabel", "HealthPotionAmount", "GlassShieldAmount", "ElementalBuffAmount", "sideAnimator", "transAnimator", "mapMenu")]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -221,10 +225,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -356.135
-offset_top = -257.0
-offset_right = -245.13599
-offset_bottom = 192.00037
+offset_left = 69.86499
+offset_top = -120.0
+offset_right = 180.86401
+offset_bottom = 148.99963
 grow_horizontal = 0
 grow_vertical = 2
 
@@ -248,10 +252,10 @@ anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -80.0
-offset_top = 49.0
-offset_right = -5.0
-offset_bottom = -51.0
+offset_left = -70.00098
+offset_top = 6.0
+offset_right = -14.999023
+offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/separation = 34
@@ -265,7 +269,8 @@ size_flags_vertical = 3
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 76.0
+offset_top = -2.0
+offset_bottom = 48.0
 grow_horizontal = 2
 texture = ExtResource("14_1rou0")
 
@@ -292,7 +297,8 @@ size_flags_vertical = 3
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 76.0
+offset_top = -3.0
+offset_bottom = 45.0
 grow_horizontal = 2
 texture = ExtResource("15_6f2pe")
 
@@ -319,7 +325,8 @@ size_flags_vertical = 3
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 76.0
+offset_top = -7.0
+offset_bottom = 46.0
 grow_horizontal = 2
 texture = ExtResource("16_yw8xx")
 
@@ -344,8 +351,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -116.0
-offset_bottom = -116.0
+offset_top = -36.0
+offset_bottom = -36.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("8_phkkq")
@@ -372,8 +379,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 30.0
-offset_right = -30.0
+offset_left = 147.0
+offset_top = 135.0
+offset_right = -147.0
+offset_bottom = -31.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 30
@@ -390,7 +399,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 171
+theme_override_font_sizes/font_size = 136
 text = "Pakli"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -421,7 +430,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 116
+theme_override_font_sizes/font_size = 81
 text = "Gyűjtemény"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -443,6 +452,7 @@ ConnectedInventory = NodePath("../../../Control/PlayerDeck/PlayerDeck")
 AmountOfCols = 4
 
 [node name="XPcontrol" type="Control" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control"]
+visible = false
 layout_mode = 1
 anchors_preset = 0
 offset_left = -1.0
@@ -495,8 +505,10 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -83.0
-offset_bottom = 40.0
+offset_left = -239.0
+offset_top = 136.0
+offset_right = -152.0
+offset_bottom = 182.0
 grow_horizontal = 0
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/XPcontrol2"]
@@ -515,10 +527,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -38.5
-offset_top = -22.0
-offset_right = 38.5
-offset_bottom = 22.0
+offset_left = -27.5
+offset_top = -15.0
+offset_right = 27.5
+offset_bottom = 15.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_vrsbj")
@@ -535,7 +547,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(0.38431373, 1, 0, 1)
 theme_override_font_sizes/font_size = 21
 text = "123123213"
-label_settings = SubResource("LabelSettings_uukdi")
+label_settings = SubResource("LabelSettings_yw8xx")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -557,8 +569,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -124.0
-offset_bottom = -124.0
+offset_top = -26.0
+offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("9_1kwds")
@@ -574,7 +586,7 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -361.0
-offset_top = -269.0
+offset_top = -206.0
 offset_right = 361.0
 offset_bottom = 185.0
 grow_horizontal = 2
@@ -585,6 +597,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 113.0
+offset_top = 152.0
+offset_right = -113.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 0
@@ -613,43 +629,40 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/UpperSign/EmptyMenu"]
-visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -167.5
-offset_top = 14.0
+offset_top = -10.0
 offset_right = 167.5
-offset_bottom = 37.0
+offset_bottom = 19.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 26
-text = "Tarsd lenyomva az egér görgőt a mozgáshoz "
 label_settings = SubResource("LabelSettings_mo0dx")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/UpperSign/EmptyMenu"]
-visible = false
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/UpperSign/EmptyMenu/Label"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -30.0
-offset_top = 21.0
-offset_right = 30.0
-offset_bottom = 81.0
+offset_left = -18.0
+offset_top = 19.0
+offset_right = 18.0
+offset_bottom = 55.0
 grow_horizontal = 2
 texture = ExtResource("21_6f2pe")
 
-[node name="Panel" type="Panel" parent="CanvasLayer/Control/UpperSign/EmptyMenu/TextureRect"]
+[node name="Panel" type="Panel" parent="CanvasLayer/Control/UpperSign/EmptyMenu/Label/TextureRect"]
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -35.0
-offset_top = -4.0
-offset_right = 35.0
-offset_bottom = 66.0
+offset_left = -22.0
+offset_top = -1.0
+offset_right = 22.0
+offset_bottom = 39.0
 grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_yw8xx")
 
@@ -668,9 +681,9 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 314.0
-offset_top = 15.0
-offset_right = -314.0
+offset_left = 207.0
+offset_top = 61.0
+offset_right = -207.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("17_mo0dx")
@@ -682,12 +695,12 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 342.0
-offset_top = -36.49997
-offset_right = 516.96
-offset_bottom = 35.185028
+offset_left = 221.0
+offset_top = 3.0
+offset_right = 357.0
+offset_bottom = 46.0
 grow_vertical = 2
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 24
 text = "Gyűjtemény"
 
 [node name="WorldCardsButton" type="Button" parent="CanvasLayer/Control/BottomSign"]
@@ -697,13 +710,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -92.0
-offset_top = -35.8425
-offset_right = 92.0
-offset_bottom = 35.8425
+offset_left = -47.0
+offset_top = 4.0
+offset_right = 109.0
+offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 24
 text = "Világkártyák"
 
 [node name="ShopButton" type="Button" parent="CanvasLayer/Control/BottomSign"]
@@ -713,13 +726,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 127.0
-offset_top = -36.0
-offset_right = 300.04004
-offset_bottom = 35.684998
+offset_left = 134.0
+offset_top = 3.0
+offset_right = 202.0
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 39
+theme_override_font_sizes/font_size = 24
 text = "Bolt"
 
 [node name="LeaveArrow" type="Control" parent="CanvasLayer/Control"]
@@ -727,9 +740,9 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -113.0
-offset_right = 235.0
-offset_bottom = 102.0
+offset_top = -60.0
+offset_right = 131.0
+offset_bottom = 49.0
 grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/LeaveArrow"]
@@ -748,13 +761,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -59.5
-offset_top = -25.0
-offset_right = 97.5
-offset_bottom = 25.0
+offset_left = -31.5
+offset_top = -18.0
+offset_right = 49.5
+offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 29
+theme_override_font_sizes/font_size = 19
 text = "Főmenü"
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control"]
