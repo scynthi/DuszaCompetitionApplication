@@ -11,6 +11,11 @@ public partial class ItemSlot : Panel
 	[Export] public Control uiCard;
 	public bool IsBossCardSlot = false;
 	private bool _dragStarted = false;
+	private Tween _hoverTween;
+	private Vector2 _originalPosition;
+	private Vector2 _originalScale;
+	private float _hoverOffset = -10f;
+	private Vector2 _hoverScaleMultiplier = new Vector2(1.1f, 1.1f);
 	public Inventory ParentInventory { get; set; }
 
 	public override void _Ready()
@@ -28,6 +33,38 @@ public partial class ItemSlot : Panel
 
 			uiCard.Scale = new Vector2(scale, scale);
 		}
+	}
+
+	private void OnMouseEntered()
+	{
+		if (uiCard == null || _dragStarted)
+			return;
+		
+		_hoverTween?.Kill();
+		_hoverTween = CreateTween();
+		_hoverTween.SetParallel(true);
+		_hoverTween.SetEase(Tween.EaseType.Out);
+		_hoverTween.SetTrans(Tween.TransitionType.Back);
+		
+		_hoverTween.TweenProperty(uiCard, "position:y", _originalPosition.Y + _hoverOffset, 0.3);
+		_hoverTween.TweenProperty(uiCard, "scale", _originalScale * _hoverScaleMultiplier, 0.3);
+		GD.Print("BRUH");
+	}
+
+	private void OnMouseExited()
+	{
+		if (uiCard == null)
+			return;
+		
+		_hoverTween?.Kill();
+		_hoverTween = CreateTween();
+		_hoverTween.SetParallel(true);
+		_hoverTween.SetEase(Tween.EaseType.Out);
+		_hoverTween.SetTrans(Tween.TransitionType.Cubic);
+		
+		_hoverTween.TweenProperty(uiCard, "position", _originalPosition, 0.2);
+		_hoverTween.TweenProperty(uiCard, "scale", _originalScale, 0.2);
+		GD.Print("BRUH2");
 	}
 
 	void SetMouseFilterRecursive(Node node)

@@ -441,6 +441,7 @@ horizontal_scroll_mode = 0
 [node name="PlayerCollection" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/Control2/PlayerCollection" node_paths=PackedStringArray("ConnectedInventory") instance=ExtResource("15_yw8xx")]
 layout_mode = 2
 ConnectedInventory = NodePath("../../../Control/PlayerDeck/PlayerDeck")
+AmountOfCols = 4
 
 [node name="XPcontrol" type="Control" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control"]
 layout_mode = 1

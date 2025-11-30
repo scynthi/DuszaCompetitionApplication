@@ -40,22 +40,8 @@ public partial class DeckSubmenu : Control
         ReloadItems();
         sideAnimator.Play("RESET");
 
-        List<Card> collectionLoadList = [];
-        List<Card> deckLoadList = [];
-
-        foreach(Card card in Global.gameManager.saverLoader.currSaveFile.player.Collection)
-        {
-            if (Global.gameManager.saverLoader.currSaveFile.player.Deck.Contains(card)){
-                
-                deckLoadList.Add(card);
-            }
-            else
-            {
-                collectionLoadList.Add(card);
-            }
-        }
         playerDeck.AmountOfCols = Convert.ToInt32(Math.Ceiling((double)Global.gameManager.saverLoader.currSaveFile.player.Collection.Count / 2));
-        playerDeck.RemakePanelItems(Collection: Global.gameManager.saverLoader.currSaveFile.player.Deck);
+        playerDeck.RemakePanelItems(amount: playerDeck.AmountOfCols, Collection: Global.gameManager.saverLoader.currSaveFile.player.Deck);
         playerCollection.RemakePanelItems(Collection: Global.gameManager.saverLoader.currSaveFile.player.Collection);
     }
 

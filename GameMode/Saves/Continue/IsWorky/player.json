@@ -37,7 +37,19 @@
         "buffHandler": {}
       }
     ],
-    "Deck": [],
+    "Deck": [
+      {
+        "Name": "op cro 2",
+        "Health": 15,
+        "BaseDamage": 16,
+        "Damage": 16,
+        "DamageChanged": false,
+        "HealthChanged": false,
+        "CardElement": 3,
+        "Icon": "res://Assets/Images/Entities/Heroes/char_hunter.png",
+        "buffHandler": {}
+      }
+    ],
     "ItemList": [
       {
         "$type": "health_potion",
