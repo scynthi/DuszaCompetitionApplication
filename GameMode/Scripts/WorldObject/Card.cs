@@ -81,7 +81,7 @@ public partial class Card : IWorldObject
         Random rnd = new Random();
         double difficultyModifier;
         int damage = BaseDamage;
-
+        GD.Print(damage);
         if (PlayerAttacked)
         {
             difficultyModifier = 1 + rnd.NextDouble() * ((double)Global.gameManager.saverLoader.currSaveFile.gameDifficulty / 10);

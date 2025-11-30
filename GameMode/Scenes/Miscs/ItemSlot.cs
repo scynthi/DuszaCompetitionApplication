@@ -33,38 +33,39 @@ public partial class ItemSlot : Panel
 
 			uiCard.Scale = new Vector2(scale, scale);
 		}
+
+		MouseEntered += OnMouseEntered;
+    	MouseExited += OnMouseExited;
 	}
 
-	private void OnMouseEntered()
+	public void OnMouseEntered()
 	{
-		if (uiCard == null || _dragStarted)
-			return;
+		// if (uiCard == null || _dragStarted)
+		// 	return;
 		
-		_hoverTween?.Kill();
-		_hoverTween = CreateTween();
-		_hoverTween.SetParallel(true);
-		_hoverTween.SetEase(Tween.EaseType.Out);
-		_hoverTween.SetTrans(Tween.TransitionType.Back);
+		// _hoverTween?.Kill();
+		// _hoverTween = CreateTween();
+		// _hoverTween.SetParallel(true);
+		// _hoverTween.SetEase(Tween.EaseType.Out);
+		// _hoverTween.SetTrans(Tween.TransitionType.Back);
 		
-		_hoverTween.TweenProperty(uiCard, "position:y", _originalPosition.Y + _hoverOffset, 0.3);
-		_hoverTween.TweenProperty(uiCard, "scale", _originalScale * _hoverScaleMultiplier, 0.3);
-		GD.Print("BRUH");
+		// _hoverTween.TweenProperty(uiCard, "position:y", _originalPosition.Y + _hoverOffset, 0.3);
+		// _hoverTween.TweenProperty(uiCard, "scale", _originalScale * _hoverScaleMultiplier, 0.3);
 	}
 
-	private void OnMouseExited()
+	public void OnMouseExited()
 	{
-		if (uiCard == null)
-			return;
+		// if (uiCard == null)
+		// 	return;
 		
-		_hoverTween?.Kill();
-		_hoverTween = CreateTween();
-		_hoverTween.SetParallel(true);
-		_hoverTween.SetEase(Tween.EaseType.Out);
-		_hoverTween.SetTrans(Tween.TransitionType.Cubic);
+		// _hoverTween?.Kill();
+		// _hoverTween = CreateTween();
+		// _hoverTween.SetParallel(true);
+		// _hoverTween.SetEase(Tween.EaseType.Out);
+		// _hoverTween.SetTrans(Tween.TransitionType.Cubic);
 		
-		_hoverTween.TweenProperty(uiCard, "position", _originalPosition, 0.2);
-		_hoverTween.TweenProperty(uiCard, "scale", _originalScale, 0.2);
-		GD.Print("BRUH2");
+		// _hoverTween.TweenProperty(uiCard, "position", _originalPosition, 0.2);
+		// _hoverTween.TweenProperty(uiCard, "scale", _originalScale, 0.2);
 	}
 
 	void SetMouseFilterRecursive(Node node)

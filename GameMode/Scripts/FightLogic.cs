@@ -151,6 +151,7 @@ public partial class FightLogic : Node
 			btn.itemType = item.Type;
 			if (player.ReturnItemAmount(item) == 0) btn.Disable();
 			btn.Send_Item += OnAddToItemListPressed;
+			btn.useButton.Disabled = true;
 			IconContainer.AddChild(btn);
 		}
 	}
@@ -233,6 +234,12 @@ public partial class FightLogic : Node
 		ReasignPlayerCard();
 		ReasignDungeonCard();
 		LoadBattleItems("");
+		foreach (Node child in IconContainer.GetChildren())
+        {
+			ItemButton2VigyeElAMento btn = child as ItemButton2VigyeElAMento;
+            btn.useButton.Disabled = true;
+        }
+		
 	}
 
 	public RoundState SimulateRound(Card DungeonCard, Card PlayerCard)
