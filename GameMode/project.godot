@@ -29,6 +29,7 @@ Global="*res://Scripts/Global.cs"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="viewport"
+window/vsync/vsync_mode=0
 
 [dotnet]
 
@@ -36,7 +37,7 @@ project/assembly_name="Charter"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Asset_Drawer/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg")
+enabled=PackedStringArray()
 
 [file_customization]
 
@@ -51,6 +52,13 @@ folder_colors={
 
 DungeonPositions=""
 
+[physics]
+
+common/physics_ticks_per_second=30
+common/max_physics_steps_per_frame=4
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

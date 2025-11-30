@@ -32,10 +32,8 @@ sky_material = SubResource("ProceduralSkyMaterial_xh8xf")
 background_mode = 2
 sky = SubResource("Sky_ktgbt")
 ambient_light_source = 3
-ssao_enabled = true
 ssao_radius = 1.65
 ssao_intensity = 3.07
-glow_enabled = true
 
 [sub_resource type="CompositorEffect" id="CompositorEffect_x2c5x"]
 resource_local_to_scene = false
@@ -167,7 +165,7 @@ compositor = SubResource("Compositor_0cuqo")
 [node name="mainmenuTest" parent="." instance=ExtResource("2_y4dnw")]
 
 [node name="Camera3D" parent="." instance=ExtResource("3_f3a3r")]
-transform = Transform3D(0.63865507, 0.10126157, 0.7628012, 0.015542795, 0.9894037, -0.14435619, -0.76933587, 0.1040499, 0.630314, 3.23, 0.193, 3.433)
+transform = Transform3D(0.638655, 0.10126157, 0.7628012, 0.015542794, 0.9894037, -0.14435619, -0.7693358, 0.1040499, 0.630314, 3.23, 0.193, 3.433)
 
 [node name="MainMenu" parent="." instance=ExtResource("5_wm533")]
 

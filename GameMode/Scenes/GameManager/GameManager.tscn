@@ -1,9 +1,10 @@
-[gd_scene load_steps=65 format=3 uid="uid://b7ju5ebcspygg"]
+[gd_scene load_steps=67 format=3 uid="uid://b7ju5ebcspygg"]
 
 [ext_resource type="Script" uid="uid://c6x1xajmkurav" path="res://Scenes/GameManager/GameManager.cs" id="1_jmpc8"]
 [ext_resource type="Texture2D" uid="uid://d4cj5qnd8tha3" path="res://Assets/Images/Textures/PaperTex.png" id="2_pbnlu"]
 [ext_resource type="PackedScene" uid="uid://hylehs5hcjtj" path="res://Scenes/SplashScreen/StartSplashScreen.tscn" id="2_v2olk"]
 [ext_resource type="Shader" uid="uid://dfgpe5eshsaa8" path="res://Assets/Shaders/crt.gdshader" id="3_pbnlu"]
+[ext_resource type="Shader" uid="uid://6np60jhhlt3q" path="res://Assets/Shaders/quant.gdshader" id="4_3vs6r"]
 [ext_resource type="Script" uid="uid://c4ginecvkrjsh" path="res://Scenes/GameManager/UiAudioController.cs" id="5_wwsdi"]
 [ext_resource type="AudioStream" uid="uid://d11uat282ku7m" path="res://Assets/Audio/Music/ambient_loop1.wav" id="6_fuq8d"]
 [ext_resource type="Script" uid="uid://bbd8gmuheqoc8" path="res://Scenes/GameManager/AudioBank.cs" id="6_r12i2"]
@@ -255,6 +256,10 @@ _data = {
 &"SceneTransitionOut": SubResource("Animation_um3qg")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sm2jp"]
+shader = ExtResource("4_3vs6r")
+shader_parameter/color_depth = 32
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_um3qg"]
 shader = ExtResource("3_pbnlu")
 shader_parameter/overlay = true
@@ -317,6 +322,16 @@ libraries = {
 
 [node name="ShaderLayer" type="CanvasLayer" parent="."]
 layer = 100
+
+[node name="TextureRect" type="ColorRect" parent="ShaderLayer"]
+modulate = Color(0.59, 0.59, 0.59, 1)
+material = SubResource("ShaderMaterial_sm2jp")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="ColorRect" type="ColorRect" parent="ShaderLayer"]
 material = SubResource("ShaderMaterial_um3qg")

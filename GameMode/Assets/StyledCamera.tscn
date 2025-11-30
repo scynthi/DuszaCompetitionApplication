@@ -1,20 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpidsg2b56hne"]
-
-[ext_resource type="Script" uid="uid://jtuoap7qxnl5" path="res://Assets/Shaders/quantization_shader.gd" id="1_wf1sl"]
-
-[sub_resource type="CompositorEffect" id="CompositorEffect_8vrvh"]
-resource_local_to_scene = false
-resource_name = ""
-enabled = true
-effect_callback_type = 4
-needs_motion_vectors = false
-needs_normal_roughness = false
-script = ExtResource("1_wf1sl")
-color_depth = 16.0
-metadata/_custom_type_script = "uid://jtuoap7qxnl5"
+[gd_scene load_steps=2 format=3 uid="uid://cpidsg2b56hne"]
 
 [sub_resource type="Compositor" id="Compositor_fejld"]
-compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_8vrvh")])
 
 [node name="StyledCamera" type="Camera3D"]
 compositor = SubResource("Compositor_fejld")
