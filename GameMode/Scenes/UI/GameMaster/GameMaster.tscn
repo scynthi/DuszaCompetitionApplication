@@ -224,7 +224,6 @@ size_flags_vertical = 3
 columns = 4
 
 [node name="CardEditor" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("card")]
-visible = false
 layout_mode = 2
 alignment = 1
 script = ExtResource("1_4ikgl")
@@ -356,6 +355,7 @@ size_flags_vertical = 3
 columns = 4
 
 [node name="DungeonEditor" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeon", "rewardType", "saveButton", "dungeonDeck", "worldCards")]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
@@ -424,6 +424,8 @@ text = "Mentés"
 custom_minimum_size = Vector2(320, 200)
 layout_mode = 2
 ConnectedInventory = NodePath("../../WorldCardhOlder/ScrollContainer/WorldCards")
+AmountOfCols = 3
+ScaleDown = 2.0
 
 [node name="WorldCardhOlder" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer"]
 layout_mode = 2

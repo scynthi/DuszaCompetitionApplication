@@ -28,10 +28,7 @@ public partial class Inventory : PanelContainer
 
 	public void RemakePanelItems(int amount = 0, bool IsSmall = false, List<Card> Collection = null, bool IsBossCardNeeded = false)
 	{
-		if (IsSmall)
-			MainContainer.Columns = 4;
-		else
-			MainContainer.Columns = AmountOfCols;
+		MainContainer.Columns = AmountOfCols;
 
 		for (int i = MainContainer.GetChildCount() - 1; i >= 0; i--)
 		{

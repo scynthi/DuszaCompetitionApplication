@@ -26,7 +26,7 @@ public partial class DungeonEditor : HBoxContainer
 
     public void OnVisibilityChanged()
     {
-        worldCards.RemakePanelItems(Collection: editor.gameMasterData.WorldCards);
+        worldCards.RemakePanelItems(Collection: editor.gameMasterData.WorldCards, IsSmall: false);
         dungeonDeck.ClearCards();
         DeckIsNotFull();
     }

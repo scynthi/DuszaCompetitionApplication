@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c6x1xajmkurav" path="res://Scenes/GameManager/GameManager.cs" id="1_jmpc8"]
 [ext_resource type="Texture2D" uid="uid://d4cj5qnd8tha3" path="res://Assets/Images/Textures/PaperTex.png" id="2_pbnlu"]
-[ext_resource type="PackedScene" uid="uid://hylehs5hcjtj" path="res://Scenes/StartSplashScreen.tscn" id="2_v2olk"]
+[ext_resource type="PackedScene" uid="uid://hylehs5hcjtj" path="res://Scenes/SplashScreen/StartSplashScreen.tscn" id="2_v2olk"]
 [ext_resource type="Shader" uid="uid://dfgpe5eshsaa8" path="res://Assets/Shaders/crt.gdshader" id="3_pbnlu"]
 [ext_resource type="Script" uid="uid://c4ginecvkrjsh" path="res://Scenes/GameManager/UiAudioController.cs" id="5_wwsdi"]
 [ext_resource type="AudioStream" uid="uid://d11uat282ku7m" path="res://Assets/Audio/Music/ambient_loop1.wav" id="6_fuq8d"]
