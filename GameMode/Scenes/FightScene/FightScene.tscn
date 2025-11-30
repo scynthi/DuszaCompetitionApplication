@@ -1382,12 +1382,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-
-offset_left = -230.0
-offset_top = -818.95
-offset_right = 655.99963
-offset_bottom = -86.95001
-
+offset_left = -451.0
+offset_top = -700.0
+offset_right = 434.99963
+offset_bottom = 32.0
 grow_horizontal = 2
 scale = Vector2(0.66, 0.66)
 pivot_offset = Vector2(443, 366)
