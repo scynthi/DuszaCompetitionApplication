@@ -20,6 +20,8 @@ public partial class Editors : VBoxContainer
 
     public GameMasterData gameMasterData = new();
 
+    const int TITLETEXTSIZE = 18;
+
 
     private Control _currentMenu;
     public Control CurrentMenu
@@ -49,7 +51,7 @@ public partial class Editors : VBoxContainer
             child.Visible = false;
         }
         CurrentMenu = CardEditor;
-        EditMessage("[font_size=22]Kártya készítő[/font_size]\n\nItt tud kártyákat létrehozni és egyaránt személyre szabni. ");
+        EditMessage($"[font_size={TITLETEXTSIZE}]Kártya készítő[/font_size]\n\nItt tud kártyákat létrehozni és egyaránt személyre szabni. ");
         gameMasterData.ExistErrorOccured += ExistErrorPopup.Show;
     }
 
@@ -60,34 +62,34 @@ public partial class Editors : VBoxContainer
         {
             case "card":
                 CurrentMenu = CardEditor;
-                EditMessage("[font_size=22]Kártya készítő[/font_size]\n\nItt tud kártyákat létrehozni és egyaránt személyre szabni. ");
+                EditMessage($"[font_size={TITLETEXTSIZE}]Kártya készítő[/font_size]\n\nItt tud kártyákat létrehozni és egyaránt személyre szabni. ");
                 break;
             case "dungeon":
                 CurrentMenu = DungeonEditor;
-                EditMessage("[font_size=22]Kazamata készítő[/font_size]\n\nItt tud kazamatákat létrehozni.");
+                EditMessage($"[font_size={TITLETEXTSIZE}]Kazamata készítő[/font_size]\n\nItt tud kazamatákat létrehozni.");
                 break;
             case "boss":
                 CurrentMenu = BossEditor;
-                EditMessage("[font_size=22]Vezér kártyák[/font_size]\n\nItt láthatja a játékkörnyezetben lévő vezér kártyákat. Bal kattintással meg tudja nyitni a 'Pici menüt', amely segítségével törölheti.");
+                EditMessage($"[font_size={TITLETEXTSIZE}]Vezér kártyák[/font_size]\n\nItt láthatja a játékkörnyezetben lévő vezér kártyákat. Bal kattintással meg tudja nyitni a 'Pici menüt', amely segítségével törölheti.");
                 break;
             case "dungeons":
                 CurrentMenu = DungeonViewer;
-                EditMessage("[font_size=22]Kazamaták[/font_size]\n\nItt láthatja a játékkörnyezetben lévő kazamatákat. Bal kattintással meg tudja nyitni a 'Pici menüt', amely segítségével törölheti.");
+                EditMessage($"[font_size={TITLETEXTSIZE}]Kazamaták[/font_size]\n\nItt láthatja a játékkörnyezetben lévő kazamatákat. Bal kattintással meg tudja nyitni a 'Pici menüt', amely segítségével törölheti.");
                 break;
             case "save":
                 CurrentMenu = SaveMenu;
-                EditMessage("[font_size=22]Mentés menü[/font_size]\n\nNe felejtsen el menteni!");
+                EditMessage($"[font_size={TITLETEXTSIZE}]Mentés menü[/font_size]\n\nNe felejtsen el menteni!");
                 break;
             case "cards":
                 CurrentMenu = CardViewer;
-                EditMessage("[font_size=22]Világkártyák[/font_size]\n\nItt láthatja a játékkörnyezetben lévő kártyákat. Bal kattintással meg tudja nyitni a 'Pici menüt', amely segítségével törölheti, hozzáadhatja a játékos gyűjteményéhez a kártyát vagy létrehozhat vezér kártyákat.");
+                EditMessage($"[font_size={TITLETEXTSIZE}]Világkártyák[/font_size]\n\nItt láthatja a játékkörnyezetben lévő kártyákat. Bal kattintással meg tudja nyitni a 'Pici menüt', amely segítségével törölheti, hozzáadhatja a játékos gyűjteményéhez a kártyát vagy létrehozhat vezér kártyákat.");
                 break;
             case "collection":
                 CurrentMenu = PlayerCollection;
-                EditMessage("[font_size=22]Gyűjtemény[/font_size]\n\nItt láthatja a játékos gyűjteményét.");
+                EditMessage($"[font_size={TITLETEXTSIZE}]Gyűjtemény[/font_size]\n\nItt láthatja a játékos gyűjteményét.");
                 break;
             case "main":
-                EditMessage("[font_size=22]Csá![/font_size]");
+                EditMessage($"[font_size={TITLETEXTSIZE}]Csá![/font_size]");
 
                 await Global.gameManager.ChangeWorldScene(GameManager.ScenePaths.MainMenu);
                 break;
