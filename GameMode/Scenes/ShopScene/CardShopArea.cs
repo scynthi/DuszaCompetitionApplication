@@ -96,13 +96,11 @@ public partial class CardShopArea : Control
             Global.gameManager.saverLoader.currSaveFile.player.Money -= _currPrice;
             Global.gameManager.saverLoader.currSaveFile.player.TryAddCardToCollection(currCard);
             animationPlayer.Play("Recard");
-            animationWorldPlayer.Play("Glare");
 
         } else
         {
             Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.buyFailSounds.PickRandom());
         }
-        animationWorldPlayer.Play("Flare");
 
         
     }
