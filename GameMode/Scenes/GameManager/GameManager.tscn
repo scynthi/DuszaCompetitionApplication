@@ -1,11 +1,13 @@
-[gd_scene load_steps=43 format=3 uid="uid://b7ju5ebcspygg"]
+[gd_scene load_steps=46 format=3 uid="uid://b7ju5ebcspygg"]
 
 [ext_resource type="Script" uid="uid://c6x1xajmkurav" path="res://Scenes/GameManager/GameManager.cs" id="1_jmpc8"]
 [ext_resource type="Texture2D" uid="uid://d4cj5qnd8tha3" path="res://Assets/Images/Textures/PaperTex.png" id="2_pbnlu"]
 [ext_resource type="PackedScene" uid="uid://cgalnmmbimcuw" path="res://Scenes/UI/MainMenu/MainMenuWorld.tscn" id="2_um3qg"]
 [ext_resource type="Shader" uid="uid://dfgpe5eshsaa8" path="res://Assets/Shaders/crt.gdshader" id="3_pbnlu"]
 [ext_resource type="Script" uid="uid://c4ginecvkrjsh" path="res://Scenes/GameManager/UiAudioController.cs" id="5_wwsdi"]
+[ext_resource type="AudioStream" uid="uid://d11uat282ku7m" path="res://Assets/Audio/Music/ambient_loop1.wav" id="6_fuq8d"]
 [ext_resource type="Script" uid="uid://bbd8gmuheqoc8" path="res://Scenes/GameManager/AudioBank.cs" id="6_r12i2"]
+[ext_resource type="AudioStream" uid="uid://5xuxr57bptf4" path="res://Assets/Audio/Music/wind_loop_ambient.wav" id="7_dwqbh"]
 [ext_resource type="AudioStream" uid="uid://sqwhkyieu8kb" path="res://Assets/Audio/SoundEffects/click/wood_click (1).wav" id="7_edw2g"]
 [ext_resource type="AudioStream" uid="uid://j8isqssvn2jm" path="res://Assets/Audio/SoundEffects/click/wood_click (2).wav" id="8_om58u"]
 [ext_resource type="AudioStream" uid="uid://wdlf6orpwslv" path="res://Assets/Audio/SoundEffects/click/wood_click (3).wav" id="9_s86us"]
@@ -236,26 +238,31 @@ _data = {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_um3qg"]
 shader = ExtResource("3_pbnlu")
 shader_parameter/overlay = true
-shader_parameter/scanlines_opacity = 0.162000007695
-shader_parameter/scanlines_width = 0.25
-shader_parameter/grille_opacity = 0.1600000076
-shader_parameter/resolution = Vector2(640, 470.265)
+shader_parameter/scanlines_opacity = 0.178000008455
+shader_parameter/scanlines_width = 0.1450000068875
+shader_parameter/grille_opacity = 0.1690000080275
+shader_parameter/resolution = Vector2(1511.195, 848.87)
 shader_parameter/pixelate = false
-shader_parameter/roll = false
-shader_parameter/roll_speed = 3.395
-shader_parameter/roll_size = 0.0
-shader_parameter/roll_variation = 0.40800001612012
-shader_parameter/distort_intensity = 0.018000000855
-shader_parameter/noise_opacity = 0.4
+shader_parameter/roll = true
+shader_parameter/roll_speed = 2.35
+shader_parameter/roll_size = 19.8710009438725
+shader_parameter/roll_variation = 1.1560000516501199
+shader_parameter/distort_intensity = 0.0010000000475
+shader_parameter/noise_opacity = 0.03600000171
 shader_parameter/noise_speed = 5.0
 shader_parameter/static_noise_intensity = 0.010000000475
 shader_parameter/aberration = 0.00300004764250005
-shader_parameter/brightness = 1.4
+shader_parameter/brightness = 1.52
 shader_parameter/discolor = false
-shader_parameter/warp_amount = 0.0150000007125
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.325
-shader_parameter/vignette_opacity = 0.4370000207575
+shader_parameter/warp_amount = 0.03200000152
+shader_parameter/clip_warp = true
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.3710000176225
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_yh7xr"]
+streams_count = 2
+stream_0/stream = ExtResource("6_fuq8d")
+stream_1/stream = ExtResource("7_dwqbh")
 
 [node name="GameManager" type="Node" node_paths=PackedStringArray("World", "transitionAnimator", "saverLoader", "audioController", "uiPackedSceneReferences", "ctrShaderRect")]
 script = ExtResource("1_jmpc8")
@@ -316,6 +323,7 @@ musicAudioPlayer = NodePath("MusicAudioPlayer")
 max_polyphony = 16
 
 [node name="EnvAudioPlayer" type="AudioStreamPlayer" parent="UIAudioController"]
+stream = SubResource("AudioStreamRandomizer_yh7xr")
 
 [node name="MusicAudioPlayer" type="AudioStreamPlayer" parent="UIAudioController"]
 
