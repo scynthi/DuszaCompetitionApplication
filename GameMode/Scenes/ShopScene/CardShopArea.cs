@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public partial class CardShopArea : Control
 {
     [Export] AnimationPlayer animationPlayer;
-    [Export] AnimationPlayer animationWorldPlayer;
 
     [Export] Control cardHolder;
     [Export] Button reRollButton;
@@ -72,13 +71,11 @@ public partial class CardShopArea : Control
 
             Global.gameManager.saverLoader.currSaveFile.player.Money -= 10;
             animationPlayer.Play("Recard");
-            animationWorldPlayer.Play("Glare");
             
         } else
         {
             Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.buyFailSounds.PickRandom());
         }
-        animationWorldPlayer.Play("Flare");
     }
 
     public void _CardBought()

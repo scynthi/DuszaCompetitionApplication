@@ -200,6 +200,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="DeckSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign" node_paths=PackedStringArray("playerCollection", "playerDeck", "moneyLabel", "xpLabel", "HealthPotionAmount", "GlassShieldAmount", "ElementalBuffAmount", "sideAnimator", "transAnimator", "mapMenu")]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -207,8 +208,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("8_fv8kk")
-playerCollection = NodePath("Control/VBoxContainer/Control2/PlayerCollection/PlayerCollection")
-playerDeck = NodePath("Control/VBoxContainer/Control/PlayerDeck/PlayerDeck")
+playerCollection = NodePath("Control/VBoxContainer/Control2/PlayerCollection/HBoxContainer/PlayerCollection")
+playerDeck = NodePath("Control/VBoxContainer/Control/PlayerDeck/HBoxContainer/PlayerDeck")
 moneyLabel = NodePath("Control/XPcontrol2/Label")
 xpLabel = NodePath("Control/XPcontrol/Label")
 HealthPotionAmount = NodePath("SideStuff/Inside/HealthPotion/Label")
@@ -414,9 +415,18 @@ grow_vertical = 2
 size_flags_vertical = 3
 vertical_scroll_mode = 0
 
-[node name="PlayerDeck" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/Control/PlayerDeck" node_paths=PackedStringArray("ConnectedInventory") instance=ExtResource("15_yw8xx")]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/Control/PlayerDeck"]
 layout_mode = 2
-ConnectedInventory = NodePath("../../../Control2/PlayerCollection/PlayerCollection")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="PlayerDeck" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/Control/PlayerDeck/HBoxContainer" node_paths=PackedStringArray("ConnectedInventory") instance=ExtResource("15_yw8xx")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+ConnectedInventory = NodePath("../../../../Control2/PlayerCollection/HBoxContainer/PlayerCollection")
+ScaleDown = 1.5
 
 [node name="Control2" type="Control" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer"]
 layout_mode = 2
@@ -441,15 +451,26 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -17.082504
+offset_bottom = 17.082489
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="PlayerCollection" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/Control2/PlayerCollection" node_paths=PackedStringArray("ConnectedInventory") instance=ExtResource("15_yw8xx")]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/Control2/PlayerCollection"]
 layout_mode = 2
-ConnectedInventory = NodePath("../../../Control/PlayerDeck/PlayerDeck")
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="PlayerCollection" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control/VBoxContainer/Control2/PlayerCollection/HBoxContainer" node_paths=PackedStringArray("ConnectedInventory") instance=ExtResource("15_yw8xx")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+ConnectedInventory = NodePath("../../../../Control/PlayerDeck/HBoxContainer/PlayerDeck")
 AmountOfCols = 4
+ScaleDown = 1.5
 
 [node name="XPcontrol" type="Control" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/Control"]
 visible = false
@@ -552,7 +573,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="WorldCardsSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign" node_paths=PackedStringArray("cardContainer")]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -585,10 +605,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -361.0
-offset_top = -206.0
-offset_right = 361.0
-offset_bottom = 185.0
+offset_left = -249.0
+offset_top = -116.0
+offset_right = 249.0
+offset_bottom = 170.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -597,10 +617,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 113.0
-offset_top = 152.0
-offset_right = -113.0
-offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 0
@@ -608,7 +624,7 @@ horizontal_scroll_mode = 0
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/Control/UpperSign/WorldCardsSubmenu/Control/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
-columns = 4
+columns = 3
 
 [node name="Card" parent="CanvasLayer/Control/UpperSign/WorldCardsSubmenu/Control/ScrollContainer/GridContainer" instance=ExtResource("15_uukdi")]
 visible = false
@@ -696,9 +712,9 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 221.0
+offset_left = 216.0
 offset_top = 3.0
-offset_right = 357.0
+offset_right = 367.0
 offset_bottom = 46.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 24
@@ -711,9 +727,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -47.0
+offset_left = -51.0
 offset_top = 4.0
-offset_right = 109.0
+offset_right = 128.0
 offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2

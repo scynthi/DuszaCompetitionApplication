@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://c67e3kgjql3x4" path="res://Scenes/Miscs/BackToMapBtn.tscn" id="19_4v7ds"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ogosy"]
-font_size = 51
+font_size = 26
 outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
@@ -622,7 +622,7 @@ tracks/0/path = NodePath("Control/BottomContainer/StepBattle:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.79999995, 1.8),
+"times": PackedFloat32Array(0, 0.16666667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -741,89 +741,78 @@ _data = {
 [sub_resource type="Animation" id="Animation_syxs8"]
 resource_name = "EndFight"
 length = 0.5
-tracks/0/type = "bezier"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("../EndFightContainer:position:y")
-tracks/0/interp = 1
+tracks/0/path = NodePath("../EndOverlay:color")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(2, 0),
-"points": PackedFloat32Array(-807.28, 0, 0, 0.06666667, 856.36316, -101, -0.233, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../EndOverlay:color")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.45882353)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../EndOverlay:mouse_filter")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../EndOverlay:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.033333335),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [2, 0]
 }
-
-[sub_resource type="Animation" id="Animation_ofo1t"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../EndFightContainer:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(197, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../EndFightContainer:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(-818.95, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "value"
+tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../EndOverlay:color")
+tracks/2/path = NodePath("../EndFightContainer:position:y")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(-679, 0, 0, 0.2, 676.4689, -206.77423, -0.23333333, -23.903625, 0.25, 0),
+"times": PackedFloat32Array(0, 0.46666667)
+}
+
+[sub_resource type="Animation" id="Animation_ofo1t"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../EndOverlay:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 0)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../EndOverlay:mouse_filter")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../EndOverlay:mouse_filter")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [2]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../EndFightContainer:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-700, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hctl2"]
@@ -1129,10 +1118,10 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -185.0
+offset_left = -49.0
 offset_top = 12.0
-offset_right = 185.0
-offset_bottom = 85.0
+offset_right = 49.0
+offset_bottom = 49.0
 grow_horizontal = 2
 text = "Kör: 1"
 label_settings = SubResource("LabelSettings_ogosy")
@@ -1178,11 +1167,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -394.0
-offset_top = -85.0
+offset_top = -106.0
 offset_right = 394.0
-offset_bottom = 237.0
+offset_bottom = 216.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(394, 161)
 
 [node name="NextPlayerCard" type="CenterContainer" parent="Control/NextCard"]
 layout_mode = 1
@@ -1191,7 +1182,7 @@ anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -110.0
 offset_right = 168.0
-offset_bottom = 110.00015
+offset_bottom = 109.999695
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
 
@@ -1208,7 +1199,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -168.0
 offset_top = -110.0
-offset_bottom = 110.00067
+offset_bottom = 110.00012
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
@@ -1231,6 +1222,8 @@ offset_right = 240.0
 offset_bottom = 201.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(240, 201)
 
 [node name="PlayerCard" type="CenterContainer" parent="Control/CurrentFight"]
 layout_mode = 1
@@ -1239,7 +1232,7 @@ anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -20.000153
 offset_right = 39.999756
-offset_bottom = 20.000336
+offset_bottom = 20.000305
 grow_vertical = 2
 use_top_left = true
 
@@ -1269,10 +1262,10 @@ layout_mode = 2
 [node name="TextureRect" type="TextureRect" parent="Control/CurrentFight"]
 visible = false
 layout_mode = 0
-offset_left = -82.00006
-offset_top = 23.0
-offset_right = -42.00006
-offset_bottom = 63.0
+offset_left = -84.285805
+offset_top = 69.57143
+offset_right = -44.285805
+offset_bottom = 109.57143
 texture = ExtResource("7_cgjkw")
 expand_mode = 2
 stretch_mode = 5
@@ -1280,10 +1273,10 @@ stretch_mode = 5
 [node name="TextureRect2" type="TextureRect" parent="Control/CurrentFight"]
 visible = false
 layout_mode = 0
-offset_left = -20.000061
-offset_top = 23.0
-offset_right = 19.999939
-offset_bottom = 63.0
+offset_left = -22.285805
+offset_top = 69.57143
+offset_right = 17.714195
+offset_bottom = 109.57143
 texture = ExtResource("8_e0djh")
 expand_mode = 2
 stretch_mode = 5
@@ -1291,10 +1284,10 @@ stretch_mode = 5
 [node name="TextureRect3" type="TextureRect" parent="Control/CurrentFight"]
 visible = false
 layout_mode = 0
-offset_left = 40.99994
-offset_top = 23.0
-offset_right = 80.99994
-offset_bottom = 63.0
+offset_left = 38.714195
+offset_top = 69.57143
+offset_right = 78.714195
+offset_bottom = 109.57143
 texture = ExtResource("9_rbafp")
 expand_mode = 2
 stretch_mode = 5
@@ -1307,10 +1300,13 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -326.0
-offset_top = -182.0
+offset_top = -156.0
 offset_right = 326.0
+offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(0.72, 0.72)
+pivot_offset = Vector2(326, 91)
 
 [node name="TextureRect" type="TextureRect" parent="Control/BottomContainer"]
 layout_mode = 1
@@ -1350,9 +1346,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -185.26315
+offset_left = -201.0
 offset_top = -70.0
-offset_right = 185.26315
+offset_right = 201.0
 offset_bottom = 18.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
@@ -1387,10 +1383,12 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -443.0
-offset_top = -818.95
+offset_top = -700.0
 offset_right = 442.99963
-offset_bottom = -86.95001
+offset_bottom = 32.0
 grow_horizontal = 2
+scale = Vector2(0.66, 0.66)
+pivot_offset = Vector2(443, 366)
 script = ExtResource("8_usdkp")
 fightLogic = NodePath("../../BattleManager")
 endFightAnimationPlayer = NodePath("../Animations/EndFightAnimator")
@@ -1734,9 +1732,12 @@ layout_mode = 1
 anchors_preset = 7
 anchor_top = 1.0
 anchor_bottom = 1.0
+offset_left = -209.09113
 offset_top = 2.0
+offset_right = 209.09113
 offset_bottom = 62.0
 grow_vertical = 0
+text = "  Vissza a térképre"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

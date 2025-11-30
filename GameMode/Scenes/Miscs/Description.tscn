@@ -16,6 +16,7 @@ expand_margin_right = 5.0
 expand_margin_bottom = 5.0
 
 [node name="DescriptionBox" type="Control" node_paths=PackedStringArray("NameLabel", "DescriptionLabel", "Amount", "Panel")]
+z_index = 1
 layout_mode = 3
 anchors_preset = 0
 mouse_filter = 2

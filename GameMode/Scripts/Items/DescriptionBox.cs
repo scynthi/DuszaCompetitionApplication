@@ -20,7 +20,7 @@ public partial class DescriptionBox : Control
         Amount.Text = amount.ToString();
 
 		Visible = true;
-		GlobalPosition = pos + new Vector2(-Panel.Size.X / 2 + width / 2, -Panel.Size.Y + 30.0f);
+		GlobalPosition = pos + new Vector2(-Panel.Size.X / 2 + width / 2 + 15, -Panel.Size.Y + 30.0f);
     }
 
     public void UpdateDescription(string name, string description, int amount)

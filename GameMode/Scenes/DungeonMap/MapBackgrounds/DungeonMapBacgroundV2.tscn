@@ -6,29 +6,29 @@
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.69, 0.69, 0.69, 1)
-scale = Vector2(0.75, 0.75)
+scale = Vector2(1.34, 1.34)
 texture = ExtResource("1_b0qpi")
 
 [node name="DungeonPositionMarker" type="Marker2D" parent="." groups=["DungeonPositions"]]
-position = Vector2(-95.25, -87.75)
-scale = Vector2(0.75, 0.75)
+position = Vector2(-170.18001, -156.78)
+scale = Vector2(1.34, 1.34)
 
 [node name="DungeonPositionMarker6" type="Marker2D" parent="." groups=["DungeonPositions"]]
-position = Vector2(-79.5, 60)
-scale = Vector2(0.75, 0.75)
+position = Vector2(-142.04001, 107.200005)
+scale = Vector2(1.34, 1.34)
 
 [node name="DungeonPositionMarker2" type="Marker2D" parent="." groups=["DungeonPositions"]]
-position = Vector2(-8.25, -23.25)
-scale = Vector2(0.75, 0.75)
+position = Vector2(-14.740001, -41.54)
+scale = Vector2(1.34, 1.34)
 
 [node name="DungeonPositionMarker3" type="Marker2D" parent="." groups=["DungeonPositions"]]
-position = Vector2(52.5, -86.25)
-scale = Vector2(0.75, 0.75)
+position = Vector2(93.8, -154.1)
+scale = Vector2(1.34, 1.34)
 
 [node name="DungeonPositionMarker4" type="Marker2D" parent="." groups=["DungeonPositions"]]
-position = Vector2(158.25, 41.25)
-scale = Vector2(0.75, 0.75)
+position = Vector2(282.74002, 73.700005)
+scale = Vector2(1.34, 1.34)
 
 [node name="DungeonPositionMarker5" type="Marker2D" parent="." groups=["DungeonPositions"]]
-position = Vector2(102, -54.75)
-scale = Vector2(0.75, 0.75)
+position = Vector2(182.24, -97.82)
+scale = Vector2(1.34, 1.34)
