@@ -375,7 +375,6 @@ size_flags_vertical = 3
 columns = 4
 
 [node name="DungeonEditor" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeon", "rewardType", "saveButton", "dungeonDeck", "worldCards")]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
@@ -397,7 +396,6 @@ size_flags_stretch_ratio = 2.0
 alignment = 1
 
 [node name="UIDungeon" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("ClickCatcher") instance=ExtResource("3_j6eix")]
-custom_minimum_size = Vector2(343.075, 230)
 layout_mode = 2
 ClickCatcher = NodePath("Dungeon")
 
@@ -445,6 +443,7 @@ custom_minimum_size = Vector2(320, 200)
 layout_mode = 2
 ConnectedInventory = NodePath("../../WorldCardhOlder/HBoxContainer/ScrollContainer/WorldCards")
 AmountOfCols = 3
+ScaleDown = 1.3
 
 [node name="WorldCardhOlder" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer"]
 layout_mode = 2
@@ -462,6 +461,7 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 ConnectedInventory = NodePath("../../../../HBoxContainer/DungeonContainer")
 AmountOfCols = 4
+ScaleDown = 1.3
 
 [node name="DungeonViewer" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeonHolder")]
 visible = false
