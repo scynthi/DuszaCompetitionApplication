@@ -254,8 +254,8 @@ shader_parameter/static_noise_intensity = 0.010000000475
 shader_parameter/aberration = 0.00300004764250005
 shader_parameter/brightness = 1.52
 shader_parameter/discolor = false
-shader_parameter/warp_amount = 0.03200000152
-shader_parameter/clip_warp = true
+shader_parameter/warp_amount = 0.010000000475
+shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.3710000176225
 
