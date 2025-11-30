@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c6chsl4nd1iy5"]
+[gd_scene load_steps=21 format=3 uid="uid://c6chsl4nd1iy5"]
 
 [ext_resource type="Script" uid="uid://b6b68i6jcla5g" path="res://Scenes/UI/GameMaster/CardEditor.cs" id="1_4ikgl"]
 [ext_resource type="Texture2D" uid="uid://txhi2xptu3ib" path="res://Assets/Images/Sign/sign.png" id="1_bbocn"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://c3ngslqx8653y" path="res://Scenes/UI/GameMaster/CardViewer.cs" id="10_4h88p"]
 [ext_resource type="Script" uid="uid://dwjmh8lxmdcva" path="res://Scenes/UI/GameMaster/DungeonViewer.cs" id="11_mf5kw"]
 [ext_resource type="Script" uid="uid://c5r4jdrwjkpld" path="res://Scenes/UI/GameMaster/SaveMenu.cs" id="12_x6ral"]
+[ext_resource type="PackedScene" uid="uid://1un1fk0jjqav" path="res://Scenes/Miscs/DragAndDrop.tscn" id="15_e5lfn"]
 [ext_resource type="Texture2D" uid="uid://0xqm5vwe7pb7" path="res://Assets/Images/Sign/SmallTextSign.png" id="17_x4txn"]
 [ext_resource type="Texture2D" uid="uid://clklfmkryiiem" path="res://Assets/Models/shop_signbg.png" id="18_x4txn"]
 
@@ -354,29 +355,43 @@ layout_mode = 2
 size_flags_vertical = 3
 columns = 4
 
-[node name="DungeonEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeon", "rewardType")]
-visible = false
+[node name="DungeonEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeon", "rewardType", "dungeonDeck", "worldCards")]
 layout_mode = 2
+size_flags_vertical = 3
 alignment = 1
 script = ExtResource("3_8slam")
-dungeon = NodePath("UIDungeon")
-rewardType = NodePath("Properties/RewardType")
+dungeon = NodePath("VBoxContainer/HBoxContainer/UIDungeon")
+rewardType = NodePath("VBoxContainer/HBoxContainer/Properties/RewardType")
+dungeonDeck = NodePath("VBoxContainer/HBoxContainer/DungeonDeck")
+worldCards = NodePath("VBoxContainer/VBoxContainer3/ScrollContainer/WorldCards")
 
-[node name="UIDungeon" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" instance=ExtResource("3_j6eix")]
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+alignment = 1
+
+[node name="UIDungeon" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer" instance=ExtResource("3_j6eix")]
 layout_mode = 2
 
-[node name="Properties" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor"]
+[node name="Properties" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="LineEdit" type="LineEdit" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/Properties"]
+[node name="LineEdit" type="LineEdit" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/Properties"]
 layout_mode = 2
 placeholder_text = "Név"
 max_length = 20
 emoji_menu_enabled = false
 clear_button_enabled = true
 
-[node name="DungeonType" type="OptionButton" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/Properties"]
+[node name="DungeonType" type="OptionButton" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/Properties"]
 layout_mode = 2
 selected = 0
 item_count = 3
@@ -387,7 +402,7 @@ popup/item_1/id = 1
 popup/item_2/text = "nagy"
 popup/item_2/id = 2
 
-[node name="RewardType" type="OptionButton" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/Properties"]
+[node name="RewardType" type="OptionButton" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/Properties"]
 layout_mode = 2
 selected = 0
 item_count = 2
@@ -396,9 +411,28 @@ popup/item_0/id = 0
 popup/item_1/text = "sebzés"
 popup/item_1/id = 1
 
-[node name="Save" type="Button" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/Properties"]
+[node name="Save" type="Button" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/Properties"]
 layout_mode = 2
 text = "Mentés"
+
+[node name="DungeonDeck" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer" instance=ExtResource("15_e5lfn")]
+layout_mode = 2
+size_flags_vertical = 4
+AmountOfCols = 3
+ScaleDown = 1.5
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="WorldCards" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/VBoxContainer3/ScrollContainer" instance=ExtResource("15_e5lfn")]
+layout_mode = 2
+size_flags_horizontal = 6
+AmountOfCols = 5
 
 [node name="DungeonViewer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeonHolder")]
 visible = false
@@ -429,6 +463,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 12
 
 [node name="SaveMenu" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("saveNameInput", "warningMenu")]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
@@ -626,10 +661,10 @@ text = "Nem"
 [connection signal="item_selected" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/ElementMenu" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="ChangeElement"]
 [connection signal="item_selected" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/IconMenu" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="ChangeIcon"]
 [connection signal="pressed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/Save" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="SaveCard"]
-[connection signal="text_changed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/Properties/LineEdit" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" method="ChangeName"]
-[connection signal="item_selected" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/Properties/DungeonType" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" method="ChangeType"]
-[connection signal="item_selected" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/Properties/RewardType" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" method="ChangeReward"]
-[connection signal="pressed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/Properties/Save" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" method="SaveDungeon"]
+[connection signal="text_changed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/Properties/LineEdit" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" method="ChangeName"]
+[connection signal="item_selected" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/Properties/DungeonType" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" method="ChangeType"]
+[connection signal="item_selected" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/Properties/RewardType" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" method="ChangeReward"]
+[connection signal="pressed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/Properties/Save" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" method="SaveDungeon"]
 [connection signal="pressed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu/VBoxContainer/Button" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu" method="CreateSave"]
 [connection signal="pressed" from="Control/Button" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="LoadSaveFile"]
 [connection signal="pressed" from="Control/Button2" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="CreateInTxt"]

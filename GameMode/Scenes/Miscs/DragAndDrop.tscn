@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://1un1fk0jjqav"]
+
+[ext_resource type="Script" uid="uid://cb1u2fml2s2q6" path="res://Scenes/Miscs/Inventory.cs" id="1_eeggn"]
+[ext_resource type="PackedScene" uid="uid://bal0q4hlkho65" path="res://Scenes/Miscs/CardContainer.tscn" id="2_lumyw"]
+
+[node name="PanelContainer" type="PanelContainer" node_paths=PackedStringArray("MainContainer")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eeggn")
+ItemSlotScene = ExtResource("2_lumyw")
+MainContainer = NodePath("MarginContainer/GridContainer")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 6

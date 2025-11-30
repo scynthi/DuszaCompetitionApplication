@@ -6,8 +6,19 @@ public partial class DungeonEditor : HBoxContainer
 {
     [Export] UIDungeon dungeon;
     [Export] OptionButton rewardType;
+    [Export] Inventory dungeonDeck;
+    [Export] Inventory worldCards;
 
     Editors editor = Global.masterEditor;
+
+    public override void _Ready()
+    {
+        base._Ready();
+        dungeonDeck.RemakePanelItems(1);
+        dungeonDeck.IsBossCardNeeded = false;
+        worldCards.RemakePanelItems(20);
+    }
+
 
     public void ChangeName(string text)
     {
@@ -29,6 +40,22 @@ public partial class DungeonEditor : HBoxContainer
             rewardType.RemoveItem(2);
             rewardType.Selected = 0;
             rewardType.Disabled = false;
+        }
+
+        switch (type)
+        {
+            case DungeonTypes.simple:
+                dungeonDeck.RemakePanelItems(1);
+                dungeonDeck.IsBossCardNeeded = false;
+                break;
+            case DungeonTypes.small:
+                dungeonDeck.RemakePanelItems(4, true);
+                dungeonDeck.IsBossCardNeeded = true;
+                break;
+            case DungeonTypes.big:
+                dungeonDeck.RemakePanelItems(6);
+                dungeonDeck.IsBossCardNeeded = true;
+                break;
         }
     }
 

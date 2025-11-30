@@ -43,7 +43,7 @@ public partial class UiSaveFileContinueItem : Control
     {
         Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
         
-        SaverLoader.DeleteSave(bindedSaveFile.Name);
+        SaverLoader.DeleteSave(bindedSaveFile.Name, SaverLoader.CONTINUE_PATH);
         this.QueueFree();
     }
 }

@@ -1,54 +1,86 @@
 using Godot;
+using GodotPlugins.Game;
 using System;
 using System.Collections.Generic;
-using System.Numerics;
 
 public partial class Inventory : PanelContainer
 {
 
 	[Export] PackedScene ItemSlotScene;
 	[Export] GridContainer MainContainer;
-	[Export] int AmountOfSlots = 4;
+	[Export] int AmountOfCols = 6;
+	public bool IsBossCardNeeded = false;
+	[Export] public float ScaleDown = 1; 
 
 	List<ItemSlot> ItemSlots = new List<ItemSlot>();
 
 	public override void _Ready()
 	{
 		base._Ready();
-		UICard uiCard =  Global.gameManager.uiPackedSceneReferences.UICardScene.Instantiate<UICard>();
+	}
+
+	public void RemakePanelItems(int amount, bool IsSmall = false, List<Card> Collection = null)
+    {
+		if (IsSmall)
+			MainContainer.Columns = 4;
+		else
+			MainContainer.Columns = AmountOfCols;
+		for (int i = MainContainer.GetChildCount() - 1; i >= 0; i--)
+		{
+			Node child = MainContainer.GetChild(i);
+			MainContainer.RemoveChild(child);
+			child.QueueFree();
+		}
+
+        UICard uiCard =  Global.gameManager.uiPackedSceneReferences.UICardScene.Instantiate<UICard>();
 		uiCard.SetOwnerCard(new Card("Aple", 5, 5, CardElements.EARTH));
 
+		if (Collection != null)
+        {
+            amount = Collection.Count;
+        }
+
 		Godot.Vector2 size = uiCard.Size;
-		for (int i = 0; i < AmountOfSlots; i++)
+		for (int i = 0; i < amount; i++)
 		{
 			ItemSlot itemSlot = ItemSlotScene.Instantiate<ItemSlot>();
-			itemSlot.CustomMinimumSize = size;
+			itemSlot.CustomMinimumSize = size / ScaleDown;
+
+			if (i == amount - 1 && IsBossCardNeeded)
+            {
+                itemSlot.IsBossCardSlot = true;
+            }
 			
-			if (i == 3 || i == 2)
-            {
-				UIBossCard buiCard = Global.gameManager.uiPackedSceneReferences.UIBossCardScene.Instantiate<UIBossCard>();
-				buiCard.SetOwnerCard(new BossCard("Aple" + i, 5, 5, CardElements.EARTH, "uid://m4uonlvhx0mu"));
-				itemSlot.AddChild(buiCard);
-				itemSlot.uiCard = buiCard;
-				buiCard.MouseFilter = Control.MouseFilterEnum.Ignore;
-				buiCard.EditAllCardInformation(buiCard.OwnerCard);
-            }
-			if (i == 1)
-            {
-                UICard buiCard = Global.gameManager.uiPackedSceneReferences.UICardScene.Instantiate<UICard>();
-				buiCard.SetOwnerCard(new Card("Aple" + i, 5, 5, CardElements.EARTH, "uid://m4uonlvhx0mu"));
-				itemSlot.AddChild(buiCard);
-				itemSlot.uiCard = buiCard;
-				buiCard.MouseFilter = Control.MouseFilterEnum.Ignore;
-				buiCard.EditAllCardInformation(buiCard.OwnerCard);
-            }
+			// if (i == 3 || i == 2)
+            // {
+			// 	UIBossCard buiCard = Global.gameManager.uiPackedSceneReferences.UIBossCardScene.Instantiate<UIBossCard>();
+			// 	buiCard.SetOwnerCard(new BossCard("Aple" + i, 5, 5, CardElements.EARTH, "uid://m4uonlvhx0mu"));
+			// 	itemSlot.AddChild(buiCard);
+			// 	itemSlot.uiCard = buiCard;
+			// 	buiCard.MouseFilter = Control.MouseFilterEnum.Ignore;
+			// 	buiCard.EditAllCardInformation(buiCard.OwnerCard);
+            // }
+			// if (i == 1)
+            // {
+            //     UICard buiCard = Global.gameManager.uiPackedSceneReferences.UICardScene.Instantiate<UICard>();
+			// 	buiCard.SetOwnerCard(new Card("Aple" + i, 5, 5, CardElements.EARTH, "uid://m4uonlvhx0mu"));
+			// 	itemSlot.AddChild(buiCard);
+			// 	itemSlot.uiCard = buiCard;
+			// 	buiCard.MouseFilter = Control.MouseFilterEnum.Ignore;
+			// 	buiCard.EditAllCardInformation(buiCard.OwnerCard);
+            // }
+
 			MainContainer.AddChild(itemSlot);
 			ItemSlots.Add(itemSlot);
 			itemSlot.NewCardAdded += NewCardAdded;
 			itemSlot.CardTakenOut += NewCardAdded;
 		}
 		ShiftLeft();
-	}
+
+		GD.Print($"MainContainer child count: {MainContainer.GetChildCount()}");
+		GD.Print($"MainContainer visible: {MainContainer.Visible}");
+		GD.Print($"MainContainer size: {MainContainer.Size}");
+    }
 
 	private void NewCardAdded()
     {
@@ -58,7 +90,7 @@ public partial class Inventory : PanelContainer
 
 	private void ShiftLeft()
     {
-        for (int i = 0; i < ItemSlots.Count; i++)
+        for (int i = 0; i < ItemSlots.Count - 1; i++)
         {
             if (ItemSlots[i].uiCard == null)
             {

@@ -9,6 +9,7 @@ public partial class ItemSlot : PanelContainer
 	public delegate void CardTakenOutEventHandler();
 	PackedScene UICard;
 	[Export] public Control uiCard;
+	public bool IsBossCardSlot = false;
 
 	public override void _Ready()
 	{
@@ -61,6 +62,9 @@ public partial class ItemSlot : PanelContainer
 	{
 		Control droppedCard = data.As<Control>();
 		if (droppedCard == null)
+			return;
+
+		if (droppedCard is not UIBossCard && IsBossCardSlot)
 			return;
 
 		// Get the old parent slot
