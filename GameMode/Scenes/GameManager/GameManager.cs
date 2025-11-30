@@ -16,7 +16,7 @@ public partial class GameManager : Node
 
     public static class ScenePaths
     {
-        public const string MainMenu = "res://Scenes/UI/MainMenu/MainMenuWorld.tscn";
+        public const string MainMenu = "res://Scenes/UI/MainMenu/MainMenu.tscn";
         public const string EditorMenu = "res://Scenes/UI/GameMaster/GameMasterWorld.tscn";
         public const string DungeonMap = "res://Scenes/DungeonMap/DungeonMap.tscn";
         public const string FightMap = "res://Scenes/FightScene/FightScene.tscn";

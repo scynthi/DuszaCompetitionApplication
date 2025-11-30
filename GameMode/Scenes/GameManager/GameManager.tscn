@@ -319,6 +319,7 @@ libraries = {
 layer = 100
 
 [node name="ColorRect" type="ColorRect" parent="ShaderLayer"]
+visible = false
 material = SubResource("ShaderMaterial_um3qg")
 anchors_preset = 15
 anchor_right = 1.0
