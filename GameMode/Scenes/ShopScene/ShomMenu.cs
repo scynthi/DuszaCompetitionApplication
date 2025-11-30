@@ -4,7 +4,7 @@ using System;
 public partial class ShomMenu : Control
 {
     [Export] Label moneyLabel;
-    [Export] AnimationPlayer animationPlayer;
+
 
     public override void _Ready()
     {
@@ -20,7 +20,7 @@ public partial class ShomMenu : Control
         if (Global.gameManager.saverLoader.currSaveFile.player.Money < item.Price)
         {
             Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.buyFailSounds.PickRandom());
-            animationPlayer.Play("Flare");
+
             return;
         }
 
@@ -30,7 +30,7 @@ public partial class ShomMenu : Control
         Global.gameManager.saverLoader.currSaveFile.player.AddToItemList(item);
     
         UpdateMoneyText();
-        animationPlayer.Play("Glare");
+
     }
 
     public void UpdateMoneyText()
