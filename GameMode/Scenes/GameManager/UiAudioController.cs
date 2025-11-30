@@ -19,4 +19,34 @@ public partial class UiAudioController : Node
         sfxAudioPlayer.Stream = stream;
         sfxAudioPlayer.Play();
     }
+
+    public void StartMainMenuMusicLoop()
+    {
+        
+    }
+
+    public void StartShopMusicLoop()
+    {
+        
+    }
+
+    public void PlayMusic()
+    {
+        
+    }
+
+    public void StartRandomEnvAudioMainMenu()
+    {
+        
+    }
+
+    public void StartRandomEnvAudioMap()
+    {
+        
+    }
+    
+    public void StartRandomEnvAudioCave()
+    {
+        
+    }
 }

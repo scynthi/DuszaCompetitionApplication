@@ -155,4 +155,13 @@ public class Player
             }
         return 0;
     }
+    public int ReturnItemAmount(ItemType type)
+    {
+        foreach (IItem currItem in ItemList)
+            if (currItem.Type == type)
+            {
+                return currItem.Amount;
+            }
+        return 0;
+    }
 }

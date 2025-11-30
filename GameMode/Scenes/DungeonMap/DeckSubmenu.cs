@@ -11,11 +11,30 @@ public partial class DeckSubmenu : Control
     [Export] Label moneyLabel;
     [Export] Label xpLabel;
 
+    [Export] Label HealthPotionAmount;
+    [Export] Label GlassShieldAmount;
+    [Export] Label ElementalBuffAmount;
 
+    [Export] AnimationPlayer sideAnimator;
+    [Export] AnimationPlayer transAnimator;
+
+    public override void _Ready()
+    {
+        transAnimator.AnimationFinished += _onTransitionedIn;
+    }
+
+    public void _onTransitionedIn(StringName _)
+    {
+        sideAnimator.Play("PopItemBar");
+
+    }
 
     public void ReloadCards()
     {
         ReloadXPAndMoneyLabel();
+        ReloadItems();
+        sideAnimator.Play("RESET");
+
         List<Card> collectionLoadList = [];
         List<Card> deckLoadList = [];
 
@@ -92,5 +111,13 @@ public partial class DeckSubmenu : Control
     {
         moneyLabel.Text = Convert.ToString(Global.gameManager.saverLoader.currSaveFile.player.Money);
         xpLabel.Text = Convert.ToString(Global.gameManager.saverLoader.currSaveFile.player.Xp);
+    }
+
+    public void ReloadItems()
+    {
+        HealthPotionAmount.Text = "X" + Convert.ToString(Global.gameManager.saverLoader.currSaveFile.player.ReturnItemAmount(ItemType.HealthPotion));
+        GlassShieldAmount.Text = "X" + Convert.ToString(Global.gameManager.saverLoader.currSaveFile.player.ReturnItemAmount(ItemType.GlassShield));
+        ElementalBuffAmount.Text = "X" + Convert.ToString(Global.gameManager.saverLoader.currSaveFile.player.ReturnItemAmount(ItemType.ElementalBuff));
+
     }
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://oihoapowoy2t"]
+[gd_scene load_steps=33 format=3 uid="uid://oihoapowoy2t"]
 
 [ext_resource type="Script" uid="uid://ctr2m1ncuyxwi" path="res://Scenes/DungeonMap/CameraController.cs" id="1_6u8ww"]
 [ext_resource type="PackedScene" uid="uid://dohu3ccoui2n5" path="res://Scenes/DungeonMap/MapBackgrounds/DungeonMapBackground.tscn" id="2_0enam"]
@@ -15,8 +15,12 @@
 [ext_resource type="Script" uid="uid://bg7xtl2rvon71" path="res://Scenes/DungeonMap/WorldCardsSubmenu.cs" id="9_yw7fq"]
 [ext_resource type="Texture2D" uid="uid://dyg65wcabupfr" path="res://Assets/Images/player/xp.png" id="11_j447k"]
 [ext_resource type="Texture2D" uid="uid://b6kxxoiuifnem" path="res://Assets/Images/player/coin.png" id="12_vrsbj"]
+[ext_resource type="Texture2D" uid="uid://3coepq1qqr4o" path="res://Assets/Images/Sign/standingLongSign.png" id="13_tdyy1"]
+[ext_resource type="Texture2D" uid="uid://b1y7hb6ugsa1s" path="res://Assets/Images/Items/Hola.png" id="14_1rou0"]
+[ext_resource type="Texture2D" uid="uid://duvi63fq53dex" path="res://Assets/Images/Items/GlassShield.png" id="15_6f2pe"]
 [ext_resource type="PackedScene" uid="uid://dk32ss75ce3lw" path="res://Assets/UI/Scenes/UICard/UICard.tscn" id="15_uukdi"]
 [ext_resource type="PackedScene" uid="uid://dsnbg78nbu0vo" path="res://Assets/UI/Scenes/UIBossCard/UIBossCard.tscn" id="16_mo0dx"]
+[ext_resource type="Texture2D" uid="uid://cc17bg13ixypu" path="res://Assets/Images/Items/ElementalBuff.png" id="16_yw8xx"]
 [ext_resource type="Texture2D" uid="uid://0xqm5vwe7pb7" path="res://Assets/Images/Sign/SmallTextSign.png" id="17_mo0dx"]
 [ext_resource type="Texture2D" uid="uid://biyuoa8nhmgf4" path="res://Assets/Images/Sign/ArrowSign.png" id="18_tdyy1"]
 
@@ -85,6 +89,41 @@ _data = {
 &"RESET": SubResource("Animation_w01ju")
 }
 
+[sub_resource type="Animation" id="Animation_1rou0"]
+resource_name = "PopItemBar"
+length = 0.75
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UpperSign/DeckSubmenu/SideStuff:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(927, 0, 0, 0.1, 106.524536, 1042, -0.4271919, 1.6802979, 0, 0),
+"times": PackedFloat32Array(0, 0.75)
+}
+
+[sub_resource type="Animation" id="Animation_6f2pe"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UpperSign/DeckSubmenu/SideStuff:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(923.865, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yw8xx"]
+_data = {
+&"PopItemBar": SubResource("Animation_1rou0"),
+&"RESET": SubResource("Animation_6f2pe")
+}
+
 [node name="DungeonMap" type="Node2D"]
 
 [node name="MapContainer" type="Node2D" parent="."]
@@ -129,8 +168,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="DeckSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign" node_paths=PackedStringArray("collectionContainer", "deckContainer", "moneyLabel", "xpLabel")]
-visible = false
+[node name="DeckSubmenu" type="Control" parent="CanvasLayer/Control/UpperSign" node_paths=PackedStringArray("collectionContainer", "deckContainer", "moneyLabel", "xpLabel", "HealthPotionAmount", "GlassShieldAmount", "ElementalBuffAmount", "sideAnimator", "transAnimator")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -142,6 +180,135 @@ collectionContainer = NodePath("Control/VBoxContainer/Control2/PlayerCollection/
 deckContainer = NodePath("Control/VBoxContainer/Control/PlayerDeck/HboxContainer")
 moneyLabel = NodePath("Control/XPcontrol2/Label")
 xpLabel = NodePath("Control/XPcontrol/Label")
+HealthPotionAmount = NodePath("SideStuff/Inside/HealthPotion/Label")
+GlassShieldAmount = NodePath("SideStuff/Inside/GlassShield/Label")
+ElementalBuffAmount = NodePath("SideStuff/Inside/ElementalBuff/Label")
+sideAnimator = NodePath("../../ItemExpandAnimator")
+transAnimator = NodePath("../../AnimationPlayer")
+
+[node name="SideStuff" type="Control" parent="CanvasLayer/Control/UpperSign/DeckSubmenu"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -356.135
+offset_top = -257.0
+offset_right = -245.13599
+offset_bottom = 192.00037
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/SideStuff"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.0
+offset_right = 20.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_tdyy1")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Inside" type="VBoxContainer" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/SideStuff"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -80.0
+offset_top = 49.0
+offset_right = -5.0
+offset_bottom = -51.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 34
+alignment = 1
+
+[node name="HealthPotion" type="Control" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/SideStuff/Inside"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/SideStuff/Inside/HealthPotion"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 76.0
+grow_horizontal = 2
+texture = ExtResource("14_1rou0")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/SideStuff/Inside/HealthPotion"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 26
+text = "X4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GlassShield" type="Control" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/SideStuff/Inside"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/SideStuff/Inside/GlassShield"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 76.0
+grow_horizontal = 2
+texture = ExtResource("15_6f2pe")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/SideStuff/Inside/GlassShield"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 26
+text = "X4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ElementalBuff" type="Control" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/SideStuff/Inside"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/SideStuff/Inside/ElementalBuff"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 76.0
+grow_horizontal = 2
+texture = ExtResource("16_yw8xx")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/UpperSign/DeckSubmenu/SideStuff/Inside/ElementalBuff"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 26
+text = "X4"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/UpperSign/DeckSubmenu"]
 modulate = Color(0.78, 0.78, 0.78, 1)
@@ -408,6 +575,7 @@ visible = false
 layout_mode = 2
 
 [node name="EmptyMenu" type="Control" parent="CanvasLayer/Control/UpperSign"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -551,6 +719,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_fv8kk")
 }
 speed_scale = 1.5
+
+[node name="ItemExpandAnimator" type="AnimationPlayer" parent="CanvasLayer/Control"]
+libraries = {
+&"": SubResource("AnimationLibrary_yw8xx")
+}
 
 [connection signal="pressed" from="CanvasLayer/Control/BottomSign/PlayerDeckButton" to="CanvasLayer/Control" method="ChangeSubMenu" binds= ["deckmenu"]]
 [connection signal="pressed" from="CanvasLayer/Control/BottomSign/WorldCardsButton" to="CanvasLayer/Control" method="ChangeSubMenu" binds= ["cardsmenu"]]
