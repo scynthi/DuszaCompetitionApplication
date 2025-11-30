@@ -67,13 +67,11 @@ public partial class CardEditor : HBoxContainer
 
     public void SaveCard()
     {
+        if (!Global.masterEditor.gameMasterData.TestCard(card.CreateCardInstance())) return;
+
         Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
         Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.levelupSounds.PickRandom());
 
-
-        if (!Global.masterEditor.gameMasterData.TestCard(card.CreateCardInstance())) return;
-
         editor.gameMasterData.AddCardToWorldCards(card.CreateCardInstance());
     }
-
 }

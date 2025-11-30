@@ -128,9 +128,10 @@ public partial class UIBossCard : Control
 
     public void EditDamage(BossCard card)
     {
-        int damage = card.BaseDamage;
+        int damage = card.Damage;
         if (damage == 0) damage = 1;
         damageLabel.Text =  Math.Clamp(damage, 1, 100).ToString();
+
         if (card.DamageChanged) damageBuffedTexture.Visible = true;
     }
 
@@ -150,9 +151,11 @@ public partial class UIBossCard : Control
 
     public void EditName(string name)
     {
-        if (name.Replace(" ", "") == "") name = "Please Holder";
+        if (name.Replace(" ", "") == "") name = "Lord Please Holder";
+        if (BossCard.Name.Length > 16) name = BossCard.Name.Substr(0, 16);
 
         nameLabel.Text = name;
+
         if (name.Length > 12)
         {
             nameLabel.AddThemeFontSizeOverride("font_size", DEFAULT_FONTSIZE);

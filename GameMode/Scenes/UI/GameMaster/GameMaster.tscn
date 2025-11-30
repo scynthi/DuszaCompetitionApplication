@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c6chsl4nd1iy5"]
+[gd_scene load_steps=22 format=3 uid="uid://c6chsl4nd1iy5"]
 
 [ext_resource type="Script" uid="uid://b6b68i6jcla5g" path="res://Scenes/UI/GameMaster/CardEditor.cs" id="1_4ikgl"]
 [ext_resource type="Texture2D" uid="uid://txhi2xptu3ib" path="res://Assets/Images/Sign/sign.png" id="1_bbocn"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://1un1fk0jjqav" path="res://Scenes/Miscs/DragAndDrop.tscn" id="15_e5lfn"]
 [ext_resource type="Texture2D" uid="uid://0xqm5vwe7pb7" path="res://Assets/Images/Sign/SmallTextSign.png" id="17_x4txn"]
 [ext_resource type="Texture2D" uid="uid://clklfmkryiiem" path="res://Assets/Models/shop_signbg.png" id="18_x4txn"]
+[ext_resource type="Script" uid="uid://ckjimywocmbf0" path="res://Scenes/UI/GameMaster/ExistentialCrisisError.cs" id="20_7gff6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_e5lfn"]
 line_spacing = -8.485
@@ -68,7 +69,7 @@ layout_mode = 2
 texture = ExtResource("3_ltpdo")
 expand_mode = 1
 
-[node name="Margin" type="MarginContainer" parent="."]
+[node name="EditorContent" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,19 +81,19 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="HBox" type="HBoxContainer" parent="Margin"]
+[node name="HBox" type="HBoxContainer" parent="EditorContent"]
 layout_mode = 2
 alignment = 1
 
-[node name="GameMaster" type="HBoxContainer" parent="Margin/HBox"]
+[node name="GameMaster" type="HBoxContainer" parent="EditorContent/HBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MainButtons" type="VBoxContainer" parent="Margin/HBox/GameMaster"]
+[node name="MainButtons" type="VBoxContainer" parent="EditorContent/HBox/GameMaster"]
 layout_mode = 2
 alignment = 2
 
-[node name="Margin" type="MarginContainer" parent="Margin/HBox/GameMaster/MainButtons"]
+[node name="Margin" type="MarginContainer" parent="EditorContent/HBox/GameMaster/MainButtons"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 25
@@ -100,60 +101,60 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="Buttons" type="VBoxContainer" parent="Margin/HBox/GameMaster/MainButtons/Margin"]
+[node name="Buttons" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/MainButtons/Margin"]
 layout_mode = 2
 theme_override_constants/separation = 14
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons"]
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="CardEditor" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
+[node name="CardEditor" type="Button" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
 text = "Kártya készítő"
 
-[node name="Cards" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
+[node name="Cards" type="Button" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
 text = "Kártyák"
 
-[node name="Collection" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
+[node name="Collection" type="Button" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
 text = "Játékos gyűjteménye"
 
-[node name="BossEditor" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
+[node name="BossEditor" type="Button" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
 text = "Vezér kártyák"
 
-[node name="DungeonEditor" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
+[node name="DungeonEditor" type="Button" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
 text = "Kazamata készítő"
 
-[node name="Dungeons" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
+[node name="Dungeons" type="Button" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer"]
 layout_mode = 2
 text = "Kazamaták"
 
-[node name="MessageContainer" type="PanelContainer" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons"]
+[node name="MessageContainer" type="PanelContainer" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="WoodBackground" type="TextureRect" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/MessageContainer"]
+[node name="WoodBackground" type="TextureRect" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/MessageContainer"]
 layout_mode = 2
 texture = ExtResource("4_ebj7d")
 expand_mode = 1
 
-[node name="Border" type="TextureRect" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/MessageContainer"]
+[node name="Border" type="TextureRect" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/MessageContainer"]
 layout_mode = 2
 texture = ExtResource("4_4h88p")
 
-[node name="MarginContainer" type="MarginContainer" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/MessageContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/MessageContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 20
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/MessageContainer/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/MessageContainer/MarginContainer"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -162,29 +163,27 @@ theme_override_font_sizes/normal_font_size = 14
 bbcode_enabled = true
 fit_content = true
 
-[node name="MessageAnimationPlayer" type="AnimationPlayer" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/MessageContainer"]
-
-[node name="Save" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons"]
+[node name="Save" type="Button" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons"]
 layout_mode = 2
 text = "Környezet mentése"
 
-[node name="Back" type="Button" parent="Margin/HBox/GameMaster/MainButtons/Margin/Buttons"]
+[node name="Back" type="Button" parent="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons"]
 layout_mode = 2
 text = "Kilépés"
 
-[node name="EditorContainer" type="HBoxContainer" parent="Margin/HBox/GameMaster"]
+[node name="EditorContainer" type="HBoxContainer" parent="EditorContent/HBox/GameMaster"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="Margin/HBox/GameMaster/EditorContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="EditorContent/HBox/GameMaster/EditorContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/margin_left = 25
-theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 50
 
-[node name="Editors" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer" node_paths=PackedStringArray("CardEditor", "DungeonEditor", "BossEditor", "DungeonViewer", "SaveMenu", "CardViewer", "PlayerCollection", "CurrentMenuMessage")]
+[node name="Editors" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer" node_paths=PackedStringArray("CardEditor", "DungeonEditor", "BossEditor", "DungeonViewer", "SaveMenu", "CardViewer", "PlayerCollection", "CurrentMenuMessage", "ExistErrorPopup")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -198,8 +197,9 @@ SaveMenu = NodePath("SaveMenu")
 CardViewer = NodePath("CardViewer")
 PlayerCollection = NodePath("PlayerCollection")
 CurrentMenuMessage = NodePath("../../../MainButtons/Margin/Buttons/MessageContainer/MarginContainer/RichTextLabel")
+ExistErrorPopup = NodePath("../../../../../../ExistentialCrisisError")
 
-[node name="PlayerCollection" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("cardHolder")]
+[node name="PlayerCollection" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("cardHolder")]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
@@ -207,74 +207,74 @@ alignment = 2
 script = ExtResource("5_vrmix")
 cardHolder = NodePath("ScrollContainer/HBoxContainer/GridContainer")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/PlayerCollection"]
+[node name="ScrollContainer" type="ScrollContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/PlayerCollection"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/PlayerCollection/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/PlayerCollection/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/PlayerCollection/ScrollContainer/HBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/PlayerCollection/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 columns = 4
 
-[node name="CardEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("card")]
+[node name="CardEditor" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("card")]
 visible = false
 layout_mode = 2
 alignment = 1
 script = ExtResource("1_4ikgl")
 card = NodePath("VBoxContainer/Card")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor"]
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor"]
 layout_mode = 2
 alignment = 1
 
-[node name="Card" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/VBoxContainer" instance=ExtResource("1_nonii")]
+[node name="Card" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/VBoxContainer" instance=ExtResource("1_nonii")]
 use_parent_material = false
 layout_mode = 2
 
-[node name="Properties" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor"]
+[node name="Properties" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor"]
 layout_mode = 2
 
-[node name="Name" type="LineEdit" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties"]
+[node name="Name" type="LineEdit" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties"]
 layout_mode = 2
 placeholder_text = "Név"
 max_length = 16
 emoji_menu_enabled = false
 clear_button_enabled = true
 
-[node name="HPContainer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties"]
+[node name="HPContainer" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/HPContainer"]
+[node name="Label" type="Label" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/HPContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Életerő: "
 
-[node name="HealthSpinBox" type="SpinBox" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/HPContainer"]
+[node name="HealthSpinBox" type="SpinBox" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/HPContainer"]
 layout_mode = 2
 min_value = 1.0
 value = 1.0
 
-[node name="DMGContainer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties"]
+[node name="DMGContainer" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/DMGContainer"]
+[node name="Label" type="Label" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/DMGContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Sebzés: "
 
-[node name="DamageSpinBoxe" type="SpinBox" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/DMGContainer"]
+[node name="DamageSpinBoxe" type="SpinBox" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/DMGContainer"]
 layout_mode = 2
 min_value = 1.0
 value = 1.0
 
-[node name="ElementMenu" type="OptionButton" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties"]
+[node name="ElementMenu" type="OptionButton" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties"]
 layout_mode = 2
 selected = 3
 item_count = 4
@@ -287,7 +287,7 @@ popup/item_2/id = 0
 popup/item_3/text = "Tűz"
 popup/item_3/id = 1
 
-[node name="IconMenu" type="OptionButton" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties"]
+[node name="IconMenu" type="OptionButton" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties"]
 layout_mode = 2
 selected = 0
 allow_reselect = true
@@ -303,11 +303,11 @@ popup/item_3/id = 3
 popup/item_4/text = "Saját importálása"
 popup/item_4/id = 4
 
-[node name="Save" type="Button" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties"]
+[node name="Save" type="Button" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties"]
 layout_mode = 2
 text = "Mentés"
 
-[node name="BossEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("BossCardHolder")]
+[node name="BossEditor" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("BossCardHolder")]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
@@ -315,23 +315,23 @@ alignment = 2
 script = ExtResource("9_pahx4")
 BossCardHolder = NodePath("ScrollContainer/HBoxContainer/GridContainer")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor"]
+[node name="ScrollContainer" type="ScrollContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/ScrollContainer/HBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/BossEditor/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 columns = 4
 
-[node name="CardViewer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("cardHolder")]
+[node name="CardViewer" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("cardHolder")]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
@@ -339,60 +339,64 @@ alignment = 2
 script = ExtResource("10_4h88p")
 cardHolder = NodePath("ScrollContainer/HBoxContainer/GridContainer")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardViewer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardViewer"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardViewer/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardViewer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardViewer/ScrollContainer/HBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardViewer/ScrollContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 columns = 4
 
-[node name="DungeonEditor" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeon", "rewardType", "saveButton", "dungeonDeck", "worldCards")]
+[node name="DungeonEditor" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeon", "rewardType", "saveButton", "dungeonDeck", "worldCards")]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 script = ExtResource("3_8slam")
 dungeon = NodePath("VBoxContainer/HBoxContainer/UIDungeon")
-rewardType = NodePath("VBoxContainer/HBoxContainer/Properties/RewardType")
-saveButton = NodePath("VBoxContainer/HBoxContainer/Properties/Save")
-dungeonDeck = NodePath("VBoxContainer/HBoxContainer/DungeonDeck")
-worldCards = NodePath("VBoxContainer/VBoxContainer3/ScrollContainer/WorldCards")
+rewardType = NodePath("VBoxContainer/HBoxContainer/MarginContainer/Properties/RewardType")
+saveButton = NodePath("VBoxContainer/HBoxContainer/MarginContainer/Properties/Save")
+dungeonDeck = NodePath("VBoxContainer/HBoxContainer/DungeonContainer")
+worldCards = NodePath("VBoxContainer/WorldCardhOlder/ScrollContainer/WorldCards")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor"]
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 0
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 alignment = 1
 
-[node name="UIDungeon" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer" instance=ExtResource("3_j6eix")]
+[node name="UIDungeon" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer" instance=ExtResource("3_j6eix")]
+custom_minimum_size = Vector2(343.075, 230)
 layout_mode = 2
 
-[node name="Properties" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-alignment = 1
+theme_override_constants/margin_top = 85
 
-[node name="LineEdit" type="LineEdit" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/Properties"]
+[node name="Properties" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/MarginContainer/Properties"]
 layout_mode = 2
 placeholder_text = "Név"
 max_length = 20
 emoji_menu_enabled = false
 clear_button_enabled = true
 
-[node name="DungeonType" type="OptionButton" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/Properties"]
+[node name="DungeonType" type="OptionButton" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/MarginContainer/Properties"]
 layout_mode = 2
 selected = 0
 item_count = 3
@@ -403,7 +407,7 @@ popup/item_1/id = 1
 popup/item_2/text = "nagy"
 popup/item_2/id = 2
 
-[node name="RewardType" type="OptionButton" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/Properties"]
+[node name="RewardType" type="OptionButton" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/MarginContainer/Properties"]
 layout_mode = 2
 selected = 0
 item_count = 2
@@ -412,60 +416,56 @@ popup/item_0/id = 0
 popup/item_1/text = "sebzés"
 popup/item_1/id = 1
 
-[node name="Save" type="Button" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/Properties"]
+[node name="Save" type="Button" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/MarginContainer/Properties"]
 layout_mode = 2
 text = "Mentés"
 
-[node name="DungeonDeck" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("ConnectedInventory") instance=ExtResource("15_e5lfn")]
+[node name="DungeonContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer" node_paths=PackedStringArray("ConnectedInventory") instance=ExtResource("15_e5lfn")]
+custom_minimum_size = Vector2(320, 200)
 layout_mode = 2
-size_flags_vertical = 4
-ConnectedInventory = NodePath("../../VBoxContainer3/ScrollContainer/WorldCards")
-AmountOfCols = 3
-ScaleDown = 1.5
+ConnectedInventory = NodePath("../../WorldCardhOlder/ScrollContainer/WorldCards")
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer"]
+[node name="WorldCardhOlder" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer"]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/VBoxContainer3"]
+[node name="ScrollContainer" type="ScrollContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/WorldCardhOlder"]
 custom_minimum_size = Vector2(200, 300)
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="WorldCards" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/VBoxContainer3/ScrollContainer" node_paths=PackedStringArray("ConnectedInventory") instance=ExtResource("15_e5lfn")]
+[node name="WorldCards" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/WorldCardhOlder/ScrollContainer" node_paths=PackedStringArray("ConnectedInventory") instance=ExtResource("15_e5lfn")]
 layout_mode = 2
-size_flags_horizontal = 6
-ConnectedInventory = NodePath("../../../HBoxContainer/DungeonDeck")
-AmountOfCols = 5
+ConnectedInventory = NodePath("../../../HBoxContainer/DungeonContainer")
 
-[node name="DungeonViewer" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeonHolder")]
+[node name="DungeonViewer" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("dungeonHolder")]
 visible = false
 layout_mode = 2
 alignment = 1
 script = ExtResource("11_mf5kw")
 dungeonHolder = NodePath("Margin/VBox/Scroll/DungeonHolder")
 
-[node name="Margin" type="MarginContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonViewer"]
+[node name="Margin" type="MarginContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonViewer"]
 custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_right = 50
 
-[node name="VBox" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonViewer/Margin"]
+[node name="VBox" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonViewer/Margin"]
 layout_mode = 2
 
-[node name="Scroll" type="ScrollContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonViewer/Margin/VBox"]
+[node name="Scroll" type="ScrollContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonViewer/Margin/VBox"]
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="DungeonHolder" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonViewer/Margin/VBox/Scroll"]
+[node name="DungeonHolder" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonViewer/Margin/VBox/Scroll"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 12
 
-[node name="SaveMenu" type="HBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("saveNameInput", "warningMenu")]
+[node name="SaveMenu" type="HBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" node_paths=PackedStringArray("saveNameInput", "warningMenu")]
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
@@ -474,13 +474,13 @@ script = ExtResource("12_x6ral")
 saveNameInput = NodePath("VBoxContainer/SaveName")
 warningMenu = NodePath("../../../../../../../Warning")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu"]
 custom_minimum_size = Vector2(278.495, 0)
 layout_mode = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="SaveName" type="LineEdit" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu/VBoxContainer"]
+[node name="SaveName" type="LineEdit" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu/VBoxContainer"]
 custom_minimum_size = Vector2(418.525, 51.44)
 layout_mode = 2
 theme_override_font_sizes/font_size = 25
@@ -491,14 +491,14 @@ expand_to_text_length = true
 context_menu_enabled = false
 emoji_menu_enabled = false
 
-[node name="Button" type="Button" parent="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu/VBoxContainer"]
+[node name="Button" type="Button" parent="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu/VBoxContainer"]
 custom_minimum_size = Vector2(0, 63.64)
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 theme_override_font_sizes/font_size = 31
 text = "Mentés"
 
-[node name="Control" type="Control" parent="."]
+[node name="ImportButtons" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -510,7 +510,7 @@ offset_top = -161.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="TextureRect" type="TextureRect" parent="Control"]
+[node name="TextureRect" type="TextureRect" parent="ImportButtons"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -525,7 +525,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("17_x4txn")
 
-[node name="Button" type="Button" parent="Control"]
+[node name="Button" type="Button" parent="ImportButtons"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -542,7 +542,7 @@ theme_override_colors/font_color = Color(0.71000004, 1, 0.8308334, 1)
 theme_override_font_sizes/font_size = 28
 text = "Környezet importálása"
 
-[node name="Button2" type="Button" parent="Control"]
+[node name="Button2" type="Button" parent="ImportButtons"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -585,30 +585,22 @@ texture = ExtResource("18_x4txn")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="Label" type="Label" parent="Warning"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_top = 61.0
-offset_right = 20.0
-offset_bottom = 76.0
-grow_horizontal = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="Warning"]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 55.0
+offset_right = 460.0
+offset_bottom = 272.0
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Warning/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Vigyázat!"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="Warning"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -76.0
-offset_top = 108.0
-offset_right = 76.0
-offset_bottom = 157.0
-grow_horizontal = 2
+[node name="Label2" type="Label" parent="Warning/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 30
 text = "Már létezik menés ezen a
 néven.
@@ -616,60 +608,102 @@ néven.
 label_settings = SubResource("LabelSettings_e5lfn")
 horizontal_alignment = 1
 
-[node name="YepBTN" type="Button" parent="Warning"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Warning/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="YepBTN" type="Button" parent="Warning/VBoxContainer/HBoxContainer"]
 modulate = Color(0.8392157, 0.8392157, 0.8392157, 1)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -145.0
-offset_top = -99.0
-offset_right = -19.0
-offset_bottom = -43.0
-grow_horizontal = 2
-grow_vertical = 0
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Igen"
 
-[node name="NopeBTN" type="Button" parent="Warning"]
+[node name="NopeBTN" type="Button" parent="Warning/VBoxContainer/HBoxContainer"]
 modulate = Color(1, 0.9254902, 0.8117647, 1)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 24.0
-offset_top = -97.0
-offset_right = 150.0
-offset_bottom = -41.0
-grow_horizontal = 2
-grow_vertical = 0
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Nem"
 
-[connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/CardEditor" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["card"]]
-[connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/Cards" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["cards"]]
-[connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/Collection" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["collection"]]
-[connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/BossEditor" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["boss"]]
-[connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/DungeonEditor" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["dungeon"]]
-[connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/Dungeons" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["dungeons"]]
-[connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/Save" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["save"]]
-[connection signal="pressed" from="Margin/HBox/GameMaster/MainButtons/Margin/Buttons/Back" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["main"]]
-[connection signal="text_changed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/Name" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="ChangeName"]
-[connection signal="value_changed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/HPContainer/HealthSpinBox" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="ChangeHealth"]
-[connection signal="value_changed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/DMGContainer/DamageSpinBoxe" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="ChangeDamage"]
-[connection signal="item_selected" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/ElementMenu" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="ChangeElement"]
-[connection signal="item_selected" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/IconMenu" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="ChangeIcon"]
-[connection signal="pressed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/Save" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="SaveCard"]
-[connection signal="text_changed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/Properties/LineEdit" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" method="ChangeName"]
-[connection signal="item_selected" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/Properties/DungeonType" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" method="ChangeType"]
-[connection signal="item_selected" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/Properties/RewardType" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" method="ChangeReward"]
-[connection signal="pressed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/Properties/Save" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" method="SaveDungeon"]
-[connection signal="pressed" from="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu/VBoxContainer/Button" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu" method="CreateSave"]
-[connection signal="pressed" from="Control/Button" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="LoadSaveFile"]
-[connection signal="pressed" from="Control/Button2" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="CreateInTxt"]
-[connection signal="pressed" from="Warning/YepBTN" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu" method="CreatAnyways"]
-[connection signal="pressed" from="Warning/NopeBTN" to="Margin/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu" method="CreatAbort"]
+[node name="ExistentialCrisisError" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.0
+offset_top = -187.0
+offset_right = 376.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("20_7gff6")
+
+[node name="TextureRect" type="TextureRect" parent="ExistentialCrisisError"]
+modulate = Color(0.52, 0.3796, 0.3796, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_x4txn")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ExistentialCrisisError"]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 58.0
+offset_right = 458.0
+offset_bottom = 270.0
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="ExistentialCrisisError/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Vigyázat!"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="ExistentialCrisisError/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Már létezik ilyen kazamata vagy kártya!"
+label_settings = SubResource("LabelSettings_e5lfn")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Ok" type="Button" parent="ExistentialCrisisError/VBoxContainer"]
+modulate = Color(0.8392157, 0.8392157, 0.8392157, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Ok"
+
+[connection signal="pressed" from="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/CardEditor" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["card"]]
+[connection signal="pressed" from="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/Cards" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["cards"]]
+[connection signal="pressed" from="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/Collection" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["collection"]]
+[connection signal="pressed" from="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/BossEditor" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["boss"]]
+[connection signal="pressed" from="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/DungeonEditor" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["dungeon"]]
+[connection signal="pressed" from="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/VBoxContainer/Dungeons" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["dungeons"]]
+[connection signal="pressed" from="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/Save" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["save"]]
+[connection signal="pressed" from="EditorContent/HBox/GameMaster/MainButtons/Margin/Buttons/Back" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="ChangeEditor" binds= ["main"]]
+[connection signal="text_changed" from="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/Name" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="ChangeName"]
+[connection signal="value_changed" from="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/HPContainer/HealthSpinBox" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="ChangeHealth"]
+[connection signal="value_changed" from="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/DMGContainer/DamageSpinBoxe" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="ChangeDamage"]
+[connection signal="item_selected" from="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/ElementMenu" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="ChangeElement"]
+[connection signal="item_selected" from="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/IconMenu" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="ChangeIcon"]
+[connection signal="pressed" from="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor/Properties/Save" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/CardEditor" method="SaveCard"]
+[connection signal="text_changed" from="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/MarginContainer/Properties/LineEdit" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" method="ChangeName"]
+[connection signal="item_selected" from="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/MarginContainer/Properties/DungeonType" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" method="ChangeType"]
+[connection signal="item_selected" from="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/MarginContainer/Properties/RewardType" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" method="ChangeReward"]
+[connection signal="pressed" from="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor/VBoxContainer/HBoxContainer/MarginContainer/Properties/Save" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/DungeonEditor" method="SaveDungeon"]
+[connection signal="pressed" from="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu/VBoxContainer/Button" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu" method="CreateSave"]
+[connection signal="pressed" from="ImportButtons/Button" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="LoadSaveFile"]
+[connection signal="pressed" from="ImportButtons/Button2" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors" method="CreateInTxt"]
+[connection signal="pressed" from="Warning/VBoxContainer/HBoxContainer/YepBTN" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu" method="CreatAnyways"]
+[connection signal="pressed" from="Warning/VBoxContainer/HBoxContainer/NopeBTN" to="EditorContent/HBox/GameMaster/EditorContainer/MarginContainer/Editors/SaveMenu" method="CreatAbort"]
+[connection signal="pressed" from="ExistentialCrisisError/VBoxContainer/Ok" to="ExistentialCrisisError" method="Close"]

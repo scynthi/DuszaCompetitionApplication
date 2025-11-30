@@ -16,6 +16,7 @@ public partial class Editors : VBoxContainer
     [Export] public CardViewer CardViewer;
     [Export] public PlayerCollection PlayerCollection;
     [Export] RichTextLabel CurrentMenuMessage;
+    [Export] ExistentialCrisisError ExistErrorPopup;
 
     public GameMasterData gameMasterData = new();
 
@@ -49,7 +50,7 @@ public partial class Editors : VBoxContainer
         }
         CurrentMenu = CardEditor;
         EditMessage("[font_size=22]Kártya készítő[/font_size]\n\nItt tud kártyákat létrehozni és egyaránt személyre szabni. ");
-
+        gameMasterData.ExistErrorOccured += ExistErrorPopup.Show;
     }
 
     public async void ChangeEditor(string name)

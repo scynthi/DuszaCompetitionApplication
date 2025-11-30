@@ -34,8 +34,8 @@ public static class PiciMenüHandler
                     piciMenüInstance = CreatePiciMenü();
                     piciMenüInstance.Item = asBossCard;
                     break;
-                case "UIDungeon":
-                    UIDungeon dungeon = (UIDungeon)hoveredItem.GetParent();
+                case "Dungeon":
+                    UIDungeon dungeon = (UIDungeon)hoveredItem.GetParent().GetParent();
                     if (dungeon == null) break;
 
                     piciMenüInstance = CreatePiciMenü();
@@ -59,10 +59,10 @@ public static class PiciMenüHandler
             bossCard = CreateBossCardInstance(card, BossDouble.ATTACK, piciMenüInstance.PrefixName.Text);
         }
 
-        if (bossCard.CardName.Length > 16) bossCard.EditName(bossCard.CardName.Substring(0, 16));
         if (!Global.masterEditor.gameMasterData.TestCard(bossCard.CreateBossCardInstance())) return;
 
-
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
+        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.levelupSounds.PickRandom());
 		Global.masterEditor.gameMasterData.AddCardToWorldCards(bossCard.CreateBossCardInstance());
     }
 
@@ -83,7 +83,7 @@ public static class PiciMenüHandler
 
 		piciMenüInstance.ZIndex = 999;
 		piciMenüInstance.MouseFilter = Control.MouseFilterEnum.Stop;
-		piciMenüInstance.GlobalPosition = Global.masterEditor.CurrentMenu.GetGlobalMousePosition();
+		piciMenüInstance.GlobalPosition = Global.masterEditor.CurrentMenu.GetGlobalMousePosition() - new Vector2(10.0f, 10.0f);
 
 		return piciMenüInstance;
 	}

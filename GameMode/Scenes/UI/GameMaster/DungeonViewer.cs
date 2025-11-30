@@ -23,6 +23,6 @@ public partial class DungeonViewer : HBoxContainer
 	public void HandleDataChange()
     {
 		if (!Visible) return;
-        Utility.AddUiDungeonsUnderContainer(editor.gameMasterData.Dungeons, dungeonHolder);
+      Utility.AddUiDungeonsUnderContainer(editor.gameMasterData.Dungeons, dungeonHolder);
     }
 }

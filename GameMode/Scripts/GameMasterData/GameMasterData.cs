@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Metadata.Ecma335;
+
 using Godot;
 
 public class GameMasterData
@@ -13,9 +13,10 @@ public class GameMasterData
 
     public delegate void CardDataChangedHandler();
     public delegate void DungeonDataChangedHandler();
+    public delegate void ExistErrorEventHandler();
 	public event CardDataChangedHandler CardDataChanged;
 	public event DungeonDataChangedHandler DungeonDataChanged;
-
+	public event ExistErrorEventHandler ExistErrorOccured;
 
     public void AddCardToWorldCards(Card card)
     {
@@ -98,35 +99,31 @@ public class GameMasterData
 
     public bool TestCard(Card card, List<Card> collection)
     {
-        var result = collection.Where(x => x.Name == card.Name);
+        var result = collection.Where(x => x.Name == card.Name).Count();
 
-        if (result.Count() != 0)
-        {
-            GD.Print($"Card with name: {card.Name} already exists!");
-            return false;
-        }
-        return true;
+        return CheckCardOrDungeon(result);
     }
 
     public bool TestCard(Card card)
     {
-        var result = WorldCards.Where(x => x.Name == card.Name);
+        var result = WorldCards.Where(x => x.Name == card.Name).Count();
 
-        if (result.Count() != 0)
-        {
-            GD.Print($"Card with name: {card.Name} already exists!");
-            return false;
-        }
-        return true;
+       return CheckCardOrDungeon(result);
     }
 
-    public bool TesdtDungeon(Dungeon dungeon)
+    public bool TestDungeon(Dungeon dungeon)
     {
-        var result = Dungeons.Where(x => x.Name == dungeon.Name);
+        var result = Dungeons.Where(x => x.Name == dungeon.Name).Count();
+       return CheckCardOrDungeon(result);
+    }
 
-        if (result.Count() != 0)
+    private bool CheckCardOrDungeon(int resultLength)
+    {
+        if (resultLength != 0)
         {
-            GD.Print($"Dungeon with name: {dungeon.Name} already exists!");
+            GD.Print($"Dungeon or card already exists!");
+
+            ExistErrorOccured.Invoke();
             return false;
         }
         return true;

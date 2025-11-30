@@ -12,20 +12,19 @@ outline_size = 10
 outline_color = Color(0, 0, 0, 1)
 
 [node name="UIDungeon" type="Control" node_paths=PackedStringArray("nameRichText", "nameLabel", "iconTexture", "enterButton", "ClickCatcher")]
-custom_minimum_size = Vector2(230, 230)
+custom_minimum_size = Vector2(300, 300)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -108.0
+offset_left = -128.0
 offset_top = -128.0
-offset_right = 82.0
+offset_right = 122.0
 offset_bottom = 102.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
 theme = ExtResource("1_uky3w")
 script = ExtResource("1_a771a")
 nameRichText = NodePath("VBox/Label")
@@ -52,10 +51,12 @@ label_settings = SubResource("LabelSettings_wh81g")
 horizontal_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="VBox"]
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
+size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBox/CenterContainer"]
-custom_minimum_size = Vector2(140, 0)
+custom_minimum_size = Vector2(140, 300)
 layout_mode = 2
 
 [node name="UILabel" type="Label" parent="VBox/CenterContainer/VBoxContainer"]
@@ -66,19 +67,18 @@ text = "Teszt Kazamata"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="VBox/CenterContainer/VBoxContainer"]
-custom_minimum_size = Vector2(220, 220)
+custom_minimum_size = Vector2(250, 250)
 layout_mode = 2
 texture = ExtResource("2_3smau")
 expand_mode = 1
-stretch_mode = 5
+stretch_mode = 4
 
-[node name="Button" type="Button" parent="VBox/CenterContainer/VBoxContainer" node_paths=PackedStringArray("nameLabel", "uIDungeon")]
+[node name="Button" type="Button" parent="VBox/CenterContainer/VBoxContainer" node_paths=PackedStringArray("nameLabel")]
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 text = "Kiválasztás"
 script = ExtResource("4_m6imu")
 nameLabel = NodePath("../../../Label")
-uIDungeon = NodePath("../../../..")
 
 [node name="Dungeon" type="Control" parent="."]
 z_index = 1
@@ -86,5 +86,21 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Button" type="Button" parent="Dungeon"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = 44.0
+offset_right = -25.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+flat = true

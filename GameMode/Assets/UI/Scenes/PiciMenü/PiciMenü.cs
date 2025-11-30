@@ -59,10 +59,6 @@ public partial class PiciMenü : Control
 
     public void ButtonPressed(string option)
     {
-        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
-        Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.levelupSounds.PickRandom());
-
-
         QueueFree();
         this.option = option;
         Clicked.Invoke(this);

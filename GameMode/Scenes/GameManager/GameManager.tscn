@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c6x1xajmkurav" path="res://Scenes/GameManager/GameManager.cs" id="1_jmpc8"]
 [ext_resource type="Texture2D" uid="uid://d4cj5qnd8tha3" path="res://Assets/Images/Textures/PaperTex.png" id="2_pbnlu"]
-[ext_resource type="PackedScene" uid="uid://hylehs5hcjtj" path="res://Scenes/StartSplashScreen.tscn" id="2_v2olk"]
+[ext_resource type="PackedScene" uid="uid://cgalnmmbimcuw" path="res://Scenes/UI/MainMenu/MainMenuWorld.tscn" id="2_um3qg"]
 [ext_resource type="Shader" uid="uid://dfgpe5eshsaa8" path="res://Assets/Shaders/crt.gdshader" id="3_pbnlu"]
 [ext_resource type="Script" uid="uid://c4ginecvkrjsh" path="res://Scenes/GameManager/UiAudioController.cs" id="5_wwsdi"]
 [ext_resource type="AudioStream" uid="uid://d11uat282ku7m" path="res://Assets/Audio/Music/ambient_loop1.wav" id="6_fuq8d"]
@@ -56,7 +56,7 @@
 [ext_resource type="AudioStream" uid="uid://ngf4uhai6q1t" path="res://Assets/Audio/Music/cave_loop_ambient.wav" id="44_sm2jp"]
 [ext_resource type="AudioStream" uid="uid://dsu7be48w4lbu" path="res://Assets/Audio/Music/heart_fall_lullaby.wav" id="45_oxy6m"]
 
-[sub_resource type="Shader" id="Shader_3vs6r"]
+[sub_resource type="Shader" id="Shader_um3qg"]
 code = "shader_type canvas_item;
 uniform float progress = 0.0;
 uniform float noiseForce = 0.2;
@@ -80,15 +80,15 @@ void fragment(){
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_wwsdi"]
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sm2jp"]
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_48k5m"]
 noise = SubResource("FastNoiseLite_wwsdi")
 seamless = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2artw"]
-shader = SubResource("Shader_3vs6r")
+shader = SubResource("Shader_um3qg")
 shader_parameter/progress = 1.5
 shader_parameter/noiseForce = 0.65
-shader_parameter/noiseTexture = SubResource("NoiseTexture2D_sm2jp")
+shader_parameter/noiseTexture = SubResource("NoiseTexture2D_48k5m")
 shader_parameter/burnColor = Color(0.5, 0.18041667, 0.17500001, 1)
 shader_parameter/borderWidth = 0.045
 shader_parameter/direction = 90.0
@@ -293,7 +293,7 @@ follow_viewport_enabled = true
 
 [node name="World" type="Node" parent="GameLayer"]
 
-[node name="StartSplashScreen" parent="GameLayer/World" instance=ExtResource("2_v2olk")]
+[node name="MainMenuWorld" parent="GameLayer/World" instance=ExtResource("2_um3qg")]
 
 [node name="TransitionLayer" type="CanvasLayer" parent="."]
 layer = 99

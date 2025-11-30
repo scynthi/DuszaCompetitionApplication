@@ -88,11 +88,12 @@ public partial class DungeonEditor : HBoxContainer
     
     public void SaveDungeon()
     {
+        Dungeon dungeonInstance = dungeon.CreateDungeonInstance(dungeonDeck.ReturnContents());
+
+        if (!editor.gameMasterData.TestDungeon(dungeonInstance)) return;
         Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.clickSounds.PickRandom());
         Global.gameManager.audioController.PlaySFX(Global.gameManager.audioController.audioBank.levelupSounds.PickRandom());
 
-        Dungeon dungeonInstance = dungeon.CreateDungeonInstance(dungeonDeck.ReturnContents());
-        if (!editor.gameMasterData.TesdtDungeon(dungeonInstance)) return;
         editor.gameMasterData.AddDungeonToDungeonList(dungeonInstance);
     }
 }
