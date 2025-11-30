@@ -67,7 +67,7 @@ layout_mode = 2
 [node name="UILabel" type="Label" parent="VBox/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_wh81g")
-theme_override_font_sizes/font_size = 22
+theme_override_font_sizes/font_size = 40
 text = "Teszt Kazamata"
 horizontal_alignment = 1
 
