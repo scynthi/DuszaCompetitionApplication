@@ -28,6 +28,7 @@ public partial class DungeonEditor : HBoxContainer
     {
         worldCards.RemakePanelItems(Collection: editor.gameMasterData.WorldCards);
         dungeonDeck.ClearCards();
+        DeckIsNotFull();
     }
 
     public void DeckIsFull()
