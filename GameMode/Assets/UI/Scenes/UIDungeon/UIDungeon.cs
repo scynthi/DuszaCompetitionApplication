@@ -8,7 +8,7 @@ public partial class UIDungeon : Control
     [Export] Label nameLabel;
     [Export] TextureRect iconTexture;
     [Export] Button enterButton;
-    [Export] Control ClickCatcher;
+    [Export] Button ClickCatcher;
 
     [Signal] public delegate void DungeonClickedEventHandler(UIDungeon uidungeon);
 
